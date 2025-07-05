@@ -87,8 +87,8 @@
     --ring: var(--plasma-purple); /* Use primary color for focus rings */
     
     /* Canvas and workflow colors */
-    --canvas: 240 33% 98%; /* hsl(240, 33%, 98%) - Very light blue-tinted white */
-    --canvas-dot: 240 10% 80%; /* hsl(240, 10%, 80%) - Light gray dots */
+    --canvas: 262 97% 98%; /* hsl(262, 97%, 98%) - Very light purple AI-like background */
+    --canvas-dot: 262 97% 98%; /* Same as canvas to hide dots */
     --node-selected: var(--plasma-purple);
     --node-ring: 240 6% 90%;
     --connection: 240 5% 34%; /* hsl(240, 5%, 34%) - Medium gray */
@@ -271,8 +271,8 @@
     --primary-hover: 240 6% 90%; /* hsl(240, 6%, 90%) - Light gray */
     --secondary-hover: 240 4% 16%; /* hsl(240, 4%, 16%) - Dark gray */
     
-    --canvas: 240 6% 8%; /* hsl(240, 6%, 8%) - Very dark gray with blue tint */
-    --canvas-dot: 240 5.3% 26.1%; /* hsl(240, 5.3%, 26.1%) - Medium-dark gray */
+    --canvas: 262 40% 12%; /* hsl(262, 40%, 12%) - Dark purple AI-like background */
+    --canvas-dot: 262 40% 12%; /* Same as canvas to hide dots */
     
     /* Dark mode accent variants */
     --accent-emerald: 164 86% 16%; /* hsl(164, 86%, 16%) - Dark emerald */

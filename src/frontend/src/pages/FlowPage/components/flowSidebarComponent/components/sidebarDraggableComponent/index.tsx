@@ -159,24 +159,7 @@ export const SidebarDraggableComponent = forwardRef(
                     {display_name}
                   </span>
                 </ShadTooltip>
-                {beta && (
-                  <Badge
-                    variant="pinkStatic"
-                    size="xq"
-                    className="ml-1.5 shrink-0"
-                  >
-                    Beta
-                  </Badge>
-                )}
-                {legacy && (
-                  <Badge
-                    variant="secondaryStatic"
-                    size="xq"
-                    className="ml-1.5 shrink-0"
-                  >
-                    Legacy
-                  </Badge>
-                )}
+                {/* Beta and Legacy badges removed */}
               </div>
               <div className="flex shrink-0 items-center gap-1">
                 {!disabled && (

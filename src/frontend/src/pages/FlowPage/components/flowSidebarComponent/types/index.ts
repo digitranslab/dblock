@@ -24,12 +24,6 @@ export interface CategoryGroupProps {
 }
 
 export interface SidebarHeaderComponentProps {
-  showConfig: boolean;
-  setShowConfig: (show: boolean) => void;
-  showBeta: boolean;
-  setShowBeta: (show: boolean) => void;
-  showLegacy: boolean;
-  setShowLegacy: (show: boolean) => void;
   searchInputRef: React.RefObject<HTMLInputElement>;
   isInputFocused: boolean;
   search: string;

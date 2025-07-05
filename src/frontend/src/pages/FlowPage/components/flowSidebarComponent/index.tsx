@@ -28,9 +28,7 @@ import NoResultsMessage from "./components/emptySearchComponent";
 import MemoizedSidebarGroup from "./components/sidebarBundles";
 import SidebarMenuButtons from "./components/sidebarFooterButtons";
 import { SidebarHeaderComponent } from "./components/sidebarHeader";
-import { applyBetaFilter } from "./helpers/apply-beta-filter";
 import { applyEdgeFilter } from "./helpers/apply-edge-filter";
-import { applyLegacyFilter } from "./helpers/apply-legacy-filter";
 import { combinedResultsFn } from "./helpers/combined-results";
 import { filteredDataFn } from "./helpers/filtered-data";
 import { normalizeString } from "./helpers/normalize-string";
@@ -77,9 +75,9 @@ export function FlowSidebarComponent() {
   const [search, setSearch] = useState("");
   const [fuse, setFuse] = useState<Fuse<any> | null>(null);
   const [openCategories, setOpenCategories] = useState<string[]>([]);
-  const [showConfig, setShowConfig] = useState(false);
-  const [showBeta, setShowBeta] = useState(true);
-  const [showLegacy, setShowLegacy] = useState(false);
+  // Always show all components regardless of beta/legacy status
+  const showBeta = true;
+  const showLegacy = true;
   const [isInputFocused, setIsInputFocused] = useState(false);
 
   const searchInputRef = useRef<HTMLInputElement | null>(null);
@@ -135,16 +133,11 @@ export function FlowSidebarComponent() {
       filteredData = applyEdgeFilter(filteredData, getFilterEdge);
     }
 
-    if (!showBeta) {
-      filteredData = applyBetaFilter(filteredData);
-    }
-
-    if (!showLegacy) {
-      filteredData = applyLegacyFilter(filteredData);
-    }
+    // Always show all components regardless of beta/legacy status
+    // Removed beta and legacy filters
 
     return filteredData;
-  }, [searchFilteredData, getFilterEdge, showBeta, showLegacy]);
+  }, [searchFilteredData, getFilterEdge]);
 
   const hasResults = useMemo(() => {
     return Object.entries(dataFilter).some(
@@ -305,12 +298,6 @@ export function FlowSidebarComponent() {
       className="noflow"
     >
       <SidebarHeaderComponent
-        showConfig={showConfig}
-        setShowConfig={setShowConfig}
-        showBeta={showBeta}
-        setShowBeta={setShowBeta}
-        showLegacy={showLegacy}
-        setShowLegacy={setShowLegacy}
         searchInputRef={searchInputRef}
         isInputFocused={isInputFocused}
         search={search}
