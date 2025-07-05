@@ -1,0 +1,75 @@
+Often, we see confusion surrounding the development pathway from basic LLMs to fully-fledged AI Agents.
+
+To clear the fog, we've put together the entire evolutionary journey.
+
+👉 Phase 1: The Foundation - Basic LLM
+- Simple workflow: Input (Text) → LLM → Output (Text)
+- Transformer-based architecture trained on vast datasets
+- Limited to text processing within context window
+- No external tools or memory capabilities
+
+👉 Phase 2: Document Processing Capabilities
+- Enhanced workflow: Input (Text/Documents) → LLM → Output (Text/Documents)
+- Expanded context window for processing larger documents
+- Improved tokenization for handling structured content
+- Limited by static knowledge from training data
+
+👉 Phase 3: Introduce RAGs and Tool Integration to:
+- Enable access to up-to-date information
+- Supplement LLM knowledge with external data
+- Improve factual accuracy and reduce hallucinations
+- Support specialized operations through API calls
+
+👉 Phase 4: Integrating Memory Systems to:
+- Maintain context across interactions
+- Enable personalization based on past exchanges
+- Store and retrieve relevant information
+- Support long-running tasks and conversations
+
+👉 Phase 5: Implement Multi-Modal Processing by:
+- Handling diverse input types (text, images, tables)
+- Generating varied output formats
+- Creating more comprehensive understanding
+- Enabling richer information exchange
+
+👉 Phase 6: Future of AI Agent Architecture through:
+- Chain-of-thought processing for complex problems
+- Step-by-step evaluation of solutions
+- Dynamic tool selection based on tasks
+- Goal-oriented execution with self-correction
+
+KozmoAI Help you building phase 6 AI Agent Architecture with no hassle. Here are key capabilities of KozmoAI:
+
+🧠 Strong Foundation LLM
+🔄 Effective RAG Implementation
+🛠️ Versatile Tool Use Integration
+💾 Contextual Memory Systems
+🖼️ Multi-Modal Processing
+🔍 Self-Monitoring Capabilities
+🔒 Safety Systems
+
+
+
+
+as introduction to the page /products/kozmo-ai add the following :
+
+KozmoAI is a new, visual framework for building multi-agent and RAG applications. It is open-source, Python-powered, fully customizable, and LLM and vector store agnostic.
+
+Its intuitive interface allows for easy manipulation of AI building blocks, enabling developers to quickly prototype and turn their ideas into powerful, real-world solutions.
+
+KozmoAI empowers developers to rapidly prototype and build AI applications with its user-friendly interface and powerful features. Whether you're a seasoned AI developer or just starting out, KozmoAI provides the tools you need to bring your AI ideas to life.
+
+Visual flow builder KozmoAI is an intuitive visual flow builder. This drag-and-drop interface allows developers to create complex AI workflows without writing extensive code. You can easily connect different components, such as prompts, language models, and data sources, to build sophisticated AI applications.
+
+image /public/images/agant.png
+
+Use cases Langflow can be used for a wide range of AI applications, including:
+
+Craft intelligent chatbots: This flow extends the basic prompting flow with a Chat memory component that stores up to 100 previous chat messages and uses them to provide context for the current conversation.
+
+Build document analysis systems: Build a question-and-answer chatbot with a document loaded from local memory.
+
+Generate compelling content: Build a Blog Writer flow for a one-shot application using OpenAI. This flow extends the Basic Prompting flow with the URL and Parse data components that fetch content from multiple URLs and convert the loaded data into plain text. OpenAI uses this loaded data to generate a blog post, as instructed by the Text input component.
+
+Orchestrate multi-agent: Build a Simple Agent flow for an agentic application using the Tool-calling agent component. An agent uses an LLM as its "brain" to select among the connected tools and complete its tasks. In this flow, the Tool-calling agent reasons using an Open AI LLM. The agent selects the Calculator tool for simple math problems and the URL tool to search a URL for content.
+

@@ -6,326 +6,333 @@
 
 @layer base {
   :root {
+    /* Font families */
     --font-sans: "Inter", sans-serif;
     --font-mono: "JetBrains Mono", monospace;
     --font-chivo: "Chivo", sans-serif;
 
-    --foreground: 0 0% 0%; /* hsl(0, 0%, 0%) */
-    --background: 0 0% 100%; /* hsl(0, 0%, 100%) */
-    --muted: 240 5% 96%; /* hsl(240, 5%, 96%) */
-    --muted-foreground: 240 4% 46%; /* hsl(240, 4%, 46%) */
-    --card: 0 0% 100%; /* hsl(0, 0%, 100%) */
-    --card-foreground: 0 0% 0%; /* hsl(0, 0%, 0%) */
-    --popover: 0 0% 100%; /* hsl(0, 0%, 100%) */
-    --popover-foreground: 0 0% 0%; /* hsl(0, 0%, 0%) */
-    --border: 240 6% 90%; /* hsl(240, 6%, 90%) */
-    --input: 240 6% 90%; /* hsl(240, 6%, 90%) */
+    /* =========== MODERNIZED COLOR SYSTEM =========== */
+    
+    /* Gradient colors - n8n inspired vibrant palette */
+    --neon-fuschia: 340 100% 60%; /* hsl(340, 100%, 60%) - #ff00a0 */
+    --digital-orchid: 295 100% 75%; /* hsl(295, 100%, 75%) - #ff80ff */
+    --plasma-purple: 262 97% 57%; /* hsl(262, 97%, 57%) - #7c3aed */
+    --electric-blue: 217 91% 60%; /* hsl(217, 91%, 60%) - #3b82f6 */
+    --holo-frost: 186 98% 80%; /* hsl(186, 98%, 80%) - #80e6f0 */
+    --terminal-green: 142 70% 45%; /* hsl(142, 70%, 45%) - #18a957 */
+    --cosmic-void: 258 95% 16%; /* hsl(258, 95%, 16%) - #170551 */
+
+    /* Primary colors */
+    --primary: var(--plasma-purple); /* hsl(262, 97%, 57%) */
     --primary-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) */
-    --primary: 0 0% 0%; /* hsl(0, 0%, 0%) */
-    --secondary: 0 0% 100%; /* hsl(0, 0%, 100%) */
-    --secondary-foreground: 240 4% 16%; /* hsl(240, 4%, 16%) */
-    --accent: 240 5% 96%; /* hsl(240, 5%, 96%) */
-    --accent-foreground: 0 0% 0%; /* hsl(0, 0%, 0%) */
-    --destructive: 0 72% 51%; /* hsl(0, 72%, 51%) */
-    --destructive-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) */
-    --ring: 0 0% 0%; /* hsl(0, 0%, 0%) */
-    --primary-hover: 240 4% 16%; /* hsl(240, 4%, 16%) */
-    --secondary-hover: 240 6% 90%; /* hsl(240, 6%, 90%) */
-    --placeholder-foreground: 240 5% 65%; /* hsl(240, 5%, 65%) */
-    --canvas: 240 5% 96%; /* hsl(240, 5%, 96%) */
-    --canvas-dot: 240 5% 65%; /* hsl(240, 5%, 65%) */
-    --accent-emerald: 149 80% 90%; /* hsl(149, 80%, 90%) */
-    --accent-emerald-foreground: 161 41% 30%; /* hsl(161, 41%, 30%) */
-    --accent-emerald-hover: 152.4 76% 80.4%; /* hsl(152.4, 76%, 80.4%) */
-    --accent-indigo: 226 100% 94%; /* hsl(226, 100%, 94%) */
-    --accent-indigo-foreground: 243 75% 59%; /* hsl(243, 75%, 59%) */
-    --accent-pink: 326 78% 95%; /* hsl(326, 78%, 95%) */
-    --accent-pink-foreground: 333 71% 51%; /* hsl(333, 71%, 51%) */
-    --tooltip: 0 0% 0%; /* hsl(0, 0%, 0%) */
-    --tooltip-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) */
+    --primary-hover: 262 97% 47%; /* Darker variant */
+    --primary-tint-1: 262 97% 67%; /* Lighter variant */
+    --primary-tint-2: 262 97% 77%; /* Even lighter */
+    --primary-tint-3: 262 97% 94%; /* Very light for backgrounds */
 
-    --node-selected: 243 75% 59%;
-    --round-btn-shadow: #00000063;
-    --ice: #31a3cc;
-    --selected: #2196f3;
+    /* Secondary colors */
+    --secondary: var(--neon-fuschia); /* hsl(340, 100%, 60%) */
+    --secondary-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) */
+    --secondary-hover: 340 100% 50%; /* Darker variant */
+    --secondary-tint-1: 340 100% 70%; /* Lighter variant */
+    --secondary-tint-2: 340 100% 80%; /* Even lighter */
+    --secondary-tint-3: 340 100% 94%; /* Very light for backgrounds */
 
-    --error-background: #fef2f2;
-    --error-foreground: #991b1b;
-    --error: #991b1b;
-
-    --success-background: #f0fdf4;
-    --success-foreground: #14532d;
-
-    --info-background: #f0f4fd;
-    --info-foreground: #141653;
-
-    --high-indigo: #4338ca;
-    --medium-indigo: #6366f1;
-    --low-indigo: #e0e7ff;
-
-    --beta-background: rgb(219 234 254);
-    --beta-foreground: rgb(37 99 235);
-    --beta-foreground-soft: rgb(37 99 235 / 80%);
-
-    --chat-bot-icon: #afe6ef;
-    --chat-user-icon: #aface9;
-
-    --component-icon: #d8598a;
-    --flow-icon: #2f67d0;
-    --hover: #f2f4f5;
-    --disabled-run: #6366f1;
-
-    --filter-foreground: #4f46e5;
-    --filter-background: #eef2ff;
-    /* Colors that are shared in dark and light mode */
-    --blur-shared: #151923de;
-    --build-trigger: #dc735b;
-    --chat-trigger: #5c8be1;
-    --chat-trigger-disabled: #b4c3da;
-    --status-red: #ef4444;
-    --status-yellow: #eab308;
-    --chat-send: #000000;
-    --status-green: #4ade80;
-    --status-blue: #2563eb;
-    --status-gray: #6b7280;
-    --connection: #555;
-
-    --note-amber: 48 96.6% 76.7%; /* hsl(48, 96.6%, 76.7%) */
-    --note-neutral: 240 5.9% 90%; /* hsl(240, 5.9%, 90%) */
-    --note-rose: 352.7 96.1% 90%; /* hsl(352.7, 96.1%, 90%) */
-    --note-blue: 213.3 96.9% 87.3%; /* hsl(213.3, 96.9%, 87.3%) */
-    --note-lime: 80.9 88.5% 79.6%; /* hsl(80.9, 88.5%, 79.6%) */
-
-    --warning: 48 96.6% 76.7%; /* hsl(48, 96.6%, 76.7%) */
-    --warning-foreground: 240 6% 10%; /* hsl(240, 6%, 10%) */
+    /* Enhanced status colors */
+    --success: 142 70% 45%; /* hsl(142, 70%, 45%) - #18a957 */
+    --success-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) */
+    --success-light: 142 70% 55%; /* Lighter variant */
+    --success-light-2: 142 70% 65%; /* Even lighter */
+    --success-tint-1: 142 70% 88%; /* Very light for backgrounds */
+    --success-tint-2: 142 70% 94%; /* Very light for backgrounds */
+    --success-background: var(--success-tint-2);
+    
+    --warning: 38 95% 58%; /* hsl(38, 95%, 58%) - #f7a035 */
+    --warning-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) */
+    --warning-light: 38 95% 68%; /* Lighter variant */
+    --warning-tint-1: 38 95% 85%; /* Very light for backgrounds */
+    --warning-tint-2: 38 95% 94%; /* Very light for backgrounds */
     --warning-text: 0 0% 100%; /* hsl(0, 0%, 100%) */
-
-    --error-red: 0, 86%, 97%; /*hsla(0, 86%, 97%)*/
-    --error-red-border: 0, 96%, 89%; /*hsla(0,96%,89%)*/
-
+    
+    --destructive: 0 84% 60%; /* hsl(0, 84%, 60%) - #f03e3e */
+    --destructive-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) */
+    --destructive-light: 0 84% 70%; /* Lighter variant */
+    --destructive-light-2: 0 84% 80%; /* Even lighter */
+    --destructive-tint-1: 0 84% 90%; /* Very light for backgrounds */
+    --destructive-tint-2: 0 84% 96%; /* Very light for backgrounds */
+    
+    --error: 0 84% 60%; /* Same as destructive */
+    --error-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) */
+    --error-background: var(--destructive-tint-2);
+    
+    /* Neutral colors with better contrast ratios */
+    --foreground: 240 10% 4%; /* hsl(240, 10%, 4%) - Almost black */
+    --background: 0 0% 100%; /* hsl(0, 0%, 100%) - White */
+    
+    --muted: 240 5% 96%; /* hsl(240, 5%, 96%) - Very light gray */
+    --muted-foreground: 240 4% 46%; /* hsl(240, 4%, 46%) - Medium gray */
+    
+    --popover: 0 0% 100%; /* hsl(0, 0%, 100%) - White */
+    --popover-foreground: 240 10% 4%; /* hsl(240, 10%, 4%) - Almost black */
+    
+    --card: 0 0% 100%; /* hsl(0, 0%, 100%) - White */
+    --card-foreground: 240 10% 4%; /* hsl(240, 10%, 4%) - Almost black */
+    
+    --border: 240 6% 90%; /* hsl(240, 6%, 90%) - Light gray */
+    --input: 240 6% 90%; /* hsl(240, 6%, 90%) - Light gray */
+    
+    --accent: 240 5% 96%; /* hsl(240, 5%, 96%) - Very light gray */
+    --accent-foreground: 240 10% 4%; /* hsl(240, 10%, 4%) - Almost black */
+    
+    --ring: var(--plasma-purple); /* Use primary color for focus rings */
+    
+    /* Canvas and workflow colors */
+    --canvas: 240 33% 98%; /* hsl(240, 33%, 98%) - Very light blue-tinted white */
+    --canvas-dot: 240 10% 80%; /* hsl(240, 10%, 80%) - Light gray dots */
+    --node-selected: var(--plasma-purple);
+    --node-ring: 240 6% 90%;
+    --connection: 240 5% 34%; /* hsl(240, 5%, 34%) - Medium gray */
+    
+    /* Workflow node colors */
+    --component-icon: var(--secondary); /* Using secondary color */
+    --flow-icon: var(--electric-blue);
+    
+    /* Info colors */
+    --info-background: 217 91% 96%; /* Light blue background */
+    --info-foreground: 217 91% 30%; /* Dark blue text */
+    
+    /* Accent variants */
+    --accent-emerald: 149 80% 90%; /* hsl(149, 80%, 90%) - Light emerald */
+    --accent-emerald-foreground: 161 41% 30%; /* hsl(161, 41%, 30%) - Dark emerald */
+    --accent-emerald-hover: 152.4 76% 80.4%; /* hsl(152.4, 76%, 80.4%) - Medium emerald */
+    
+    --accent-indigo: 226 100% 94%; /* hsl(226, 100%, 94%) - Light indigo */
+    --accent-indigo-foreground: 243 75% 59%; /* hsl(243, 75%, 59%) - Dark indigo */
+    
+    --accent-pink: 326 78% 95%; /* hsl(326, 78%, 95%) - Light pink */
+    --accent-pink-foreground: 333 71% 51%; /* hsl(333, 71%, 51%) - Dark pink */
+    
+    /* UI interaction states */
+    --hover: 240 33% 98%; /* hsl(240, 33%, 98%) - Very light hover state */
+    --selected: var(--electric-blue);
+    --disabled-run: var(--plasma-purple);
+    
+    /* Chat colors */
+    --chat-bot-icon: var(--holo-frost);
+    --chat-user-icon: var(--digital-orchid);
+    --chat-send: var(--plasma-purple);
+    --chat-trigger: var(--electric-blue);
+    --chat-trigger-disabled: 217 20% 80%; /* hsl(217, 20%, 80%) - Desaturated light blue */
+    
+    /* Filter colors */
+    --filter-foreground: var(--plasma-purple);
+    --filter-background: 262 97% 94%; /* Light purple background */
+    
+    /* Beta indicators */
+    --beta-background: 217 91% 94%; /* hsl(217, 91%, 94%) - Light blue */
+    --beta-foreground: var(--electric-blue);
+    --beta-foreground-soft: 217 91% 60% / 80%; /* Electric blue with opacity */
+    
+    /* Tool mode gradient */
+    --tool-mode-gradient-1: var(--digital-orchid);
+    --tool-mode-gradient-2: var(--neon-fuschia);
+    
+    /* Tooltip */
+    --tooltip: 240 10% 4%; /* hsl(240, 10%, 4%) - Almost black */
+    --tooltip-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) - White */
+    
+    /* Code */
     --code-background: 240 6% 10%;
     --code-description-background: 240 6% 10%;
     --code-foreground: 240 6% 90%;
-    --placeholder: 240 5% 64.9%;
+    
+    /* Placeholder */
+    --placeholder: 240 5% 65%;
+    --placeholder-foreground: 240 5% 65%;
+    
+    /* Additional UI colors */
     --hard-zinc: 240 5.2% 33.9%;
     --smooth-red: 0 93.3% 94.1%;
-    --radius: 0.5rem;
 
+    /* =========== DESIGN TOKENS =========== */
+    
+    /* Border radius variations */
+    --radius-sm: 0.125rem; /* 2px */
+    --radius-md: 0.25rem; /* 4px */
+    --radius: 0.5rem; /* 8px - Base radius */
+    --radius-lg: 0.75rem; /* 12px */
+    --radius-xl: 1rem; /* 16px */
+    --radius-2xl: 1.5rem; /* 24px */
+    --radius-full: 9999px; /* Full rounded (for circles, pills) */
+    
+    /* Shadow elevations */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    
+    /* Transition durations and timing functions */
+    --transition-duration-fast: 150ms;
+    --transition-duration-normal: 250ms;
+    --transition-duration-slow: 350ms;
+    --transition-timing-default: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-timing-in: cubic-bezier(0.4, 0, 1, 1);
+    --transition-timing-out: cubic-bezier(0, 0, 0.2, 1);
+    --transition-timing-emphasized: cubic-bezier(0.2, 0.9, 0.4, 1);
+    
+    /* Keep existing data type colors */
     --datatype-pink: 333.3 71.4% 50.6%;
     --datatype-pink-foreground: 325.7 77.8% 94.7%;
-
     --datatype-rose: 346.8 77.2% 49.8%;
     --datatype-rose-foreground: 355.6 100% 94.7%;
-
     --datatype-yellow: 40.6 96.1% 40.4%;
     --datatype-yellow-foreground: 54.9 96.7% 88%;
-
     --datatype-blue: 221.2 83.2% 53.3%;
     --datatype-blue-foreground: 214.3 94.6% 92.7%;
-
     --datatype-gray: 215 13.8% 34.1%;
     --datatype-gray-foreground: 220 14.3% 95.9%;
-
     --datatype-lime: 84.8 85.2% 34.5%;
     --datatype-lime-foreground: 79.6 89.1% 89.2%;
-
     --datatype-red: 0 72.2% 50.6%;
     --datatype-red-foreground: 0 93.3% 94.1%;
-
     --datatype-violet: 262.1 83.3% 57.8%;
     --datatype-violet-foreground: 251.4 91.3% 95.5%;
-
     --datatype-emerald: 161.4 93.5% 30.4%;
     --datatype-emerald-foreground: 149.3 80.4% 90%;
-
     --datatype-fuchsia: 293.4 69.5% 48.8%;
     --datatype-fuchsia-foreground: 287 100% 95.5%;
-
     --datatype-purple: 271.5 81.3% 55.9%;
     --datatype-purple-foreground: 268.7 100% 95.5%;
-
     --datatype-cyan: 191.6 91.4% 36.5%;
     --datatype-cyan-foreground: 185.1 95.9% 90.4%;
-
     --datatype-indigo: 243.4 75.4% 58.6%;
     --datatype-indigo-foreground: 226.5 100% 93.9%;
-
     --datatype-orange: 20.5 90.2% 48.2%;
     --datatype-orange-foreground: 34.3 100% 91.8%;
-
-    --node-ring: 240 6% 90%;
-
-    --neon-fuschia: 340 100% 60%; /* hsl(340, 100%, 60%) */
-    --digital-orchid: 295 100% 75%; /* hsl(295, 100%, 75%) */
-    --plasma-purple: 262 97% 57%; /* hsl(262, 97%, 57%) */
-    --electric-blue: 248 99% 53%; /* hsl(248, 99%, 53%) */
-    --holo-frost: 186 98% 80%; /* hsl(186, 98%, 80%) */
-    --terminal-green: 129 98% 80%; /* hsl(129, 98%, 80%) */
-    --cosmic-void: 258 95% 16%; /* hsl(258, 95%, 16%) */
-
-    --tool-mode-gradient-1: #f480ff;
-    --tool-mode-gradient-2: #ff3276;
-
+    
+    /* Keep existing note colors */
+    --note-amber: 48 96.6% 76.7%;
+    --note-neutral: 240 5.9% 90%;
+    --note-rose: 352.7 96.1% 90%;
+    --note-blue: 213.3 96.9% 87.3%;
+    --note-lime: 80.9 88.5% 79.6%;
+    
+    /* Keep existing blur and status colors */
+    --blur-shared: #151923de;
+    --status-red: #ef4444;
+    --status-yellow: #eab308;
+    --status-green: #4ade80;
+    --status-blue: #2563eb;
+    --status-gray: #6b7280;
+    
+    /* Slider input */
     --slider-input-border: #d4d4d8;
-
+    
+    /* Zinc foreground */
     --zinc-foreground: 240 5.9% 90%;
   }
 
   .dark {
-    --foreground: 0 0% 100%; /* hsl(0, 0%, 100%) */
-    --background: 240 6% 10%; /* hsl(240, 6%, 10%) */
-    --muted: 240 4% 16%; /* hsl(240, 4%, 16%) */
-    --muted-foreground: 240 5% 65%; /* hsl(240, 5%, 65%) */
-    --card: 240 6% 10%; /* hsl(240, 6%, 10%) */
-    --card-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) */
-    --popover: 240 6% 10%; /* hsl(240, 6%, 10%) */
-    --popover-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) */
-    --border: 240 5% 26%; /* hsl(240, 5%, 26%) */
-    --input: 240 5% 34%; /* hsl(240, 5%, 34%) */
-    --primary-foreground: 0 0% 0%; /* hsl(0, 0%, 0%) */
-    --primary: 0 0% 100%; /* hsl(0, 0%, 100%) */
-    --secondary: 0 0% 0%; /* hsl(0, 0%, 0%) */
-    --secondary-foreground: 240 6% 90%; /* hsl(240, 6%, 90%) */
-    --accent: 240 4% 16%; /* hsl(240, 4%, 16%) */
-    --accent-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) */
-    --destructive: 0 84% 60%; /* hsl(0, 84%, 60%) */
-    --destructive-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) */
-    --ring: 0 0% 100%; /* hsl(0, 0%, 100%) */
-    --primary-hover: 240 6% 90%; /* hsl(240, 6%, 90%) */
-    --secondary-hover: 240 4% 16%; /* hsl(240, 4%, 16%) */
-    --placeholder-foreground: 240 4% 46%; /* hsl(240, 4%, 46%) */
-    --canvas: 0 0% 0%; /* hsl(0, 0%, 0%) */
-    --canvas-dot: 240 5.3% 26.1%; /* hsl(240, 5.3%, 26.1%) */
-    --accent-emerald: 164 86% 16%; /* hsl(164, 86%, 16%) */
-    --accent-emerald-foreground: 158 64% 52%; /* hsl(158, 64%, 52%) */
-    --accent-emerald-hover: 163.1 88.1% 19.8%; /* hsl(163.1, 88.1%, 19.8%) */
-    --accent-indigo: 242 25% 34%; /* hsl(242, 25%, 34%) */
-    --accent-indigo-foreground: 234 89% 74%; /* hsl(234, 89%, 74%) */
-    --accent-pink: 336 69% 30%; /* hsl(336, 69%, 30%) */
-    --accent-pink-foreground: 329 86% 70%; /* hsl(329, 86%, 70%) */
-    --tooltip: 0 0% 100%; /* hsl(0, 0%, 100%) */
-
-    --tooltip-foreground: 0 0% 0%; /* hsl(0, 0%, 0%) */
-    --error-red: 0, 75%, 15%; /*hsla(0, 75%, 15%)*/
-    --error-red-border: 0, 70%, 35%; /*hsla(0,70%,35%)*/
-
+    /* Dark mode overrides */
+    --foreground: 0 0% 100%; /* hsl(0, 0%, 100%) - White */
+    --background: 240 6% 10%; /* hsl(240, 6%, 10%) - Very dark gray */
+    
+    --muted: 240 4% 16%; /* hsl(240, 4%, 16%) - Dark gray */
+    --muted-foreground: 240 5% 65%; /* hsl(240, 5%, 65%) - Light gray */
+    
+    --popover: 240 6% 10%; /* hsl(240, 6%, 10%) - Very dark gray */
+    --popover-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) - White */
+    
+    --card: 240 6% 10%; /* hsl(240, 6%, 10%) - Very dark gray */
+    --card-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) - White */
+    
+    --border: 240 5% 26%; /* hsl(240, 5%, 26%) - Medium-dark gray */
+    --input: 240 5% 34%; /* hsl(240, 5%, 34%) - Medium-dark gray */
+    
+    --primary-foreground: 0 0% 0%; /* hsl(0, 0%, 0%) - Black */
+    --primary: 0 0% 100%; /* hsl(0, 0%, 100%) - White */
+    --primary-hover: 262 97% 77%; /* Lighter variant in dark mode */
+    --primary-tint-1: 262 97% 67%; /* Lighter variant */
+    --primary-tint-2: 262 97% 57%; /* Original color */
+    --primary-tint-3: 262 97% 24%; /* Darker for dark mode backgrounds */
+    
+    --secondary: var(--neon-fuschia); /* Keep secondary consistent */
+    --secondary-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) - White */
+    --secondary-hover: 340 100% 70%; /* Lighter in dark mode */
+    
+    --accent: 240 4% 16%; /* hsl(240, 4%, 16%) - Dark gray */
+    --accent-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) - White */
+    
+    --destructive: 0 84% 60%; /* hsl(0, 84%, 60%) - Keep consistent */
+    --destructive-foreground: 0 0% 100%; /* hsl(0, 0%, 100%) - White */
+    
+    --ring: 0 0% 100%; /* hsl(0, 0%, 100%) - White */
+    
+    --primary-hover: 240 6% 90%; /* hsl(240, 6%, 90%) - Light gray */
+    --secondary-hover: 240 4% 16%; /* hsl(240, 4%, 16%) - Dark gray */
+    
+    --canvas: 240 6% 8%; /* hsl(240, 6%, 8%) - Very dark gray with blue tint */
+    --canvas-dot: 240 5.3% 26.1%; /* hsl(240, 5.3%, 26.1%) - Medium-dark gray */
+    
+    /* Dark mode accent variants */
+    --accent-emerald: 164 86% 16%; /* hsl(164, 86%, 16%) - Dark emerald */
+    --accent-emerald-foreground: 158 64% 52%; /* hsl(158, 64%, 52%) - Light emerald */
+    --accent-emerald-hover: 163.1 88.1% 19.8%; /* hsl(163.1, 88.1%, 19.8%) - Medium-dark emerald */
+    
+    --accent-indigo: 242 25% 34%; /* hsl(242, 25%, 34%) - Dark indigo */
+    --accent-indigo-foreground: 234 89% 74%; /* hsl(234, 89%, 74%) - Light indigo */
+    
+    --accent-pink: 336 69% 30%; /* hsl(336, 69%, 30%) - Dark pink */
+    --accent-pink-foreground: 329 86% 70%; /* hsl(329, 86%, 70%) - Light pink */
+    
+    --tooltip: 0 0% 100%; /* hsl(0, 0%, 100%) - White */
+    --tooltip-foreground: 0 0% 0%; /* hsl(0, 0%, 0%) - Black */
+    
+    /* Dark mode error states */
+    --error-red: 0, 75%, 15%; /* hsla(0, 75%, 15%) */
+    --error-red-border: 0, 70%, 35%; /* hsla(0, 70%, 35%) */
+    
+    /* Dark mode note colors */
     --note-amber: 45.9 96.7% 64.5%; /* hsl(45.9, 96.7%, 64.5%) */
     --note-neutral: 240 4.9% 83.9%; /* hsl(240, 4.9%, 83.9%) */
     --note-rose: 352.6 95.7% 81.8%; /* hsl(352.6, 95.7%, 81.8%) */
     --note-blue: 211.7 96.4% 78.4%; /* hsl(211.7, 96.4%, 78.4%) */
     --note-lime: 82 84.5% 67.1%; /* hsl(82, 84.5%, 67.1%) */
-
+    
+    /* Dark mode warning */
     --warning: 45.9 96.7% 64.5%; /* hsl(45.9, 96.7%, 64.5%) */
     --warning-foreground: 240 6% 10%; /* hsl(240, 6%, 10%) */
-    --warning-text: 0 0% 100%; /* hsl(0, 0%, 100%) */
-
+    
+    /* Dark mode node selected */
     --node-selected: 234 89% 74%;
-
+    
+    /* Dark mode UI colors */
     --ice: #60a5fa;
     --hover: #1a202e;
-    --disabled-run: #6366f1;
     --selected: #0369a1;
-
+    
+    /* Dark mode filter colors */
     --filter-foreground: #eef2ff;
     --filter-background: #4e46e599;
-
-    --round-btn-shadow: #00000063;
-
+    
+    /* Dark mode status colors */
     --success-background: #022c22;
     --success-foreground: #ecfdf5;
-
+    
     --error-foreground: #fef2f2;
     --error-background: #450a0a;
-    --error: #991b1b;
-
+    
     --info-foreground: #eff6ff;
     --info-background: #172554;
-
-    --high-indigo: #4338ca;
-    --medium-indigo: #6366f1;
-    --low-indigo: #e0e7ff;
-
+    
+    /* Dark mode component colors */
     --component-icon: #c35f85;
     --flow-icon: #2467e4;
-
-    --build-trigger: #dc735b;
-    --chat-trigger: #5c8be1;
-    --chat-trigger-disabled: #2d3b54;
-    --status-red: #ef4444;
-    --status-yellow: #eab308;
-    --chat-send: #ffffff;
-    --status-green: #4ade80;
-    --status-blue: #2563eb;
-    --connection: #6d6c6c;
-    --code-background: 240 6% 10%;
-    --code-description-background: 0 0% 0%;
-    --code-foreground: 240 6% 90%;
-
-    --beta-background: rgb(37 99 235);
-    --beta-foreground: rgb(219 234 254);
-    --beta-foreground-soft: rgb(219 234 254);
-
-    --chat-bot-icon: #235d70;
-    --chat-user-icon: #4f3d6e;
-
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-    --placeholder: 240 5% 64.9%;
-    --hard-zinc: 240 5.2% 33.9%;
-    --smooth-red: 0 74.7% 15.5%;
-
-    --datatype-pink: 327.4 87.1% 81.8%;
-    --datatype-pink-foreground: 333.3 71.4% 50.6%;
-
-    --datatype-rose: 352.6 95.7% 81.8%;
-    --datatype-rose-foreground: 346.8 77.2% 49.8%;
-
-    --datatype-yellow: 50.4 97.8% 63.5%;
-    --datatype-yellow-foreground: 40.6 96.1% 40.4%;
-
-    --datatype-blue: 211.7 96.4% 78.4%;
-    --datatype-blue-foreground: 221.2 83.2% 53.3%;
-
-    --datatype-gray: 216 12.2% 83.9%;
-    --datatype-gray-foreground: 215 13.8% 34.1%;
-
-    --datatype-lime: 82 84.5% 67.1%;
-    --datatype-lime-foreground: 84.8 85.2% 34.5%;
-
-    --datatype-red: 0 93.5% 81.8%;
-    --datatype-red-foreground: 0 72.2% 50.6%;
-
-    --datatype-violet: 252.5 94.7% 85.1%;
-    --datatype-violet-foreground: 262.1 83.3% 57.8%;
-
-    --datatype-emerald: 156.2 71.6% 66.9%;
-    --datatype-emerald-foreground: 161.4 93.5% 30.4%;
-
-    --datatype-fuchsia: 291.1 93.1% 82.9%;
-    --datatype-fuchsia-foreground: 293.4 69.5% 48.8%;
-
-    --datatype-purple: 268.6 100% 91.8%;
-    --datatype-purple-foreground: 272.1 71.7% 47.1%;
-
-    --datatype-cyan: 187 92.4% 69%;
-    --datatype-cyan-foreground: 191.6 91.4% 36.5%;
-
-    --datatype-indigo: 229.7 93.5% 81.8%;
-    --datatype-indigo-foreground: 243.4 75.4% 58.6%;
-
-    --datatype-orange: 20.5 90.2% 48.2%;
-    --datatype-orange-foreground: 30.7 97.2% 72.4%;
-
-    --node-ring: 240 6% 90%;
-
-    --slider-input-border: #d4d4d8;
-
-    --zinc-foreground: 240 5.2% 33.9%;
+    
+    /* Shadow elevations for dark mode */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
   }
 }
