@@ -15,8 +15,13 @@ import { FlowSidebarComponent } from "./components/flowSidebarComponent";
 import CollectionCardComponent from "../../components/core/cardComponent";
 import { FlowType } from "../../types/flow";
 
-function CardDemoSection() {
-  const navigate = useNavigate();
+
+
+export default function FlowPage({ view }: { view?: boolean }): JSX.Element {
+  const setCurrentFlow = useFlowsManagerStore((state) => state.setCurrentFlow);
+  const currentFlow = useFlowStore((state) => state.currentFlow);
+  const currentSavedFlow = useFlowsManagerStore((state) => state.currentFlow);
+  const setSuccessData = useAlertStore((state) => state.setSuccessData);
   
   // Sample data for demonstration with proper FlowType structure
   const demoFlows: FlowType[] = [
@@ -86,40 +91,6 @@ function CardDemoSection() {
         navigate("/flows");
     }
   };
-
-  return (
-    <div className="mb-8 p-6 bg-muted/30 rounded-lg border border-border/40 mt-4">
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <CollectionCardComponent 
-          data={demoFlows[0]} 
-          status="idle" 
-          onClick={() => handleCardClick("idle")}
-        />
-        <CollectionCardComponent 
-          data={demoFlows[1]} 
-          status="running" 
-          onClick={() => handleCardClick("running")}
-        />
-        <CollectionCardComponent 
-          data={demoFlows[2]} 
-          status="success" 
-          onClick={() => handleCardClick("success")}
-        />
-        <CollectionCardComponent 
-          data={demoFlows[3]} 
-          status="error" 
-          onClick={() => handleCardClick("error")}
-        />
-      </div>
-    </div>
-  );
-}
-
-export default function FlowPage({ view }: { view?: boolean }): JSX.Element {
-  const setCurrentFlow = useFlowsManagerStore((state) => state.setCurrentFlow);
-  const currentFlow = useFlowStore((state) => state.currentFlow);
-  const currentSavedFlow = useFlowsManagerStore((state) => state.currentFlow);
-  const setSuccessData = useAlertStore((state) => state.setSuccessData);
 
   const changesNotSaved =
     customStringify(currentFlow) !== customStringify(currentSavedFlow) &&
@@ -252,58 +223,79 @@ export default function FlowPage({ view }: { view?: boolean }): JSX.Element {
 
   return (
     <>
-      <div className="flex h-full flex-col">
-        <CardDemoSection />
-        <div className="flow-page-positioning">
-          {currentFlow && (
-            <div className="flex h-full overflow-hidden">
-              <SidebarProvider width="17.5rem" defaultOpen={!isMobile}>
-                {!view && <FlowSidebarComponent />}
-                <main className="flex w-full overflow-hidden">
-                  <div className="h-full w-full">
-                    <Page />
-                  </div>
-                </main>
-              </SidebarProvider>
+      <SidebarProvider width="17.5rem" defaultOpen={!isMobile}>
+        <div className="flex h-full w-full overflow-hidden">
+          {/* Components sidebar - full height */}
+          {!view && <FlowSidebarComponent />}
+          
+          {/* Main content area */}
+          <main className="flex flex-col flex-1 w-full overflow-hidden">
+            {/* Top bar with workflow status cards */}
+            <div className="flex-shrink-0 p-4 border-b border-border/40 bg-background">
+              <div className="w-full">
+                <div className="grid grid-cols-4 gap-4 w-full max-w-none">
+                  <CollectionCardComponent 
+                    data={demoFlows[0]} 
+                    status="idle" 
+                    onClick={() => handleCardClick("idle")}
+                  />
+                  <CollectionCardComponent 
+                    data={demoFlows[1]} 
+                    status="running" 
+                    onClick={() => handleCardClick("running")}
+                  />
+                  <CollectionCardComponent 
+                    data={demoFlows[2]} 
+                    status="success" 
+                    onClick={() => handleCardClick("success")}
+                  />
+                  <CollectionCardComponent 
+                    data={demoFlows[3]} 
+                    status="error" 
+                    onClick={() => handleCardClick("error")}
+                  />
+                </div>
+              </div>
             </div>
-          )}
-          {/* {ENABLE_BRANDING && version && (
-            <a
-              target={"_blank"}
-              href="https://medium.com/logspace/kozmoai-datastax-better-together-1b7462cebc4d"
-              className="kozmoai-page-icon"
-            >
-              <div className="mt-1">Kozmoai</div>
-
-              <div className={version ? "mt-2" : "mt-1"}>⛓️ v{version}</div>
-            </a>
-          )} */}
+            
+            {/* Workflow canvas */}
+            <div className="flex-1 h-full w-full">
+              {currentFlow ? (
+                <Page view={view} />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center bg-canvas">
+                  <div className="text-muted-foreground">Loading workflow...</div>
+                </div>
+              )}
+            </div>
+          </main>
         </div>
-        {blocker.state === "blocked" && (
-          <>
-            {!isBuilding && currentSavedFlow && (
-              <SaveChangesModal
-                onSave={handleSave}
-                onCancel={() => blocker.reset?.()}
-                onProceed={handleExit}
-                flowName={currentSavedFlow.name}
-                lastSaved={
-                  updatedAt
-                    ? new Date(updatedAt).toLocaleString("en-US", {
-                        hour: "numeric",
-                        minute: "numeric",
-                        second: "numeric",
-                        month: "numeric",
-                        day: "numeric",
-                      })
-                    : undefined
-                }
-                autoSave={autoSaving}
-              />
-            )}
-          </>
-        )}
-      </div>
+      </SidebarProvider>
+      
+      {blocker.state === "blocked" && (
+        <>
+          {!isBuilding && currentSavedFlow && (
+            <SaveChangesModal
+              onSave={handleSave}
+              onCancel={() => blocker.reset?.()}
+              onProceed={handleExit}
+              flowName={currentSavedFlow.name}
+              lastSaved={
+                updatedAt
+                  ? new Date(updatedAt).toLocaleString("en-US", {
+                      hour: "numeric",
+                      minute: "numeric",
+                      second: "numeric",
+                      month: "numeric",
+                      day: "numeric",
+                    })
+                  : undefined
+              }
+              autoSave={autoSaving}
+            />
+          )}
+        </>
+      )}
     </>
   );
 }

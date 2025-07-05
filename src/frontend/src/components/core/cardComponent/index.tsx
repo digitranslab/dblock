@@ -129,7 +129,7 @@ export default function CollectionCardComponent({
         onMouseLeave={() => setIsHovered(false)}
         className={cn(
           // Base card styles
-          "group relative flex h-[11rem] flex-col justify-between overflow-hidden",
+          "group relative flex h-[4rem] w-full flex-col justify-between overflow-hidden",
           // Modern floating card design with shadows
           "border border-border/40 bg-card shadow-sm transition-all duration-300",
           // Status indicator styling with pseudo-element
@@ -156,18 +156,18 @@ export default function CollectionCardComponent({
         }}
       >
         <div className="flex flex-1 flex-col">
-          <CardHeader className="p-3 pb-0">
+          <CardHeader className="p-2 pb-1">
             <div>
-              <CardTitle className="flex w-full items-center gap-3 text-xl">
+              <CardTitle className="flex w-full items-center gap-2 text-sm">
                 <div className={cn(
-                  "flex items-center justify-center rounded-md p-1.5",
+                  "flex items-center justify-center rounded-md p-1",
                   data.is_component 
                     ? "bg-secondary-tint-3 text-secondary" 
                     : "bg-primary-tint-3 text-primary"
                 )}>
                   <IconComponent
                     className={cn(
-                      "h-5 w-5",
+                      "h-3 w-3",
                       data.is_component
                         ? "text-component-icon"
                         : "text-flow-icon",
@@ -176,7 +176,7 @@ export default function CollectionCardComponent({
                   />
                 </div>
                 <ShadTooltip content={data.name}>
-                  <div className="w-full truncate pr-3 text-lg font-medium">{data.name}</div>
+                  <div className="w-full truncate pr-2 text-xs font-medium">{data.name}</div>
                 </ShadTooltip>
                 {control && (
                   <div
@@ -205,16 +205,16 @@ export default function CollectionCardComponent({
                 )}
               </CardTitle>
             </div>
-            <div className="flex gap-2 mt-1">
+            <div className="flex gap-2 mt-0.5">
               <div className="flex w-full flex-1 flex-wrap gap-2">
                 {/* Status badge - always visible now */}
                 <div className={cn(
-                  "flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium",
+                  "flex items-center gap-1 rounded-full px-1.5 py-0.5 text-xs font-medium",
                   statusConfig[status].bgClass,
                   statusConfig[status].textClass
                 )}>
                   <div className={cn(
-                    "h-1.5 w-1.5 rounded-full",
+                    "h-1 w-1 rounded-full",
                     statusConfig[status].dotClass,
                     // Add pulse animation only on hover for running status
                     status === "running" && isHovered && "animate-pulse"
@@ -223,17 +223,15 @@ export default function CollectionCardComponent({
                 </div>
               </div>
             </div>
-            <CardDescription className="pt-2 pb-0 text-sm">
-              <div className="truncate-doubleline text-muted-foreground">{data.description}</div>
-            </CardDescription>
+
           </CardHeader>
         </div>
-        <CardFooter className="p-3 pt-0">
-          <div className="z-50 flex w-full items-center justify-between gap-2">
-            <div className="flex items-center gap-2">
+        <CardFooter className="p-2 pt-0">
+          <div className="z-50 flex w-full items-center justify-between gap-1">
+            <div className="flex items-center gap-1">
               {/* Removed the status indicator from here since we moved it above */}
             </div>
-            <div className="flex w-full flex-wrap items-end justify-end gap-2">
+            <div className="flex w-full flex-wrap items-end justify-end gap-1">
               {playground && hasPlayground(data) && (
                 <Button
                   disabled={loadingPlayground}
@@ -242,16 +240,16 @@ export default function CollectionCardComponent({
                   variant="outline"
                   size="sm"
                   className={cn(
-                    "gap-2 whitespace-nowrap border-border/40 bg-background transition-colors",
+                    "gap-1 whitespace-nowrap border-border/40 bg-background transition-colors",
                     "hover:border-primary/40 hover:bg-primary-tint-3 hover:text-primary",
-                    "text-sm font-medium"
+                    "text-xs font-medium px-2 py-1 h-6"
                   )}
                   data-testid={"playground-flow-button-" + data.id}
                   onClick={handlePlaygroundClick}
                 >
                   <IconComponent
                     name="BotMessageSquareIcon"
-                    className="h-4 w-4 select-none"
+                    className="h-3 w-3 select-none"
                   />
                   Playground
                 </Button>
@@ -262,34 +260,34 @@ export default function CollectionCardComponent({
         
         {/* Toolbar that appears on hover - similar to n8n's design */}
         <div className={cn(
-          "absolute -top-8 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-md bg-background p-1 shadow-md transition-all duration-200",
+          "absolute -top-4 left-1/2 flex -translate-x-1/2 items-center gap-0.5 rounded-md bg-background p-0.5 shadow-md transition-all duration-200",
           isHovered ? "opacity-100" : "opacity-0 pointer-events-none"
         )}>
           <ShadTooltip content="Run">
             <Button
               variant="ghost" 
               size="icon" 
-              className="h-7 w-7 rounded-md hover:bg-primary-tint-3 hover:text-primary"
+              className="h-5 w-5 rounded-md hover:bg-primary-tint-3 hover:text-primary"
             >
-              <IconComponent name="Play" className="h-4 w-4" />
+              <IconComponent name="Play" className="h-2.5 w-2.5" />
             </Button>
           </ShadTooltip>
           <ShadTooltip content="Edit">
             <Button 
               variant="ghost" 
               size="icon" 
-              className="h-7 w-7 rounded-md hover:bg-primary-tint-3 hover:text-primary"
+              className="h-5 w-5 rounded-md hover:bg-primary-tint-3 hover:text-primary"
             >
-              <IconComponent name="Pencil" className="h-4 w-4" />
+              <IconComponent name="Pencil" className="h-2.5 w-2.5" />
             </Button>
           </ShadTooltip>
           <ShadTooltip content="Delete">
             <Button 
               variant="ghost" 
               size="icon" 
-              className="h-7 w-7 rounded-md hover:bg-destructive-tint-1 hover:text-destructive"
+              className="h-5 w-5 rounded-md hover:bg-destructive-tint-1 hover:text-destructive"
             >
-              <IconComponent name="Trash" className="h-4 w-4" />
+              <IconComponent name="Trash" className="h-2.5 w-2.5" />
             </Button>
           </ShadTooltip>
         </div>
