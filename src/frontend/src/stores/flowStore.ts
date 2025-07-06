@@ -942,6 +942,15 @@ const useFlowStore = create<FlowStoreType>((set, get) => ({
   setCurrentBuildingNodeId: (nodeIds) => {
     set({ currentBuildingNodeId: nodeIds });
   },
+  // Node selection and parameter panel state
+  selectedNodeId: null,
+  setSelectedNodeId: (nodeId) => {
+    set({ selectedNodeId: nodeId });
+  },
+  parameterPanelOpen: false,
+  setParameterPanelOpen: (open) => {
+    set({ parameterPanelOpen: open });
+  },
 }));
 
 export default useFlowStore;

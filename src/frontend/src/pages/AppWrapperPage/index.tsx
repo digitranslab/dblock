@@ -11,6 +11,11 @@ export function AppWrapperPage() {
   return (
     <div className="flex h-full w-full flex-col">
       <ErrorBoundary
+        onError={(error, errorInfo) => {
+          console.error("Error caught by boundary:", error);
+          console.error("Error info:", errorInfo);
+          console.error("Stack trace:", error.stack);
+        }}
         onReset={() => {
           // any reset function
         }}
