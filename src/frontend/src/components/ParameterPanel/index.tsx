@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 import { cn } from "../../utils/utils";
 import useFlowStore from "../../stores/flowStore";
 import { NodeIcon } from "../../CustomNodes/GenericNode/components/nodeIcon";
-import EditNodeModal from "../../modals/editNodeModal";
+import { EditNodeComponent } from "../../modals/editNodeModal/components/editNodeComponent";
 import { Badge } from "../ui/badge";
 
 interface ParameterPanelProps {
@@ -24,6 +24,7 @@ export default function ParameterPanel({ isOpen, onClose }: ParameterPanelProps)
 
   // Close panel when clicking outside
   const handleBackdropClick = useCallback((e: React.MouseEvent) => {
+    // Only close if clicking directly on the backdrop, not on any child elements
     if (e.target === e.currentTarget) {
       onClose();
     }
@@ -45,6 +46,13 @@ export default function ParameterPanel({ isOpen, onClose }: ParameterPanelProps)
       document.removeEventListener("keydown", handleEscKey);
     };
   }, [isOpen, onClose]);
+
+  // Handle close button click
+  const handleCloseClick = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onClose();
+  }, [onClose]);
 
   if (!isOpen || !selectedNode) return null;
 
@@ -68,6 +76,7 @@ export default function ParameterPanel({ isOpen, onClose }: ParameterPanelProps)
       
       {/* Panel */}
       <div
+        data-parameter-panel="true"
         className={cn(
           "fixed top-0 right-0 h-full z-50",
           "w-[480px] bg-background border-l border-border",
@@ -75,6 +84,7 @@ export default function ParameterPanel({ isOpen, onClose }: ParameterPanelProps)
           "transform transition-transform duration-300 ease-out",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
+        onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-border bg-muted/30">
@@ -109,14 +119,13 @@ export default function ParameterPanel({ isOpen, onClose }: ParameterPanelProps)
           </div>
           
           {/* Close Button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={onClose}
-            className="flex-shrink-0 ml-2 h-8 w-8 p-0 hover:bg-muted"
+          <button
+            onClick={handleCloseClick}
+            className="flex-shrink-0 ml-2 h-8 w-8 p-0 hover:bg-muted rounded-md flex items-center justify-center transition-colors"
+            aria-label="Close panel"
           >
             <X className="h-4 w-4" />
-          </Button>
+          </button>
         </div>
 
         {/* Content */}
@@ -145,11 +154,13 @@ export default function ParameterPanel({ isOpen, onClose }: ParameterPanelProps)
               
               {/* Parameter Form */}
               <div className="space-y-4">
-                {selectedNode.type !== "noteNode" && (
-                  <EditNodeModal
-                    data={selectedNode.data}
-                    open={true}
-                    setOpen={() => {}} // Controlled by parent
+                {selectedNode.type !== "noteNode" && selectedNode.data.node && (
+                  <EditNodeComponent
+                    open={isOpen}
+                    nodeId={selectedNode.id}
+                    nodeClass={selectedNode.data.node}
+                    autoHeight={true}
+                    hideVisibility={false}
                   />
                 )}
               </div>
