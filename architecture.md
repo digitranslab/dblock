@@ -158,11 +158,9 @@ Storage Structure:
 │   │   │   │   └── {file_name}
 │   └── processed/
 ├── silver/
-│   ├── cleaned_data/
 │   └── enriched_data/
 └── gold/
-    ├── analytics_ready/
-    └── ml_features/
+    └── analytics_ready/
 ```
 
 **2. Unity Catalog Structure**
@@ -370,7 +368,6 @@ graph TB
         subgraph "Processing Layer"
             DBConnect[Databricks Connect<br/>API Integration]
             NativeSpark[Native PySpark<br/>Jobs & Pipelines]
-            MLFlow[MLflow<br/>Model Management]
         end
         
         subgraph "Data Layer"
@@ -404,7 +401,6 @@ graph TB
     Unity --> Gold
     Backend --> OpenAI
     OpenAI --> Vector
-    NativeSpark --> MLFlow
     NativeSpark --> Monitoring
     Monitoring --> Alerts
     
@@ -632,6 +628,7 @@ DATA_CLASSIFICATION = {
 ```python
 # Comprehensive Audit Logging
 class AuditLogger:
+  
     def __init__(self):
         self.log_destinations = [
             "unity_catalog_audit_logs",
