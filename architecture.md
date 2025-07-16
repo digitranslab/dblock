@@ -130,10 +130,13 @@ flowchart LR
         Upload --> Pipeline[Databricks Pipeline<br/>Raw → Silver]
         Pipeline --> Raw[Raw Delta Tables]
         Pipeline --> Silver[Silver Delta Tables]
+
         Backend[KALI Backend<br/>with KALIDAL] --> KALIDAL[KALIDAL Library]
         KALIDAL --> Unity[Unity Catalog]
         Unity --> Raw
         Unity --> Silver
+      Unity --> Gold[Gold Delta Tables]
+
         Backend --> OpenAI[Azure OpenAI]
     end
     
@@ -209,13 +212,13 @@ def get_table_metadata(catalog_name: str, table_name: str) -> dict
 - [ ] Basic Databricks workspace and clusters
 - [ ] KALIDAL library v1.0 (wheel package)
 - [ ] Updated KALI backend with KALIDAL integration
-- [ ] Data ingestion pipeline (raw → silver)
+- [ ] Data ingestion pipeline (raw → silver → gold)
 
 ### Phase 2: Processing Migration and Orchestration (Sprint 3 - 1 month)
 
 #### Objectives
 - Migrate core data processing logic to Databricks
-- Implement UDF-based approach for legacy code compatibility
+- Implement UDF-based approach for legacy code backward compatibility
 - Enhance KALIDAL with advanced features
 - Establish complete data pipeline orchestration
 
@@ -223,33 +226,37 @@ def get_table_metadata(catalog_name: str, table_name: str) -> dict
 
 ```mermaid
 flowchart TB
-    subgraph "Phase 2 Enhanced Architecture"
-        Frontend[KALI Frontend] --> Backend[KALI Backend<br/>Orchestrator]
-        Backend --> DatabricksAPI[Databricks API<br/>via KALIDAL]
-        
-        subgraph "Databricks Environment"
-            Jobs[Databricks Jobs<br/>with UDFs]
-            UDF[Legacy Python Code<br/>as UDFs]
-            Cluster[Databricks Clusters]
-            Jobs --> UDF
-            UDF --> Cluster
-        end
-        
-        subgraph "Data Flow"
-            Raw[Raw Layer] --> Silver[Silver Layer] --> Gold[Gold Layer]
-            Jobs --> Raw
-            Jobs --> Silver
-            Jobs --> Gold
-        end
-        
-        DatabricksAPI --> Jobs
-        Backend --> OpenAI[Azure OpenAI<br/>Enhanced Integration]
-        OpenAI --> Backend
-    end
-    
+ subgraph subGraph0["Databricks Environment"]
+        Jobs["Databricks Jobs<br>with UDFs"]
+        UDF["Legacy Python Code<br>as UDFs"]
+        Cluster["Databricks Clusters"]
+  end
+ subgraph subGraph1["Data Flow"]
+        Gold["Gold Layer"]
+        Silver["Silver Layer"]
+        Raw["Raw Layer"]
+  end
+ subgraph subGraph2["Phase 2 Enhanced Architecture"]
+        Backend["KALI Backend<br>Orchestrator"]
+        Frontend["KALI Frontend"]
+        DatabricksAPI["Databricks API<br>via KALIDAL"]
+        subGraph0
+        subGraph1
+        OpenAI["Azure OpenAI<br>Enhanced Integration"]
+  end
+    Frontend --> Backend
+    Backend --> DatabricksAPI & OpenAI
+    Jobs --> UDF & Raw & Silver & Gold
+    UDF --> Cluster
+    Raw --> Silver
+    Silver --> Gold
+    DatabricksAPI --> Jobs
+    OpenAI --> Backend
+    subGraph0 --> n1["Untitled Node"]
+
+    style Backend fill:#9c27b0,color:#fff
     style Jobs fill:#ff9800,color:#fff
     style UDF fill:#f44336,color:#fff
-    style Backend fill:#9c27b0,color:#fff
 ```
 
 #### Implementation Details
@@ -302,6 +309,7 @@ class QualityGateway:
 ```python
 # Backend Integration Pattern
 class KALIDataPipeline:
+  
     def __init__(self):
         self.kalidal = KALIDAL(config)
         
@@ -333,6 +341,9 @@ class KALIDataPipeline:
 - [ ] Data quality gates implementation
 - [ ] Integration testing suite
 - [ ] Performance optimization for UDF-based processing
+
+
+
 
 ### Phase 3: Native PySpark Optimization (Final Sprint - Late August 2025)
 
@@ -413,6 +424,7 @@ from pyspark.sql.functions import *
 from pyspark.sql.types import *
 
 class NativeDataProcessor:
+  
     def __init__(self, spark: SparkSession):
         self.spark = spark
     
@@ -447,6 +459,7 @@ class NativeDataProcessor:
 ```python
 # Data Governance Implementation
 class GovernanceEngine:
+  
     def __init__(self, unity_catalog):
         self.unity = unity_catalog
     
@@ -461,6 +474,7 @@ class GovernanceEngine:
     def audit_data_access(self, user_id: str, table_name: str):
         """Track all data access for compliance"""
         pass
+
 
 # Advanced Monitoring
 class DataObservability:
@@ -509,6 +523,7 @@ DATABRICKS_CONFIG = {
 - [ ] Performance optimization and tuning
 - [ ] Comprehensive documentation and runbooks
 - [ ] User training materials
+
 
 ## Security and Governance
 
@@ -647,6 +662,7 @@ class AuditLogger:
 ```python
 # GDPR Compliance Implementation
 class GDPRCompliance:
+  
     def __init__(self, unity_catalog):
         self.unity = unity_catalog
     
@@ -682,13 +698,13 @@ class GDPRCompliance:
 kalidal/
 ├── __init__.py
 ├── core/
-│   ├── connection.py          # Databricks connections
+│   ├── connection.py         # Databricks connections
 │   ├── authentication.py     # Auth management
 │   └── config.py             # Configuration management
 ├── data/
 │   ├── reader.py             # Data reading operations
 │   ├── writer.py             # Data writing operations
-│   └── transformer.py       # Data transformation utilities
+│   └── transformer.py        # Data transformation utilities
 ├── governance/
 │   ├── catalog.py            # Unity Catalog operations
 │   ├── lineage.py            # Data lineage tracking
@@ -920,6 +936,7 @@ from typing import Dict, List, Any
 from pyspark.sql import DataFrame
 from pyspark.sql.functions import col, count, when, isnan, isnull
 
+
 class DataQualityEngine:
     """Comprehensive data quality checking and enforcement"""
     
@@ -1003,6 +1020,7 @@ class DataQualityEngine:
 from typing import Dict, List, Optional
 from datetime import datetime
 
+
 class LineageTracker:
     """Track data lineage and transformations"""
     
@@ -1080,6 +1098,7 @@ class LineageTracker:
         return lineage_info
 ```
 
+
 ## Performance and Scalability
 
 ### Performance Optimization Strategy
@@ -1156,6 +1175,7 @@ PARTITIONING_STRATEGY = {
 
 # Implementation of partitioning strategy
 class PartitioningManager:
+  
     def optimize_table_partitions(self, table_name: str, layer: str):
         """Optimize table partitions based on data patterns"""
         config = PARTITIONING_STRATEGY[layer]
@@ -1172,6 +1192,7 @@ class PartitioningManager:
 ```python
 # Intelligent caching for KALI workloads
 class CacheManager:
+  
     def __init__(self, spark_session):
         self.spark = spark_session
         self.cache_registry = {}
@@ -1271,6 +1292,7 @@ class PerformanceMonitor:
                     f"Cluster {cluster_id} {metric}: {cluster_metrics[metric]}"
                 )
 ```
+
 
 ## Deployment Strategy
 
@@ -1415,114 +1437,6 @@ resource "azurerm_storage_account" "main" {
 }
 ```
 
-### Deployment Scripts
-
-**1. KALIDAL Deployment**
-```bash
-#!/bin/bash
-# deploy-kalidal.sh
-
-set -e
-
-ENVIRONMENT=${1:-development}
-VERSION=${2:-latest}
-
-echo "Deploying KALIDAL v${VERSION} to ${ENVIRONMENT}"
-
-# Build the wheel package
-python setup.py bdist_wheel
-
-# Upload to Databricks
-databricks fs cp dist/kalidal-${VERSION}-py3-none-any.whl \
-  dbfs:/FileStore/packages/kalidal-${VERSION}-py3-none-any.whl
-
-# Install on cluster
-databricks libraries install \
-  --cluster-id $(databricks clusters list --output json | jq -r ".clusters[] | select(.cluster_name==\"kali-${ENVIRONMENT}\") | .cluster_id") \
-  --whl dbfs:/FileStore/packages/kalidal-${VERSION}-py3-none-any.whl
-
-# Run integration tests
-python -m pytest tests/integration/ \
-  --environment=${ENVIRONMENT} \
-  --verbose
-
-echo "KALIDAL deployment completed successfully"
-```
-
-**2. Data Pipeline Deployment**
-```python
-# deploy_pipelines.py
-import json
-from databricks.sdk import WorkspaceClient
-from databricks.sdk.service.jobs import *
-
-class PipelineDeployer:
-    def __init__(self, workspace_client: WorkspaceClient):
-        self.client = workspace_client
-    
-    def deploy_data_pipeline(self, pipeline_config: dict, environment: str):
-        """Deploy KALI data processing pipeline"""
-        
-        job_config = JobSettings(
-            name=f"kali-data-pipeline-{environment}",
-            tasks=[
-                Task(
-                    task_key="data_ingestion",
-                    spark_python_task=SparkPythonTask(
-                        python_file="dbfs:/kali/pipelines/data_ingestion.py",
-                        parameters=[
-                            f"--environment={environment}",
-                            f"--catalog=kali_{environment}"
-                        ]
-                    ),
-                    job_cluster_key="main_cluster"
-                ),
-                Task(
-                    task_key="data_quality_check",
-                    depends_on=[TaskDependency(task_key="data_ingestion")],
-                    spark_python_task=SparkPythonTask(
-                        python_file="dbfs:/kali/pipelines/quality_check.py",
-                        parameters=[f"--environment={environment}"]
-                    ),
-                    job_cluster_key="main_cluster"
-                ),
-                Task(
-                    task_key="data_transformation",
-                    depends_on=[TaskDependency(task_key="data_quality_check")],
-                    spark_python_task=SparkPythonTask(
-                        python_file="dbfs:/kali/pipelines/transformation.py",
-                        parameters=[f"--environment={environment}"]
-                    ),
-                    job_cluster_key="main_cluster"
-                )
-            ],
-            job_clusters=[
-                JobCluster(
-                    job_cluster_key="main_cluster",
-                    new_cluster=pipeline_config["cluster_config"]
-                )
-            ],
-            schedule=CronSchedule(
-                cron_expression="0 */4 * * *",  # Every 4 hours
-                timezone_id="UTC"
-            )
-        )
-        
-        # Create or update job
-        try:
-            existing_jobs = self.client.jobs.list(name=job_config.name)
-            if existing_jobs:
-                job_id = existing_jobs[0].job_id
-                self.client.jobs.reset(job_id=job_id, new_settings=job_config)
-                print(f"Updated existing job {job_id}")
-            else:
-                job = self.client.jobs.create(job_config)
-                print(f"Created new job {job.job_id}")
-                
-        except Exception as e:
-            print(f"Failed to deploy pipeline: {str(e)}")
-            raise
-```
 
 ## Risk Assessment and Mitigation
 
@@ -1623,6 +1537,8 @@ class PipelineDeployer:
   - Implement comprehensive audit logging
   - Regular compliance assessments
   - Built-in data governance from Phase 1
+
+
 
 ## Timeline and Deliverables
 
@@ -1742,5 +1658,3 @@ The success of this transformation will position KALI as a leading data quality 
    - Production deployment
    - Monitoring and alerting setup
    - Knowledge transfer and documentation
-
-This roadmap provides the foundation for a successful transformation that will deliver significant value to both BCG and Bayer while establishing best practices for future data platform implementations. 
