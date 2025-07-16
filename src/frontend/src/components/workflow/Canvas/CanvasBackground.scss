@@ -1,0 +1,209 @@
+// ============================================================================
+// CanvasBackground - Background Component Styles
+// Enhanced background patterns and visual hierarchy for workflow canvas
+// ============================================================================
+
+// ============================================================================
+// Base Background Container
+// ============================================================================
+
+.canvas-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  // ReactFlow background integration
+  &__reactflow {
+    width: 100%;
+    height: 100%;
+  }
+
+  // Animation support
+  &--animated {
+    .canvas-background__reactflow {
+      animation: var(--background-animation, none);
+    }
+  }
+
+  // No background variant
+  &--none {
+    background: transparent;
+  }
+}
+
+// ============================================================================
+// Custom Grid Background
+// ============================================================================
+
+.canvas-background--grid {
+  .canvas-background__grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      linear-gradient(to right, var(--grid-color) var(--grid-size, 1px), transparent var(--grid-size, 1px)),
+      linear-gradient(to bottom, var(--grid-color) var(--grid-size, 1px), transparent var(--grid-size, 1px));
+    background-size: var(--grid-gap, 20px) var(--grid-gap, 20px);
+    opacity: var(--grid-opacity, 0.3);
+    pointer-events: none;
+  }
+}
+
+// ============================================================================
+// Enhanced Background with Zones
+// ============================================================================
+
+.canvas-background--enhanced {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  .canvas-background__zones {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .canvas-background__zone {
+    position: absolute;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+
+    // Zone patterns
+    &[data-pattern="dots"] {
+      background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+      background-size: 10px 10px;
+    }
+
+    &[data-pattern="lines"] {
+      background-image: linear-gradient(45deg, currentColor 1px, transparent 1px);
+      background-size: 10px 10px;
+    }
+
+    // Zone label
+    .canvas-background__zone-label {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      padding: 4px 8px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--color-text-secondary, #64748b);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+// ============================================================================
+// Background Animations
+// ============================================================================
+
+@keyframes backgroundPulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes backgroundShift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 20px 20px;
+  }
+}
+
+// ============================================================================
+// Responsive Design
+// ============================================================================
+
+@media (max-width: 768px) {
+  .canvas-background--grid {
+    .canvas-background__grid-overlay {
+      --grid-gap: 15px;
+      --grid-opacity: 0.2;
+    }
+  }
+
+  .canvas-background__zone {
+    .canvas-background__zone-label {
+      font-size: 10px;
+      padding: 2px 6px;
+    }
+  }
+}
+
+// ============================================================================
+// Dark Mode Support
+// ============================================================================
+
+@media (prefers-color-scheme: dark) {
+  .canvas-background--grid {
+    .canvas-background__grid-overlay {
+      --grid-color: hsl(var(--color-border-base-dark, 334155));
+      --grid-opacity: 0.2;
+    }
+  }
+
+  .canvas-background__zone {
+    .canvas-background__zone-label {
+      background: rgba(0, 0, 0, 0.8);
+      color: var(--color-text-primary-dark, #f8fafc);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+// ============================================================================
+// High Contrast Mode
+// ============================================================================
+
+@media (prefers-contrast: high) {
+  .canvas-background--grid {
+    .canvas-background__grid-overlay {
+      --grid-opacity: 0.8;
+    }
+  }
+
+  .canvas-background__zone {
+    border: 2px solid currentColor;
+
+    .canvas-background__zone-label {
+      border-width: 2px;
+      font-weight: 600;
+    }
+  }
+}
+
+// ============================================================================
+// Reduced Motion
+// ============================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .canvas-background--animated {
+    .canvas-background__reactflow {
+      animation: none !important;
+    }
+  }
+
+  .canvas-background__zone {
+    transition: none;
+  }
+} 

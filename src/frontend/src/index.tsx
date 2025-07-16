@@ -3,7 +3,7 @@ import reportWebVitals from "./reportWebVitals";
 
 import "./style/classes.css";
 // @ts-ignore
-import "./style/index.css";
+import "./style/index.scss";
 // @ts-ignore
 import "./App.css";
 import "./style/applies.css";

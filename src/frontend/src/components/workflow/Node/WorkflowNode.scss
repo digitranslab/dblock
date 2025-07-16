@@ -1,0 +1,507 @@
+// WorkflowNode.scss - Comprehensive Node Styling System
+// Implements n8n-style design with CSS custom properties and animations
+
+// ============================================================================
+// CSS Custom Properties (Design Tokens)
+// ============================================================================
+
+.workflow-node {
+  // Node Dimensions
+  --node-width: 140px;
+  --node-height: 80px;
+  --node-border-width: 2px;
+  --node-border-radius: 8px;
+  --node-padding: 8px;
+  
+  // Colors
+  --node-background: var(--color-node-background, #ffffff);
+  --node-background-hover: var(--color-node-background-hover, #f8f9fa);
+  --node-background-selected: var(--color-node-selected-background, #f0f8ff);
+  --node-border-default: var(--color-border-base, #e2e8f0);
+  --node-border-hover: var(--color-border-hover, #cbd5e0);
+  --node-border-selected: var(--color-primary, #3b82f6);
+  --node-text: var(--color-text-base, #1a202c);
+  --node-text-light: var(--color-text-light, #718096);
+  --node-text-selected: var(--color-primary, #3b82f6);
+  
+  // Status Colors
+  --node-border-success: var(--color-success, #10b981);
+  --node-border-error: var(--color-danger, #ef4444);
+  --node-border-warning: var(--color-warning, #f59e0b);
+  --node-border-running: var(--color-primary, #3b82f6);
+  --node-border-disabled: var(--color-border-light, #f1f5f9);
+  
+  // Shadows
+  --node-shadow-default: var(--ds-shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+  --node-shadow-hover: var(--ds-shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+  --node-shadow-selected: var(--ds-shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+  --node-shadow-focus: 0 0 0 4px rgba(59, 130, 246, 0.1);
+  
+  // Transitions
+  --node-transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1);
+  --node-transition-fast: all 150ms cubic-bezier(0.19, 1, 0.22, 1);
+  
+  // Z-index
+  --node-z-index: 1;
+  --node-z-index-hover: 2;
+  --node-z-index-selected: 3;
+  --node-z-index-dragging: 10;
+}
+
+// ============================================================================
+// Base Node Styles
+// ============================================================================
+
+.workflow-node {
+  position: relative;
+  width: var(--node-width);
+  height: var(--node-height);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--node-padding);
+  
+  // Background and Border
+  background: var(--node-background);
+  border: var(--node-border-width) solid var(--node-border-default);
+  border-radius: var(--node-border-radius);
+  
+  // Visual Effects
+  box-shadow: var(--node-shadow-default);
+  transition: var(--node-transition);
+  cursor: pointer;
+  z-index: var(--node-z-index);
+  
+  // Typography
+  font-family: var(--ds-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  color: var(--node-text);
+  
+  // Prevent text selection
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  
+  // ============================================================================
+  // Interactive States
+  // ============================================================================
+  
+  &:hover:not(&--disabled):not(&--dragging) {
+    transform: translateY(-2px);
+    background: var(--node-background-hover);
+    border-color: var(--node-border-hover);
+    box-shadow: var(--node-shadow-hover);
+    z-index: var(--node-z-index-hover);
+  }
+  
+  &:focus-visible {
+    outline: none;
+    box-shadow: var(--node-shadow-focus);
+  }
+  
+  &:active:not(&--disabled) {
+    transform: translateY(-1px);
+    transition: var(--node-transition-fast);
+  }
+  
+  // ============================================================================
+  // Selection States
+  // ============================================================================
+  
+  &--selected {
+    background: var(--node-background-selected);
+    border-color: var(--node-border-selected);
+    box-shadow: var(--node-shadow-selected), var(--node-shadow-focus);
+    z-index: var(--node-z-index-selected);
+    
+    .workflow-node__label {
+      color: var(--node-text-selected);
+      font-weight: 600;
+    }
+    
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+  
+  // ============================================================================
+  // Status States
+  // ============================================================================
+  
+  &--success {
+    border-color: var(--node-border-success);
+    
+    &:hover {
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+    }
+  }
+  
+  &--error {
+    border-color: var(--node-border-error);
+    
+    &:hover {
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 8px;
+      height: 8px;
+      background: var(--node-border-error);
+      border-radius: 50%;
+    }
+  }
+  
+  &--warning {
+    border-color: var(--node-border-warning);
+    
+    &:hover {
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 8px;
+      height: 8px;
+      background: var(--node-border-warning);
+      border-radius: 50%;
+    }
+  }
+  
+  &--running {
+    border-color: var(--node-border-running);
+    animation: pulse-border 2s infinite;
+    
+    &:hover {
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+    }
+  }
+  
+  &--disabled {
+    opacity: 0.6;
+    border-color: var(--node-border-disabled);
+    background: var(--color-background-light, #f8f9fa);
+    cursor: not-allowed;
+    
+    &:hover {
+      transform: none;
+      box-shadow: var(--node-shadow-default);
+    }
+    
+    .workflow-node__label {
+      color: var(--node-text-light);
+    }
+  }
+  
+  // ============================================================================
+  // Dragging State
+  // ============================================================================
+  
+  &--dragging {
+    transform: rotate(2deg) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    z-index: var(--node-z-index-dragging);
+    cursor: grabbing;
+  }
+  
+  // ============================================================================
+  // Node Content Elements
+  // ============================================================================
+  
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    gap: 4px;
+  }
+  
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: var(--node-transition-fast);
+    
+    .workflow-node--selected & {
+      transform: scale(1.1);
+    }
+    
+    .workflow-node--running & {
+      animation: pulse-icon 2s infinite;
+    }
+  }
+  
+  &__label {
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.2;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: var(--node-transition-fast);
+    
+    .workflow-node:hover & {
+      color: var(--node-text);
+    }
+  }
+  
+  // ============================================================================
+  // Connection Handles
+  // ============================================================================
+  
+  &__handle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border: 2px solid var(--color-background-base, #ffffff);
+    border-radius: 50%;
+    background: var(--color-connection-handle, #64748b);
+    transition: var(--node-transition-fast);
+    z-index: 1;
+    
+    &:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+    }
+    
+    &--input {
+      left: -4px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    &--output {
+      right: -4px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    &--connected {
+      background: var(--color-success, #10b981);
+    }
+  }
+  
+  // ============================================================================
+  // Status Indicators
+  // ============================================================================
+  
+  &__status-indicator {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    z-index: 2;
+    
+    &--running {
+      background: var(--node-border-running);
+      animation: pulse-indicator 2s infinite;
+    }
+    
+    &--success {
+      background: var(--node-border-success);
+    }
+    
+    &--error {
+      background: var(--node-border-error);
+    }
+    
+    &--warning {
+      background: var(--node-border-warning);
+    }
+  }
+  
+  // ============================================================================
+  // Node Toolbar
+  // ============================================================================
+  
+  &__toolbar {
+    position: absolute;
+    top: -44px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    background: var(--color-background-base, #ffffff);
+    border: 1px solid var(--color-border-base, #e2e8f0);
+    border-radius: 6px;
+    box-shadow: var(--ds-shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--node-transition);
+    z-index: 10;
+    
+    .workflow-node--selected & {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .workflow-node:hover & {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  
+  &__toolbar-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--color-text-base, #1a202c);
+    transition: var(--node-transition-fast);
+    
+    &:hover {
+      background: var(--color-background-light, #f8f9fa);
+    }
+    
+    &--danger {
+      color: var(--color-danger, #ef4444);
+      
+      &:hover {
+        background: rgba(239, 68, 68, 0.1);
+      }
+    }
+  }
+}
+
+// ============================================================================
+// Animations
+// ============================================================================
+
+@keyframes pulse-border {
+  0%, 100% { 
+    border-color: var(--node-border-running);
+  }
+  50% { 
+    border-color: rgba(59, 130, 246, 0.5);
+  }
+}
+
+@keyframes pulse-icon {
+  0%, 100% { 
+    transform: scale(1);
+  }
+  50% { 
+    transform: scale(1.1);
+  }
+}
+
+@keyframes pulse-indicator {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+}
+
+// ============================================================================
+// Responsive Design
+// ============================================================================
+
+@media (max-width: 768px) {
+  .workflow-node {
+    --node-width: 120px;
+    --node-height: 70px;
+    --node-padding: 6px;
+    
+    &__label {
+      font-size: 11px;
+    }
+    
+    &__handle {
+      width: 6px;
+      height: 6px;
+    }
+  }
+}
+
+// ============================================================================
+// Dark Theme Support
+// ============================================================================
+
+[data-theme="dark"] .workflow-node {
+  --node-background: var(--color-node-background-dark, #1f2937);
+  --node-background-hover: var(--color-node-background-hover-dark, #374151);
+  --node-background-selected: var(--color-node-selected-background-dark, #1e3a8a);
+  --node-border-default: var(--color-border-base-dark, #374151);
+  --node-border-hover: var(--color-border-hover-dark, #4b5563);
+  --node-text: var(--color-text-base-dark, #f9fafb);
+  --node-text-light: var(--color-text-light-dark, #9ca3af);
+  
+  &--disabled {
+    background: var(--color-background-light-dark, #111827);
+  }
+}
+
+// ============================================================================
+// High Contrast Mode
+// ============================================================================
+
+@media (prefers-contrast: high) {
+  .workflow-node {
+    --node-border-width: 3px;
+    
+    &:hover {
+      transform: translateY(-3px);
+    }
+    
+    &--selected {
+      border-width: 4px;
+    }
+  }
+}
+
+// ============================================================================
+// Reduced Motion
+// ============================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .workflow-node {
+    --node-transition: none;
+    --node-transition-fast: none;
+    
+    &:hover {
+      transform: none;
+    }
+    
+    &--dragging {
+      transform: scale(1.02);
+    }
+    
+    &--running {
+      animation: none;
+      border-color: var(--node-border-running);
+    }
+    
+    .workflow-node__icon {
+      animation: none;
+    }
+    
+    .workflow-node__status-indicator {
+      animation: none;
+    }
+  }
+} 

@@ -6,11 +6,13 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { SaveChangesModal } from "@/modals/saveChangesModal";
 import useAlertStore from "@/stores/alertStore";
 import { customStringify } from "@/utils/reactflowUtils";
+import { useFeatureFlag } from "@/utils/featureFlags";
 import { useEffect } from "react";
 import { useBlocker, useParams, useNavigate } from "react-router-dom";
 import useFlowStore from "../../stores/flowStore";
 import useFlowsManagerStore from "../../stores/flowsManagerStore";
 import Page from "./components/PageComponent";
+import WorkflowCanvas from "./components/WorkflowCanvas";
 import { FlowSidebarComponent } from "./components/flowSidebarComponent";
 import CollectionCardComponent from "../../components/core/cardComponent";
 import { FlowType } from "../../types/flow";
@@ -18,6 +20,9 @@ import { FlowType } from "../../types/flow";
 
 
 export default function FlowPage({ view }: { view?: boolean }): JSX.Element {
+  // Feature flag for new design
+  const useNewDesign = useFeatureFlag('NEW_WORKFLOW_DESIGN');
+  
   const setCurrentFlow = useFlowsManagerStore((state) => state.setCurrentFlow);
   const currentFlow = useFlowStore((state) => state.currentFlow);
   const currentSavedFlow = useFlowsManagerStore((state) => state.currentFlow);
@@ -261,7 +266,11 @@ export default function FlowPage({ view }: { view?: boolean }): JSX.Element {
             {/* Workflow canvas */}
             <div className="flex-1 h-full w-full">
               {currentFlow ? (
-                <Page view={view} />
+                useNewDesign ? (
+                  <WorkflowCanvas view={view} />
+                ) : (
+                  <Page view={view} />
+                )
               ) : (
                 <div className="flex h-full w-full items-center justify-center bg-canvas">
                   <div className="text-muted-foreground">Loading workflow...</div>

@@ -1,0 +1,432 @@
+// ============================================================================
+// CanvasControls - Enhanced Controls Component Styles
+// Advanced styling for canvas controls with n8n-inspired design
+// ============================================================================
+
+// ============================================================================
+// Main Controls Container
+// ============================================================================
+
+.canvas-controls {
+  position: relative;
+  z-index: 10;
+
+  // Base controls styling override
+  .canvas-controls__base {
+    background: var(--color-background-base, #ffffff);
+    border: 1px solid var(--color-border-base, #e2e8f0);
+    border-radius: 8px;
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 4px;
+    backdrop-filter: blur(8px);
+    
+    // Smooth transitions
+    transition: all 0.2s ease;
+    
+    &:hover {
+      box-shadow: 
+        0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  // Individual control buttons
+  .canvas-controls__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    margin: 2px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: var(--color-text-secondary, #64748b);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    position: relative;
+    
+    // Icon styling
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      transition: all 0.15s ease;
+    }
+    
+    // Hover state
+    &:hover {
+      background: var(--color-background-hover, #f8fafc);
+      border-color: var(--color-border-hover, #cbd5e1);
+      color: var(--color-text-primary, #0f172a);
+      transform: translateY(-1px);
+      
+      svg {
+        transform: scale(1.1);
+      }
+    }
+    
+    // Active state
+    &:active {
+      transform: translateY(0);
+      background: var(--color-background-pressed, #e2e8f0);
+    }
+    
+    // Focus state
+    &:focus-visible {
+      outline: 2px solid var(--color-primary, #3b82f6);
+      outline-offset: 2px;
+    }
+    
+    // Active/selected state
+    &--active {
+      background: var(--color-primary, #3b82f6);
+      border-color: var(--color-primary, #3b82f6);
+      color: white;
+      
+      &:hover {
+        background: var(--color-primary-hover, #2563eb);
+        border-color: var(--color-primary-hover, #2563eb);
+        transform: translateY(-1px);
+      }
+    }
+    
+    // Disabled state
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      
+      &:hover {
+        background: transparent;
+        border-color: transparent;
+        transform: none;
+        
+        svg {
+          transform: none;
+        }
+      }
+    }
+  }
+}
+
+// ============================================================================
+// Position Variants
+// ============================================================================
+
+.canvas-controls--top-left {
+  .canvas-controls__base {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+  }
+}
+
+.canvas-controls--top-right {
+  .canvas-controls__base {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+}
+
+.canvas-controls--bottom-left {
+  .canvas-controls__base {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+  }
+}
+
+.canvas-controls--bottom-right {
+  .canvas-controls__base {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
+// ============================================================================
+// Orientation Variants
+// ============================================================================
+
+.canvas-controls--horizontal {
+  .canvas-controls__base {
+    .react-flow__controls {
+      flex-direction: row;
+      
+      .canvas-controls__button {
+        margin: 2px 2px;
+      }
+    }
+  }
+}
+
+// ============================================================================
+// Enhanced Button Variants
+// ============================================================================
+
+.canvas-controls__button {
+  // Zoom specific styling
+  &[title*="Zoom"] {
+    svg {
+      stroke-width: 1.5;
+    }
+  }
+  
+  // Fit view specific styling
+  &[title*="Fit"] {
+    svg {
+      stroke-width: 1.5;
+    }
+  }
+  
+  // Lock specific styling
+  &[title*="Lock"] {
+    &.canvas-controls__button--active {
+      background: var(--color-warning, #f59e0b);
+      border-color: var(--color-warning, #f59e0b);
+      
+      &:hover {
+        background: var(--color-warning-hover, #d97706);
+        border-color: var(--color-warning-hover, #d97706);
+      }
+    }
+  }
+  
+  // Layout specific styling
+  &[title*="Layout"] {
+    position: relative;
+    
+    &::after {
+      content: attr(data-layout);
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--color-text-secondary, #64748b);
+      background: var(--color-background-base, #ffffff);
+      padding: 2px 4px;
+      border-radius: 2px;
+      border: 1px solid var(--color-border-light, #f1f5f9);
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      pointer-events: none;
+    }
+    
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+}
+
+// ============================================================================
+// Tooltip Enhancements
+// ============================================================================
+
+.canvas-controls__button {
+  &[title] {
+    position: relative;
+    
+    &:hover::before {
+      content: attr(title);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-tooltip-background, #1f2937);
+      color: var(--color-tooltip-foreground, #ffffff);
+      padding: 6px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+      z-index: 1000;
+      opacity: 0;
+      animation: tooltipFadeIn 0.2s ease 0.5s forwards;
+      pointer-events: none;
+      
+      // Tooltip arrow
+      &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 4px solid transparent;
+        border-top-color: var(--color-tooltip-background, #1f2937);
+      }
+    }
+  }
+}
+
+// ============================================================================
+// Animations
+// ============================================================================
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes buttonPress {
+  0% {
+    transform: translateY(-1px) scale(1);
+  }
+  50% {
+    transform: translateY(0) scale(0.98);
+  }
+  100% {
+    transform: translateY(-1px) scale(1);
+  }
+}
+
+// ============================================================================
+// Responsive Design
+// ============================================================================
+
+@media (max-width: 768px) {
+  .canvas-controls {
+    .canvas-controls__base {
+      padding: 2px;
+    }
+    
+    .canvas-controls__button {
+      width: 28px;
+      height: 28px;
+      margin: 1px;
+      
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+  
+  // Adjust positioning for mobile
+  .canvas-controls--bottom-left,
+  .canvas-controls--bottom-right {
+    .canvas-controls__base {
+      bottom: 60px; // Make room for mobile UI
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .canvas-controls {
+    .canvas-controls__button {
+      width: 24px;
+      height: 24px;
+      
+      svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+}
+
+// ============================================================================
+// Dark Mode Support
+// ============================================================================
+
+@media (prefers-color-scheme: dark) {
+  .canvas-controls {
+    .canvas-controls__base {
+      background: var(--color-background-base-dark, #1e293b);
+      border-color: var(--color-border-base-dark, #334155);
+      
+      &:hover {
+        box-shadow: 
+          0 10px 15px -3px rgba(0, 0, 0, 0.3),
+          0 4px 6px -2px rgba(0, 0, 0, 0.15);
+      }
+    }
+    
+    .canvas-controls__button {
+      color: var(--color-text-secondary-dark, #94a3b8);
+      
+      &:hover {
+        background: var(--color-background-hover-dark, #334155);
+        border-color: var(--color-border-hover-dark, #475569);
+        color: var(--color-text-primary-dark, #f8fafc);
+      }
+      
+      &:active {
+        background: var(--color-background-pressed-dark, #475569);
+      }
+      
+      &--active {
+        background: var(--color-primary, #3b82f6);
+        border-color: var(--color-primary, #3b82f6);
+        color: white;
+      }
+    }
+  }
+}
+
+// ============================================================================
+// High Contrast Mode
+// ============================================================================
+
+@media (prefers-contrast: high) {
+  .canvas-controls {
+    .canvas-controls__base {
+      border-width: 2px;
+    }
+    
+    .canvas-controls__button {
+      border-width: 2px;
+      font-weight: 600;
+      
+      svg {
+        stroke-width: 2;
+      }
+      
+      &:focus-visible {
+        outline-width: 3px;
+      }
+    }
+  }
+}
+
+// ============================================================================
+// Reduced Motion
+// ============================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .canvas-controls {
+    .canvas-controls__base,
+    .canvas-controls__button,
+    .canvas-controls__button svg {
+      transition: none;
+      animation: none;
+    }
+    
+    .canvas-controls__button {
+      &:hover {
+        transform: none;
+        
+        svg {
+          transform: none;
+        }
+      }
+      
+      &:active {
+        transform: none;
+      }
+    }
+  }
+} 

@@ -1,0 +1,249 @@
+// WorkflowCanvas.scss - Modern n8n-inspired workflow canvas styling
+
+.workflow-canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: hsl(var(--canvas-background));
+  
+  // Canvas background styling
+  &-background {
+    opacity: 0.4;
+    
+    // Dark mode adjustments
+    [data-theme="dark"] & {
+      opacity: 0.2;
+    }
+  }
+
+  // ReactFlow overrides for modern styling
+  .react-flow {
+    &__viewport {
+      transition: transform 200ms ease;
+    }
+
+    // Node styling
+    &__node {
+      &.selected {
+        .react-flow__node-default {
+          box-shadow: 0 0 0 2px hsl(var(--primary));
+        }
+      }
+
+      &:hover {
+        .react-flow__node-default {
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+
+    // Edge styling
+    &__edge {
+      &.selected {
+        .react-flow__edge-path {
+          stroke: hsl(var(--primary));
+          stroke-width: 3;
+        }
+      }
+
+      &:hover {
+        .react-flow__edge-path {
+          stroke: hsl(var(--primary));
+          stroke-width: 2;
+        }
+      }
+
+      &-path {
+        stroke: hsl(var(--muted-foreground));
+        stroke-width: 1.5;
+        transition: all 200ms ease;
+      }
+    }
+
+    // Handle styling
+    &__handle {
+      width: 10px;
+      height: 10px;
+      border: 2px solid hsl(var(--background));
+      background: hsl(var(--primary));
+      border-radius: 50%;
+      transition: all 200ms ease;
+      opacity: 0;
+
+      &.react-flow__handle-top,
+      &.react-flow__handle-bottom {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &.react-flow__handle-left,
+      &.react-flow__handle-right {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &:hover {
+        background: hsl(var(--primary));
+        transform: scale(1.2);
+        opacity: 1;
+      }
+    }
+
+    // Show handles on node hover
+    &__node:hover &__handle {
+      opacity: 1;
+    }
+
+    // Connection line styling
+    &__connection-line {
+      stroke: hsl(var(--primary));
+      stroke-width: 2;
+      stroke-dasharray: 5, 5;
+      animation: dash 1s linear infinite;
+    }
+
+    // Selection styling
+    &__selection {
+      background: rgba(0, 123, 255, 0.08);
+      border: 1px solid hsl(var(--primary));
+    }
+
+    // Controls styling
+    &__controls {
+      button {
+        background: hsl(var(--background));
+        border: 1px solid hsl(var(--border));
+        color: hsl(var(--foreground));
+        transition: all 200ms ease;
+
+        &:hover {
+          background: hsl(var(--accent));
+          border-color: hsl(var(--primary));
+        }
+
+        svg {
+          fill: hsl(var(--foreground));
+        }
+      }
+    }
+
+    // Minimap styling
+    &__minimap {
+      background: hsl(var(--background));
+      border: 1px solid hsl(var(--border));
+      border-radius: 8px;
+      overflow: hidden;
+
+      .react-flow__minimap-mask {
+        fill: hsl(var(--primary));
+        fill-opacity: 0.1;
+        stroke: hsl(var(--primary));
+        stroke-width: 2;
+      }
+
+      .react-flow__minimap-node {
+        fill: hsl(var(--muted));
+        stroke: hsl(var(--border));
+        stroke-width: 1;
+      }
+    }
+  }
+
+  // Animation for connection line
+  @keyframes dash {
+    to {
+      stroke-dashoffset: -10;
+    }
+  }
+
+  // Panel positioning
+  .react-flow__panel {
+    &.react-flow__panel-top-left {
+      top: 20px;
+      left: 20px;
+    }
+
+    &.react-flow__panel-bottom-right {
+      bottom: 20px;
+      right: 20px;
+    }
+  }
+
+  // Responsive adjustments
+  @media (max-width: 768px) {
+    .react-flow__panel {
+      &.react-flow__panel-top-left {
+        top: 10px;
+        left: 10px;
+      }
+
+      &.react-flow__panel-bottom-right {
+        bottom: 10px;
+        right: 10px;
+      }
+    }
+  }
+}
+
+// Dark mode specific overrides
+[data-theme="dark"] {
+  .workflow-canvas {
+    .react-flow {
+      &__edge-path {
+        stroke: hsl(var(--muted-foreground));
+      }
+
+      &__handle {
+        border-color: hsl(var(--background));
+        background: hsl(var(--primary));
+      }
+
+      &__controls button {
+        background: hsl(var(--background));
+        border-color: hsl(var(--border));
+        
+        &:hover {
+          background: hsl(var(--accent));
+        }
+      }
+    }
+  }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .workflow-canvas {
+    .react-flow {
+      &__edge-path {
+        stroke-width: 2;
+      }
+
+      &__handle {
+        border-width: 3px;
+      }
+    }
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .workflow-canvas {
+    .react-flow {
+      &__viewport {
+        transition: none;
+      }
+
+      &__handle {
+        transition: none;
+      }
+
+      &__edge-path {
+        transition: none;
+      }
+    }
+
+    .react-flow__connection-line {
+      animation: none;
+    }
+  }
+} 

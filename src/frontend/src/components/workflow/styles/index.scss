@@ -1,0 +1,407 @@
+// Workflow Styles - Main Index
+// Imports all workflow component styles and provides global styling
+
+// ============================================================================
+// Global Workflow Variables
+// ============================================================================
+
+:root {
+  // Workflow Canvas
+  --workflow-canvas-background: var(--color-canvas-background, #fafbfc);
+  --workflow-canvas-grid: var(--color-canvas-grid, #e5e7eb);
+  --workflow-canvas-grid-size: 20px;
+  
+  // Node System
+  --workflow-node-width: 140px;
+  --workflow-node-height: 80px;
+  --workflow-node-gap: 200px;
+  
+  // Connection System
+  --workflow-connection-color: var(--color-connection-default, #6b7280);
+  --workflow-connection-width: 2px;
+  --workflow-connection-selected: var(--color-primary, #3b82f6);
+  
+  // Panel System
+  --workflow-panel-width: 480px;
+  --workflow-panel-background: var(--color-background-base, #ffffff);
+  
+  // Z-index System
+  --workflow-z-canvas: 1;
+  --workflow-z-nodes: 2;
+  --workflow-z-connections: 1;
+  --workflow-z-toolbar: 10;
+  --workflow-z-panel: 50;
+  --workflow-z-modal: 100;
+  
+  // Animation System
+  --workflow-transition-fast: 150ms cubic-bezier(0.19, 1, 0.22, 1);
+  --workflow-transition-normal: 300ms cubic-bezier(0.19, 1, 0.22, 1);
+  --workflow-transition-slow: 500ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+// ============================================================================
+// Dark Theme Variables
+// ============================================================================
+
+[data-theme="dark"] {
+  --workflow-canvas-background: var(--color-canvas-background-dark, #111827);
+  --workflow-canvas-grid: var(--color-canvas-grid-dark, #374151);
+  --workflow-connection-color: var(--color-connection-default-dark, #9ca3af);
+  --workflow-panel-background: var(--color-background-base-dark, #1f2937);
+}
+
+// ============================================================================
+// Component Imports - Step 4.2 Layout System
+// ============================================================================
+
+// Canvas Components
+@import '../Canvas/WorkflowCanvas.scss';
+@import '../Canvas/CanvasBackground.scss';
+@import '../Canvas/CanvasControls.scss';
+
+// ============================================================================
+// Global Workflow Styles
+// ============================================================================
+
+.workflow-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--workflow-canvas-background);
+  
+  // Ensure proper stacking context
+  isolation: isolate;
+  
+  // Typography
+  font-family: var(--ds-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text-base, #1a202c);
+  
+  // Smooth scrolling
+  scroll-behavior: smooth;
+  
+  // ============================================================================
+  // ReactFlow Overrides
+  // ============================================================================
+  
+  .react-flow {
+    &__renderer {
+      z-index: var(--workflow-z-canvas);
+    }
+    
+    &__nodes {
+      z-index: var(--workflow-z-nodes);
+    }
+    
+    &__edges {
+      z-index: var(--workflow-z-connections);
+    }
+    
+    &__node {
+      &.selected {
+        z-index: calc(var(--workflow-z-nodes) + 1);
+      }
+    }
+    
+    &__edge {
+      &.selected {
+        z-index: calc(var(--workflow-z-connections) + 1);
+      }
+      
+      &-path {
+        stroke: var(--workflow-connection-color);
+        stroke-width: var(--workflow-connection-width);
+        transition: var(--workflow-transition-fast);
+        
+        &.selected {
+          stroke: var(--workflow-connection-selected);
+          stroke-width: 3px;
+        }
+      }
+    }
+    
+    &__handle {
+      width: 8px;
+      height: 8px;
+      border: 2px solid var(--color-background-base, #ffffff);
+      border-radius: 50%;
+      background: var(--color-connection-handle, #64748b);
+      transition: var(--workflow-transition-fast);
+      
+      &:hover {
+        transform: scale(1.2);
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+      }
+      
+      &.connectingfrom,
+      &.connectingto {
+        background: var(--color-primary, #3b82f6);
+        transform: scale(1.2);
+      }
+    }
+    
+    &__background {
+      &.react-flow__background-dots {
+        fill: var(--workflow-canvas-grid);
+        opacity: 0.3;
+      }
+    }
+    
+    &__controls {
+      button {
+        background: var(--color-background-base, #ffffff);
+        border: 1px solid var(--color-border-base, #e2e8f0);
+        color: var(--color-text-base, #1a202c);
+        border-radius: 6px;
+        transition: var(--workflow-transition-fast);
+        
+        &:hover {
+          background: var(--color-background-light, #f8f9fa);
+          border-color: var(--color-border-hover, #cbd5e0);
+        }
+        
+        svg {
+          fill: currentColor;
+        }
+      }
+    }
+    
+    &__minimap {
+      background: var(--color-background-base, #ffffff);
+      border: 1px solid var(--color-border-base, #e2e8f0);
+      border-radius: 6px;
+      
+      &-mask {
+        fill: rgba(0, 0, 0, 0.1);
+      }
+      
+      &-node {
+        fill: var(--color-node-background, #ffffff);
+        stroke: var(--color-border-base, #e2e8f0);
+        
+        &.selected {
+          fill: var(--color-primary, #3b82f6);
+        }
+      }
+    }
+  }
+  
+  // ============================================================================
+  // Loading States
+  // ============================================================================
+  
+  &--loading {
+    .workflow-node {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    
+    .react-flow__edge {
+      opacity: 0.5;
+    }
+  }
+  
+  // ============================================================================
+  // Error States
+  // ============================================================================
+  
+  &--error {
+    .workflow-node {
+      opacity: 0.5;
+      
+      &--error {
+        opacity: 1;
+      }
+    }
+  }
+  
+  // ============================================================================
+  // Read-only Mode
+  // ============================================================================
+  
+  &--readonly {
+    .workflow-node {
+      cursor: default;
+      
+      &:hover {
+        transform: none;
+        box-shadow: var(--node-shadow-default);
+      }
+    }
+    
+    .node-toolbar {
+      display: none;
+    }
+    
+    .react-flow__handle {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+    
+    .react-flow__controls {
+      .react-flow__controls-interactive {
+        display: none;
+      }
+    }
+  }
+}
+
+// ============================================================================
+// Utility Classes
+// ============================================================================
+
+// Animation utilities
+.workflow-fade-in {
+  animation: workflowFadeIn var(--workflow-transition-normal) var(--ds-easing-ease);
+}
+
+.workflow-slide-in-right {
+  animation: workflowSlideInRight var(--workflow-transition-normal) var(--ds-easing-expo);
+}
+
+.workflow-slide-out-right {
+  animation: workflowSlideOutRight var(--workflow-transition-normal) var(--ds-easing-expo);
+}
+
+// Focus utilities
+.workflow-focus-ring {
+  &:focus-visible {
+    outline: 2px solid var(--color-primary, #3b82f6);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+// Selection utilities
+.workflow-no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+// ============================================================================
+// Animations
+// ============================================================================
+
+@keyframes workflowFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes workflowSlideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes workflowSlideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+// ============================================================================
+// Responsive Design
+// ============================================================================
+
+@media (max-width: 1024px) {
+  :root {
+    --workflow-panel-width: 400px;
+    --workflow-node-gap: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --workflow-panel-width: 100vw;
+    --workflow-node-width: 120px;
+    --workflow-node-height: 70px;
+    --workflow-node-gap: 160px;
+  }
+  
+  .workflow-container {
+    .react-flow__controls {
+      bottom: 20px;
+      left: 20px;
+    }
+    
+    .react-flow__minimap {
+      display: none;
+    }
+  }
+}
+
+// ============================================================================
+// Print Styles
+// ============================================================================
+
+@media print {
+  .workflow-container {
+    .node-toolbar,
+    .react-flow__controls,
+    .react-flow__minimap {
+      display: none !important;
+    }
+    
+    .workflow-node {
+      box-shadow: none !important;
+      border: 2px solid #000 !important;
+      background: #fff !important;
+      color: #000 !important;
+    }
+    
+    .react-flow__edge-path {
+      stroke: #000 !important;
+      stroke-width: 2px !important;
+    }
+  }
+}
+
+// ============================================================================
+// Accessibility
+// ============================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .workflow-container {
+    scroll-behavior: auto;
+    
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@media (prefers-contrast: high) {
+  .workflow-container {
+    .workflow-node {
+      border-width: 3px;
+    }
+    
+    .react-flow__edge-path {
+      stroke-width: 3px;
+    }
+    
+    .react-flow__handle {
+      border-width: 3px;
+    }
+  }
+} 

@@ -1,142 +1,246 @@
-import { memo } from "react";
-import { Handle, Position } from "@xyflow/react";
+import React, { useCallback, useMemo } from "react";
+import { Handle, Position, NodeProps } from "@xyflow/react";
+import { cn } from "@/utils/utils";
 import { NodeIcon } from "../GenericNode/components/nodeIcon";
-import { BuildStatus } from "../../constants/enums";
-import { NodeDataType } from "../../types/flow";
-import { cn } from "../../utils/utils";
-import useFlowStore from "../../stores/flowStore";
+import useFlowStore from "@/stores/flowStore";
+import { NodeDataType } from "@/types/flow";
+import { BuildStatus } from "@/constants/enums";
+import "./MinimalNode.css";
 
-interface MinimalNodeProps {
+// MinimalNode component props (extends ReactFlow's NodeProps)
+interface MinimalNodeProps extends NodeProps {
   data: NodeDataType;
-  selected?: boolean;
-  xPos?: number;
-  yPos?: number;
+  onClick?: (event: React.MouseEvent, node: any) => void;
 }
 
-function MinimalNode({ data, selected }: MinimalNodeProps): JSX.Element {
-  const showNode = data.showNode ?? true;
-  const flowBuildStatus = useFlowStore((state) => state.flowBuildStatus);
-  
-  // Get build status for this node
-  const buildStatus = (flowBuildStatus && data?.id && flowBuildStatus[data.id]?.status) || BuildStatus.TO_BUILD;
-  
-  // Get node display information
-  const nodeData = data.type === "noteNode" ? data : data.node;
-  const displayName = (nodeData as any)?.display_name || data.type;
-  const icon = data.type === "noteNode" ? undefined : (data.node as any)?.icon;
-  const isGroup = data.type !== "noteNode" && !!(data.node as any)?.flow;
+const MinimalNode: React.FC<MinimalNodeProps> = ({
+  id,
+  data,
+  selected = false,
+  dragging = false,
+  onClick,
+  ...nodeProps
+}) => {
+  const setSelectedNodeId = useFlowStore((state) => state.setSelectedNodeId);
+  const setParameterPanelOpen = useFlowStore((state) => state.setParameterPanelOpen);
 
-  // Status-based styling (n8n-inspired)
-  const getStatusStyling = () => {
-    const baseClasses = "transition-all duration-200 ease-in-out";
+  // Extract node data safely
+  const nodeData = useMemo(() => {
+    if (!data || data.type === "noteNode") return null;
+    return data.node || null;
+  }, [data]);
+
+  // Extract display properties
+  const displayProperties = useMemo(() => {
+    if (!nodeData) return { displayName: "Note", description: "", icon: null };
     
+    return {
+      displayName: nodeData.display_name || data?.type || "Unknown",
+      description: nodeData.description || "",
+      icon: nodeData.icon,
+    };
+  }, [nodeData, data?.type]);
+
+  // Get status from data and normalize it
+  const status = useMemo(() => {
+    const buildStatus = data?.buildStatus;
+    
+    // Map BuildStatus enum to display status
     switch (buildStatus) {
       case BuildStatus.BUILDING:
-        return `${baseClasses} border-warning bg-warning/5 shadow-warning/20`;
+        return 'building';
       case BuildStatus.BUILT:
-        return `${baseClasses} border-success bg-success/5 shadow-success/20`;
+        return 'success';
       case BuildStatus.ERROR:
-        return `${baseClasses} border-destructive bg-destructive/5 shadow-destructive/20`;
+        return 'error';
+      case BuildStatus.TO_BUILD:
+        return 'idle';
+      case BuildStatus.INACTIVE:
+        return 'idle';
       default:
-        return `${baseClasses} border-border bg-background hover:bg-muted/50`;
+        return 'idle';
     }
-  };
+  }, [data?.buildStatus]);
 
-  // Selection styling
-  const selectionClasses = selected
-    ? "ring-2 ring-primary ring-offset-2 ring-offset-background border-primary"
-    : "";
+  // Click handler
+  const handleClick = useCallback((event: React.MouseEvent) => {
+    event.stopPropagation();
+    
+    if (onClick) {
+      onClick(event, { id, data, selected, dragging, ...nodeProps });
+    } else {
+      // Default behavior - open parameter panel
+      setSelectedNodeId(id);
+      setParameterPanelOpen(true);
+    }
+  }, [onClick, id, data, selected, dragging, nodeProps, setSelectedNodeId, setParameterPanelOpen]);
 
-  // Status indicator dot
-  const getStatusDot = () => {
-    if (buildStatus === BuildStatus.BUILDING) {
-      return (
-        <div className="absolute -top-1 -right-1 w-3 h-3 bg-warning rounded-full animate-pulse border-2 border-background" />
-      );
+  // Keyboard handler
+  const handleKeyDown = useCallback((event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleClick(event as any);
     }
-    if (buildStatus === BuildStatus.BUILT) {
-      return (
-        <div className="absolute -top-1 -right-1 w-3 h-3 bg-success rounded-full border-2 border-background" />
-      );
+  }, [handleClick]);
+
+  // Node styling
+  const nodeStyle = useMemo(() => {
+    const baseStyle: React.CSSProperties = {
+      width: '140px',
+      height: '80px',
+      border: selected ? '2px solid hsl(var(--primary))' : '1px solid hsl(var(--border))',
+      borderRadius: '8px',
+      backgroundColor: 'hsl(var(--background))',
+      boxShadow: dragging 
+        ? '0 8px 24px rgba(0, 0, 0, 0.15)' 
+        : selected 
+          ? '0 4px 12px rgba(0, 0, 0, 0.1)' 
+          : '0 1px 3px rgba(0, 0, 0, 0.05)',
+      transform: dragging ? 'scale(1.02)' : 'scale(1)',
+      transition: 'all 200ms cubic-bezier(0.4, 0, 0.2, 1)',
+      cursor: 'pointer',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '8px',
+      padding: '12px',
+      position: 'relative',
+    };
+
+    // Status-specific styling
+    switch (status) {
+      case 'building':
+        baseStyle.borderColor = 'hsl(var(--warning))';
+        baseStyle.backgroundColor = 'hsl(var(--warning) / 0.05)';
+        baseStyle.animation = 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite';
+        break;
+      case 'success':
+        baseStyle.borderColor = 'hsl(var(--success))';
+        baseStyle.backgroundColor = 'hsl(var(--success) / 0.05)';
+        break;
+      case 'error':
+        baseStyle.borderColor = 'hsl(var(--destructive))';
+        baseStyle.backgroundColor = 'hsl(var(--destructive) / 0.05)';
+        break;
+      case 'idle':
+      default:
+        // Keep default styling
+        break;
     }
-    if (buildStatus === BuildStatus.ERROR) {
-      return (
-        <div className="absolute -top-1 -right-1 w-3 h-3 bg-destructive rounded-full border-2 border-background" />
-      );
-    }
-    return null;
-  };
+
+    return baseStyle;
+  }, [selected, dragging, status]);
+
+  // CSS classes
+  const nodeClasses = useMemo(() => {
+    return cn(
+      "minimal-node",
+      "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
+      {
+        "minimal-node--selected": selected,
+        "minimal-node--dragging": dragging,
+        "minimal-node--idle": status === 'idle',
+        "minimal-node--building": status === 'building',
+        "minimal-node--success": status === 'success',
+        "minimal-node--error": status === 'error',
+      }
+    );
+  }, [selected, dragging, status]);
+
+  // Handle note nodes
+  if (data?.type === "noteNode") {
+    return (
+      <div
+        className="note-node"
+        style={{ width: '140px', height: '80px' }}
+        data-node-id={id}
+      >
+        <div className="note-content">
+          {(data as any)?.value || "Note"}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
-      className={cn(
-        // Base styling - n8n inspired dimensions
-        "relative w-[140px] h-[80px] rounded-lg border-2 shadow-sm",
-        "flex flex-col items-center justify-center p-3",
-        "cursor-pointer group",
-        // Status and interaction styling
-        getStatusStyling(),
-        selectionClasses,
-        // Hover effects
-        "hover:shadow-md hover:scale-[1.02]",
-        // Group node styling
-        isGroup && "border-dashed"
-      )}
-      data-testid={`minimal-node-${data.id}`}
+      className={nodeClasses}
+      style={nodeStyle}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+      role="button"
+      aria-label={`${displayProperties.displayName} node`}
+      aria-selected={selected}
+      data-node-id={id}
+      data-node-type={data?.type || "unknown"}
+      data-testid={`minimal-node-${id}`}
     >
-      {/* Status indicator dot */}
-      {getStatusDot()}
-
-      {/* Node icon */}
-      <div className="flex-shrink-0 mb-2">
-        <NodeIcon
-          dataType={data.type}
-          showNode={true}
-          icon={icon}
-          isGroup={isGroup}
-          hasToolMode={false}
-        />
-      </div>
-
-      {/* Node name */}
-      <div className="flex-1 flex items-center justify-center text-center min-h-0">
-        <span 
-          className={cn(
-            "text-xs font-medium leading-tight text-foreground",
-            "line-clamp-2 break-words max-w-full",
-            // Truncate long names gracefully
-            "overflow-hidden"
-          )}
-          title={displayName} // Show full name on hover
-        >
-          {displayName}
-        </span>
-      </div>
-
-      {/* Connection handles */}
+      {/* Connection Handles */}
       <Handle
         type="target"
         position={Position.Left}
-        className={cn(
-          "w-3 h-3 border-2 border-background",
-          "bg-muted-foreground hover:bg-primary",
-          "transition-colors duration-200"
-        )}
-        style={{ left: -6 }}
+        className="minimal-node__handle minimal-node__handle--target"
+        style={{
+          left: -6,
+          width: 12,
+          height: 12,
+          border: '2px solid hsl(var(--background))',
+          backgroundColor: 'hsl(var(--primary))',
+        }}
       />
       
+      {/* Node Content */}
+      <div className="minimal-node__content">
+        {/* Node Icon */}
+        <div className="minimal-node__icon">
+          <NodeIcon
+            dataType={data?.type || "unknown"}
+            showNode={true}
+            icon={displayProperties.icon || undefined}
+            isGroup={!!(nodeData as any)?.flow}
+            hasToolMode={false}
+          />
+        </div>
+        
+        {/* Node Label */}
+        <div className="minimal-node__label">
+          <span className="minimal-node__name">
+            {displayProperties.displayName}
+          </span>
+          {status === 'building' && (
+            <div className="minimal-node__status-indicator">
+              <div className="minimal-node__pulse" />
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Output Handle */}
       <Handle
         type="source"
         position={Position.Right}
-        className={cn(
-          "w-3 h-3 border-2 border-background",
-          "bg-muted-foreground hover:bg-primary",
-          "transition-colors duration-200"
-        )}
-        style={{ right: -6 }}
+        className="minimal-node__handle minimal-node__handle--source"
+        style={{
+          right: -6,
+          width: 12,
+          height: 12,
+          border: '2px solid hsl(var(--background))',
+          backgroundColor: 'hsl(var(--primary))',
+        }}
       />
+
+      {/* Status Overlay for Error/Success */}
+      {(status === 'error' || status === 'success') && (
+        <div className={`minimal-node__status-overlay minimal-node__status-overlay--${status}`}>
+          <div className="minimal-node__status-icon">
+            {status === 'success' ? '✓' : '✕'}
+          </div>
+        </div>
+      )}
     </div>
   );
-}
+};
 
-export default memo(MinimalNode); 
+export default MinimalNode; 

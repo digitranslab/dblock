@@ -1,0 +1,249 @@
+/* Design System CSS Variables */
+/* Auto-generated CSS custom properties from design tokens */
+
+:root {
+  /* === SPACING SYSTEM === */
+  /* Grid and layout */
+  --ds-grid-size: 20px;
+  --ds-node-width: 140px;
+  --ds-node-height: 80px;
+  --ds-panel-width: 480px;
+  
+  /* Spacing scale */
+  --ds-spacing-xs: 4px;
+  --ds-spacing-sm: 8px;
+  --ds-spacing-md: 12px;
+  --ds-spacing-lg: 16px;
+  --ds-spacing-xl: 20px;
+  --ds-spacing-xxl: 24px;
+  --ds-spacing-xxxl: 32px;
+
+  /* === ANIMATION SYSTEM === */
+  /* Duration */
+  --ds-duration-fast: 150ms;
+  --ds-duration-normal: 300ms;
+  --ds-duration-slow: 500ms;
+  
+  /* Easing curves */
+  --ds-easing-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ds-easing-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ds-easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* Common transitions */
+  --ds-transition-smooth: all var(--ds-duration-normal) var(--ds-easing-expo);
+  --ds-transition-fast: all var(--ds-duration-fast) var(--ds-easing-ease);
+  --ds-transition-slow: all var(--ds-duration-slow) var(--ds-easing-expo);
+
+  /* === TYPOGRAPHY SYSTEM === */
+  /* Font sizes */
+  --ds-font-size-xs: 11px;
+  --ds-font-size-sm: 12px;
+  --ds-font-size-md: 14px;
+  --ds-font-size-lg: 16px;
+  --ds-font-size-xl: 18px;
+  
+  /* Font weights */
+  --ds-font-weight-regular: 400;
+  --ds-font-weight-medium: 500;
+  --ds-font-weight-semibold: 600;
+  --ds-font-weight-bold: 700;
+  
+  /* Line heights */
+  --ds-line-height-tight: 1.2;
+  --ds-line-height-normal: 1.4;
+  --ds-line-height-loose: 1.6;
+
+  /* === BORDER RADIUS SYSTEM === */
+  --ds-border-radius-sm: 4px;
+  --ds-border-radius-md: 8px;
+  --ds-border-radius-lg: 12px;
+  --ds-border-radius-xl: 16px;
+  --ds-border-radius-full: 50%;
+
+  /* === SHADOW SYSTEM === */
+  --ds-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --ds-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --ds-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --ds-shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+
+  /* === Z-INDEX SYSTEM === */
+  --ds-z-dropdown: 1000;
+  --ds-z-sticky: 1020;
+  --ds-z-fixed: 1030;
+  --ds-z-modal: 1040;
+  --ds-z-popover: 1050;
+  --ds-z-tooltip: 1060;
+
+  /* === COMPONENT SPECIFIC === */
+  /* Node styling */
+  --ds-node-border-width: 2px;
+  --ds-node-border-radius: var(--ds-border-radius-md);
+  --ds-node-transition: var(--ds-transition-smooth);
+  
+  /* Panel styling */
+  --ds-panel-border-width: 1px;
+  --ds-panel-border-radius: var(--ds-border-radius-lg);
+  --ds-panel-shadow: var(--ds-shadow-xl);
+  --ds-panel-z-index: var(--ds-z-fixed);
+  
+  /* Canvas styling */
+  --ds-canvas-grid-size: var(--ds-grid-size);
+  --ds-canvas-background-size: var(--ds-grid-size) var(--ds-grid-size);
+}
+
+/* === COMPONENT CLASSES === */
+/* Base node styles using design tokens */
+.ds-node {
+  width: var(--ds-node-width);
+  height: var(--ds-node-height);
+  border-radius: var(--ds-node-border-radius);
+  border: var(--ds-node-border-width) solid hsl(var(--color-foreground-xdark));
+  transition: var(--ds-node-transition);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: hsl(var(--color-node-background));
+}
+
+.ds-node:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--ds-shadow-md);
+}
+
+.ds-node--selected {
+  box-shadow: 0 0 0 4px hsl(var(--color-primary-transparent));
+}
+
+.ds-node--success {
+  border-color: hsl(var(--color-success));
+}
+
+.ds-node--error {
+  border-color: hsl(var(--color-danger));
+}
+
+.ds-node--warning {
+  border-color: hsl(var(--color-warning));
+}
+
+.ds-node--running {
+  border-color: hsl(var(--color-primary));
+  animation: ds-pulse 2s infinite;
+}
+
+.ds-node--disabled {
+  border-color: hsl(var(--color-foreground-base));
+  opacity: 0.6;
+}
+
+/* Base panel styles using design tokens */
+.ds-panel {
+  width: var(--ds-panel-width);
+  background: hsl(var(--color-background-base));
+  border-left: var(--ds-panel-border-width) solid hsl(var(--color-border-base));
+  box-shadow: var(--ds-panel-shadow);
+  z-index: var(--ds-panel-z-index);
+  transition: var(--ds-transition-smooth);
+}
+
+/* Base canvas styles using design tokens */
+.ds-canvas {
+  background: hsl(var(--color-canvas-background));
+  background-image: radial-gradient(circle, hsl(var(--color-canvas-grid)) 1px, transparent 1px);
+  background-size: var(--ds-canvas-background-size);
+}
+
+/* === ANIMATIONS === */
+@keyframes ds-pulse {
+  0%, 100% {
+    border-color: hsl(var(--color-primary));
+  }
+  50% {
+    border-color: hsl(var(--color-primary-light));
+  }
+}
+
+@keyframes ds-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ds-slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes ds-slide-out-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* === UTILITY CLASSES === */
+/* Spacing utilities */
+.ds-p-xs { padding: var(--ds-spacing-xs); }
+.ds-p-sm { padding: var(--ds-spacing-sm); }
+.ds-p-md { padding: var(--ds-spacing-md); }
+.ds-p-lg { padding: var(--ds-spacing-lg); }
+.ds-p-xl { padding: var(--ds-spacing-xl); }
+
+.ds-m-xs { margin: var(--ds-spacing-xs); }
+.ds-m-sm { margin: var(--ds-spacing-sm); }
+.ds-m-md { margin: var(--ds-spacing-md); }
+.ds-m-lg { margin: var(--ds-spacing-lg); }
+.ds-m-xl { margin: var(--ds-spacing-xl); }
+
+.ds-gap-xs { gap: var(--ds-spacing-xs); }
+.ds-gap-sm { gap: var(--ds-spacing-sm); }
+.ds-gap-md { gap: var(--ds-spacing-md); }
+.ds-gap-lg { gap: var(--ds-spacing-lg); }
+.ds-gap-xl { gap: var(--ds-spacing-xl); }
+
+/* Typography utilities */
+.ds-text-xs { font-size: var(--ds-font-size-xs); }
+.ds-text-sm { font-size: var(--ds-font-size-sm); }
+.ds-text-md { font-size: var(--ds-font-size-md); }
+.ds-text-lg { font-size: var(--ds-font-size-lg); }
+.ds-text-xl { font-size: var(--ds-font-size-xl); }
+
+.ds-font-regular { font-weight: var(--ds-font-weight-regular); }
+.ds-font-medium { font-weight: var(--ds-font-weight-medium); }
+.ds-font-semibold { font-weight: var(--ds-font-weight-semibold); }
+.ds-font-bold { font-weight: var(--ds-font-weight-bold); }
+
+/* Border radius utilities */
+.ds-rounded-sm { border-radius: var(--ds-border-radius-sm); }
+.ds-rounded-md { border-radius: var(--ds-border-radius-md); }
+.ds-rounded-lg { border-radius: var(--ds-border-radius-lg); }
+.ds-rounded-xl { border-radius: var(--ds-border-radius-xl); }
+.ds-rounded-full { border-radius: var(--ds-border-radius-full); }
+
+/* Shadow utilities */
+.ds-shadow-sm { box-shadow: var(--ds-shadow-sm); }
+.ds-shadow-md { box-shadow: var(--ds-shadow-md); }
+.ds-shadow-lg { box-shadow: var(--ds-shadow-lg); }
+.ds-shadow-xl { box-shadow: var(--ds-shadow-xl); }
+
+/* Animation utilities */
+.ds-transition-smooth { transition: var(--ds-transition-smooth); }
+.ds-transition-fast { transition: var(--ds-transition-fast); }
+.ds-transition-slow { transition: var(--ds-transition-slow); }
+
+.ds-animate-fade-in { animation: ds-fade-in var(--ds-duration-normal) var(--ds-easing-expo); }
+.ds-animate-slide-in-right { animation: ds-slide-in-right var(--ds-duration-normal) var(--ds-easing-expo); }
+.ds-animate-slide-out-right { animation: ds-slide-out-right var(--ds-duration-normal) var(--ds-easing-expo); } 

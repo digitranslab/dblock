@@ -1,0 +1,912 @@
+// WorkflowCanvas.scss - Canvas Styling System
+// Provides styling for the main workflow canvas container
+
+// ============================================================================
+// CSS Custom Properties
+// ============================================================================
+
+.workflow-canvas {
+  // Canvas dimensions
+  --canvas-width: 100%;
+  --canvas-height: 100%;
+  --canvas-min-width: 800px;
+  --canvas-min-height: 600px;
+  
+  // Background
+  --canvas-background: var(--workflow-canvas-background, #fafbfc);
+  --canvas-grid-color: var(--workflow-canvas-grid, #e5e7eb);
+  --canvas-grid-size: var(--workflow-canvas-grid-size, 20px);
+  
+  // Borders and shadows
+  --canvas-border: var(--color-border-base, #e2e8f0);
+  --canvas-shadow: var(--ds-shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+  
+  // Z-index
+  --canvas-z-index: var(--workflow-z-canvas, 1);
+}
+
+// ============================================================================
+// Base Canvas Styles
+// ============================================================================
+
+.workflow-canvas {
+  position: relative;
+  width: var(--canvas-width);
+  height: var(--canvas-height);
+  min-width: var(--canvas-min-width);
+  min-height: var(--canvas-min-height);
+  background: var(--canvas-background);
+  border: 1px solid var(--canvas-border);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: var(--canvas-z-index);
+  
+  // Ensure proper stacking context
+  isolation: isolate;
+  
+  // ============================================================================
+  // Canvas States
+  // ============================================================================
+  
+  &--readonly {
+    .react-flow__pane {
+      cursor: default;
+    }
+  }
+  
+  &--loading {
+    opacity: 0.7;
+    pointer-events: none;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 32px;
+      height: 32px;
+      border: 3px solid var(--color-border-light, #f1f5f9);
+      border-top: 3px solid var(--color-primary, #3b82f6);
+      border-radius: 50%;
+      animation: canvas-loading 1s linear infinite;
+      z-index: 100;
+    }
+  }
+  
+  &--error {
+    border-color: var(--color-danger, #ef4444);
+    
+    &::before {
+      content: 'Error loading workflow';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 16px 24px;
+      background: var(--color-danger-light, #fef2f2);
+      color: var(--color-danger, #ef4444);
+      border: 1px solid var(--color-danger, #ef4444);
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      z-index: 100;
+    }
+  }
+  
+  // ============================================================================
+  // ReactFlow Container
+  // ============================================================================
+  
+  .react-flow {
+    width: 100%;
+    height: 100%;
+    
+    &__renderer {
+      background: var(--canvas-background);
+    }
+    
+    &__pane {
+      cursor: grab;
+      
+      &.react-flow__pane.dragging {
+        cursor: grabbing;
+      }
+    }
+    
+    &__viewport {
+      transform-origin: 0 0;
+    }
+  }
+  
+  // ============================================================================
+  // Grid Background
+  // ============================================================================
+  
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    
+    &--dots {
+      background-image: radial-gradient(
+        circle,
+        var(--canvas-grid-color) 1px,
+        transparent 1px
+      );
+      background-size: var(--canvas-grid-size) var(--canvas-grid-size);
+      opacity: 0.3;
+    }
+    
+    &--lines {
+      background-image: 
+        linear-gradient(var(--canvas-grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--canvas-grid-color) 1px, transparent 1px);
+      background-size: var(--canvas-grid-size) var(--canvas-grid-size);
+      opacity: 0.2;
+    }
+    
+    &--cross {
+      background-image: 
+        linear-gradient(var(--canvas-grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--canvas-grid-color) 1px, transparent 1px);
+      background-size: var(--canvas-grid-size) var(--canvas-grid-size);
+      opacity: 0.15;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+          linear-gradient(45deg, transparent 48%, var(--canvas-grid-color) 49%, var(--canvas-grid-color) 51%, transparent 52%),
+          linear-gradient(-45deg, transparent 48%, var(--canvas-grid-color) 49%, var(--canvas-grid-color) 51%, transparent 52%);
+        background-size: calc(var(--canvas-grid-size) * 2) calc(var(--canvas-grid-size) * 2);
+        opacity: 0.1;
+      }
+    }
+  }
+  
+  // ============================================================================
+  // Canvas Controls
+  // ============================================================================
+  
+  &__controls {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    z-index: 10;
+    
+    .react-flow__controls {
+      background: var(--color-background-base, #ffffff);
+      border: 1px solid var(--color-border-base, #e2e8f0);
+      border-radius: 8px;
+      box-shadow: var(--ds-shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+      
+      button {
+        width: 32px;
+        height: 32px;
+        background: transparent;
+        border: none;
+        color: var(--color-text-base, #1a202c);
+        transition: var(--workflow-transition-fast);
+        
+        &:hover {
+          background: var(--color-background-light, #f8f9fa);
+        }
+        
+        &:first-child {
+          border-radius: 7px 7px 0 0;
+        }
+        
+        &:last-child {
+          border-radius: 0 0 7px 7px;
+        }
+        
+        &:only-child {
+          border-radius: 7px;
+        }
+        
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
+  
+  // ============================================================================
+  // Canvas Minimap
+  // ============================================================================
+  
+  &__minimap {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    z-index: 10;
+    
+    .react-flow__minimap {
+      width: 200px;
+      height: 150px;
+      background: var(--color-background-base, #ffffff);
+      border: 1px solid var(--color-border-base, #e2e8f0);
+      border-radius: 8px;
+      box-shadow: var(--ds-shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+      
+      .react-flow__minimap-mask {
+        fill: rgba(59, 130, 246, 0.1);
+        stroke: var(--color-primary, #3b82f6);
+        stroke-width: 2;
+      }
+      
+      .react-flow__minimap-node {
+        fill: var(--color-node-background, #ffffff);
+        stroke: var(--color-border-base, #e2e8f0);
+        stroke-width: 1;
+        
+        &.selected {
+          fill: var(--color-primary, #3b82f6);
+        }
+      }
+    }
+  }
+  
+  // ============================================================================
+  // Canvas Overlay
+  // ============================================================================
+  
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    
+    &--selection {
+      pointer-events: all;
+      
+      .selection-box {
+        position: absolute;
+        border: 2px solid var(--color-primary, #3b82f6);
+        background: rgba(59, 130, 246, 0.1);
+        border-radius: 4px;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+// ============================================================================
+// Animations
+// ============================================================================
+
+@keyframes canvas-loading {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+// ============================================================================
+// Responsive Design
+// ============================================================================
+
+@media (max-width: 1024px) {
+  .workflow-canvas {
+    --canvas-min-width: 600px;
+    --canvas-min-height: 400px;
+    
+    &__minimap {
+      .react-flow__minimap {
+        width: 150px;
+        height: 100px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .workflow-canvas {
+    --canvas-min-width: 400px;
+    --canvas-min-height: 300px;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    
+    &__controls {
+      bottom: 12px;
+      left: 12px;
+    }
+    
+    &__minimap {
+      display: none;
+    }
+  }
+}
+
+// ============================================================================
+// Dark Theme Support
+// ============================================================================
+
+[data-theme="dark"] .workflow-canvas {
+  --canvas-background: var(--workflow-canvas-background, #111827);
+  --canvas-grid-color: var(--workflow-canvas-grid, #374151);
+  --canvas-border: var(--color-border-base-dark, #374151);
+}
+
+// ============================================================================
+// High Contrast Mode
+// ============================================================================
+
+@media (prefers-contrast: high) {
+  .workflow-canvas {
+    --canvas-border: #000;
+    --canvas-grid-color: #000;
+    
+    &__background--dots,
+    &__background--lines,
+    &__background--cross {
+      opacity: 0.5;
+    }
+  }
+}
+
+// ============================================================================
+// Reduced Motion
+// ============================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .workflow-canvas {
+    &--loading::after {
+      animation: none;
+      border: 3px solid var(--color-primary, #3b82f6);
+      border-radius: 0;
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+// ============================================================================
+// WorkflowCanvas - Canvas Component Styles
+// n8n-inspired design with ReactFlow integration
+// ============================================================================
+
+// ============================================================================
+// Main Canvas Container
+// ============================================================================
+
+.workflow-canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--color-canvas-background, hsl(0, 0%, 98%));
+  border-radius: var(--ds-border-radius-md, 8px);
+  overflow: hidden;
+  
+  // Focus handling for keyboard navigation
+  &:focus {
+    outline: 2px solid var(--ds-color-primary, #3b82f6);
+    outline-offset: -2px;
+  }
+
+  // Canvas states
+  &--readonly {
+    .react-flow__node {
+      cursor: default !important;
+    }
+    
+    .react-flow__handle {
+      cursor: default !important;
+      pointer-events: none;
+    }
+  }
+
+  &--connecting {
+    .react-flow__node {
+      .react-flow__handle {
+        opacity: 0.8;
+        transform: scale(1.1);
+        box-shadow: 0 0 0 2px var(--ds-color-primary, #3b82f6);
+      }
+    }
+  }
+
+  &--dragging {
+    cursor: grabbing !important;
+    
+    .react-flow__node {
+      cursor: grabbing !important;
+    }
+  }
+}
+
+// ============================================================================
+// ReactFlow Core Overrides - Enhanced for Step 4.2
+// ============================================================================
+
+.workflow-canvas .react-flow {
+  &__viewport {
+    cursor: grab;
+  }
+
+  &__pane {
+    cursor: grab;
+    
+    &.react-flow__pane--dragging {
+      cursor: grabbing;
+    }
+  }
+
+  // Enhanced background styling
+  &__background {
+    background-color: var(--color-canvas-background, hsl(0, 0%, 98%));
+  }
+
+  // Enhanced node styling with selection indicators
+  &__node {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      z-index: 1000;
+    }
+
+    &.selected {
+      z-index: 1001;
+      
+      .workflow-node {
+        box-shadow: 0 0 0 4px var(--color-primary-transparent, rgba(59, 130, 246, 0.2));
+        border-color: var(--color-primary, #3b82f6);
+      }
+    }
+
+    &-default {
+      background: transparent;
+      border: none;
+      padding: 0;
+    }
+  }
+
+  // Enhanced edge styling with improved visual hierarchy
+  &__edge {
+    &-path {
+      stroke: var(--color-connection-default, #6b7280);
+      stroke-width: 2px;
+      fill: none;
+      transition: all var(--ds-animation-duration-normal, 200ms) ease;
+    }
+
+    &:hover &-path {
+      stroke: var(--color-primary, #3b82f6);
+      stroke-width: 3px;
+    }
+
+    &.selected &-path {
+      stroke: var(--color-primary, #3b82f6);
+      stroke-width: 3px;
+    }
+
+    &.animated &-path {
+      stroke-dasharray: 5;
+      animation: dashdraw 0.5s linear infinite;
+    }
+  }
+
+  // Enhanced handle styling with improved interaction states
+  &__handle {
+    width: 8px;
+    height: 8px;
+    background: var(--color-background-base, #ffffff);
+    border: 2px solid var(--color-connection-handle, #64748b);
+    border-radius: 50%;
+    transition: all var(--ds-animation-duration-fast, 150ms) ease;
+    
+    &:hover {
+      background: var(--color-primary, #3b82f6);
+      border-color: var(--color-primary, #3b82f6);
+      transform: scale(1.2);
+    }
+
+    &.react-flow__handle-top {
+      top: -4px;
+    }
+
+    &.react-flow__handle-bottom {
+      bottom: -4px;
+    }
+
+    &.react-flow__handle-left {
+      left: -4px;
+    }
+
+    &.react-flow__handle-right {
+      right: -4px;
+    }
+
+    // Enhanced interaction states
+    &.connectable {
+      cursor: crosshair;
+      
+      &:hover {
+        background: var(--color-primary, #3b82f6);
+        border-color: var(--color-primary, #3b82f6);
+        transform: scale(1.3);
+        box-shadow: 0 0 0 4px var(--color-primary-transparent, rgba(59, 130, 246, 0.2));
+      }
+    }
+
+    &.connecting {
+      background: var(--color-primary, #3b82f6);
+      border-color: var(--color-primary, #3b82f6);
+      transform: scale(1.3);
+      box-shadow: 0 0 0 4px var(--color-primary-transparent, rgba(59, 130, 246, 0.2));
+      animation: pulse 1s ease-in-out infinite;
+    }
+  }
+
+  // Enhanced selection box
+  &__selection {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid var(--ds-color-primary, #3b82f6);
+    border-radius: 4px;
+  }
+
+  // Enhanced controls styling
+  &__controls {
+    button {
+      background: var(--ds-color-background-base, #ffffff);
+      border: 1px solid var(--ds-color-border-base, #e2e8f0);
+      border-radius: var(--ds-border-radius-sm, 4px);
+      color: var(--ds-color-text-primary, #0f172a);
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--ds-animation-duration-fast, 150ms) ease;
+      margin-bottom: var(--ds-spacing-xs, 4px);
+      
+      &:hover {
+        background: var(--ds-color-background-hover, #f8fafc);
+        border-color: var(--ds-color-border-hover, #cbd5e1);
+        transform: translateY(-1px);
+        box-shadow: var(--ds-shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+      }
+
+      &:active {
+        transform: translateY(0);
+        box-shadow: none;
+      }
+
+      svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+      }
+    }
+  }
+
+  // Enhanced MiniMap styling
+  &__minimap {
+    background: var(--ds-color-background-base, #ffffff);
+    border: 1px solid var(--ds-color-border-base, #e2e8f0);
+    border-radius: var(--ds-border-radius-md, 8px);
+    overflow: hidden;
+    box-shadow: var(--ds-shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+    
+    &-mask {
+      fill: rgba(0, 0, 0, 0.1);
+    }
+
+    &-node {
+      fill: var(--ds-color-background-secondary, #f1f5f9);
+      stroke: var(--ds-color-border-base, #e2e8f0);
+      stroke-width: 1;
+      
+      &.selected {
+        fill: var(--color-primary, #3b82f6);
+      }
+    }
+  }
+}
+
+// ============================================================================
+// Status Bar - Enhanced
+// ============================================================================
+
+.workflow-canvas__status {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: var(--ds-color-background-base, #ffffff);
+  border-top: 1px solid var(--ds-color-border-base, #e2e8f0);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--ds-spacing-lg, 16px);
+  font-size: var(--ds-font-size-sm, 14px);
+  color: var(--ds-color-text-secondary, #64748b);
+  z-index: 10;
+  backdrop-filter: blur(8px);
+}
+
+.canvas-status {
+  display: flex;
+  gap: var(--ds-spacing-lg, 16px);
+
+  &__item {
+    display: flex;
+    gap: var(--ds-spacing-xs, 4px);
+    
+    &--readonly {
+      color: var(--ds-color-warning, #f59e0b);
+      font-weight: 500;
+    }
+  }
+
+  &__label {
+    font-weight: 500;
+  }
+
+  &__value {
+    color: var(--ds-color-text-primary, #0f172a);
+    font-weight: 600;
+  }
+}
+
+// ============================================================================
+// Layout System Enhancements
+// ============================================================================
+
+// Grid layout mode
+.workflow-canvas--grid-layout {
+  .react-flow__node {
+    &:not(.selected) {
+      opacity: 0.8;
+    }
+  }
+}
+
+// Auto layout mode
+.workflow-canvas--auto-layout {
+  .react-flow__edge-path {
+    stroke-dasharray: 3 3;
+    animation: dashMove 2s linear infinite;
+  }
+}
+
+// Connection states
+.workflow-canvas--connecting {
+  .react-flow__handle {
+    &.connectable {
+      animation: pulse 1s ease-in-out infinite;
+    }
+  }
+}
+
+// ============================================================================
+// Accessibility
+// ============================================================================
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Focus indicators for keyboard navigation
+.workflow-canvas:focus-within {
+  .react-flow__node {
+    &:focus {
+      outline: 2px solid var(--color-primary, #3b82f6);
+      outline-offset: 2px;
+    }
+  }
+}
+
+// ============================================================================
+// Animations - Enhanced
+// ============================================================================
+
+@keyframes dashdraw {
+  to {
+    stroke-dashoffset: -10;
+  }
+}
+
+@keyframes dashMove {
+  to {
+    stroke-dashoffset: -6;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes nodeSelect {
+  0% {
+    box-shadow: 0 0 0 0 var(--color-primary-transparent, rgba(59, 130, 246, 0.4));
+  }
+  70% {
+    box-shadow: 0 0 0 10px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+// ============================================================================
+// Dark Mode Support - Enhanced
+// ============================================================================
+
+@media (prefers-color-scheme: dark) {
+  .workflow-canvas {
+    background: var(--ds-color-canvas-background-dark, hsl(0, 0%, 8%));
+
+    .react-flow {
+      &__background {
+        background-color: var(--ds-color-canvas-background-dark, hsl(0, 0%, 8%));
+      }
+
+      &__edge-path {
+        stroke: var(--ds-color-border-base-dark, #334155);
+      }
+
+      &__handle {
+        background: var(--ds-color-background-base-dark, #1e293b);
+        border-color: var(--ds-color-border-base-dark, #334155);
+      }
+
+      &__controls button {
+        background: var(--ds-color-background-base-dark, #1e293b);
+        border-color: var(--ds-color-border-base-dark, #334155);
+        color: var(--ds-color-text-primary-dark, #f8fafc);
+
+        &:hover {
+          background: var(--ds-color-background-hover-dark, #334155);
+          border-color: var(--ds-color-border-hover-dark, #475569);
+        }
+      }
+
+      &__minimap {
+        background: var(--ds-color-background-base-dark, #1e293b);
+        border-color: var(--ds-color-border-base-dark, #334155);
+      }
+    }
+
+    .workflow-canvas__status {
+      background: var(--ds-color-background-base-dark, #1e293b);
+      border-color: var(--ds-color-border-base-dark, #334155);
+      color: var(--ds-color-text-secondary-dark, #94a3b8);
+    }
+
+    .canvas-status__value {
+      color: var(--ds-color-text-primary-dark, #f8fafc);
+    }
+  }
+}
+
+// ============================================================================
+// High Contrast Mode
+// ============================================================================
+
+@media (prefers-contrast: high) {
+  .workflow-canvas {
+    .react-flow {
+      &__edge-path {
+        stroke-width: 3px;
+      }
+
+      &__handle {
+        border-width: 3px;
+      }
+
+      &__controls button {
+        border-width: 2px;
+      }
+
+      &__node.selected .workflow-node {
+        box-shadow: 0 0 0 6px var(--color-primary, #3b82f6);
+      }
+    }
+  }
+}
+
+// ============================================================================
+// Reduced Motion
+// ============================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .workflow-canvas {
+    .react-flow__edge.animated .react-flow__edge-path {
+      animation: none;
+    }
+
+    .react-flow__handle,
+    .react-flow__controls button,
+    .react-flow__node {
+      transition: none;
+    }
+
+    .workflow-canvas--auto-layout .react-flow__edge-path {
+      animation: none;
+    }
+  }
+}
+
+// ============================================================================
+// Responsive Design - Enhanced
+// ============================================================================
+
+@media (max-width: 768px) {
+  .workflow-canvas {
+    .react-flow__controls {
+      bottom: 60px; // Make room for status bar
+    }
+
+    .workflow-canvas__status {
+      height: 48px;
+      padding: 0 var(--ds-spacing-md, 12px);
+    }
+
+    .canvas-status {
+      gap: var(--ds-spacing-md, 12px);
+      font-size: var(--ds-font-size-xs, 12px);
+    }
+
+    .react-flow__handle {
+      width: 10px;
+      height: 10px;
+      border-width: 2px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .workflow-canvas {
+    .react-flow__minimap {
+      display: none; // Hide minimap on very small screens
+    }
+
+    .canvas-status {
+      gap: var(--ds-spacing-sm, 8px);
+      
+      &__item {
+        flex-direction: column;
+        gap: 0;
+        text-align: center;
+      }
+    }
+
+    .react-flow__handle {
+      width: 12px;
+      height: 12px;
+      border-width: 3px;
+    }
+  }
+} 

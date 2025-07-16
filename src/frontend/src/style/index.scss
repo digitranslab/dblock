@@ -1,3 +1,10 @@
+/* Import Design System CSS Variables and Utilities */
+@import '../design-system/design-tokens.css';
+
+/* Import Workflow Styles */
+@import '../components/workflow/styles/index.scss';
+
+/* Base Tailwind CSS imports */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -1,0 +1,429 @@
+// NodeToolbar.scss - Node Toolbar Styling System
+// Provides styling for the contextual node toolbar with n8n-style design
+
+// ============================================================================
+// CSS Custom Properties
+// ============================================================================
+
+.node-toolbar {
+  // Dimensions
+  --toolbar-height: 36px;
+  --toolbar-padding: 4px;
+  --toolbar-gap: 4px;
+  --toolbar-border-radius: 6px;
+  --toolbar-offset: -44px;
+  
+  // Button dimensions
+  --button-size: 28px;
+  --button-border-radius: 4px;
+  --button-icon-size: 16px;
+  
+  // Colors
+  --toolbar-background: var(--color-background-base, #ffffff);
+  --toolbar-border: var(--color-border-base, #e2e8f0);
+  --toolbar-shadow: var(--ds-shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+  
+  // Button colors
+  --button-text: var(--color-text-base, #1a202c);
+  --button-background-hover: var(--color-background-light, #f8f9fa);
+  --button-danger: var(--color-danger, #ef4444);
+  --button-danger-background: rgba(239, 68, 68, 0.1);
+  --button-success: var(--color-success, #10b981);
+  --button-success-background: rgba(16, 185, 129, 0.1);
+  --button-primary: var(--color-primary, #3b82f6);
+  --button-primary-background: rgba(59, 130, 246, 0.1);
+  
+  // Transitions
+  --toolbar-transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1);
+  --button-transition: all 150ms cubic-bezier(0.19, 1, 0.22, 1);
+  
+  // Z-index
+  --toolbar-z-index: 10;
+}
+
+// ============================================================================
+// Base Toolbar Styles
+// ============================================================================
+
+.node-toolbar {
+  position: absolute;
+  top: var(--toolbar-offset);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--toolbar-gap);
+  height: var(--toolbar-height);
+  padding: var(--toolbar-padding);
+  
+  // Background and Border
+  background: var(--toolbar-background);
+  border: 1px solid var(--toolbar-border);
+  border-radius: var(--toolbar-border-radius);
+  box-shadow: var(--toolbar-shadow);
+  
+  // Visibility and Animation
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--toolbar-transition);
+  z-index: var(--toolbar-z-index);
+  
+  // Prevent text selection
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  
+  // ============================================================================
+  // Visibility States
+  // ============================================================================
+  
+  &--visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  // Show on node hover or selection
+  .workflow-node:hover &,
+  .workflow-node--selected & {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  // Hide when node is disabled
+  .workflow-node--disabled & {
+    display: none;
+  }
+  
+  // ============================================================================
+  // Toolbar Arrow (Optional)
+  // ============================================================================
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--toolbar-background);
+    z-index: 2;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid var(--toolbar-border);
+    z-index: 1;
+  }
+  
+  // ============================================================================
+  // Toolbar Buttons
+  // ============================================================================
+  
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--button-size);
+    height: var(--button-size);
+    border: none;
+    background: transparent;
+    border-radius: var(--button-border-radius);
+    cursor: pointer;
+    color: var(--button-text);
+    transition: var(--button-transition);
+    position: relative;
+    
+    // Icon styling
+    svg {
+      width: var(--button-icon-size);
+      height: var(--button-icon-size);
+      stroke-width: 1.5;
+    }
+    
+    // Base hover state
+    &:hover {
+      background: var(--button-background-hover);
+      transform: scale(1.05);
+    }
+    
+    &:active {
+      transform: scale(0.95);
+    }
+    
+    // Focus state
+    &:focus-visible {
+      outline: 2px solid var(--color-primary, #3b82f6);
+      outline-offset: 2px;
+    }
+    
+    // Disabled state
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      
+      &:hover {
+        background: transparent;
+        transform: none;
+      }
+    }
+    
+    // ============================================================================
+    // Button Variants
+    // ============================================================================
+    
+    // Configure button
+    &--configure {
+      color: var(--button-primary);
+      
+      &:hover {
+        background: var(--button-primary-background);
+      }
+    }
+    
+    // Run button
+    &--run {
+      color: var(--button-success);
+      
+      &:hover {
+        background: var(--button-success-background);
+      }
+    }
+    
+    // Stop button
+    &--stop {
+      color: var(--button-danger);
+      
+      &:hover {
+        background: var(--button-danger-background);
+      }
+    }
+    
+    // Duplicate button
+    &--duplicate {
+      color: var(--button-text);
+      
+      &:hover {
+        background: var(--button-background-hover);
+      }
+    }
+    
+    // Delete button
+    &--delete,
+    &--danger {
+      color: var(--button-danger);
+      
+      &:hover {
+        background: var(--button-danger-background);
+      }
+    }
+    
+    // ============================================================================
+    // Button States
+    // ============================================================================
+    
+    // Running state indicator
+    &--running {
+      &::after {
+        content: '';
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        width: 4px;
+        height: 4px;
+        background: var(--button-success);
+        border-radius: 50%;
+        animation: pulse-dot 2s infinite;
+      }
+    }
+    
+    // Loading state
+    &--loading {
+      pointer-events: none;
+      
+      svg {
+        animation: spin 1s linear infinite;
+      }
+    }
+  }
+  
+  // ============================================================================
+  // Toolbar Sections
+  // ============================================================================
+  
+  &__section {
+    display: flex;
+    align-items: center;
+    gap: var(--toolbar-gap);
+    
+    &:not(:last-child) {
+      padding-right: var(--toolbar-gap);
+      border-right: 1px solid var(--color-border-light, #f1f5f9);
+      margin-right: var(--toolbar-gap);
+    }
+  }
+  
+  // ============================================================================
+  // Tooltips
+  // ============================================================================
+  
+  &__button {
+    &[title] {
+      position: relative;
+      
+      &::before {
+        content: attr(title);
+        position: absolute;
+        bottom: calc(100% + 8px);
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 4px 8px;
+        background: var(--color-background-dark, #1f2937);
+        color: var(--color-text-inverse, #ffffff);
+        font-size: 11px;
+        font-weight: 500;
+        white-space: nowrap;
+        border-radius: 4px;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--button-transition);
+        z-index: 20;
+        pointer-events: none;
+      }
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: calc(100% + 2px);
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid var(--color-background-dark, #1f2937);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--button-transition);
+        z-index: 20;
+        pointer-events: none;
+      }
+      
+      &:hover::before,
+      &:hover::after {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+
+// ============================================================================
+// Animations
+// ============================================================================
+
+@keyframes pulse-dot {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// ============================================================================
+// Responsive Design
+// ============================================================================
+
+@media (max-width: 768px) {
+  .node-toolbar {
+    --button-size: 24px;
+    --button-icon-size: 14px;
+    --toolbar-gap: 2px;
+    --toolbar-padding: 2px;
+  }
+}
+
+// ============================================================================
+// Dark Theme Support
+// ============================================================================
+
+[data-theme="dark"] .node-toolbar {
+  --toolbar-background: var(--color-background-base-dark, #1f2937);
+  --toolbar-border: var(--color-border-base-dark, #374151);
+  --button-text: var(--color-text-base-dark, #f9fafb);
+  --button-background-hover: var(--color-background-light-dark, #374151);
+}
+
+// ============================================================================
+// High Contrast Mode
+// ============================================================================
+
+@media (prefers-contrast: high) {
+  .node-toolbar {
+    border-width: 2px;
+    
+    &__button {
+      border: 1px solid transparent;
+      
+      &:hover {
+        border-color: currentColor;
+      }
+      
+      &:focus-visible {
+        outline-width: 3px;
+      }
+    }
+  }
+}
+
+// ============================================================================
+// Reduced Motion
+// ============================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .node-toolbar {
+    --toolbar-transition: none;
+    --button-transition: none;
+    
+    &__button {
+      &:hover {
+        transform: none;
+      }
+      
+      &:active {
+        transform: none;
+      }
+      
+      &--loading svg {
+        animation: none;
+      }
+      
+      &--running::after {
+        animation: none;
+      }
+    }
+  }
+} 

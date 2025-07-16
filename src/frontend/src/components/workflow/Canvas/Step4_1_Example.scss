@@ -1,0 +1,504 @@
+// ============================================================================
+// Step 4.1 Example - Demo Component Styles
+// Comprehensive styling for WorkflowCanvas demonstration
+// ============================================================================
+
+// ============================================================================
+// Main Container
+// ============================================================================
+
+.step4-1-example {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--ds-color-background-base, #ffffff);
+  color: var(--ds-color-text-primary, #0f172a);
+  font-family: var(--ds-font-family-base, system-ui, sans-serif);
+}
+
+// ============================================================================
+// Header Section
+// ============================================================================
+
+.example-header {
+  padding: var(--ds-spacing-xl, 24px);
+  border-bottom: 1px solid var(--ds-color-border-base, #e2e8f0);
+  background: var(--ds-color-background-secondary, #f8fafc);
+
+  h2 {
+    margin: 0 0 var(--ds-spacing-sm, 8px) 0;
+    font-size: var(--ds-font-size-xl, 24px);
+    font-weight: 600;
+    color: var(--ds-color-text-primary, #0f172a);
+  }
+
+  p {
+    margin: 0;
+    font-size: var(--ds-font-size-md, 16px);
+    color: var(--ds-color-text-secondary, #64748b);
+  }
+}
+
+// ============================================================================
+// Controls Section
+// ============================================================================
+
+.example-controls {
+  display: flex;
+  gap: var(--ds-spacing-xl, 24px);
+  padding: var(--ds-spacing-lg, 16px) var(--ds-spacing-xl, 24px);
+  border-bottom: 1px solid var(--ds-color-border-base, #e2e8f0);
+  background: var(--ds-color-background-base, #ffffff);
+  flex-wrap: wrap;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-spacing-md, 12px);
+
+  h3 {
+    margin: 0;
+    font-size: var(--ds-font-size-sm, 14px);
+    font-weight: 600;
+    color: var(--ds-color-text-secondary, #64748b);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .btn {
+    padding: var(--ds-spacing-sm, 8px) var(--ds-spacing-md, 12px);
+    border: 1px solid var(--ds-color-border-base, #e2e8f0);
+    border-radius: var(--ds-border-radius-sm, 4px);
+    font-size: var(--ds-font-size-sm, 14px);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--ds-animation-duration-fast, 150ms) ease;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--ds-shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    &--primary {
+      background: var(--ds-color-primary, #3b82f6);
+      border-color: var(--ds-color-primary, #3b82f6);
+      color: white;
+
+      &:hover {
+        background: var(--ds-color-primary-hover, #2563eb);
+        border-color: var(--ds-color-primary-hover, #2563eb);
+      }
+    }
+
+    &--secondary {
+      background: var(--ds-color-background-base, #ffffff);
+      border-color: var(--ds-color-border-base, #e2e8f0);
+      color: var(--ds-color-text-primary, #0f172a);
+
+      &:hover {
+        background: var(--ds-color-background-hover, #f8fafc);
+        border-color: var(--ds-color-border-hover, #cbd5e1);
+      }
+    }
+
+    &--warning {
+      background: var(--ds-color-warning, #f59e0b);
+      border-color: var(--ds-color-warning, #f59e0b);
+      color: white;
+
+      &:hover {
+        background: var(--ds-color-warning-hover, #d97706);
+        border-color: var(--ds-color-warning-hover, #d97706);
+      }
+    }
+
+    &--success {
+      background: var(--ds-color-success, #10b981);
+      border-color: var(--ds-color-success, #10b981);
+      color: white;
+
+      &:hover {
+        background: var(--ds-color-success-hover, #059669);
+        border-color: var(--ds-color-success-hover, #059669);
+      }
+    }
+
+    &--danger {
+      background: var(--ds-color-danger, #ef4444);
+      border-color: var(--ds-color-danger, #ef4444);
+      color: white;
+
+      &:hover {
+        background: var(--ds-color-danger-hover, #dc2626);
+        border-color: var(--ds-color-danger-hover, #dc2626);
+      }
+    }
+
+    &--neutral {
+      background: var(--ds-color-background-secondary, #f1f5f9);
+      border-color: var(--ds-color-border-base, #e2e8f0);
+      color: var(--ds-color-text-primary, #0f172a);
+
+      &:hover {
+        background: var(--ds-color-background-hover, #e2e8f0);
+        border-color: var(--ds-color-border-hover, #cbd5e1);
+      }
+    }
+  }
+
+  .toggle {
+    display: flex;
+    align-items: center;
+    gap: var(--ds-spacing-sm, 8px);
+    font-size: var(--ds-font-size-sm, 14px);
+    cursor: pointer;
+
+    input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--ds-color-primary, #3b82f6);
+    }
+  }
+}
+
+// ============================================================================
+// Main Layout
+// ============================================================================
+
+.example-canvas-container {
+  flex: 1;
+  position: relative;
+  margin: var(--ds-spacing-lg, 16px);
+  border: 1px solid var(--ds-color-border-base, #e2e8f0);
+  border-radius: var(--ds-border-radius-md, 8px);
+  overflow: hidden;
+  background: var(--ds-color-canvas-background, hsl(0, 0%, 98%));
+}
+
+.example-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+// ============================================================================
+// Sidebar
+// ============================================================================
+
+.example-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 320px;
+  height: 100vh;
+  background: var(--ds-color-background-base, #ffffff);
+  border-left: 1px solid var(--ds-color-border-base, #e2e8f0);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 100;
+}
+
+// Stats Panel
+.stats-panel {
+  padding: var(--ds-spacing-lg, 16px);
+  border-bottom: 1px solid var(--ds-color-border-base, #e2e8f0);
+  background: var(--ds-color-background-secondary, #f8fafc);
+
+  h3 {
+    margin: 0 0 var(--ds-spacing-md, 12px) 0;
+    font-size: var(--ds-font-size-md, 16px);
+    font-weight: 600;
+    color: var(--ds-color-text-primary, #0f172a);
+  }
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--ds-spacing-sm, 8px) 0;
+  border-bottom: 1px solid var(--ds-color-border-light, #f1f5f9);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.stat-label {
+  font-size: var(--ds-font-size-sm, 14px);
+  color: var(--ds-color-text-secondary, #64748b);
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: var(--ds-font-size-sm, 14px);
+  color: var(--ds-color-text-primary, #0f172a);
+  font-weight: 600;
+}
+
+// Node Details Panel
+.node-details-panel {
+  padding: var(--ds-spacing-lg, 16px);
+  border-bottom: 1px solid var(--ds-color-border-base, #e2e8f0);
+
+  h3 {
+    margin: 0 0 var(--ds-spacing-md, 12px) 0;
+    font-size: var(--ds-font-size-md, 16px);
+    font-weight: 600;
+    color: var(--ds-color-text-primary, #0f172a);
+  }
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: var(--ds-spacing-sm, 8px) 0;
+  border-bottom: 1px solid var(--ds-color-border-light, #f1f5f9);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.detail-label {
+  font-size: var(--ds-font-size-sm, 14px);
+  color: var(--ds-color-text-secondary, #64748b);
+  font-weight: 500;
+}
+
+.detail-value {
+  font-size: var(--ds-font-size-sm, 14px);
+  color: var(--ds-color-text-primary, #0f172a);
+  font-weight: 500;
+  text-align: right;
+
+  &.status-idle {
+    color: var(--ds-color-text-secondary, #64748b);
+  }
+
+  &.status-running {
+    color: var(--ds-color-warning, #f59e0b);
+  }
+
+  &.status-success {
+    color: var(--ds-color-success, #10b981);
+  }
+
+  &.status-error {
+    color: var(--ds-color-danger, #ef4444);
+  }
+}
+
+// Event Log Panel
+.event-log-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--ds-spacing-lg, 16px);
+  overflow: hidden;
+
+  h3 {
+    margin: 0 0 var(--ds-spacing-md, 12px) 0;
+    font-size: var(--ds-font-size-md, 16px);
+    font-weight: 600;
+    color: var(--ds-color-text-primary, #0f172a);
+  }
+}
+
+.event-log {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-spacing-sm, 8px);
+}
+
+.no-events {
+  padding: var(--ds-spacing-lg, 16px);
+  text-align: center;
+  color: var(--ds-color-text-secondary, #64748b);
+  font-style: italic;
+}
+
+.event-item {
+  padding: var(--ds-spacing-sm, 8px);
+  border: 1px solid var(--ds-color-border-light, #f1f5f9);
+  border-radius: var(--ds-border-radius-sm, 4px);
+  background: var(--ds-color-background-base, #ffffff);
+  font-size: var(--ds-font-size-xs, 12px);
+
+  &--nodeSelect {
+    border-left: 3px solid var(--ds-color-primary, #3b82f6);
+  }
+
+  &--nodeMove {
+    border-left: 3px solid var(--ds-color-success, #10b981);
+  }
+
+  &--connectionCreate {
+    border-left: 3px solid var(--ds-color-warning, #f59e0b);
+  }
+
+  &--connectionDelete {
+    border-left: 3px solid var(--ds-color-danger, #ef4444);
+  }
+}
+
+.event-time {
+  font-weight: 600;
+  color: var(--ds-color-text-secondary, #64748b);
+  margin-bottom: var(--ds-spacing-xs, 4px);
+}
+
+.event-type {
+  font-weight: 500;
+  color: var(--ds-color-text-primary, #0f172a);
+  text-transform: capitalize;
+  margin-bottom: var(--ds-spacing-xs, 4px);
+}
+
+.event-details {
+  color: var(--ds-color-text-secondary, #64748b);
+  line-height: 1.4;
+}
+
+// ============================================================================
+// Instructions Section
+// ============================================================================
+
+.example-instructions {
+  padding: var(--ds-spacing-xl, 24px);
+  border-top: 1px solid var(--ds-color-border-base, #e2e8f0);
+  background: var(--ds-color-background-secondary, #f8fafc);
+
+  h3 {
+    margin: 0 0 var(--ds-spacing-lg, 16px) 0;
+    font-size: var(--ds-font-size-lg, 18px);
+    font-weight: 600;
+    color: var(--ds-color-text-primary, #0f172a);
+  }
+
+  ul {
+    margin: 0;
+    padding-left: var(--ds-spacing-lg, 16px);
+    list-style-type: disc;
+
+    li {
+      margin-bottom: var(--ds-spacing-sm, 8px);
+      font-size: var(--ds-font-size-sm, 14px);
+      line-height: 1.5;
+      color: var(--ds-color-text-secondary, #64748b);
+
+      strong {
+        color: var(--ds-color-text-primary, #0f172a);
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+// ============================================================================
+// Responsive Design
+// ============================================================================
+
+@media (max-width: 1200px) {
+  .example-sidebar {
+    width: 280px;
+  }
+
+  .example-canvas-container {
+    margin-right: 300px; // Account for sidebar
+  }
+}
+
+@media (max-width: 768px) {
+  .step4-1-example {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .example-controls {
+    flex-direction: column;
+    gap: var(--ds-spacing-lg, 16px);
+  }
+
+  .control-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--ds-spacing-sm, 8px);
+
+    .btn {
+      min-width: auto;
+      padding: var(--ds-spacing-xs, 4px) var(--ds-spacing-sm, 8px);
+    }
+  }
+
+  .example-sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-left: none;
+    border-top: 1px solid var(--ds-color-border-base, #e2e8f0);
+    order: 1;
+  }
+
+  .example-canvas-container {
+    margin: var(--ds-spacing-md, 12px);
+    height: 400px;
+    order: 0;
+  }
+
+  .example-instructions {
+    order: 2;
+  }
+
+  .event-log-panel {
+    max-height: 200px;
+  }
+}
+
+// ============================================================================
+// Dark Mode Support
+// ============================================================================
+
+@media (prefers-color-scheme: dark) {
+  .step4-1-example {
+    background: var(--ds-color-background-base-dark, #0f172a);
+    color: var(--ds-color-text-primary-dark, #f8fafc);
+  }
+
+  .example-header,
+  .stats-panel,
+  .example-instructions {
+    background: var(--ds-color-background-secondary-dark, #1e293b);
+    border-color: var(--ds-color-border-base-dark, #334155);
+  }
+
+  .example-controls {
+    background: var(--ds-color-background-base-dark, #0f172a);
+    border-color: var(--ds-color-border-base-dark, #334155);
+  }
+
+  .example-sidebar {
+    background: var(--ds-color-background-base-dark, #0f172a);
+    border-color: var(--ds-color-border-base-dark, #334155);
+  }
+
+  .event-item {
+    background: var(--ds-color-background-secondary-dark, #1e293b);
+    border-color: var(--ds-color-border-base-dark, #334155);
+  }
+} 

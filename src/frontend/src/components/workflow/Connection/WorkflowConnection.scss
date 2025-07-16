@@ -1,0 +1,430 @@
+// WorkflowConnection.scss - Connection Styling System
+// Provides styling for workflow connections and edges
+
+// ============================================================================
+// CSS Custom Properties
+// ============================================================================
+
+.workflow-connection {
+  // Connection styling
+  --connection-width: var(--workflow-connection-width, 2px);
+  --connection-color: var(--workflow-connection-color, #6b7280);
+  --connection-selected: var(--workflow-connection-selected, #3b82f6);
+  --connection-hover: var(--color-primary-light, #93c5fd);
+  --connection-animated: var(--color-primary, #3b82f6);
+  
+  // Connection states
+  --connection-success: var(--color-success, #10b981);
+  --connection-error: var(--color-danger, #ef4444);
+  --connection-warning: var(--color-warning, #f59e0b);
+  
+  // Animation
+  --connection-transition: all 150ms cubic-bezier(0.19, 1, 0.22, 1);
+  --connection-animation-duration: 2s;
+  
+  // Label styling
+  --label-background: var(--color-background-base, #ffffff);
+  --label-border: var(--color-border-base, #e2e8f0);
+  --label-text: var(--color-text-base, #1a202c);
+  --label-shadow: var(--ds-shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+}
+
+// ============================================================================
+// Base Connection Styles
+// ============================================================================
+
+.workflow-connection {
+  stroke: var(--connection-color);
+  stroke-width: var(--connection-width);
+  fill: none;
+  transition: var(--connection-transition);
+  cursor: pointer;
+  
+  // ============================================================================
+  // Connection States
+  // ============================================================================
+  
+  &:hover {
+    stroke: var(--connection-hover);
+    stroke-width: 3px;
+  }
+  
+  &--selected {
+    stroke: var(--connection-selected);
+    stroke-width: 3px;
+    
+    &:hover {
+      stroke: var(--connection-selected);
+    }
+  }
+  
+  &--animated {
+    stroke: var(--connection-animated);
+    stroke-dasharray: 5, 5;
+    animation: connection-flow var(--connection-animation-duration) linear infinite;
+  }
+  
+  &--success {
+    stroke: var(--connection-success);
+    
+    &:hover {
+      stroke: var(--connection-success);
+      filter: brightness(1.1);
+    }
+  }
+  
+  &--error {
+    stroke: var(--connection-error);
+    stroke-dasharray: 4, 4;
+    
+    &:hover {
+      stroke: var(--connection-error);
+      filter: brightness(1.1);
+    }
+  }
+  
+  &--warning {
+    stroke: var(--connection-warning);
+    
+    &:hover {
+      stroke: var(--connection-warning);
+      filter: brightness(1.1);
+    }
+  }
+  
+  &--disabled {
+    stroke: var(--color-border-light, #f1f5f9);
+    stroke-dasharray: 2, 3;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  
+  // ============================================================================
+  // Connection Types
+  // ============================================================================
+  
+  &--straight {
+    // Straight line connections
+  }
+  
+  &--smooth {
+    // Smooth bezier curves (default)
+  }
+  
+  &--step {
+    // Step connections with right angles
+  }
+  
+  &--smoothstep {
+    // Smooth step connections with rounded corners
+  }
+}
+
+// ============================================================================
+// Connection Labels
+// ============================================================================
+
+.workflow-connection__label-container {
+  position: absolute;
+  pointer-events: all;
+  z-index: 5;
+  
+  .workflow-connection__label {
+    display: inline-block;
+    padding: 2px 6px;
+    background: var(--label-background);
+    border: 1px solid var(--label-border);
+    border-radius: 4px;
+    color: var(--label-text);
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    box-shadow: var(--label-shadow);
+    transition: var(--connection-transition);
+    
+    &:hover {
+      background: var(--color-background-light, #f8f9fa);
+      border-color: var(--color-border-hover, #cbd5e0);
+    }
+  }
+  
+  // ============================================================================
+  // Delete Button
+  // ============================================================================
+  
+  .workflow-connection__delete-button {
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 50%;
+    background: var(--color-danger, #ef4444);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    transition: var(--connection-transition);
+    z-index: 10;
+    
+    &:hover {
+      transform: translateX(-50%) scale(1.1);
+      background: var(--color-danger-dark, #dc2626);
+    }
+    
+    &:active {
+      transform: translateX(-50%) scale(0.95);
+    }
+    
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+  
+  // Position delete button when no label
+  &:not(:has(.workflow-connection__label)) .workflow-connection__delete-button {
+    top: 0;
+  }
+}
+
+// ============================================================================
+// Connection Markers
+// ============================================================================
+
+.workflow-connection-marker {
+  &--arrow {
+    fill: var(--connection-color);
+    transition: var(--connection-transition);
+  }
+  
+  &--dot {
+    fill: var(--connection-color);
+    transition: var(--connection-transition);
+  }
+  
+  // Selected state
+  .workflow-connection--selected & {
+    fill: var(--connection-selected);
+  }
+  
+  // Animated state
+  .workflow-connection--animated & {
+    fill: var(--connection-animated);
+  }
+}
+
+// ============================================================================
+// Connection Handles
+// ============================================================================
+
+.workflow-connection-handle {
+  fill: var(--color-connection-handle, #64748b);
+  stroke: var(--color-background-base, #ffffff);
+  stroke-width: 2px;
+  transition: var(--connection-transition);
+  cursor: crosshair;
+  
+  &:hover {
+    fill: var(--color-primary, #3b82f6);
+    transform: scale(1.2);
+  }
+  
+  &--connecting {
+    fill: var(--color-primary, #3b82f6);
+    transform: scale(1.2);
+    animation: handle-pulse 1s ease-in-out infinite;
+  }
+  
+  &--valid {
+    fill: var(--color-success, #10b981);
+  }
+  
+  &--invalid {
+    fill: var(--color-danger, #ef4444);
+  }
+  
+  &--source {
+    cursor: grab;
+    
+    &:active {
+      cursor: grabbing;
+    }
+  }
+  
+  &--target {
+    cursor: crosshair;
+  }
+}
+
+// ============================================================================
+// Animations
+// ============================================================================
+
+@keyframes connection-flow {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 10;
+  }
+}
+
+@keyframes handle-pulse {
+  0%, 100% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.8;
+  }
+}
+
+// ============================================================================
+// ReactFlow Edge Overrides
+// ============================================================================
+
+.react-flow__edge {
+  &.workflow-connection {
+    .react-flow__edge-path {
+      stroke: var(--connection-color);
+      stroke-width: var(--connection-width);
+      transition: var(--connection-transition);
+    }
+    
+    &:hover .react-flow__edge-path {
+      stroke: var(--connection-hover);
+      stroke-width: 3px;
+    }
+    
+    &.selected .react-flow__edge-path {
+      stroke: var(--connection-selected);
+      stroke-width: 3px;
+    }
+    
+    &.animated .react-flow__edge-path {
+      stroke-dasharray: 5, 5;
+      animation: connection-flow var(--connection-animation-duration) linear infinite;
+    }
+  }
+  
+  &-text {
+    font-size: 11px;
+    font-weight: 500;
+    fill: var(--label-text);
+  }
+  
+  &-textbg {
+    fill: var(--label-background);
+    stroke: var(--label-border);
+    stroke-width: 1;
+  }
+}
+
+// ============================================================================
+// Responsive Design
+// ============================================================================
+
+@media (max-width: 768px) {
+  .workflow-connection {
+    --connection-width: 3px;
+    
+    &:hover {
+      stroke-width: 4px;
+    }
+    
+    &--selected {
+      stroke-width: 4px;
+    }
+  }
+  
+  .workflow-connection__label {
+    font-size: 10px;
+    padding: 1px 4px;
+  }
+  
+  .workflow-connection__delete-button {
+    width: 24px;
+    height: 24px;
+    
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
+
+// ============================================================================
+// Dark Theme Support
+// ============================================================================
+
+[data-theme="dark"] .workflow-connection {
+  --connection-color: var(--workflow-connection-color, #9ca3af);
+  --label-background: var(--color-background-base-dark, #1f2937);
+  --label-border: var(--color-border-base-dark, #374151);
+  --label-text: var(--color-text-base-dark, #f9fafb);
+}
+
+// ============================================================================
+// High Contrast Mode
+// ============================================================================
+
+@media (prefers-contrast: high) {
+  .workflow-connection {
+    --connection-width: 3px;
+    
+    &:hover {
+      stroke-width: 4px;
+    }
+    
+    &--selected {
+      stroke-width: 4px;
+    }
+    
+    &--animated {
+      stroke-dasharray: 8, 8;
+    }
+  }
+  
+  .workflow-connection__label {
+    border-width: 2px;
+    font-weight: 600;
+  }
+}
+
+// ============================================================================
+// Reduced Motion
+// ============================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .workflow-connection {
+    --connection-transition: none;
+    --connection-animation-duration: 0s;
+    
+    &--animated {
+      animation: none;
+      stroke-dasharray: none;
+    }
+  }
+  
+  .workflow-connection-handle {
+    &--connecting {
+      animation: none;
+    }
+  }
+  
+  .workflow-connection__delete-button {
+    &:hover {
+      transform: translateX(-50%);
+    }
+    
+    &:active {
+      transform: translateX(-50%);
+    }
+  }
+} 
