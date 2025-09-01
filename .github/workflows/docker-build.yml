@@ -67,7 +67,7 @@ jobs:
 #          exit 1
 #
 #      - name: Check out the code at a specific ref
-#        uses: actions/checkout@v4
+#        uses: actions/checkout@v5
 #        with:
 #          ref: ${{ inputs.ref || inputs.main_version || github.ref }}
 #          persist-credentials: true
@@ -187,7 +187,7 @@ jobs:
 #    needs: [get-version, setup]
     steps:
       - name: Check out the code at a specific ref
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ inputs.ref || inputs.main_version || github.ref }}
           persist-credentials: true
@@ -252,7 +252,7 @@ jobs:
             kozmoai_image: digitranslab/kozmoai:latest
     steps:
       - name: Check out the code at a specific ref
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ inputs.ref || inputs.main_version || github.ref }}
 

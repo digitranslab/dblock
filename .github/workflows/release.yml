@@ -61,7 +61,7 @@ jobs:
       skipped: ${{ steps.check-version.outputs.skipped }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Setup Environment
         uses: ./.github/actions/setup-uv
       - name: Install the project
@@ -125,7 +125,7 @@ jobs:
       version: ${{ steps.check-version.outputs.version }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Setup Environment
         uses: ./.github/actions/setup-uv
       - name: Install the project
