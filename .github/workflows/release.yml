@@ -227,7 +227,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: release-main
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
         with:
           name: dist-main
           path: dist
