@@ -1,12 +1,12 @@
 import { DefaultEdge } from "@/CustomEdges";
 import NoteNode from "@/CustomNodes/NoteNode";
 
-
+import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import CanvasControls, {
   CustomControlButton,
 } from "@/components/core/canvasControlsComponent";
 import FlowToolbar from "@/components/core/flowToolbarComponent";
-
+import { SidebarTrigger } from "@/components/ui/sidebar";
 import {
   COLOR_OPTIONS,
   NOTE_NODE_MIN_HEIGHT,
@@ -42,8 +42,6 @@ import {
 } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 import GenericNode from "../../../../CustomNodes/GenericNode";
-import MinimalNode from "../../../../CustomNodes/MinimalNode";
-import ParameterPanel from "../../../../components/ParameterPanel";
 import {
   INVALID_SELECTION_ERROR_ALERT,
   UPLOAD_ALERT_LIST,
@@ -73,8 +71,7 @@ import getRandomName from "./utils/get-random-name";
 import isWrappedWithClass from "./utils/is-wrapped-with-class";
 
 const nodeTypes = {
-  genericNode: MinimalNode,
-  minimalNode: MinimalNode,
+  genericNode: GenericNode,
   noteNode: NoteNode,
 };
 
@@ -97,9 +94,9 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
   const setReactFlowInstance = useFlowStore(
     (state) => state.setReactFlowInstance,
   );
-  const nodes = useFlowStore((state) => state.nodes || []);
-  const edges = useFlowStore((state) => state.edges || []);
-  const isEmptyFlow = useRef((nodes || []).length === 0);
+  const nodes = useFlowStore((state) => state.nodes);
+  const edges = useFlowStore((state) => state.edges);
+  const isEmptyFlow = useRef(nodes.length === 0);
   const onNodesChange = useFlowStore((state) => state.onNodesChange);
   const onEdgesChange = useFlowStore((state) => state.onEdgesChange);
   const setNodes = useFlowStore((state) => state.setNodes);
@@ -122,12 +119,6 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
   const [selectionMenuVisible, setSelectionMenuVisible] = useState(false);
   const edgeUpdateSuccessful = useRef(true);
 
-  // Parameter panel state
-  const selectedNodeId = useFlowStore((state) => state.selectedNodeId);
-  const parameterPanelOpen = useFlowStore((state) => state.parameterPanelOpen);
-  const setSelectedNodeId = useFlowStore((state) => state.setSelectedNodeId);
-  const setParameterPanelOpen = useFlowStore((state) => state.setParameterPanelOpen);
-
   const position = useRef({ x: 0, y: 0 });
   const [lastSelection, setLastSelection] =
     useState<OnSelectionChangeParams | null>(null);
@@ -136,20 +127,6 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
   const [isAddingNote, setIsAddingNote] = useState(false);
 
   const addComponent = useAddComponent();
-
-  // Handle node click for parameter panel
-  const onNodeClick = useCallback((event: MouseEvent, node: AllNodeType) => {
-    if (node.type === "noteNode") return; // Don't open panel for note nodes
-    
-    setSelectedNodeId(node.id);
-    setParameterPanelOpen(true);
-  }, [setSelectedNodeId, setParameterPanelOpen]);
-
-  // Handle parameter panel close
-  const handleParameterPanelClose = useCallback(() => {
-    setParameterPanelOpen(false);
-    setSelectedNodeId(null);
-  }, [setParameterPanelOpen, setSelectedNodeId]);
 
   const zoomLevel = reactFlowInstance?.getZoom();
   const shadowBoxWidth = NOTE_NODE_MIN_WIDTH * (zoomLevel || 1);
@@ -204,8 +181,8 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
   const { isFetching } = useGetBuildsQuery({ flowId: currentFlowId });
 
   const showCanvas =
-    Object.keys(templates || {}).length > 0 &&
-    Object.keys(types || {}).length > 0 &&
+    Object.keys(templates).length > 0 &&
+    Object.keys(types).length > 0 &&
     !isFetching;
 
   useEffect(() => {
@@ -491,8 +468,6 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
   const onPaneClick = useCallback(
     (event: React.MouseEvent) => {
       setFilterEdge([]);
-      handleParameterPanelClose(); // Close parameter panel when clicking on canvas
-      
       if (isAddingNote) {
         const shadowBox = document.getElementById("shadow-box");
         if (shadowBox) {
@@ -526,7 +501,7 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
         setIsAddingNote(false);
       }
     },
-    [isAddingNote, setNodes, reactFlowInstance, getNodeId, setFilterEdge, handleParameterPanelClose],
+    [isAddingNote, setNodes, reactFlowInstance, getNodeId, setFilterEdge],
   );
 
   const handleEdgeClick = (event, edge) => {
@@ -561,7 +536,7 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
   return (
     <div className="h-full w-full bg-canvas" ref={reactFlowWrapper}>
       {showCanvas ? (
-        <div id="react-flow-id" className="h-full w-full workflow-canvas">
+        <div id="react-flow-id" className="h-full w-full bg-canvas">
           <ReactFlow<AllNodeType, EdgeType>
             nodes={nodes}
             edges={edges}
@@ -586,7 +561,6 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
             onNodeDragStop={onNodeDragStop}
             onDrop={onDrop}
             onSelectionChange={onSelectionChange}
-            onNodeClick={onNodeClick}
             deleteKeyCode={[]}
             fitView={isEmptyFlow.current ? false : true}
             className="theme-attribution"
@@ -600,12 +574,7 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
             onPaneClick={onPaneClick}
             onEdgeClick={handleEdgeClick}
           >
-            <Background 
-              size={0} 
-              gap={0} 
-              className="" 
-              color="transparent" 
-            />
+            <Background size={2} gap={20} className="" />
             {!view && (
               <>
                 <CanvasControls>
@@ -628,7 +597,21 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
                 <FlowToolbar />
               </>
             )}
-            {/* Removed SidebarTrigger since we're using fixed sidebar layout */}
+            <Panel
+              className={cn(
+                "react-flow__controls !m-2 flex gap-1.5 rounded-md border border-secondary-hover bg-background fill-foreground stroke-foreground p-1.5 text-primary shadow transition-all duration-300 [&>button]:border-0 [&>button]:bg-background hover:[&>button]:bg-accent",
+                "pointer-events-auto opacity-100 group-data-[open=true]/sidebar-wrapper:pointer-events-none group-data-[open=true]/sidebar-wrapper:-translate-x-full group-data-[open=true]/sidebar-wrapper:opacity-0",
+              )}
+              position="top-left"
+            >
+              <SidebarTrigger className="h-fit w-fit px-3 py-1.5">
+                <ForwardedIconComponent
+                  name="PanelRightClose"
+                  className="h-4 w-4"
+                />
+                <span className="text-foreground">Components</span>
+              </SidebarTrigger>
+            </Panel>
             {componentsToUpdate.length > 0 && <UpdateAllComponents />}
             <SelectionMenu
               lastSelection={lastSelection}
@@ -658,12 +641,6 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
           <CustomLoader remSize={30} />
         </div>
       )}
-      
-      {/* Parameter Panel */}
-      <ParameterPanel 
-        isOpen={parameterPanelOpen} 
-        onClose={handleParameterPanelClose} 
-      />
     </div>
   );
 }

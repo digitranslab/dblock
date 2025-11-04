@@ -251,9 +251,4 @@ export type FlowStoreType = {
   setCurrentBuildingNodeId: (nodeIds: string[] | undefined) => void;
   clearEdgesRunningByNodes: () => Promise<void>;
   updateToolMode: (nodeId: string, toolMode: boolean) => void;
-  // Node selection and parameter panel state
-  selectedNodeId: string | null;
-  setSelectedNodeId: (nodeId: string | null) => void;
-  parameterPanelOpen: boolean;
-  setParameterPanelOpen: (open: boolean) => void;
 };

@@ -1,4 +1,9 @@
-// Removed Sidebar imports since we're using custom layout
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  useSidebar,
+} from "@/components/ui/sidebar";
 import { useAddComponent } from "@/hooks/useAddComponent";
 import { useShortcutsStore } from "@/stores/shortcuts";
 import { useStoreStore } from "@/stores/storeStore";
@@ -10,7 +15,7 @@ import {
 } from "@/utils/styleUtils";
 import Fuse from "fuse.js";
 import { cloneDeep } from "lodash";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 import useAlertStore from "../../../../stores/alertStore";
 import useFlowStore from "../../../../stores/flowStore";
@@ -23,7 +28,9 @@ import NoResultsMessage from "./components/emptySearchComponent";
 import MemoizedSidebarGroup from "./components/sidebarBundles";
 import SidebarMenuButtons from "./components/sidebarFooterButtons";
 import { SidebarHeaderComponent } from "./components/sidebarHeader";
+import { applyBetaFilter } from "./helpers/apply-beta-filter";
 import { applyEdgeFilter } from "./helpers/apply-edge-filter";
+import { applyLegacyFilter } from "./helpers/apply-legacy-filter";
 import { combinedResultsFn } from "./helpers/combined-results";
 import { filteredDataFn } from "./helpers/filtered-data";
 import { normalizeString } from "./helpers/normalize-string";
@@ -32,7 +39,10 @@ import { traditionalSearchMetadata } from "./helpers/traditional-search-metadata
 const CATEGORIES = SIDEBAR_CATEGORIES;
 const BUNDLES = SIDEBAR_BUNDLES;
 
-// Removed interface since no props are needed for the new layout
+interface FlowSidebarComponentProps {
+  showLegacy: boolean;
+  setShowLegacy: (value: boolean) => void;
+}
 
 export function FlowSidebarComponent() {
   const { data, templates } = useTypesStore(
@@ -59,6 +69,7 @@ export function FlowSidebarComponent() {
 
   const hasStore = useStoreStore((state) => state.hasStore);
   const setErrorData = useAlertStore((state) => state.setErrorData);
+  const { setOpen } = useSidebar();
   const addComponent = useAddComponent();
 
   // State
@@ -66,9 +77,9 @@ export function FlowSidebarComponent() {
   const [search, setSearch] = useState("");
   const [fuse, setFuse] = useState<Fuse<any> | null>(null);
   const [openCategories, setOpenCategories] = useState<string[]>([]);
-  // Always show all components regardless of beta/legacy status
-  const showBeta = true;
-  const showLegacy = true;
+  const [showConfig, setShowConfig] = useState(false);
+  const [showBeta, setShowBeta] = useState(true);
+  const [showLegacy, setShowLegacy] = useState(false);
   const [isInputFocused, setIsInputFocused] = useState(false);
 
   const searchInputRef = useRef<HTMLInputElement | null>(null);
@@ -124,11 +135,16 @@ export function FlowSidebarComponent() {
       filteredData = applyEdgeFilter(filteredData, getFilterEdge);
     }
 
-    // Always show all components regardless of beta/legacy status
-    // Removed beta and legacy filters
+    if (!showBeta) {
+      filteredData = applyBetaFilter(filteredData);
+    }
+
+    if (!showLegacy) {
+      filteredData = applyLegacyFilter(filteredData);
+    }
 
     return filteredData;
-  }, [searchFilteredData, getFilterEdge]);
+  }, [searchFilteredData, getFilterEdge, showBeta, showLegacy]);
 
   const hasResults = useMemo(() => {
     return Object.entries(dataFilter).some(
@@ -178,7 +194,11 @@ export function FlowSidebarComponent() {
     [handleSearchInput],
   );
 
-  // Removed setOpen since we're using fixed sidebar layout
+  useEffect(() => {
+    if (filterType) {
+      setOpen(true);
+    }
+  }, [filterType, setOpen]);
 
   useEffect(() => {
     setFilterData(finalFilteredData);
@@ -231,6 +251,7 @@ export function FlowSidebarComponent() {
       if (isWrappedWithClass(e, "noflow")) return;
       e.preventDefault();
       searchInputRef.current?.focus();
+      setOpen(true);
     },
     {
       preventDefault: true,
@@ -278,8 +299,18 @@ export function FlowSidebarComponent() {
   );
 
   return (
-    <div className="h-full flex flex-col noflow" data-testid="shad-sidebar">
+    <Sidebar
+      collapsible="offcanvas"
+      data-testid="shad-sidebar"
+      className="noflow"
+    >
       <SidebarHeaderComponent
+        showConfig={showConfig}
+        setShowConfig={setShowConfig}
+        showBeta={showBeta}
+        setShowBeta={setShowBeta}
+        showLegacy={showLegacy}
+        setShowLegacy={setShowLegacy}
         searchInputRef={searchInputRef}
         isInputFocused={isInputFocused}
         search={search}
@@ -291,7 +322,7 @@ export function FlowSidebarComponent() {
         setFilterData={setFilterData}
         data={data}
       />
-      <div className="flex-1 overflow-y-auto">
+      <SidebarContent>
         {hasResults ? (
           <>
             <CategoryGroup
@@ -325,16 +356,29 @@ export function FlowSidebarComponent() {
         ) : (
           <NoResultsMessage onClearSearch={handleClearSearch} />
         )}
-      </div>
-      <div className="border-t p-4 py-3">
+      </SidebarContent>
+      <SidebarFooter className="border-t p-4 py-3">
         <SidebarMenuButtons
           hasStore={hasStore}
           customComponent={customComponent}
           addComponent={addComponent}
         />
-      </div>
-    </div>
+      </SidebarFooter>
+    </Sidebar>
   );
 }
 
 FlowSidebarComponent.displayName = "FlowSidebarComponent";
+
+export default memo(
+  FlowSidebarComponent,
+  (
+    prevProps: FlowSidebarComponentProps,
+    nextProps: FlowSidebarComponentProps,
+  ) => {
+    return (
+      prevProps.showLegacy === nextProps.showLegacy &&
+      prevProps.setShowLegacy === nextProps.setShowLegacy
+    );
+  },
+);

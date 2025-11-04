@@ -3804,7 +3804,7 @@ wheels = [
 
 [[package]]
 name = "kozmoai"
-version = "1.2.0.dev"
+version = "1.1.9.dev"
 source = { editable = "." }
 dependencies = [
     { name = "ag2" },
@@ -4108,7 +4108,7 @@ dev = [
 
 [[package]]
 name = "kozmoai-base"
-version = "0.1.8.post1"
+version = "0.1.7.post1"
 source = { editable = "src/backend/base" }
 dependencies = [
     { name = "aiofile" },
