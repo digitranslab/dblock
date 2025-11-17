@@ -92,16 +92,26 @@ jobs:
           uv run python -m flowai run --host 127.0.0.1 --port 7860 --backend-only &
           SERVER_PID=$!
           # Wait for the server to start
-          timeout 120 bash -c 'until curl -f http://127.0.0.1:7860/api/v1/auto_login; do sleep 2; done' || (echo "Server did not start in time" && kill $SERVER_PID && exit 1)
-          # Terminate the server
-          kill $SERVER_PID || (echo "Failed to terminate the server" && exit 1)
-          sleep 20 # give the server some time to terminate
-          # Check if the server is still running
+          timeout 120 bash -c 'until curl -f http://127.0.0.1:7860/api/v1/auto_login; do sleep 2; done' || (echo "Server did not start in time" && kill -9 $SERVER_PID 2>/dev/null && exit 1)
+          # Terminate the server gracefully
+          kill $SERVER_PID 2>/dev/null || true
+          # Wait up to 30 seconds for graceful shutdown
+          for i in {1..30}; do
+            if ! kill -0 $SERVER_PID 2>/dev/null; then
+              echo "Server terminated successfully after ${i} seconds"
+              exit 0
+            fi
+            sleep 1
+          done
+          # Force kill if still running
+          echo "Server did not terminate gracefully, forcing shutdown"
+          kill -9 $SERVER_PID 2>/dev/null || true
+          sleep 2
           if kill -0 $SERVER_PID 2>/dev/null; then
-            echo "Failed to terminate the server"
-            exit 0
+            echo "Failed to terminate the server even with SIGKILL"
+            exit 1
           else
-            echo "Server terminated successfully"
+            echo "Server forcefully terminated"
           fi
       - name: Publish to PyPI
         if: steps.check-version.outputs.skipped == 'false'
@@ -166,16 +176,26 @@ jobs:
           uv run python -m flowai run --host 127.0.0.1 --port 7860 --backend-only &
           SERVER_PID=$!
           # Wait for the server to start
-          timeout 120 bash -c 'until curl -f http://127.0.0.1:7860/health_check; do sleep 2; done' || (echo "Server did not start in time" && kill $SERVER_PID && exit 1)
-          # Terminate the server
-          kill $SERVER_PID || (echo "Failed to terminate the server" && exit 1)
-          sleep 20 # give the server some time to terminate
-          # Check if the server is still running
+          timeout 120 bash -c 'until curl -f http://127.0.0.1:7860/health_check; do sleep 2; done' || (echo "Server did not start in time" && kill -9 $SERVER_PID 2>/dev/null && exit 1)
+          # Terminate the server gracefully
+          kill $SERVER_PID 2>/dev/null || true
+          # Wait up to 30 seconds for graceful shutdown
+          for i in {1..30}; do
+            if ! kill -0 $SERVER_PID 2>/dev/null; then
+              echo "Server terminated successfully after ${i} seconds"
+              exit 0
+            fi
+            sleep 1
+          done
+          # Force kill if still running
+          echo "Server did not terminate gracefully, forcing shutdown"
+          kill -9 $SERVER_PID 2>/dev/null || true
+          sleep 2
           if kill -0 $SERVER_PID 2>/dev/null; then
-            echo "Failed to terminate the server"
-            exit 0
+            echo "Failed to terminate the server even with SIGKILL"
+            exit 1
           else
-            echo "Server terminated successfully"
+            echo "Server forcefully terminated"
           fi
       - name: Publish to PyPI
         env:
