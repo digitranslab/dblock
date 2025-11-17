@@ -125,13 +125,13 @@ jobs:
 
       - name: Check Version
         id: check-version
-        # We need to print $3 because kozmoai-base is a dependency of kozmoai
+        # We need to print $3 because flowai-base is a dependency of flowai
         # For langlow we'd use print $2
         run: |
-          version=$(uv tree | grep 'kozmoai-base' | awk '{print $3}' | sed 's/^v//')
-          url="https://pypi.org/pypi/kozmoai-base/json"
+          version=$(uv tree | grep 'flowai-base' | awk '{print $3}' | sed 's/^v//')
+          url="https://pypi.org/pypi/flowai-base/json"
           if [ ${{ inputs.nightly }} == true ]; then
-            url="https://pypi.org/pypi/kozmoai-base-nightly/json"
+            url="https://pypi.org/pypi/flowai-base-nightly/json"
           fi
 
           last_released_version=$(curl -s $url | jq -r '.releases | keys | .[]' | sort -V | tail -n 1)
@@ -157,7 +157,7 @@ jobs:
         if: steps.check-version.outputs.skipped == 'false'
         run: |
           source new-venv/bin/activate
-          python -m kozmoai run --host 127.0.0.1 --port 7860 --backend-only &
+          python -m flowai run --host 127.0.0.1 --port 7860 --backend-only &
           SERVER_PID=$!
           # Wait for the server to start
           timeout 120 bash -c 'until curl -f http://127.0.0.1:7860/api/v1/auto_login; do sleep 5; done' || (echo "Server did not start in time" && kill $SERVER_PID && exit 1)

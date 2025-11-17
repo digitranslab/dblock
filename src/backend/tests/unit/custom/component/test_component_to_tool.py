@@ -1,8 +1,8 @@
 from collections.abc import Callable
 
-from kozmoai.base.agents.agent import DEFAULT_TOOLS_DESCRIPTION
-from kozmoai.components.agents.agent import AgentComponent
-from kozmoai.components.tools.calculator import CalculatorToolComponent
+from flowai.base.agents.agent import DEFAULT_TOOLS_DESCRIPTION
+from flowai.components.agents.agent import AgentComponent
+from flowai.components.tools.calculator import CalculatorToolComponent
 
 
 async def test_component_to_toolkit():

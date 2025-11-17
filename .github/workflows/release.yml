@@ -1,31 +1,31 @@
-name: Kozmoai Release
-run-name: Kozmoai Release by @${{ github.actor }}
+name: Flowai Release
+run-name: Flowai Release by @${{ github.actor }}
 
 on:
   workflow_dispatch:
     inputs:
       release_package_base:
-        description: "Release Kozmoai Base"
+        description: "Release Flowai Base"
         required: true
         type: boolean
         default: true
       release_package_main:
-        description: "Release Kozmoai"
+        description: "Release Flowai"
         required: true
         type: boolean
         default: true
       build_docker_base:
-        description: "Build Docker Image for Kozmoai Base"
+        description: "Build Docker Image for Flowai Base"
         required: true
         type: boolean
         default: true
       build_docker_main:
-        description: "Build Docker Image for Kozmoai"
+        description: "Build Docker Image for Flowai"
         required: true
         type: boolean
         default: true
       build_docker_ep:
-        description: "Build Docker Image for Kozmoai with Entrypoint"
+        description: "Build Docker Image for Flowai with Entrypoint"
         required: false
         type: boolean
         default: true
@@ -52,7 +52,7 @@ jobs:
       release: true
 
   release-base:
-    name: Release Kozmoai Base
+    name: Release Flowai Base
     needs: [ci]
     if: inputs.release_package_base == true
     runs-on: ubuntu-latest
@@ -69,8 +69,8 @@ jobs:
       - name: Check Version
         id: check-version
         run: |
-          version=$(uv tree | grep 'kozmoai-base' | awk '{print $3}' | sed 's/^v//')
-          last_released_version=$(curl -s "https://pypi.org/pypi/kozmoai-base/json" | jq -r '.releases | keys | .[]' | sort -V | tail -n 1)
+          version=$(uv tree | grep 'flowai-base' | awk '{print $3}' | sed 's/^v//')
+          last_released_version=$(curl -s "https://pypi.org/pypi/flowai-base/json" | jq -r '.releases | keys | .[]' | sort -V | tail -n 1)
           if [ "$version" = "$last_released_version" ]; then
             echo "Version $version is already released. Skipping release."
             echo skipped=true >> $GITHUB_OUTPUT
@@ -89,7 +89,7 @@ jobs:
           mkdir src/backend/base/dist
           mv dist/*.whl src/backend/base/dist
           uv pip install src/backend/base/dist/*.whl
-          uv run python -m kozmoai run --host 127.0.0.1 --port 7860 --backend-only &
+          uv run python -m flowai run --host 127.0.0.1 --port 7860 --backend-only &
           SERVER_PID=$!
           # Wait for the server to start
           timeout 120 bash -c 'until curl -f http://127.0.0.1:7860/api/v1/auto_login; do sleep 2; done' || (echo "Server did not start in time" && kill $SERVER_PID && exit 1)
@@ -117,7 +117,7 @@ jobs:
           path: src/backend/base/dist
 
   release-main:
-    name: Release Kozmoai Main
+    name: Release Flowai Main
     if: inputs.release_package_main == true
     needs: [release-base]
     runs-on: ubuntu-latest
@@ -136,7 +136,7 @@ jobs:
       - name: Check if pre-release
         if: inputs.pre_release == 'true'
         run: |
-          version=$(uv tree | grep 'kozmoai' | grep -v 'kozmoai-base' | awk '{print $2}' | sed 's/^v//')
+          version=$(uv tree | grep 'flowai' | grep -v 'flowai-base' | awk '{print $2}' | sed 's/^v//')
           if [[ "${version}" =~ ^([0-9]+\.)?([0-9]+\.)?[0-9]+((a|b|rc|dev|post)([0-9]+))$ ]]; then
             echo "Pre-release version detected. Continuing with the release."
           else
@@ -146,8 +146,8 @@ jobs:
       - name: Check Version
         id: check-version
         run: |
-          version=$(uv tree | grep 'kozmoai' | grep -v 'kozmoai-base' | awk '{print $2}' | sed 's/^v//')
-          last_released_version=$(curl -s "https://pypi.org/pypi/kozmoai/json" | jq -r '.releases | keys | .[]' | sort -V | tail -n 1)
+          version=$(uv tree | grep 'flowai' | grep -v 'flowai-base' | awk '{print $2}' | sed 's/^v//')
+          last_released_version=$(curl -s "https://pypi.org/pypi/flowai/json" | jq -r '.releases | keys | .[]' | sort -V | tail -n 1)
           if [ "$version" = "$last_released_version" ]; then
             echo "Version $version is already released. Skipping release."
             exit 1
@@ -163,7 +163,7 @@ jobs:
       - name: Test CLI
         run: |
           uv pip install dist/*.whl
-          uv run python -m kozmoai run --host 127.0.0.1 --port 7860 --backend-only &
+          uv run python -m flowai run --host 127.0.0.1 --port 7860 --backend-only &
           SERVER_PID=$!
           # Wait for the server to start
           timeout 120 bash -c 'until curl -f http://127.0.0.1:7860/health_check; do sleep 2; done' || (echo "Server did not start in time" && kill $SERVER_PID && exit 1)
@@ -189,7 +189,7 @@ jobs:
           path: dist
 
   call_docker_build_base:
-    name: Call Docker Build Workflow for Kozmoai Base
+    name: Call Docker Build Workflow for Flowai Base
     if: inputs.build_docker_base == true
     needs: [release-base, release-main]
     uses: ./.github/workflows/docker-build.yml
@@ -201,7 +201,7 @@ jobs:
     secrets: inherit
 
   call_docker_build_main:
-    name: Call Docker Build Workflow for Kozmoai
+    name: Call Docker Build Workflow for Flowai
     if: inputs.build_docker_main == true
     needs: [release-main]
     uses: ./.github/workflows/docker-build.yml
@@ -212,7 +212,7 @@ jobs:
     secrets: inherit
 
   call_docker_build_main_ep:
-    name: Call Docker Build Workflow for Kozmoai with Entrypoint
+    name: Call Docker Build Workflow for Flowai with Entrypoint
     if: inputs.build_docker_ep == true
     needs: [release-main]
     uses: ./.github/workflows/docker-build.yml

@@ -1,4 +1,4 @@
-from kozmoai.schema.content_types import (
+from flowai.schema.content_types import (
     BaseContent,
     CodeContent,
     ErrorContent,

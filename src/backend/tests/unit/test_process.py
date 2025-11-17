@@ -1,5 +1,5 @@
-from kozmoai.processing.process import process_tweaks
-from kozmoai.services.deps import get_session_service
+from flowai.processing.process import process_tweaks
+from flowai.services.deps import get_session_service
 
 
 def test_no_tweaks():

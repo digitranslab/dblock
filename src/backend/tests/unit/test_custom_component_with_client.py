@@ -1,6 +1,6 @@
 import pytest
-from kozmoai.custom.custom_component.custom_component import CustomComponent
-from kozmoai.field_typing.constants import Data
+from flowai.custom.custom_component.custom_component import CustomComponent
+from flowai.field_typing.constants import Data
 
 
 @pytest.fixture

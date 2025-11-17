@@ -1,23 +1,23 @@
 networks:
-  dev-kozmoai:
+  dev-flowai:
 
 services:
-  kozmoai:
+  flowai:
     build:
       context: ..
       dockerfile: docker/dev.Dockerfile
-    image: dev-kozmoai
-    container_name: dev-kozmoai
+    image: dev-flowai
+    container_name: dev-flowai
     restart: always
     ports:
       - "7860:7860"
       - "3000:3000"
     environment:
       - PYTHONDONTWRITEBYTECODE=1
-      - KOZMOAI_DATABASE_URL=postgresql://kozmoai:kozmoai@postgres:5432/kozmoai
-      - KOZMOAI_SUPERUSER=kozmoai
-      - KOZMOAI_SUPERUSER_PASSWORD=kozmoai
-      - KOZMOAI_CONFIG_DIR=/var/lib/kozmoai
+      - FLOWAI_DATABASE_URL=postgresql://flowai:flowai@postgres:5432/flowai
+      - FLOWAI_SUPERUSER=flowai
+      - FLOWAI_SUPERUSER_PASSWORD=flowai
+      - FLOWAI_CONFIG_DIR=/var/lib/flowai
     env_file:
       - ../.env
     volumes:
@@ -25,18 +25,18 @@ services:
     depends_on:
       - postgres
     networks:
-      -  dev-kozmoai
+      -  dev-flowai
 
 
   postgres:
     container_name: postgres
     image: pgvector/pgvector:pg16
     environment:
-      POSTGRES_USER: kozmoai
-      POSTGRES_PASSWORD: kozmoai
-      POSTGRES_DB: kozmoai
+      POSTGRES_USER: flowai
+      POSTGRES_PASSWORD: flowai
+      POSTGRES_DB: flowai
     ports:
       - "5432:5432"
     networks:
-      -  dev-kozmoai
+      -  dev-flowai
 

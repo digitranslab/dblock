@@ -4,8 +4,8 @@ import time
 import uuid
 
 import pytest
-from kozmoai.events.event_manager import EventManager
-from kozmoai.schema.log import LoggableType
+from flowai.events.event_manager import EventManager
+from flowai.schema.log import LoggableType
 
 
 class TestEventManager:

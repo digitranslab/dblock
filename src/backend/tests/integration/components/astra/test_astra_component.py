@@ -4,9 +4,9 @@ import pytest
 from astrapy import DataAPIClient
 from langchain_astradb import AstraDBVectorStore, CollectionVectorServiceOptions
 from langchain_core.documents import Document
-from kozmoai.components.embeddings import OpenAIEmbeddingsComponent
-from kozmoai.components.vectorstores import AstraDBVectorStoreComponent
-from kozmoai.schema.data import Data
+from flowai.components.embeddings import OpenAIEmbeddingsComponent
+from flowai.components.vectorstores import AstraDBVectorStoreComponent
+from flowai.schema.data import Data
 
 from tests.api_keys import get_astradb_api_endpoint, get_astradb_application_token, get_openai_api_key
 from tests.integration.components.mock_components import TextToData

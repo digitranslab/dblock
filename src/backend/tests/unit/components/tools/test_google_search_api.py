@@ -2,8 +2,8 @@ from unittest.mock import patch
 
 import pandas as pd
 import pytest
-from kozmoai.components.tools import GoogleSearchAPICore
-from kozmoai.schema import DataFrame
+from flowai.components.tools import GoogleSearchAPICore
+from flowai.schema import DataFrame
 
 from tests.base import ComponentTestBaseWithoutClient
 

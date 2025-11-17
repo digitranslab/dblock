@@ -25,23 +25,23 @@ export class Network extends Construct {
 
     // VPC等リソースの作成
     this.vpc = new ec2.Vpc(scope, 'VPC', {
-      vpcName: 'kozmoai-vpc',
+      vpcName: 'flowai-vpc',
       ipAddresses: ec2.IpAddresses.cidr('10.0.0.0/16'),
       maxAzs: 3,
       subnetConfiguration: [
         {
           cidrMask: 24,
-          name: 'kozmoai-Isolated',
+          name: 'flowai-Isolated',
           subnetType: ec2.SubnetType.PRIVATE_ISOLATED,
         },
         {
           cidrMask: 24,
-          name: 'kozmoai-Public',
+          name: 'flowai-Public',
           subnetType: ec2.SubnetType.PUBLIC,
         },
         {
           cidrMask: 24,
-          name: 'kozmoai-Private',
+          name: 'flowai-Private',
           subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS
         },
       ],
@@ -55,9 +55,9 @@ export class Network extends Construct {
       vpc: this.vpc,
     })
 
-    this.alb = new elb.ApplicationLoadBalancer(this,'kozmoai-alb',{
+    this.alb = new elb.ApplicationLoadBalancer(this,'flowai-alb',{
       internetFacing: true, //インターネットからのアクセスを許可するかどうか指定
-      loadBalancerName: 'kozmoai-alb',
+      loadBalancerName: 'flowai-alb',
       securityGroup: this.albSG, //作成したセキュリティグループを割り当てる
       vpc:this.vpc,   
     })
@@ -80,15 +80,15 @@ export class Network extends Construct {
 
     // Cluster
     this.cluster = new ecs.Cluster(this, 'EcsCluster', {
-      clusterName: 'kozmoai-cluster',
+      clusterName: 'flowai-cluster',
       vpc: this.vpc,
       enableFargateCapacityProviders: true,
     });
 
     // ECS BackEndに設定するセキュリティグループ
     this.ecsBackSG = new ec2.SecurityGroup(scope, 'ECSBackEndSecurityGroup', {
-      securityGroupName: 'kozmoai-ecs-back-sg',
-      description: 'for kozmoai-back-ecs',
+      securityGroupName: 'flowai-ecs-back-sg',
+      description: 'for flowai-back-ecs',
       vpc: this.vpc,
     })
     this.ecsBackSG.addIngressRule(this.albSG,ec2.Port.tcp(back_service_port))
@@ -96,16 +96,16 @@ export class Network extends Construct {
     // RDSに設定するセキュリティグループ
     this.dbSG = new ec2.SecurityGroup(scope, 'DBSecurityGroup', {
       allowAllOutbound: true,
-      securityGroupName: 'kozmoai-db',
-      description: 'for kozmoai-db',
+      securityGroupName: 'flowai-db',
+      description: 'for flowai-db',
       vpc: this.vpc,
     })
-    // kozmoai-ecs-back-sg からのポート3306:mysql(5432:postgres)のインバウンドを許可
+    // flowai-ecs-back-sg からのポート3306:mysql(5432:postgres)のインバウンドを許可
     this.dbSG.addIngressRule(this.ecsBackSG, ec2.Port.tcp(3306))
 
     // Create CloudWatch Log Group
     this.backendLogGroup = new logs.LogGroup(this, 'backendLogGroup', {
-      logGroupName: 'kozmoai-backend-logs',
+      logGroupName: 'flowai-backend-logs',
       removalPolicy: RemovalPolicy.DESTROY,
     });
 

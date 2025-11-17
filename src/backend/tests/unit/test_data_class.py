@@ -2,7 +2,7 @@ import copy
 
 import pytest
 from langchain_core.documents import Document
-from kozmoai.schema import Data
+from flowai.schema import Data
 
 
 def test_data_initialization():

@@ -1,21 +1,21 @@
-name: Kozmoai Nightly Build
-run-name: Kozmoai Nightly Release by @${{ github.actor }}
+name: Flowai Nightly Build
+run-name: Flowai Nightly Release by @${{ github.actor }}
 
 on:
   workflow_dispatch:
     inputs:
       build_docker_base:
-        description: "Build Docker Image for Kozmoai Nightly Base"
+        description: "Build Docker Image for Flowai Nightly Base"
         required: true
         type: boolean
         default: false
       build_docker_main:
-        description: "Build Docker Image for Kozmoai Nightly"
+        description: "Build Docker Image for Flowai Nightly"
         required: true
         type: boolean
         default: false
       build_docker_ep:
-        description: "Build Docker Image for Kozmoai Nightly with Entrypoint"
+        description: "Build Docker Image for Flowai Nightly with Entrypoint"
         required: false
         type: boolean
         default: false
@@ -30,17 +30,17 @@ on:
   workflow_call:
     inputs:
       build_docker_base:
-        description: "Build Docker Image for Kozmoai Nightly Base"
+        description: "Build Docker Image for Flowai Nightly Base"
         required: true
         type: boolean
         default: false
       build_docker_main:
-        description: "Build Docker Image for Kozmoai Nightly"
+        description: "Build Docker Image for Flowai Nightly"
         required: true
         type: boolean
         default: false
       build_docker_ep:
-        description: "Build Docker Image for Kozmoai Nightly with Entrypoint"
+        description: "Build Docker Image for Flowai Nightly with Entrypoint"
         required: false
         type: boolean
         default: false
@@ -59,7 +59,7 @@ env:
 
 jobs:
   release-nightly-base:
-    name: Release Kozmoai Nightly Base
+    name: Release Flowai Nightly Base
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -80,10 +80,10 @@ jobs:
       - name: Verify Nightly Name and Version
         id: verify
         run: |
-          name=$(uv tree | grep 'kozmoai-base' | awk '{print $2}')
-          version=$(uv tree | grep 'kozmoai-base' | awk '{print $3}')
-          if [ "$name" != "kozmoai-base-nightly" ]; then
-            echo "Name $name does not match kozmoai-base-nightly. Exiting the workflow."
+          name=$(uv tree | grep 'flowai-base' | awk '{print $2}')
+          version=$(uv tree | grep 'flowai-base' | awk '{print $3}')
+          if [ "$name" != "flowai-base-nightly" ]; then
+            echo "Name $name does not match flowai-base-nightly. Exiting the workflow."
             exit 1
           fi
           if [ "$version" != "${{ inputs.nightly_tag_base }}" ]; then
@@ -106,7 +106,7 @@ jobs:
           mkdir src/backend/base/dist
           mv dist/*.whl src/backend/base/dist/
           python -m pip install src/backend/base/dist/*.whl
-          python -m kozmoai run --host 127.0.0.1 --port 7860 --backend-only &
+          python -m flowai run --host 127.0.0.1 --port 7860 --backend-only &
           SERVER_PID=$!
           # Wait for the server to start
           timeout 120 bash -c 'until curl -f http://127.0.0.1:7860/api/v1/auto_login; do sleep 2; done' || (echo "Server did not start in time" && kill $SERVER_PID && exit 1)
@@ -135,7 +135,7 @@ jobs:
           path: src/backend/base/dist
 
   release-nightly-main:
-    name: Release Kozmoai Nightly Main
+    name: Release Flowai Nightly Main
     needs: [release-nightly-base]
     runs-on: ubuntu-latest
     outputs:
@@ -157,10 +157,10 @@ jobs:
       - name: Verify Nightly Name and Version
         id: verify
         run: |
-          name=$(uv tree | grep 'kozmoai' | grep -v 'kozmoai-base' | awk '{print $1}')
-          version=$(uv tree | grep 'kozmoai' | grep -v 'kozmoai-base' | awk '{print $2}')
-          if [ "$name" != "kozmoai-nightly" ]; then
-            echo "Name $name does not match kozmoai-nightly. Exiting the workflow."
+          name=$(uv tree | grep 'flowai' | grep -v 'flowai-base' | awk '{print $1}')
+          version=$(uv tree | grep 'flowai' | grep -v 'flowai-base' | awk '{print $2}')
+          if [ "$name" != "flowai-nightly" ]; then
+            echo "Name $name does not match flowai-nightly. Exiting the workflow."
             exit 1
           fi
           if [ "$version" != "${{ inputs.nightly_tag_main }}" ]; then
@@ -178,7 +178,7 @@ jobs:
       - name: Test CLI
         run: |
           uv pip install dist/*.whl
-          uv run python -m kozmoai run --host 127.0.0.1 --port 7860 --backend-only &
+          uv run python -m flowai run --host 127.0.0.1 --port 7860 --backend-only &
           SERVER_PID=$!
           # Wait for the server to start
           timeout 120 bash -c 'until curl -f http://127.0.0.1:7860/health_check; do sleep 2; done' || (echo "Server did not start in time" && kill $SERVER_PID && exit 1)
@@ -205,7 +205,7 @@ jobs:
           path: dist
 
   call_docker_build_base:
-    name: Call Docker Build Workflow for Kozmoai Base
+    name: Call Docker Build Workflow for Flowai Base
     if: always() && ${{ inputs.build_docker_base == 'true' }}
     needs: [release-nightly-base, release-nightly-main]
     uses: ./.github/workflows/docker-build.yml
@@ -216,7 +216,7 @@ jobs:
     secrets: inherit
 
   call_docker_build_main:
-    name: Call Docker Build Workflow for Kozmoai
+    name: Call Docker Build Workflow for Flowai
     if: always() && ${{ inputs.build_docker_main == 'true' }}
     needs: [release-nightly-main]
     uses: ./.github/workflows/docker-build.yml
@@ -226,7 +226,7 @@ jobs:
     secrets: inherit
 
   call_docker_build_main_ep:
-    name: Call Docker Build Workflow for Kozmoai with Entrypoint
+    name: Call Docker Build Workflow for Flowai with Entrypoint
     if: always() && ${{ inputs.build_docker_ep == 'true' }}
     needs: [release-nightly-main]
     uses: ./.github/workflows/docker-build.yml

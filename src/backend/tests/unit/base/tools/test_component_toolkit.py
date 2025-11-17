@@ -1,13 +1,13 @@
 import os
 
 import pytest
-from kozmoai.base.tools.component_tool import ComponentToolkit
-from kozmoai.components.langchain_utilities import ToolCallingAgentComponent
-from kozmoai.components.models import OpenAIModelComponent
-from kozmoai.components.outputs import ChatOutput
-from kozmoai.components.tools.calculator import CalculatorToolComponent
-from kozmoai.graph import Graph
-from kozmoai.schema.data import Data
+from flowai.base.tools.component_tool import ComponentToolkit
+from flowai.components.langchain_utilities import ToolCallingAgentComponent
+from flowai.components.models import OpenAIModelComponent
+from flowai.components.outputs import ChatOutput
+from flowai.components.tools.calculator import CalculatorToolComponent
+from flowai.graph import Graph
+from flowai.schema.data import Data
 from pydantic import BaseModel
 
 

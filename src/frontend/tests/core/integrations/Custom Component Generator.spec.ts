@@ -62,6 +62,6 @@ test(
     expect(await page.getByTestId("chat-code-tab").last().isVisible()).toBe(
       true,
     );
-    expect(textContents).toContain("kozmoai");
+    expect(textContents).toContain("flowai");
   },
 );

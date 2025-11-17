@@ -1,13 +1,13 @@
 import asyncio
 
 import pytest
-from kozmoai.components.outputs import ChatOutput
-from kozmoai.custom import Component
-from kozmoai.events.event_manager import EventManager
-from kozmoai.graph import Graph
-from kozmoai.inputs import IntInput
-from kozmoai.schema.message import Message
-from kozmoai.template import Output
+from flowai.components.outputs import ChatOutput
+from flowai.custom import Component
+from flowai.events.event_manager import EventManager
+from flowai.graph import Graph
+from flowai.inputs import IntInput
+from flowai.schema.message import Message
+from flowai.template import Output
 
 
 class LogComponent(Component):

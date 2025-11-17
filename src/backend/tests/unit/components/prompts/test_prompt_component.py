@@ -1,5 +1,5 @@
 import pytest
-from kozmoai.components.prompts import PromptComponent
+from flowai.components.prompts import PromptComponent
 
 from tests.base import ComponentTestBaseWithClient
 

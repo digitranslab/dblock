@@ -1,11 +1,11 @@
 import re
 
 import pytest
-from kozmoai.components.inputs import ChatInput
-from kozmoai.components.models import OpenAIModelComponent
-from kozmoai.components.outputs import ChatOutput
-from kozmoai.components.prompts import PromptComponent
-from kozmoai.graph import Graph
+from flowai.components.inputs import ChatInput
+from flowai.components.models import OpenAIModelComponent
+from flowai.components.outputs import ChatOutput
+from flowai.components.prompts import PromptComponent
+from flowai.graph import Graph
 
 
 def test_edge_raises_error_on_invalid_target_handle():

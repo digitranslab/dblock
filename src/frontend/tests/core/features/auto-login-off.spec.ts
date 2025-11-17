@@ -23,10 +23,10 @@ test(
 
     await page.goto("/");
 
-    await page.waitForSelector("text=sign in to kozmoai", { timeout: 30000 });
+    await page.waitForSelector("text=sign in to flowai", { timeout: 30000 });
 
-    await page.getByPlaceholder("Username").fill("kozmoai");
-    await page.getByPlaceholder("Password").fill("kozmoai");
+    await page.getByPlaceholder("Username").fill("flowai");
+    await page.getByPlaceholder("Password").fill("flowai");
 
     await page.getByRole("button", { name: "Sign In" }).click();
 
@@ -163,7 +163,7 @@ test(
 
     await page.getByText("Logout", { exact: true }).click();
 
-    await page.waitForSelector("text=sign in to kozmoai", { timeout: 30000 });
+    await page.waitForSelector("text=sign in to flowai", { timeout: 30000 });
 
     await page.getByPlaceholder("Username").fill(secondRandomName);
     await page.getByPlaceholder("Password").fill(randomPassword);
@@ -233,10 +233,10 @@ test(
 
     await page.getByText("Logout", { exact: true }).click();
 
-    await page.waitForSelector("text=sign in to kozmoai", { timeout: 30000 });
+    await page.waitForSelector("text=sign in to flowai", { timeout: 30000 });
 
-    await page.getByPlaceholder("Username").fill("kozmoai");
-    await page.getByPlaceholder("Password").fill("kozmoai");
+    await page.getByPlaceholder("Username").fill("flowai");
+    await page.getByPlaceholder("Password").fill("flowai");
 
     await page.getByRole("button", { name: "Sign In" }).click();
 

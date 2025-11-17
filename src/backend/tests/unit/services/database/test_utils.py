@@ -1,7 +1,7 @@
 import json
 
 import pytest
-from kozmoai.services.database.utils import truncate_json
+from flowai.services.database.utils import truncate_json
 
 
 @pytest.fixture

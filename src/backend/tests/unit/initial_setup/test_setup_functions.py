@@ -2,8 +2,8 @@ import asyncio
 from uuid import uuid4
 
 import pytest
-from kozmoai.initial_setup.setup import DEFAULT_FOLDER_NAME, get_or_create_default_folder, session_scope
-from kozmoai.services.database.models.folder.model import FolderRead
+from flowai.initial_setup.setup import DEFAULT_FOLDER_NAME, get_or_create_default_folder, session_scope
+from flowai.services.database.models.folder.model import FolderRead
 
 
 @pytest.mark.usefixtures("client")

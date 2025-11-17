@@ -1,7 +1,7 @@
 import random
 
-from kozmoai.custom import CustomComponent
-from kozmoai.field_typing import Input
+from flowai.custom import CustomComponent
+from flowai.field_typing import Input
 
 
 class TestComponent(CustomComponent):

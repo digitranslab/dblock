@@ -42,8 +42,8 @@ export const useShortcutsStore = create<shortcutsStoreType>((set, get) => ({
     });
   },
   getShortcutsFromStorage: () => {
-    if (localStorage.getItem("kozmoai-shortcuts")) {
-      const savedShortcuts = localStorage.getItem("kozmoai-shortcuts");
+    if (localStorage.getItem("flowai-shortcuts")) {
+      const savedShortcuts = localStorage.getItem("flowai-shortcuts");
       const savedArr = JSON.parse(savedShortcuts!);
       savedArr.forEach(({ name, shortcut }) => {
         let shortcutName = toCamelCase(name);

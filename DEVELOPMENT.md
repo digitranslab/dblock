@@ -9,21 +9,21 @@ This document details how to set up a local development environment that will al
 
 ## Set up Git Repository Fork
 
-You will push changes to a fork of the Kozmoai repository, and from there create a Pull Request into the project repository.
+You will push changes to a fork of the Flowai repository, and from there create a Pull Request into the project repository.
 
-Fork the [Kozmoai GitHub repository](https://github.com/digitranslab/kozmoai/fork), and follow the instructions to create a new fork.
+Fork the [Flowai GitHub repository](https://github.com/digitranslab/flowai/fork), and follow the instructions to create a new fork.
 
 On your new fork, click the "<> Code" button to get a URL to [clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) using your preferred method, and clone the repository; for example using `https`:
 
 ```bash
-git clone https://github.com/<your username>/kozmoai.git
+git clone https://github.com/<your username>/flowai.git
 ```
 
 Finally, add the Project repository as `upstream`:
 
 ```bash
-cd kozmoai
-git remote add upstream https://github.com/digitranslab/kozmoai.git
+cd flowai
+git remote add upstream https://github.com/digitranslab/flowai.git
 git remote set-url --push upstream no_push
 ```
 
@@ -63,18 +63,18 @@ Setup and validate the initial environment by running:
 make init
 ```
 
-This will set up the development environment by installing backend and frontend dependencies, building the frontend static files, and initializing the project. It runs `make install_backend`, `make install_frontend`, `make build_frontend`, and finally `uv run kozmoai run` to start the application.
+This will set up the development environment by installing backend and frontend dependencies, building the frontend static files, and initializing the project. It runs `make install_backend`, `make install_frontend`, `make build_frontend`, and finally `uv run flowai run` to start the application.
 
 Once the application is running, the command output should look similar to:
 
 ```
 ╭───────────────────────────────────────────────────────────────────╮
-│ Welcome to ⛓ Kozmoai                                             │
+│ Welcome to ⛓ Flowai                                             │
 │                                                                   │
 │                                                                   │
 │ Collaborate, and contribute at our GitHub Repo 🌟                 │
 │                                                                   │
-│ We collect anonymous usage data to improve Kozmoai.              │
+│ We collect anonymous usage data to improve Flowai.              │
 │ You can opt-out by setting DO_NOT_TRACK=true in your environment. │
 │                                                                   │
 │ Access http://127.0.0.1:7860                                      │
@@ -85,7 +85,7 @@ At this point, validate you can access the UI by opening the URL shown.
 
 This is how the application would normally run: the (static) front-end pages are compiled, and then this "frontend" is served by the FastAPI server; the "backend" APIs are also serviced by the FastAPI server.
 
-However, as a developer,  you will want to proceed to the next step. Shutdown Kozmoai by hitting `Control (or Command)-C`.
+However, as a developer,  you will want to proceed to the next step. Shutdown Flowai by hitting `Control (or Command)-C`.
 
 ## Completing Development environment Setup
 
@@ -105,7 +105,7 @@ uv sync --dev
 uv run pre-commit install
 ```
 
-## Run Kozmoai in "Development" Mode
+## Run Flowai in "Development" Mode
 
 With the above validation, you can now run the backend (FastAPI) and frontend (Node) services in a way that will "hot-reload" your changes. In this mode, the FastAPI server requires a Node.js server to serve the frontend pages rather than serving them directly.
 
@@ -127,11 +127,11 @@ make backend
 You will get output similar to:
 
 ```
-INFO:     Will watch for changes in these directories: ['/home/phil/git/kozmoai']
+INFO:     Will watch for changes in these directories: ['/home/phil/git/flowai']
 INFO:     Loading environment from '.env'
 INFO:     Uvicorn running on http://0.0.0.0:7860 (Press CTRL+C to quit)
 INFO:     Started reloader process [22330] using WatchFiles
-Starting Kozmoai ...
+Starting Flowai ...
 ```
 
 At which point you can check http://localhost:7860/health in a browser; when the backend service is ready it will return a document like:
@@ -142,7 +142,7 @@ At which point you can check http://localhost:7860/health in a browser; when the
 
 ### Start the Frontend Service
 
-The frontend (User Interface) is, in shipped code (i.e. via `kozmoai run`), statically-compiled files that the backend FastAPI service provides to clients via port `7860`. In development mode, these are served by a Node.js service on port `3000`. In the *Frontend Terminal*, start the frontend service:
+The frontend (User Interface) is, in shipped code (i.e. via `flowai run`), statically-compiled files that the backend FastAPI service provides to clients via port `7860`. In development mode, these are served by a Node.js service on port `3000`. In the *Frontend Terminal*, start the frontend service:
 
 ```bash
 make frontend
@@ -158,7 +158,7 @@ You will get output similar to:
   ➜  press h + enter to show help
 ```
 
-At this point, you can navigate to http://localhost:3000/ in a browser and access the Kozmoai User Interface.
+At this point, you can navigate to http://localhost:3000/ in a browser and access the Flowai User Interface.
 
 ### Build and Display Documentation
 
@@ -182,7 +182,7 @@ At which point you can navigate to http://localhost:3001/ in a browser and view 
 
 ## Adding or Modifying a Component
 
-Components reside in folders under `src/backend/base/kozmoai`, and their unit tests under `src/backend/base/tests/unit/components`. 
+Components reside in folders under `src/backend/base/flowai`, and their unit tests under `src/backend/base/tests/unit/components`. 
 
 ### Adding a Component
 
@@ -198,7 +198,7 @@ You should try to add a unit test for your component, though templates and best 
 Modifying a component is much the same as adding a component: it is generally easier to make changes in the UI and then save the file in the repository. Please be sure to review and modify unit tests; if there is not a unit test for the component, the addition of one that at least covers your changes would be much appreciated!
 
 > [!NOTE]
-> If you have an old version of the component on the canvas when changes are saved and the backend service restarts, that component should show "Updates Available" when the canvas is reloaded (i.e. a browser refresh). [Issue 5179](https://github.com/digitranslab/kozmoai/issues/5179) indicates this behavior is not consistent, at least in a development setting.
+> If you have an old version of the component on the canvas when changes are saved and the backend service restarts, that component should show "Updates Available" when the canvas is reloaded (i.e. a browser refresh). [Issue 5179](https://github.com/digitranslab/flowai/issues/5179) indicates this behavior is not consistent, at least in a development setting.
 
 ## Building and Testing Changes
 
@@ -210,7 +210,7 @@ When you are ready to commit, and before you commit, you should consider the fol
 
 Once these changes are ready, it is helpful to rebase your changes on top of `upstream`'s `main` branch, to ensure you have the latest code version! Of course if you have had to merge changes into your component you may want to re-lint/format/unit_test.
 
-As a final validation, stop the backend and frontend services and run `make init`; this will do a clean build and the UI should be available in port `7860` (as it has invoked `kozmoai run`). Open a **new** browser tab to this  service and do a final check of your changes by adding your new/modified component onto the canvas from the Components list.
+As a final validation, stop the backend and frontend services and run `make init`; this will do a clean build and the UI should be available in port `7860` (as it has invoked `flowai run`). Open a **new** browser tab to this  service and do a final check of your changes by adding your new/modified component onto the canvas from the Components list.
 
 ## Committing, Pushing, and Pull Requests
 
@@ -233,7 +233,7 @@ You may observe some quirky things:
 
 There are some files that change without you having made changes:
 
-* Files in `src/backend/base/kozmoai/initial_setup/starter_projects` modify after `kozmoai run`; these are formatting changes. Feel free to commit (or ignore) them.
+* Files in `src/backend/base/flowai/initial_setup/starter_projects` modify after `flowai run`; these are formatting changes. Feel free to commit (or ignore) them.
 * `uv.lock` and `src/frontend/package-lock.json` files can be modified by `make` targets; changes should not be committed by individual contributors.
    * You can exclude these from consideration in git: `git update-index --assume-unchanged uv.lock src/frontend/package-lock.json`
    * You can re-include these from consideration in git: `git update-index --no-assume-unchanged uv.lock src/frontend/package-lock.json`

@@ -11,13 +11,13 @@ import anyio
 import pytest
 from asgi_lifespan import LifespanManager
 from httpx import ASGITransport, AsyncClient
-from kozmoai.main import create_app
-from kozmoai.services.auth.utils import get_password_hash
-from kozmoai.services.database.models.api_key.model import ApiKey
-from kozmoai.services.database.models.flow.model import Flow, FlowCreate
-from kozmoai.services.database.models.user.model import User, UserRead
-from kozmoai.services.database.utils import session_getter
-from kozmoai.services.deps import get_db_service
+from flowai.main import create_app
+from flowai.services.auth.utils import get_password_hash
+from flowai.services.database.models.api_key.model import ApiKey
+from flowai.services.database.models.flow.model import Flow, FlowCreate
+from flowai.services.database.models.user.model import User, UserRead
+from flowai.services.database.utils import session_getter
+from flowai.services.deps import get_db_service
 from sqlalchemy.orm import selectinload
 from sqlmodel import select
 
@@ -99,14 +99,14 @@ async def files_flow(
 
 @pytest.fixture
 def max_file_size_upload_fixture(monkeypatch):
-    monkeypatch.setenv("KOZMOAI_MAX_FILE_SIZE_UPLOAD", "1")
+    monkeypatch.setenv("FLOWAI_MAX_FILE_SIZE_UPLOAD", "1")
     yield
     monkeypatch.undo()
 
 
 @pytest.fixture
 def max_file_size_upload_10mb_fixture(monkeypatch):
-    monkeypatch.setenv("KOZMOAI_MAX_FILE_SIZE_UPLOAD", "10")
+    monkeypatch.setenv("FLOWAI_MAX_FILE_SIZE_UPLOAD", "10")
     yield
     monkeypatch.undo()
 
@@ -124,9 +124,9 @@ async def files_client_fixture(
         def init_app():
             db_dir = tempfile.mkdtemp()
             db_path = Path(db_dir) / "test.db"
-            monkeypatch.setenv("KOZMOAI_DATABASE_URL", f"sqlite:///{db_path}")
-            monkeypatch.setenv("KOZMOAI_AUTO_LOGIN", "false")
-            from kozmoai.services.manager import service_manager
+            monkeypatch.setenv("FLOWAI_DATABASE_URL", f"sqlite:///{db_path}")
+            monkeypatch.setenv("FLOWAI_AUTO_LOGIN", "false")
+            from flowai.services.manager import service_manager
 
             service_manager.factories.clear()
             service_manager.services.clear()  # Clear the services cache

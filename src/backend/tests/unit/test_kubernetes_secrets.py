@@ -4,7 +4,7 @@ from uuid import UUID
 
 import pytest
 from kubernetes.client import V1ObjectMeta, V1Secret
-from kozmoai.services.variable.kubernetes_secrets import KubernetesSecretManager, encode_user_id
+from flowai.services.variable.kubernetes_secrets import KubernetesSecretManager, encode_user_id
 
 
 @pytest.fixture

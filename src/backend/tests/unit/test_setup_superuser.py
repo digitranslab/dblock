@@ -1,16 +1,16 @@
 import asyncio
 from unittest.mock import AsyncMock, MagicMock, patch
 
-from kozmoai.services.settings.constants import (
+from flowai.services.settings.constants import (
     DEFAULT_SUPERUSER,
     DEFAULT_SUPERUSER_PASSWORD,
 )
-from kozmoai.services.utils import teardown_superuser
+from flowai.services.utils import teardown_superuser
 
-# @patch("kozmoai.services.deps.get_session")
-# @patch("kozmoai.services.utils.create_super_user")
-# @patch("kozmoai.services.deps.get_settings_service")
-# # @patch("kozmoai.services.utils.verify_password")
+# @patch("flowai.services.deps.get_session")
+# @patch("flowai.services.utils.create_super_user")
+# @patch("flowai.services.deps.get_settings_service")
+# # @patch("flowai.services.utils.verify_password")
 # def test_setup_superuser(
 #     mock_get_session, mock_create_super_user, mock_get_settings_service
 # ):
@@ -90,8 +90,8 @@ from kozmoai.services.utils import teardown_superuser
 #     assert str(actual_expr) == str(expected_expr)
 
 
-@patch("kozmoai.services.deps.get_settings_service")
-@patch("kozmoai.services.deps.get_session")
+@patch("flowai.services.deps.get_settings_service")
+@patch("flowai.services.deps.get_session")
 async def test_teardown_superuser_default_superuser(mock_get_session, mock_get_settings_service):
     mock_settings_service = MagicMock()
     mock_settings_service.auth_settings.AUTO_LOGIN = True

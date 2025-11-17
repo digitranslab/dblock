@@ -2,7 +2,7 @@ from datetime import datetime, timezone
 from uuid import UUID, uuid4
 
 import pytest
-from kozmoai.memory import (
+from flowai.memory import (
     aadd_messages,
     aadd_messagetables,
     add_messages,
@@ -13,16 +13,16 @@ from kozmoai.memory import (
     delete_messages,
     get_messages,
 )
-from kozmoai.schema.content_block import ContentBlock
-from kozmoai.schema.content_types import TextContent, ToolContent
-from kozmoai.schema.message import Message
-from kozmoai.schema.properties import Properties, Source
+from flowai.schema.content_block import ContentBlock
+from flowai.schema.content_types import TextContent, ToolContent
+from flowai.schema.message import Message
+from flowai.schema.properties import Properties, Source
 
 # Assuming you have these imports available
-from kozmoai.services.database.models.message import MessageCreate, MessageRead
-from kozmoai.services.database.models.message.model import MessageTable
-from kozmoai.services.deps import session_scope
-from kozmoai.services.tracing.utils import convert_to_langchain_type
+from flowai.services.database.models.message import MessageCreate, MessageRead
+from flowai.services.database.models.message.model import MessageTable
+from flowai.services.deps import session_scope
+from flowai.services.tracing.utils import convert_to_langchain_type
 
 
 @pytest.fixture

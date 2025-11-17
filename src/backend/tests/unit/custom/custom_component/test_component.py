@@ -1,15 +1,15 @@
 from typing import Any
 
 import pytest
-from kozmoai.components.agents import AgentComponent
-from kozmoai.components.crewai import CrewAIAgentComponent, SequentialTaskComponent
-from kozmoai.components.custom_component import CustomComponent
-from kozmoai.components.inputs import ChatInput
-from kozmoai.components.models import OpenAIModelComponent
-from kozmoai.components.outputs import ChatOutput
-from kozmoai.custom.utils import update_component_build_config
-from kozmoai.schema import dotdict
-from kozmoai.template import Output
+from flowai.components.agents import AgentComponent
+from flowai.components.crewai import CrewAIAgentComponent, SequentialTaskComponent
+from flowai.components.custom_component import CustomComponent
+from flowai.components.inputs import ChatInput
+from flowai.components.models import OpenAIModelComponent
+from flowai.components.outputs import ChatOutput
+from flowai.custom.utils import update_component_build_config
+from flowai.schema import dotdict
+from flowai.template import Output
 from typing_extensions import override
 
 

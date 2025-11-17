@@ -1,4 +1,4 @@
-import KozmoaiLogo from "@/assets/KozmoaiLogo.svg?react";
+import FlowaiLogo from "@/assets/FlowaiLogo.svg?react";
 import ChainLogo from "@/assets/logo.svg?react";
 import { TextEffectPerChar } from "@/components/ui/textAnimation";
 import { ENABLE_NEW_LOGO } from "@/customization/feature-flags";
@@ -182,13 +182,13 @@ export default function ChatView({
             <div className="flex h-full w-full flex-col items-center justify-center">
               <div className="flex flex-col items-center justify-center gap-4 p-8">
                 {ENABLE_NEW_LOGO ? (
-                  <KozmoaiLogo
-                    title="Kozmoai logo"
+                  <FlowaiLogo
+                    title="Flowai logo"
                     className="h-10 w-10 scale-[1.5]"
                   />
                 ) : (
                   <ChainLogo
-                    title="Kozmoai logo"
+                    title="Flowai logo"
                     className="h-10 w-10 scale-[1.5]"
                   />
                 )}

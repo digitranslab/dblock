@@ -5,10 +5,10 @@ from textwrap import dedent
 
 import pytest
 from langchain_core.documents import Document
-from kozmoai.custom import Component, CustomComponent
-from kozmoai.custom.code_parser.code_parser import CodeParser, CodeSyntaxError
-from kozmoai.custom.custom_component.base_component import BaseComponent, ComponentCodeNullError
-from kozmoai.custom.utils import build_custom_component_template
+from flowai.custom import Component, CustomComponent
+from flowai.custom.code_parser.code_parser import CodeParser, CodeSyntaxError
+from flowai.custom.custom_component.base_component import BaseComponent, ComponentCodeNullError
+from flowai.custom.utils import build_custom_component_template
 
 
 @pytest.fixture
@@ -19,9 +19,9 @@ def code_component_with_multiple_outputs():
 
 
 code_default = """
-from kozmoai.custom import CustomComponent
+from flowai.custom import CustomComponent
 
-from kozmoai.field_typing import BaseLanguageModel
+from flowai.field_typing import BaseLanguageModel
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 from langchain_core.documents import Document
@@ -137,7 +137,7 @@ def test_code_parser_parse_functions():
 
 def test_code_parser_parse_classes():
     """Test the parse_classes method of the CodeParser class."""
-    parser = CodeParser("from kozmoai.custom import Component\n\nclass Test(Component): pass")
+    parser = CodeParser("from flowai.custom import Component\n\nclass Test(Component): pass")
     tree = parser.get_tree()
     for node in ast.walk(tree):
         if isinstance(node, ast.ClassDef):
@@ -316,7 +316,7 @@ def test_custom_component_get_code_tree_syntax_error():
 def test_custom_component_get_function_entrypoint_args_no_args():
     """Test CustomComponent.get_function_entrypoint_args with a build method with no arguments."""
     my_code = """
-from kozmoai.custom import CustomComponent
+from flowai.custom import CustomComponent
 class MyMainClass(CustomComponent):
     def build():
         pass"""
@@ -329,7 +329,7 @@ class MyMainClass(CustomComponent):
 def test_custom_component_get_function_entrypoint_return_type_no_return_type():
     """Test CustomComponent.get_function_entrypoint_return_type with a build method with no return type."""
     my_code = """
-from kozmoai.custom import CustomComponent
+from flowai.custom import CustomComponent
 class MyClass(CustomComponent):
     def build():
         pass"""
@@ -416,7 +416,7 @@ def test_custom_component_multiple_outputs(code_component_with_multiple_outputs)
 def test_custom_component_subclass_from_lctoolcomponent():
     # Import LCToolComponent and create a subclass
     code = dedent("""
-    from kozmoai.base.langchain_utilities.model import LCToolComponent
+    from flowai.base.langchain_utilities.model import LCToolComponent
     from langchain_core.tools import Tool
     class MyComponent(LCToolComponent):
         name: str = "MyComponent"

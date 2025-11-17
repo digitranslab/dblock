@@ -3,7 +3,7 @@ import os
 import pytest
 from langchain.schema import HumanMessage
 from langchain_community.chat_models.baidu_qianfan_endpoint import QianfanChatEndpoint
-from kozmoai.components.models.baidu_qianfan_chat import QianfanChatEndpointComponent
+from flowai.components.models.baidu_qianfan_chat import QianfanChatEndpointComponent
 from qianfan.errors import APIError
 
 

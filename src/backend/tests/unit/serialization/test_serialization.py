@@ -7,8 +7,8 @@ import pandas as pd
 from hypothesis import given, settings
 from hypothesis import strategies as st
 from langchain_core.documents import Document
-from kozmoai.serialization.constants import MAX_ITEMS_LENGTH, MAX_TEXT_LENGTH
-from kozmoai.serialization.serialization import serialize, serialize_or_str
+from flowai.serialization.constants import MAX_ITEMS_LENGTH, MAX_TEXT_LENGTH
+from flowai.serialization.serialization import serialize, serialize_or_str
 from pydantic import BaseModel as PydanticBaseModel
 from pydantic.v1 import BaseModel as PydanticV1BaseModel
 

@@ -1,7 +1,7 @@
 import copy
 
 import pytest
-from kozmoai.graph.graph import utils
+from flowai.graph.graph import utils
 
 
 @pytest.fixture

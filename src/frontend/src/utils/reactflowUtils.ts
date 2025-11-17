@@ -18,7 +18,7 @@ import getFieldTitle from "../CustomNodes/utils/get-field-title";
 import {
   INPUT_TYPES,
   IS_MAC,
-  KOZMOAI_SUPPORTED_TYPES,
+  FLOWAI_SUPPORTED_TYPES,
   OUTPUT_TYPES,
   specialCharsRegex,
   SUCCESS_BUILD,
@@ -1216,7 +1216,7 @@ function updateGroupNodeTemplate(template: APITemplateType) {
     let type = template[key].type;
     let input_types = template[key].input_types;
     if (
-      KOZMOAI_SUPPORTED_TYPES.has(type) &&
+      FLOWAI_SUPPORTED_TYPES.has(type) &&
       !template[key].required &&
       !input_types
     ) {

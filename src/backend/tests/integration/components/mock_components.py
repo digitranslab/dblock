@@ -1,9 +1,9 @@
 import json
 
-from kozmoai.custom import Component
-from kozmoai.inputs import BoolInput, StrInput
-from kozmoai.schema import Data
-from kozmoai.template import Output
+from flowai.custom import Component
+from flowai.inputs import BoolInput, StrInput
+from flowai.schema import Data
+from flowai.template import Output
 
 
 class TextToData(Component):

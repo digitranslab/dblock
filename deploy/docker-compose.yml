@@ -67,7 +67,7 @@ services:
         - traefik.http.routers.${STACK_NAME?Variable not set}-proxy-http.middlewares=${STACK_NAME?Variable not set}-www-redirect,${STACK_NAME?Variable not set}-https-redirect
 
   backend: &backend
-    image: "digitranslab/kozmoai-backend:latest"
+    image: "digitranslab/flowai-backend:latest"
     depends_on:
       - db
       - broker
@@ -134,7 +134,7 @@ services:
     <<: *backend
     env_file:
       - .env
-    command: /bin/sh -c "python -m celery -A kozmoai.worker.celery_app worker --loglevel=INFO --concurrency=1 -n lf-worker@%h -P eventlet"
+    command: /bin/sh -c "python -m celery -A flowai.worker.celery_app worker --loglevel=INFO --concurrency=1 -n lf-worker@%h -P eventlet"
     healthcheck:
       test: "exit 0"
     deploy:
@@ -148,7 +148,7 @@ services:
       - default
     environment:
       - FLOWER_PORT=5555
-    command: /bin/sh -c "python -m celery -A kozmoai.worker.celery_app --broker=${BROKER_URL?Variable not set} flower --port=5555"
+    command: /bin/sh -c "python -m celery -A flowai.worker.celery_app --broker=${BROKER_URL?Variable not set} flower --port=5555"
     deploy:
       labels:
         - traefik.enable=true
@@ -164,7 +164,7 @@ services:
         - traefik.http.services.${STACK_NAME?Variable not set}-flower.loadbalancer.server.port=5555
 
   frontend:
-    image: "digitranslab/kozmoai-frontend:latest"
+    image: "digitranslab/flowai-frontend:latest"
     env_file:
       - .env
     environment:

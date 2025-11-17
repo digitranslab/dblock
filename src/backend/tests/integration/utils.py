@@ -5,12 +5,12 @@ from typing import Any
 
 import requests
 from astrapy.admin import parse_api_endpoint
-from kozmoai.api.v1.schemas import InputValueRequest
-from kozmoai.custom import Component
-from kozmoai.custom.eval import eval_custom_component_code
-from kozmoai.field_typing import Embeddings
-from kozmoai.graph import Graph
-from kozmoai.processing.process import run_graph_internal
+from flowai.api.v1.schemas import InputValueRequest
+from flowai.custom import Component
+from flowai.custom.eval import eval_custom_component_code
+from flowai.field_typing import Embeddings
+from flowai.graph import Graph
+from flowai.processing.process import run_graph_internal
 
 
 def check_env_vars(*env_vars):
@@ -98,7 +98,7 @@ class JSONFlow:
 
 def download_flow_from_github(name: str, version: str) -> JSONFlow:
     response = requests.get(
-        f"https://raw.githubusercontent.com/digitranslab/kozmoai/v{version}/src/backend/base/kozmoai/initial_setup/starter_projects/{name}.json",
+        f"https://raw.githubusercontent.com/digitranslab/flowai/v{version}/src/backend/base/flowai/initial_setup/starter_projects/{name}.json",
         timeout=10,
     )
     response.raise_for_status()
@@ -109,7 +109,7 @@ def download_flow_from_github(name: str, version: str) -> JSONFlow:
 def download_component_from_github(module: str, file_name: str, version: str) -> Component:
     version_string = f"v{version}" if version != "main" else version
     response = requests.get(
-        f"https://raw.githubusercontent.com/digitranslab/kozmoai/{version_string}/src/backend/base/kozmoai/components/{module}/{file_name}.py",
+        f"https://raw.githubusercontent.com/digitranslab/flowai/{version_string}/src/backend/base/flowai/components/{module}/{file_name}.py",
         timeout=10,
     )
     response.raise_for_status()

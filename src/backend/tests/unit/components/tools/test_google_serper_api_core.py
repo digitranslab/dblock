@@ -1,8 +1,8 @@
 from unittest.mock import MagicMock, patch
 
 import pytest
-from kozmoai.components.tools import GoogleSerperAPICore
-from kozmoai.schema import DataFrame
+from flowai.components.tools import GoogleSerperAPICore
+from flowai.schema import DataFrame
 
 
 @pytest.fixture

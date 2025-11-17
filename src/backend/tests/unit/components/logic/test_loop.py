@@ -2,10 +2,10 @@ from uuid import UUID
 
 import pytest
 from httpx import AsyncClient
-from kozmoai.components.logic.loop import LoopComponent
-from kozmoai.memory import aget_messages
-from kozmoai.schema.data import Data
-from kozmoai.services.database.models.flow import FlowCreate
+from flowai.components.logic.loop import LoopComponent
+from flowai.memory import aget_messages
+from flowai.schema.data import Data
+from flowai.services.database.models.flow import FlowCreate
 from orjson import orjson
 
 from tests.base import ComponentTestBaseWithClient

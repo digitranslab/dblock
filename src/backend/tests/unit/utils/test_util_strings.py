@@ -1,5 +1,5 @@
 import pytest
-from kozmoai.utils import util_strings
+from flowai.utils import util_strings
 
 
 @pytest.mark.parametrize(

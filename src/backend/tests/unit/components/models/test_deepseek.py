@@ -1,9 +1,9 @@
 from unittest.mock import MagicMock
 
 import pytest
-from kozmoai.components.models import DeepSeekModelComponent
-from kozmoai.custom import Component
-from kozmoai.custom.utils import build_custom_component_template
+from flowai.components.models import DeepSeekModelComponent
+from flowai.custom import Component
+from flowai.custom.utils import build_custom_component_template
 
 
 def test_deepseek_initialization():

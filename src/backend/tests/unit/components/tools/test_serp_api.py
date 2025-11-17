@@ -2,11 +2,11 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 from langchain_core.tools import ToolException
-from kozmoai.components.tools import SerpComponent
-from kozmoai.custom import Component
-from kozmoai.custom.utils import build_custom_component_template
-from kozmoai.schema import Data
-from kozmoai.schema.message import Message
+from flowai.components.tools import SerpComponent
+from flowai.custom import Component
+from flowai.custom.utils import build_custom_component_template
+from flowai.schema import Data
+from flowai.schema.message import Message
 
 
 def test_serpapi_initialization():
@@ -34,7 +34,7 @@ def test_serpapi_template():
         assert input_name in input_names
 
 
-@patch("kozmoai.components.tools.serp.SerpAPIWrapper")
+@patch("flowai.components.tools.serp.SerpAPIWrapper")
 def test_fetch_content(mock_serpapi_wrapper):
     component = SerpComponent()
     component.serpapi_api_key = "test-key"
@@ -81,7 +81,7 @@ def test_error_handling():
     component.serpapi_api_key = "test-key"
     component.input_value = "test query"
 
-    with patch("kozmoai.components.tools.serp.SerpAPIWrapper") as mock_serpapi:
+    with patch("flowai.components.tools.serp.SerpAPIWrapper") as mock_serpapi:
         mock_instance = MagicMock()
         mock_serpapi.return_value = mock_instance
         mock_instance.results.side_effect = Exception("API Error")

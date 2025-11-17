@@ -78,7 +78,7 @@ if ! poetry install; then
 fi
 
 # Start the backend
-KOZMOAI_DATABASE_URL=sqlite:///./temp KOZMOAI_AUTO_LOGIN=True poetry run kozmoai run --backend-only --port 7860 --host 0.0.0.0 --no-open-browser > /dev/null 2>&1 &
+FLOWAI_DATABASE_URL=sqlite:///./temp FLOWAI_AUTO_LOGIN=True poetry run flowai run --backend-only --port 7860 --host 0.0.0.0 --no-open-browser > /dev/null 2>&1 &
 backend_pid=$!  # Capture PID of the backend process
 # Adjust sleep duration as needed
 sleep 25

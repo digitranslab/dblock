@@ -10,9 +10,9 @@ export default function getWidgetCode({
   flowName,
   isAuth,
 }: GetCodeType): string {
-  return `<script src="https://cdn.jsdelivr.net/gh/logspace-ai/kozmoai-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
+  return `<script src="https://cdn.jsdelivr.net/gh/logspace-ai/flowai-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
 
-  <kozmoai-chat
+  <flowai-chat
     window_title="${flowName}"
     flow_id="${flowId}"
     host_url="${window.location.protocol}//${window.location.host}"${
@@ -22,5 +22,5 @@ export default function getWidgetCode({
         : ""
     }
 
-  ></kozmoai-chat>`;
+  ></flowai-chat>`;
 }

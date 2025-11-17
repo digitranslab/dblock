@@ -8,9 +8,9 @@ python:
   - "src/backend/base/uv.lock"
   - "**/python_test.yml"
 components-changes:
-  - "src/backend/base/kozmoai/components/**"
+  - "src/backend/base/flowai/components/**"
 starter-projects-changes:
-  - "src/backend/base/kozmoai/initial_setup/**"
+  - "src/backend/base/flowai/initial_setup/**"
 frontend-tests:
   - "src/frontend/tests/**"
 frontend:
@@ -21,10 +21,10 @@ docs:
 
 # Test categories and their associated paths
 starter-projects:
-  - "src/backend/base/kozmoai/initial_setup/**"
-  - "src/backend/base/kozmoai/components/**"
-  - "src/backend/base/kozmoai/services/**"
-  - "src/backend/base/kozmoai/custom/**"
+  - "src/backend/base/flowai/initial_setup/**"
+  - "src/backend/base/flowai/components/**"
+  - "src/backend/base/flowai/services/**"
+  - "src/backend/base/flowai/custom/**"
   - "src/frontend/src/pages/MainPage/**"
   - "src/frontend/src/utils/reactflowUtils.ts"
   - "src/frontend/tests/extended/features/**"
@@ -38,20 +38,20 @@ components:
   - "src/frontend/src/CustomNodes/**"
   - "src/frontend/src/style/**"
   - "src/frontend/src/utils/styleUtils.ts"
-  - "src/backend/base/kozmoai/components/**"
+  - "src/backend/base/flowai/components/**"
   - "src/frontend/tests/core/features/**"
   - "src/frontend/tests/core/integrations/**"
   - "src/frontend/tests/core/regression/**"
   - "src/frontend/tests/extended/integrations/**"
   - "src/frontend/tests/extended/features/**"
   - "src/frontend/tests/extended/regression/**"
-  - "src/backend/base/kozmoai/custom/**"
-  - "src/backend/base/kozmoai/schema/**"
-  - "src/backend/base/kozmoai/graph/**"
-  - "src/backend/base/kozmoai/utils/**"
+  - "src/backend/base/flowai/custom/**"
+  - "src/backend/base/flowai/schema/**"
+  - "src/backend/base/flowai/graph/**"
+  - "src/backend/base/flowai/utils/**"
 
 workspace:
-  - "src/backend/base/kozmoai/inputs/**"
+  - "src/backend/base/flowai/inputs/**"
   - "src/frontend/src/components/core/parameterRenderComponent/**"
   - "src/frontend/src/CustomNodes/**"
   - "src/frontend/src/modals/**"
@@ -65,15 +65,15 @@ workspace:
   - "src/frontend/tests/core/regression/**"
 
 api:
-  - "src/backend/base/kozmoai/api/**"
+  - "src/backend/base/flowai/api/**"
   - "src/frontend/src/controllers/**"
   - "src/frontend/tests/core/features/**"
   - "src/frontend/tests/extended/features/**"
   - "src/frontend/tests/extended/regression/**"
 
 database:
-  - "src/backend/base/kozmoai/services/database/**"
-  - "src/backend/base/kozmoai/alembic/**"
+  - "src/backend/base/flowai/services/database/**"
+  - "src/backend/base/flowai/alembic/**"
   - "src/frontend/src/controllers/**"
   - "src/frontend/tests/core/features/**"
   - "src/frontend/tests/extended/features/**"

@@ -1,24 +1,24 @@
 services:
   # A Docker web service
   - type: web
-    name: kozmoai
+    name: flowai
     runtime: docker
     dockerfilePath: ./docker/render.Dockerfile
-    repo: https://github.com/digitranslab/kozmoai
+    repo: https://github.com/digitranslab/flowai
     branch: main
     plan: standard
     healthCheckPath: /health_check
     autoDeploy: false
     envVars:
-      - key: KOZMOAI_DATABASE_URL
-        value: sqlite:////app/data/.cache/digitranslab/kozmoai.db
-      - key: KOZMOAI_HOST
+      - key: FLOWAI_DATABASE_URL
+        value: sqlite:////app/data/.cache/digitranslab/flowai.db
+      - key: FLOWAI_HOST
         value: 0.0.0.0
-      - key: KOZMOAI_PORT
+      - key: FLOWAI_PORT
         # default render port https://docs.render.com/web-services#port-binding
         value: 10000
-      - key: KOZMOAI_LOG_LEVEL
+      - key: FLOWAI_LOG_LEVEL
         value: INFO
     disk:
-      name: kozmoai-data
+      name: flowai-data
       mountPath: /app/data

@@ -3,19 +3,19 @@ import operator
 from textwrap import dedent
 
 import pytest
-from kozmoai.components.data import FileComponent
-from kozmoai.components.embeddings import OpenAIEmbeddingsComponent
-from kozmoai.components.inputs import ChatInput
-from kozmoai.components.models import OpenAIModelComponent
-from kozmoai.components.outputs import ChatOutput
-from kozmoai.components.processing import ParseDataComponent
-from kozmoai.components.processing.split_text import SplitTextComponent
-from kozmoai.components.prompts import PromptComponent
-from kozmoai.components.vectorstores import AstraDBVectorStoreComponent
-from kozmoai.graph import Graph
-from kozmoai.graph.graph.constants import Finish
-from kozmoai.schema import Data
-from kozmoai.schema.dataframe import DataFrame
+from flowai.components.data import FileComponent
+from flowai.components.embeddings import OpenAIEmbeddingsComponent
+from flowai.components.inputs import ChatInput
+from flowai.components.models import OpenAIModelComponent
+from flowai.components.outputs import ChatOutput
+from flowai.components.processing import ParseDataComponent
+from flowai.components.processing.split_text import SplitTextComponent
+from flowai.components.prompts import PromptComponent
+from flowai.components.vectorstores import AstraDBVectorStoreComponent
+from flowai.graph import Graph
+from flowai.graph.graph.constants import Finish
+from flowai.schema import Data
+from flowai.schema.dataframe import DataFrame
 
 
 @pytest.fixture

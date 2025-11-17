@@ -43,9 +43,9 @@ test(
       'def python_function(text: str) -> st:    """This is a default python function that returns the input text"""    return text';
 
     const customComponentCode = `from typing import Callable
-from kozmoai.field_typing import Code
-from kozmoai.interface.custom.custom_component import CustomComponent
-from kozmoai.interface.custom.utils import get_function
+from flowai.field_typing import Code
+from flowai.interface.custom.custom_component import CustomComponent
+from flowai.interface.custom.utils import get_function
 
 class PythonFunctionComponent(CustomComponent):
     def python_function(text: str) -> str:

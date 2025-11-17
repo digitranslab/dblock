@@ -1,17 +1,17 @@
 import os
 
 import pytest
-from kozmoai.components.inputs import ChatInput
-from kozmoai.components.inputs.text import TextInputComponent
-from kozmoai.components.logic.conditional_router import ConditionalRouterComponent
-from kozmoai.components.models import OpenAIModelComponent
-from kozmoai.components.outputs import ChatOutput, TextOutputComponent
-from kozmoai.components.prompts import PromptComponent
-from kozmoai.custom import Component
-from kozmoai.graph import Graph
-from kozmoai.graph.graph.utils import find_cycle_vertices
-from kozmoai.io import MessageTextInput, Output
-from kozmoai.schema.message import Message
+from flowai.components.inputs import ChatInput
+from flowai.components.inputs.text import TextInputComponent
+from flowai.components.logic.conditional_router import ConditionalRouterComponent
+from flowai.components.models import OpenAIModelComponent
+from flowai.components.outputs import ChatOutput, TextOutputComponent
+from flowai.components.prompts import PromptComponent
+from flowai.custom import Component
+from flowai.graph import Graph
+from flowai.graph.graph.utils import find_cycle_vertices
+from flowai.io import MessageTextInput, Output
+from flowai.schema.message import Message
 
 
 class Concatenate(Component):

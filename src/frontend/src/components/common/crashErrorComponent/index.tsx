@@ -28,7 +28,7 @@ export default function CrashErrorComponent({
                 <p>
                   Please report errors with detailed tracebacks on the{" "}
                   <a
-                    href="https://github.com/digitranslab/kozmoai/issues"
+                    href="https://github.com/digitranslab/flowai/issues"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-medium hover:underline"
@@ -44,10 +44,10 @@ export default function CrashErrorComponent({
 
             <CardFooter>
               <div className="m-auto mt-4 flex justify-center">
-                <Button onClick={resetErrorBoundary}>Restart Kozmoai</Button>
+                <Button onClick={resetErrorBoundary}>Restart Flowai</Button>
 
                 <a
-                  href="https://github.com/digitranslab/kozmoai/issues/new"
+                  href="https://github.com/digitranslab/flowai/issues/new"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

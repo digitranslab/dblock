@@ -10,7 +10,7 @@
 
       "args": [
         "--factory",
-        "kozmoai.main:create_app",
+        "flowai.main:create_app",
         "--port",
         "7860",
         "--reload",
@@ -24,8 +24,8 @@
       "jinja": true,
       "justMyCode": false,
       "env": {
-        "KOZMOAI_LOG_LEVEL": "debug",
-        "KOZMOAI_PROMETHEUS_PORT": "9090"
+        "FLOWAI_LOG_LEVEL": "debug",
+        "FLOWAI_PROMETHEUS_PORT": "9090"
       },
       "envFile": "${workspaceFolder}/.env"
     },
@@ -33,11 +33,11 @@
       "name": "Debug CLI",
       "type": "debugpy",
       "request": "launch",
-      "module": "kozmoai",
+      "module": "flowai",
       "args": [
         "run",
         "--path",
-        "${workspaceFolder}/src/backend/base/kozmoai/frontend",
+        "${workspaceFolder}/src/backend/base/flowai/frontend",
         "--env-file",
         "${workspaceFolder}/.env"
       ],

@@ -38,8 +38,8 @@ function CsvOutputComponent({
           {CSVViewErrorTitle}
         </div>
         <div className="align-center flex w-full justify-center">
-          <div className="kozmoai-chat-desc align-center flex justify-center px-6 py-8">
-            <div className="kozmoai-chat-desc-span">{CSVError}</div>
+          <div className="flowai-chat-desc align-center flex justify-center px-6 py-8">
+            <div className="flowai-chat-desc-span">{CSVError}</div>
           </div>
         </div>
       </div>
@@ -89,8 +89,8 @@ function CsvOutputComponent({
             {CSVViewErrorTitle}
           </div>
           <div className="align-center flex w-full justify-center">
-            <div className="kozmoai-chat-desc align-center flex justify-center px-6 py-8">
-              <div className="kozmoai-chat-desc-span">{CSVNoDataError}</div>
+            <div className="flowai-chat-desc align-center flex justify-center px-6 py-8">
+              <div className="flowai-chat-desc-span">{CSVNoDataError}</div>
             </div>
           </div>
         </div>
@@ -102,8 +102,8 @@ function CsvOutputComponent({
             {CSVViewErrorTitle}
           </div>
           <div className="align-center flex w-full justify-center">
-            <div className="kozmoai-chat-desc align-center flex justify-center px-6 py-8">
-              <div className="kozmoai-chat-desc-span">{CSVError}</div>
+            <div className="flowai-chat-desc align-center flex justify-center px-6 py-8">
+              <div className="flowai-chat-desc-span">{CSVError}</div>
             </div>
           </div>
         </div>

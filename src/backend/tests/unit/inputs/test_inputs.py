@@ -1,5 +1,5 @@
 import pytest
-from kozmoai.inputs.inputs import (
+from flowai.inputs.inputs import (
     BoolInput,
     CodeInput,
     DataInput,
@@ -21,8 +21,8 @@ from kozmoai.inputs.inputs import (
     StrInput,
     TableInput,
 )
-from kozmoai.inputs.utils import instantiate_input
-from kozmoai.schema.message import Message
+from flowai.inputs.utils import instantiate_input
+from flowai.schema.message import Message
 from pydantic import ValidationError
 
 

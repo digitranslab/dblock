@@ -1,6 +1,6 @@
 import pytest
-from kozmoai.custom import Component
-from kozmoai.inputs.inputs import MessageTextInput, StrInput
+from flowai.custom import Component
+from flowai.inputs.inputs import MessageTextInput, StrInput
 
 
 @pytest.fixture

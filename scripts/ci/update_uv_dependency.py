@@ -9,15 +9,15 @@ ARGUMENT_NUMBER = 2
 
 
 def update_uv_dep(base_version: str) -> None:
-    """Update the kozmoai-base dependency in pyproject.toml."""
+    """Update the flowai-base dependency in pyproject.toml."""
     pyproject_path = BASE_DIR / "pyproject.toml"
 
     # Read the pyproject.toml file content
     content = pyproject_path.read_text(encoding="utf-8")
 
-    # For the main project, update the kozmoai-base dependency in the UV section
-    pattern = re.compile(r'(dependencies\s*=\s*\[\s*\n\s*)("kozmoai-base==[\d.]+")')
-    replacement = rf'\1"kozmoai-base-nightly=={base_version}"'
+    # For the main project, update the flowai-base dependency in the UV section
+    pattern = re.compile(r'(dependencies\s*=\s*\[\s*\n\s*)("flowai-base==[\d.]+")')
+    replacement = rf'\1"flowai-base-nightly=={base_version}"'
 
     # Check if the pattern is found
     if not pattern.search(content):

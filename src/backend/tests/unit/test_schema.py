@@ -3,10 +3,10 @@ from types import NoneType
 from typing import Union
 
 import pytest
-from kozmoai.schema.data import Data
-from kozmoai.template import Input, Output
-from kozmoai.template.field.base import UNDEFINED
-from kozmoai.type_extraction.type_extraction import post_process_type
+from flowai.schema.data import Data
+from flowai.template import Input, Output
+from flowai.template.field.base import UNDEFINED
+from flowai.type_extraction.type_extraction import post_process_type
 from pydantic import ValidationError
 
 

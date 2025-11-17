@@ -1,6 +1,6 @@
 import pytest
-from kozmoai.serialization.constants import MAX_TEXT_LENGTH
-from kozmoai.utils.util_strings import truncate_long_strings
+from flowai.serialization.constants import MAX_TEXT_LENGTH
+from flowai.utils.util_strings import truncate_long_strings
 
 
 @pytest.mark.parametrize(

@@ -75,10 +75,10 @@ const StoreApiKeyFormComponent = ({
                 {CREATE_API_KEY}{" "}
                 <a
                   className="text-high-indigo underline"
-                  href="https://kozmoai.store/"
+                  href="https://flowai.store/"
                   target="_blank"
                 >
-                  kozmoai.store
+                  flowai.store
                 </a>
               </span>
             </div>

@@ -1,8 +1,8 @@
 import re
 
 import pytest
-from kozmoai.components.processing import CreateDataComponent
-from kozmoai.schema import Data
+from flowai.components.processing import CreateDataComponent
+from flowai.schema import Data
 
 
 @pytest.fixture

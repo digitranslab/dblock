@@ -1,5 +1,5 @@
 import pytest
-from kozmoai.components.astra_assistants import (
+from flowai.components.astra_assistants import (
     AssistantsCreateAssistant,
     AssistantsCreateThread,
     AssistantsGetAssistantName,

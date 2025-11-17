@@ -3,11 +3,11 @@ from typing import Any
 from uuid import uuid4
 
 import pytest
-from kozmoai.base.models.model_input_constants import MODEL_PROVIDERS_DICT
-from kozmoai.components.agents.agent import AgentComponent
-from kozmoai.components.tools.calculator import CalculatorToolComponent
-from kozmoai.custom import Component
-from kozmoai.utils.constants import MESSAGE_SENDER_AI, MESSAGE_SENDER_NAME_AI
+from flowai.base.models.model_input_constants import MODEL_PROVIDERS_DICT
+from flowai.components.agents.agent import AgentComponent
+from flowai.components.tools.calculator import CalculatorToolComponent
+from flowai.custom import Component
+from flowai.utils.constants import MESSAGE_SENDER_AI, MESSAGE_SENDER_NAME_AI
 
 from tests.base import ComponentTestBaseWithoutClient
 from tests.unit.mock_language_model import MockLanguageModel

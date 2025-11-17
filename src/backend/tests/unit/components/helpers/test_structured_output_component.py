@@ -2,10 +2,10 @@ import re
 from unittest.mock import patch
 
 import pytest
-from kozmoai.components.helpers.structured_output import StructuredOutputComponent
-from kozmoai.helpers.base_model import build_model_from_schema
-from kozmoai.inputs.inputs import TableInput
-from kozmoai.schema.data import Data
+from flowai.components.helpers.structured_output import StructuredOutputComponent
+from flowai.helpers.base_model import build_model_from_schema
+from flowai.inputs.inputs import TableInput
+from flowai.schema.data import Data
 from pydantic import BaseModel
 
 from tests.unit.mock_language_model import MockLanguageModel
@@ -28,7 +28,7 @@ class TestStructuredOutputComponent:
             multiple=False,
         )
 
-        with patch("kozmoai.components.helpers.structured_output.get_chat_result", mock_get_chat_result):
+        with patch("flowai.components.helpers.structured_output.get_chat_result", mock_get_chat_result):
             result = component.build_structured_output()
             assert isinstance(result, Data)
             assert result.data == {"field": "value"}
@@ -149,7 +149,7 @@ class TestStructuredOutputComponent:
         with pytest.raises(ValueError, match="Invalid type: invalid_type"):
             component.build_structured_output()
 
-    @patch("kozmoai.components.helpers.structured_output.get_chat_result")
+    @patch("flowai.components.helpers.structured_output.get_chat_result")
     def test_nested_output_schema(self, mock_get_chat_result):
         class ChildModel(BaseModel):
             child: str = "value"
@@ -179,7 +179,7 @@ class TestStructuredOutputComponent:
         assert isinstance(result, Data)
         assert result.data == {"parent": {"child": "value"}}
 
-    @patch("kozmoai.components.helpers.structured_output.get_chat_result")
+    @patch("flowai.components.helpers.structured_output.get_chat_result")
     def test_large_input_value(self, mock_get_chat_result):
         large_input = "Test input " * 1000
 

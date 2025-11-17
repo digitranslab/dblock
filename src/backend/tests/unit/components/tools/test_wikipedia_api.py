@@ -1,11 +1,11 @@
 from unittest.mock import MagicMock
 
 import pytest
-from kozmoai.components.tools import WikipediaComponent
-from kozmoai.custom import Component
-from kozmoai.custom.utils import build_custom_component_template
-from kozmoai.schema import Data
-from kozmoai.schema.message import Message
+from flowai.components.tools import WikipediaComponent
+from flowai.custom import Component
+from flowai.custom.utils import build_custom_component_template
+from flowai.schema import Data
+from flowai.schema.message import Message
 
 # Import the base test class
 from tests.base import ComponentTestBaseWithoutClient

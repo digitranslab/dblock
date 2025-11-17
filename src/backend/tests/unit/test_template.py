@@ -1,7 +1,7 @@
 import importlib
 
 import pytest
-from kozmoai.utils.util import build_template_from_function, get_base_classes, get_default_factory
+from flowai.utils.util import build_template_from_function, get_base_classes, get_default_factory
 from pydantic import BaseModel
 
 
@@ -78,7 +78,7 @@ def test_get_base_classes():
 
 # Test get_default_factory
 def test_get_default_factory():
-    module_name = "kozmoai.utils.util"
+    module_name = "flowai.utils.util"
     function_repr = "<function dummy_function>"
 
     def dummy_function():

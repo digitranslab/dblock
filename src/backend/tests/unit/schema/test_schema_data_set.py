@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
-from kozmoai.schema.data import Data
-from kozmoai.schema.dataframe import DataFrame
+from flowai.schema.data import Data
+from flowai.schema.dataframe import DataFrame
 
 
 @pytest.fixture

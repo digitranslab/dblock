@@ -2244,7 +2244,7 @@ wheels = [
 ]
 
 [[package]]
-name = "kozmoai-base"
+name = "flowai-base"
 version = "0.0.96"
 source = { editable = "." }
 dependencies = [

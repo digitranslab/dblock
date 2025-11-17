@@ -1,8 +1,8 @@
-from kozmoai.components.inputs import ChatInput
-from kozmoai.components.outputs import ChatOutput
-from kozmoai.components.prompts import PromptComponent
-from kozmoai.graph import Graph
-from kozmoai.schema.message import Message
+from flowai.components.inputs import ChatInput
+from flowai.components.outputs import ChatOutput
+from flowai.components.prompts import PromptComponent
+from flowai.graph import Graph
+from flowai.schema.message import Message
 
 from tests.integration.utils import run_flow
 

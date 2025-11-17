@@ -1,4 +1,4 @@
-import { KOZMOAI_ACCESS_TOKEN } from "@/constants/constants";
+import { FLOWAI_ACCESS_TOKEN } from "@/constants/constants";
 import { useCustomApiHeaders } from "@/customization/hooks/use-custom-api-headers";
 import useAuthStore from "@/stores/authStore";
 import { useUtilityStore } from "@/stores/utilityStore";
@@ -41,7 +41,7 @@ function ApiInterceptor() {
   useEffect(() => {
     const unregister = fetchIntercept.register({
       request: function (url, config) {
-        const accessToken = cookies.get(KOZMOAI_ACCESS_TOKEN);
+        const accessToken = cookies.get(FLOWAI_ACCESS_TOKEN);
         if (accessToken && !isAuthorizedURL(config?.url)) {
           config.headers["Authorization"] = `Bearer ${accessToken}`;
         }
@@ -74,7 +74,7 @@ function ApiInterceptor() {
 
             await tryToRenewAccessToken(error);
 
-            const accessToken = cookies.get(KOZMOAI_ACCESS_TOKEN);
+            const accessToken = cookies.get(FLOWAI_ACCESS_TOKEN);
             if (!accessToken && error?.config?.url?.includes("login")) {
               return Promise.reject(error);
             }
@@ -91,9 +91,9 @@ function ApiInterceptor() {
 
     const isAuthorizedURL = (url) => {
       const authorizedDomains = [
-        "https://raw.githubusercontent.com/digitranslab/kozmoai_examples/main/examples",
-        "https://api.github.com/repos/digitranslab/kozmoai_examples/contents/examples",
-        "https://api.github.com/repos/digitranslab/kozmoai",
+        "https://raw.githubusercontent.com/digitranslab/flowai_examples/main/examples",
+        "https://api.github.com/repos/digitranslab/flowai_examples/contents/examples",
+        "https://api.github.com/repos/digitranslab/flowai",
         "auto_login",
       ];
 
@@ -127,7 +127,7 @@ function ApiInterceptor() {
           console.error(error.message);
         }
 
-        const accessToken = cookies.get(KOZMOAI_ACCESS_TOKEN);
+        const accessToken = cookies.get(FLOWAI_ACCESS_TOKEN);
         if (accessToken && !isAuthorizedURL(config?.url)) {
           config.headers["Authorization"] = `Bearer ${accessToken}`;
         }
@@ -209,7 +209,7 @@ function ApiInterceptor() {
     const originalRequest = error.config as AxiosRequestConfig;
 
     try {
-      const accessToken = cookies.get(KOZMOAI_ACCESS_TOKEN);
+      const accessToken = cookies.get(FLOWAI_ACCESS_TOKEN);
       if (!accessToken) {
         throw new Error("Access token not found in cookies");
       }

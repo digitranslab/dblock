@@ -82,7 +82,7 @@ export default function EditShortcutButton({
         setUniqueShortcut(shortcutName, fixCombination.join("").toLowerCase());
         setShortcuts(newCombination);
         localStorage.setItem(
-          "kozmoai-shortcuts",
+          "flowai-shortcuts",
           JSON.stringify(newCombination),
         );
         setKey(null);

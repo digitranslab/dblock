@@ -1,5 +1,5 @@
-from kozmoai.components.prompts import PromptComponent
-from kozmoai.schema.message import Message
+from flowai.components.prompts import PromptComponent
+from flowai.schema.message import Message
 
 from tests.integration.utils import run_single_component
 

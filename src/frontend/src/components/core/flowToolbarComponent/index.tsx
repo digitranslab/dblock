@@ -2,7 +2,7 @@ import ShadTooltip from "@/components/common/shadTooltipComponent";
 import PlaygroundButton from "@/components/core/flowToolbarComponent/components/playground-button";
 import {
   ENABLE_API,
-  ENABLE_KOZMOAI_STORE,
+  ENABLE_FLOWAI_STORE,
 } from "@/customization/feature-flags";
 import { track } from "@/customization/utils/analytics";
 import { Panel } from "@xyflow/react";
@@ -161,7 +161,7 @@ export default function FlowToolbar(): JSX.Element {
                 </div>
               </>
             )}
-            {ENABLE_KOZMOAI_STORE && (
+            {ENABLE_FLOWAI_STORE && (
               <div className="flex items-center gap-2">
                 <div
                   className={`side-bar-button ${

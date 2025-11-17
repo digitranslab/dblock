@@ -1,8 +1,8 @@
-from kozmoai.base.tools.component_tool import ComponentToolkit
-from kozmoai.custom import Component
+from flowai.base.tools.component_tool import ComponentToolkit
+from flowai.custom import Component
 
 # Import all input types
-from kozmoai.io import (
+from flowai.io import (
     BoolInput,
     DataFrameInput,
     DataInput,
@@ -20,14 +20,14 @@ from kozmoai.io import (
     StrInput,
     TableInput,
 )
-from kozmoai.schema import Data
+from flowai.schema import Data
 from pydantic import BaseModel
 
 
 class AllInputsComponent(Component):
     display_name = "All Inputs Component"
-    description = "A component with all input types available in Kozmoai."
-    documentation: str = "http://docs.kozmoai.cloud/components/all_inputs"
+    description = "A component with all input types available in Flowai."
+    documentation: str = "http://docs.flowai.cloud/components/all_inputs"
     icon = "code"
     name = "AllInputsComponent"
 

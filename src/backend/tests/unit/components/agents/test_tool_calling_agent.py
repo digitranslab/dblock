@@ -1,9 +1,9 @@
 import os
 
 import pytest
-from kozmoai.components.langchain_utilities import ToolCallingAgentComponent
-from kozmoai.components.models.openai import OpenAIModelComponent
-from kozmoai.components.tools.calculator import CalculatorToolComponent
+from flowai.components.langchain_utilities import ToolCallingAgentComponent
+from flowai.components.models.openai import OpenAIModelComponent
+from flowai.components.tools.calculator import CalculatorToolComponent
 
 
 @pytest.mark.api_key_required

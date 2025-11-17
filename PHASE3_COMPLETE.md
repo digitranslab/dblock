@@ -217,7 +217,7 @@ const edgeTypes = {
 
 ## Comparison with n8n
 
-| Feature | n8n | Kozmoai (Phase 3) | Status |
+| Feature | n8n | Flowai (Phase 3) | Status |
 |---------|-----|-------------------|--------|
 | Floating Toolbar | ✅ | ✅ | Implemented |
 | Zoom Controls | ✅ | ✅ | Implemented |

@@ -1,7 +1,7 @@
 import pytest
-from kozmoai.services.auth.utils import get_password_hash
-from kozmoai.services.database.models.user import User
-from kozmoai.services.deps import session_scope
+from flowai.services.auth.utils import get_password_hash
+from flowai.services.database.models.user import User
+from flowai.services.deps import session_scope
 from sqlalchemy.exc import IntegrityError
 
 

@@ -4,6 +4,6 @@ node_modules
 **/node_modules/
 dist/
 **/build/
-src/backend/kozmoai/frontend
-**/kozmoai-pre.db
-**/kozmoai.db
+src/backend/flowai/frontend
+**/flowai-pre.db
+**/flowai.db

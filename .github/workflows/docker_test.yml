@@ -30,13 +30,13 @@ jobs:
       - uses: actions/checkout@v4
       - name: Build image
         run: |
-          docker build -t digitranslab/kozmoai:latest-dev \
+          docker build -t digitranslab/flowai:latest-dev \
             -f docker/build_and_push.Dockerfile \
             .
       - name: Test image
         run: |
           expected_version=$(cat pyproject.toml | grep version | head -n 1 | cut -d '"' -f 2)
-          version=$(docker run --rm --entrypoint bash digitranslab/kozmoai:latest-dev -c "python -c 'from kozmoai.utils.version import get_version_info; print(get_version_info()[\"version\"])'")
+          version=$(docker run --rm --entrypoint bash digitranslab/flowai:latest-dev -c "python -c 'from flowai.utils.version import get_version_info; print(get_version_info()[\"version\"])'")
           if [ "$expected_version" != "$version" ]; then
               echo "Expected version: $expected_version"
               echo "Actual version: $version"
@@ -45,14 +45,14 @@ jobs:
 
       - name: Build backend image
         run: |
-          docker build -t digitranslab/kozmoai-backend:latest-dev \
-            --build-arg KOZMOAI_IMAGE=digitranslab/kozmoai:latest-dev \
+          docker build -t digitranslab/flowai-backend:latest-dev \
+            --build-arg FLOWAI_IMAGE=digitranslab/flowai:latest-dev \
             -f docker/build_and_push_backend.Dockerfile \
             .
       - name: Test backend image
         run: |
           expected_version=$(cat pyproject.toml | grep version | head -n 1 | cut -d '"' -f 2)
-          version=$(docker run --rm --entrypoint bash digitranslab/kozmoai-backend:latest-dev -c "python -c 'from kozmoai.utils.version import get_version_info; print(get_version_info()[\"version\"])'")
+          version=$(docker run --rm --entrypoint bash digitranslab/flowai-backend:latest-dev -c "python -c 'from flowai.utils.version import get_version_info; print(get_version_info()[\"version\"])'")
           if [ "$expected_version" != "$version" ]; then
               echo "Expected version: $expected_version"
               echo "Actual version: $version"
@@ -60,6 +60,6 @@ jobs:
           fi
       - name: Build frontend image
         run: |
-          docker build -t digitranslab/kozmoai-frontend:latest-dev \
+          docker build -t digitranslab/flowai-frontend:latest-dev \
             -f docker/frontend/build_and_push_frontend.Dockerfile \
             .

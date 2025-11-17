@@ -13,7 +13,7 @@ const GeneralPageHeaderComponent = () => {
             />
           </h2>
           <p className="text-sm text-muted-foreground">
-            Manage settings related to Kozmoai and your account.
+            Manage settings related to Flowai and your account.
           </p>
         </div>
       </div>

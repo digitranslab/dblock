@@ -111,11 +111,11 @@ function updateComponentCode(
 
   // Update imports
   if (updates.imports) {
-    const importPattern = /from\s+kozmoai\.io\s+import\s+([^;\n]+)/;
+    const importPattern = /from\s+flowai\.io\s+import\s+([^;\n]+)/;
     const newImports = updates.imports.join(", ");
     updatedCode = updatedCode.replace(
       importPattern,
-      `from kozmoai.io import ${newImports}`,
+      `from flowai.io import ${newImports}`,
     );
   }
 

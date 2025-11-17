@@ -1,9 +1,9 @@
 from pathlib import Path
 
-from kozmoai.components import helpers, processing
-from kozmoai.custom.utils import build_custom_component_template
-from kozmoai.schema import Data
-from kozmoai.schema.message import Message
+from flowai.components import helpers, processing
+from flowai.custom.utils import build_custom_component_template
+from flowai.schema import Data
+from flowai.schema.message import Message
 
 # def test_update_data_component():
 #     # Arrange

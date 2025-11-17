@@ -52,15 +52,15 @@ export class BackEndCluster extends Construct {
     );
     backendTaskDefinition.addContainer('backendContainer', {
       image: ecs.ContainerImage.fromEcrRepository(props.ecrBackEndRepository, "latest"),
-      containerName:'kozmoai-back-container',
+      containerName:'flowai-back-container',
       logging: ecs.LogDriver.awsLogs({
         streamPrefix: 'my-stream',
         logGroup: props.backendLogGroup,
       }),
       environment:{
-        "KOZMOAI_AUTO_LOGIN" : process.env.KOZMOAI_AUTO_LOGIN ?? 'false',
-        "KOZMOAI_SUPERUSER" : process.env.KOZMOAI_SUPERUSER ?? "admin",
-        "KOZMOAI_SUPERUSER_PASSWORD" : process.env.KOZMOAI_SUPERUSER_PASSWORD ?? "123456"
+        "FLOWAI_AUTO_LOGIN" : process.env.FLOWAI_AUTO_LOGIN ?? 'false',
+        "FLOWAI_SUPERUSER" : process.env.FLOWAI_SUPERUSER ?? "admin",
+        "FLOWAI_SUPERUSER_PASSWORD" : process.env.FLOWAI_SUPERUSER_PASSWORD ?? "123456"
       },
       portMappings: [
           {

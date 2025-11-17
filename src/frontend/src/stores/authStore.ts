@@ -1,5 +1,5 @@
 // authStore.js
-import { KOZMOAI_ACCESS_TOKEN } from "@/constants/constants";
+import { FLOWAI_ACCESS_TOKEN } from "@/constants/constants";
 import { AuthStoreType } from "@/types/zustand/auth";
 import { Cookies } from "react-cookie";
 import { create } from "zustand";
@@ -7,8 +7,8 @@ import { create } from "zustand";
 const cookies = new Cookies();
 const useAuthStore = create<AuthStoreType>((set, get) => ({
   isAdmin: false,
-  isAuthenticated: !!cookies.get(KOZMOAI_ACCESS_TOKEN),
-  accessToken: cookies.get(KOZMOAI_ACCESS_TOKEN) ?? null,
+  isAuthenticated: !!cookies.get(FLOWAI_ACCESS_TOKEN),
+  accessToken: cookies.get(FLOWAI_ACCESS_TOKEN) ?? null,
   userData: null,
   autoLogin: null,
   apiKey: cookies.get("apikey_tkn_lflw"),

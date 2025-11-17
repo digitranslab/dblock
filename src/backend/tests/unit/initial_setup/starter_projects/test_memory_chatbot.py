@@ -3,16 +3,16 @@ from collections import deque
 from typing import TYPE_CHECKING
 
 import pytest
-from kozmoai.components.helpers.memory import MemoryComponent
-from kozmoai.components.inputs import ChatInput
-from kozmoai.components.models import OpenAIModelComponent
-from kozmoai.components.outputs import ChatOutput
-from kozmoai.components.prompts import PromptComponent
-from kozmoai.graph import Graph
-from kozmoai.graph.graph.constants import Finish
+from flowai.components.helpers.memory import MemoryComponent
+from flowai.components.inputs import ChatInput
+from flowai.components.models import OpenAIModelComponent
+from flowai.components.outputs import ChatOutput
+from flowai.components.prompts import PromptComponent
+from flowai.graph import Graph
+from flowai.graph.graph.constants import Finish
 
 if TYPE_CHECKING:
-    from kozmoai.graph.graph.schema import GraphDump
+    from flowai.graph.graph.schema import GraphDump
 
 
 @pytest.fixture

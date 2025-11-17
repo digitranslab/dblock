@@ -30,7 +30,7 @@ export const useDarkStore = create<DarkStoreType>((set, get) => ({
 
     // if lastUpdated is null or the difference is greater than 2 hours
     if (lastUpdated === null || diff > 7200000) {
-      getRepoStars("digitranslab", "kozmoai").then((res) => {
+      getRepoStars("digitranslab", "flowai").then((res) => {
         window.localStorage.setItem("githubStars", res?.toString() ?? "0");
         window.localStorage.setItem(
           "githubStarsLastUpdated",

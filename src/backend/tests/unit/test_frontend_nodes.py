@@ -1,7 +1,7 @@
 import pytest
-from kozmoai.template.field.base import Input
-from kozmoai.template.frontend_node.base import FrontendNode
-from kozmoai.template.template.base import Template
+from flowai.template.field.base import Input
+from flowai.template.frontend_node.base import FrontendNode
+from flowai.template.template.base import Template
 
 
 @pytest.fixture

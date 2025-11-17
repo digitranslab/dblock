@@ -34,7 +34,7 @@ jobs:
         run: uv sync --dev
       - name: Run Mypy
         run: |
-          uv run mypy --namespace-packages -p "kozmoai"
+          uv run mypy --namespace-packages -p "flowai"
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
       - name: Minimize uv cache

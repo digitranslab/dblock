@@ -5,14 +5,14 @@ from uuid import UUID, uuid4
 import orjson
 import pytest
 from httpx import AsyncClient
-from kozmoai.api.v1.schemas import FlowListCreate, ResultDataResponse
-from kozmoai.graph.utils import log_transaction, log_vertex_build
-from kozmoai.initial_setup.setup import load_starter_projects
-from kozmoai.services.database.models.base import orjson_dumps
-from kozmoai.services.database.models.flow import Flow, FlowCreate, FlowUpdate
-from kozmoai.services.database.models.folder.model import FolderCreate
-from kozmoai.services.database.utils import session_getter
-from kozmoai.services.deps import get_db_service
+from flowai.api.v1.schemas import FlowListCreate, ResultDataResponse
+from flowai.graph.utils import log_transaction, log_vertex_build
+from flowai.initial_setup.setup import load_starter_projects
+from flowai.services.database.models.base import orjson_dumps
+from flowai.services.database.models.flow import Flow, FlowCreate, FlowUpdate
+from flowai.services.database.models.folder.model import FolderCreate
+from flowai.services.database.utils import session_getter
+from flowai.services.deps import get_db_service
 from sqlalchemy import text
 
 

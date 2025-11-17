@@ -1,1 +1,1 @@
-FROM digitranslab/kozmoai:1.0-alpha
+FROM digitranslab/flowai:1.0-alpha

@@ -2,8 +2,8 @@ import json
 from uuid import UUID
 
 import pytest
-from kozmoai.memory import aget_messages
-from kozmoai.services.database.models.flow import FlowCreate, FlowUpdate
+from flowai.memory import aget_messages
+from flowai.services.database.models.flow import FlowCreate, FlowUpdate
 from orjson import orjson
 
 

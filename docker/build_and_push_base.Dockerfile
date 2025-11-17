@@ -51,7 +51,7 @@ COPY src/frontend /tmp/src/frontend
 WORKDIR /tmp/src/frontend
 RUN npm install \
     && npm run build \
-    && cp -r build /app/src/backend/base/kozmoai/frontend \
+    && cp -r build /app/src/backend/base/flowai/frontend \
     && rm -rf /tmp/src/frontend
 
 COPY ./src/backend/base /app/src/backend/base
@@ -83,16 +83,16 @@ COPY --from=builder --chown=1000 /app/.venv /app/.venv
 # Place executables in the environment at the front of the path
 ENV PATH="/app/.venv/bin:$PATH"
 
-LABEL org.opencontainers.image.title=kozmoai
-LABEL org.opencontainers.image.authors=['Kozmoai']
+LABEL org.opencontainers.image.title=flowai
+LABEL org.opencontainers.image.authors=['Flowai']
 LABEL org.opencontainers.image.licenses=MIT
-LABEL org.opencontainers.image.url=https://github.com/digitranslab/kozmoai
-LABEL org.opencontainers.image.source=https://github.com/digitranslab/kozmoai
+LABEL org.opencontainers.image.url=https://github.com/digitranslab/flowai
+LABEL org.opencontainers.image.source=https://github.com/digitranslab/flowai
 
 USER user
 WORKDIR /app
 
-ENV KOZMOAI_HOST=0.0.0.0
-ENV KOZMOAI_PORT=7860
+ENV FLOWAI_HOST=0.0.0.0
+ENV FLOWAI_PORT=7860
 
-CMD ["kozmoai-base", "run"]
+CMD ["flowai-base", "run"]

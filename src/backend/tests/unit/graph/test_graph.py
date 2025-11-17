@@ -2,8 +2,8 @@ import copy
 import json
 
 import pytest
-from kozmoai.graph import Graph
-from kozmoai.graph.graph.utils import (
+from flowai.graph import Graph
+from flowai.graph.graph.utils import (
     find_last_node,
     process_flow,
     set_new_target_handle,
@@ -12,8 +12,8 @@ from kozmoai.graph.graph.utils import (
     update_target_handle,
     update_template,
 )
-from kozmoai.graph.vertex.base import Vertex
-from kozmoai.initial_setup.setup import load_starter_projects
+from flowai.graph.vertex.base import Vertex
+from flowai.initial_setup.setup import load_starter_projects
 
 # Test cases for the graph module
 

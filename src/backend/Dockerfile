@@ -1,4 +1,4 @@
-FROM kozmoai/backend_build as backend_build
+FROM flowai/backend_build as backend_build
 
 FROM python:3.10-slim
 WORKDIR /app
@@ -6,9 +6,9 @@ WORKDIR /app
 RUN apt-get update && apt-get install git -y
 
 COPY --from=backend_build /app/dist/*.whl /app/
-RUN pip install kozmoai-*.whl
+RUN pip install flowai-*.whl
 RUN rm *.whl
 
 EXPOSE 80
 
-CMD [ "uvicorn", "--host", "0.0.0.0", "--port", "7860", "--factory", "kozmoai.main:create_app" ]
+CMD [ "uvicorn", "--host", "0.0.0.0", "--port", "7860", "--factory", "flowai.main:create_app" ]

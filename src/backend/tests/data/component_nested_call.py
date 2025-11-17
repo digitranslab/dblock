@@ -1,8 +1,8 @@
 from random import randint
 
-from kozmoai.custom import Component
-from kozmoai.inputs.inputs import IntInput, MessageTextInput
-from kozmoai.template.field.base import Output
+from flowai.custom import Component
+from flowai.inputs.inputs import IntInput, MessageTextInput
+from flowai.template.field.base import Output
 
 
 class MultipleOutputsComponent(Component):

@@ -1,6 +1,6 @@
 import {
-  KOZMOAI_ACCESS_TOKEN_EXPIRE_SECONDS,
-  KOZMOAI_ACCESS_TOKEN_EXPIRE_SECONDS_ENV,
+  FLOWAI_ACCESS_TOKEN_EXPIRE_SECONDS,
+  FLOWAI_ACCESS_TOKEN_EXPIRE_SECONDS_ENV,
 } from "@/constants/constants";
 import { useRefreshAccessToken } from "@/controllers/API/queries/auth";
 import { CustomNavigate } from "@/customization/components/custom-navigate";
@@ -13,8 +13,8 @@ export const ProtectedRoute = ({ children }) => {
   const autoLogin = useAuthStore((state) => state.autoLogin);
 
   useEffect(() => {
-    const envRefreshTime = KOZMOAI_ACCESS_TOKEN_EXPIRE_SECONDS_ENV;
-    const automaticRefreshTime = KOZMOAI_ACCESS_TOKEN_EXPIRE_SECONDS;
+    const envRefreshTime = FLOWAI_ACCESS_TOKEN_EXPIRE_SECONDS_ENV;
+    const automaticRefreshTime = FLOWAI_ACCESS_TOKEN_EXPIRE_SECONDS;
 
     const accessTokenTimer = isNaN(envRefreshTime)
       ? automaticRefreshTime

@@ -1,5 +1,5 @@
-from kozmoai.components.inputs import TextInputComponent
-from kozmoai.schema.message import Message
+from flowai.components.inputs import TextInputComponent
+from flowai.schema.message import Message
 
 from tests.integration.utils import run_single_component
 

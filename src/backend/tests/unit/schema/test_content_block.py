@@ -1,6 +1,6 @@
 import pytest
-from kozmoai.schema.content_block import ContentBlock
-from kozmoai.schema.content_types import CodeContent, ErrorContent, JSONContent, MediaContent, TextContent, ToolContent
+from flowai.schema.content_block import ContentBlock
+from flowai.schema.content_types import CodeContent, ErrorContent, JSONContent, MediaContent, TextContent, ToolContent
 
 
 class TestContentBlock:

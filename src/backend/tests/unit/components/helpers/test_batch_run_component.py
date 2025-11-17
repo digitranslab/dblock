@@ -1,8 +1,8 @@
 import re
 
 import pytest
-from kozmoai.components.helpers.batch_run import BatchRunComponent
-from kozmoai.schema import DataFrame
+from flowai.components.helpers.batch_run import BatchRunComponent
+from flowai.schema import DataFrame
 
 from tests.base import ComponentTestBaseWithoutClient
 from tests.unit.mock_language_model import MockLanguageModel

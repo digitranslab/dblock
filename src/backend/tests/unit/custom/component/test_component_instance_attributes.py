@@ -1,6 +1,6 @@
 import pytest
-from kozmoai.components.inputs.chat import ChatInput
-from kozmoai.schema.message import Message
+from flowai.components.inputs.chat import ChatInput
+from flowai.schema.message import Message
 
 
 @pytest.fixture

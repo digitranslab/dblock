@@ -5,9 +5,9 @@ from unittest.mock import Mock
 from uuid import uuid4
 
 import pytest
-from kozmoai.custom.custom_component.component import Component
-from kozmoai.graph.graph.base import Graph
-from kozmoai.graph.vertex.base import Vertex
+from flowai.custom.custom_component.component import Component
+from flowai.graph.graph.base import Graph
+from flowai.graph.vertex.base import Vertex
 from typing_extensions import TypedDict
 
 from tests.constants import SUPPORTED_VERSIONS

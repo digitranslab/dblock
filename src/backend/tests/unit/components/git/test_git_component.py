@@ -2,7 +2,7 @@ import tempfile
 from pathlib import Path
 
 import pytest
-from kozmoai.components.git import GitLoaderComponent
+from flowai.components.git import GitLoaderComponent
 
 
 @pytest.fixture

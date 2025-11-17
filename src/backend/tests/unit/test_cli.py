@@ -1,6 +1,6 @@
 import pytest
-from kozmoai.__main__ import app
-from kozmoai.services import deps
+from flowai.__main__ import app
+from flowai.services import deps
 
 
 @pytest.fixture(scope="module")

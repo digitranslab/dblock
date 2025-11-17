@@ -1,6 +1,6 @@
 import pytest
-from kozmoai.base.tools.constants import TOOL_OUTPUT_DISPLAY_NAME, TOOL_OUTPUT_NAME
-from kozmoai.custom.custom_component.component import Component
+from flowai.base.tools.constants import TOOL_OUTPUT_DISPLAY_NAME, TOOL_OUTPUT_NAME
+from flowai.custom.custom_component.component import Component
 
 
 class TestComponentOutputs:

@@ -1,7 +1,7 @@
 import base64
 
 import pytest
-from kozmoai.utils.image import convert_image_to_base64, create_data_url
+from flowai.utils.image import convert_image_to_base64, create_data_url
 
 
 @pytest.fixture

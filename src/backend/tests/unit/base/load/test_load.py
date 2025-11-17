@@ -3,7 +3,7 @@ import os
 
 import pytest
 from dotenv import load_dotenv
-from kozmoai.load import run_flow_from_json
+from flowai.load import run_flow_from_json
 
 
 def test_run_flow_from_json_params():

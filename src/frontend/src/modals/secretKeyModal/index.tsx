@@ -89,7 +89,7 @@ export default function SecretKeyModal({
               new one.
             </>
           ) : (
-            <>Create a secret API Key to use Kozmoai API.</>
+            <>Create a secret API Key to use Flowai API.</>
           )
         }
       >

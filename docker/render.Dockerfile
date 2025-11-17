@@ -1,3 +1,3 @@
-FROM digitranslab/kozmoai:latest
+FROM digitranslab/flowai:latest
 
-ENTRYPOINT ["python", "-m", "kozmoai", "run"]
+ENTRYPOINT ["python", "-m", "flowai", "run"]

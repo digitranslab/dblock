@@ -251,7 +251,7 @@ dmypy.json
 
 # Poetry
 .testenv/*
-kozmoai.db
+flowai.db
 
 
 .githooks/prepare-commit-msg
@@ -261,8 +261,8 @@ kozmoai.db
 .docusaurus/
 
 /tmp/*
-src/backend/kozmoai/frontend/
-src/backend/base/kozmoai/frontend/
+src/backend/flowai/frontend/
+src/backend/base/flowai/frontend/
 .docker
 scratchpad*
 chroma*/*

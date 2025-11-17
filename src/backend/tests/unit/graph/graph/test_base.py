@@ -2,12 +2,12 @@ import logging
 from collections import deque
 
 import pytest
-from kozmoai.components.inputs import ChatInput
-from kozmoai.components.langchain_utilities import ToolCallingAgentComponent
-from kozmoai.components.outputs import ChatOutput, TextOutputComponent
-from kozmoai.components.tools import YfinanceToolComponent
-from kozmoai.graph import Graph
-from kozmoai.graph.graph.constants import Finish
+from flowai.components.inputs import ChatInput
+from flowai.components.langchain_utilities import ToolCallingAgentComponent
+from flowai.components.outputs import ChatOutput, TextOutputComponent
+from flowai.components.tools import YfinanceToolComponent
+from flowai.graph import Graph
+from flowai.graph.graph.constants import Finish
 
 
 async def test_graph_not_prepared():

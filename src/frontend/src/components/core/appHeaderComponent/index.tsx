@@ -1,6 +1,6 @@
 import AlertDropdown from "@/alerts/alertDropDown";
 import DataStaxLogo from "@/assets/DataStaxLogo.svg?react";
-import KozmoaiLogo from "@/assets/KozmoaiLogo.svg?react";
+import FlowaiLogo from "@/assets/FlowaiLogo.svg?react";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import ShadTooltip from "@/components/common/shadTooltipComponent";
 import { Button } from "@/components/ui/button";
@@ -8,7 +8,7 @@ import { Separator } from "@/components/ui/separator";
 import { CustomOrgSelector } from "@/customization/components/custom-org-selector";
 import { CustomProductSelector } from "@/customization/components/custom-product-selector";
 import {
-  ENABLE_DATASTAX_KOZMOAI,
+  ENABLE_DATASTAX_FLOWAI,
   ENABLE_NEW_LOGO,
 } from "@/customization/feature-flags";
 import { useCustomNavigate } from "@/customization/hooks/use-custom-navigate";
@@ -65,15 +65,15 @@ export default function AppHeader(): JSX.Element {
           className="mr-1 flex h-8 w-8 items-center"
           data-testid="icon-ChevronLeft"
         >
-          {ENABLE_DATASTAX_KOZMOAI ? (
+          {ENABLE_DATASTAX_FLOWAI ? (
             <DataStaxLogo className="fill-black dark:fill-[white]" />
           ) : ENABLE_NEW_LOGO ? (
-            <KozmoaiLogo className="h-5 w-6" />
+            <FlowaiLogo className="h-5 w-6" />
           ) : (
             <span className="fill-black text-2xl dark:fill-white">⛓️</span>
           )}
         </Button>
-        {ENABLE_DATASTAX_KOZMOAI && (
+        {ENABLE_DATASTAX_FLOWAI && (
           <>
             <CustomOrgSelector />
             <CustomProductSelector />
@@ -91,13 +91,13 @@ export default function AppHeader(): JSX.Element {
         className={`flex items-center gap-2`}
         data-testid="header_right_section_wrapper"
       >
-        {!ENABLE_DATASTAX_KOZMOAI && (
+        {!ENABLE_DATASTAX_FLOWAI && (
           <>
             <Button
               unstyled
               className="hidden items-center whitespace-nowrap pr-2 2xl:inline"
               onClick={() =>
-                window.open("https://github.com/digitranslab/kozmoai", "_blank")
+                window.open("https://github.com/digitranslab/flowai", "_blank")
               }
             >
               <GithubStarComponent />
@@ -143,10 +143,10 @@ export default function AppHeader(): JSX.Element {
             </AlertDropdown>
           </ShadTooltip>
         </AlertDropdown>
-        {!ENABLE_DATASTAX_KOZMOAI && (
+        {!ENABLE_DATASTAX_FLOWAI && (
           <>
             <ShadTooltip
-              content="Go to KozmoaiStore"
+              content="Go to FlowaiStore"
               side="bottom"
               styleClasses="z-10"
             >
@@ -173,7 +173,7 @@ export default function AppHeader(): JSX.Element {
             />
           </>
         )}
-        {ENABLE_DATASTAX_KOZMOAI && (
+        {ENABLE_DATASTAX_FLOWAI && (
           <>
             <ShadTooltip content="Docs" side="bottom" styleClasses="z-10">
               <Button
@@ -181,7 +181,7 @@ export default function AppHeader(): JSX.Element {
                 className="flex text-sm font-medium"
                 onClick={() =>
                   window.open(
-                    "https://docs.datastax.com/en/kozmoai/index.html",
+                    "https://docs.datastax.com/en/flowai/index.html",
                     "_blank",
                   )
                 }

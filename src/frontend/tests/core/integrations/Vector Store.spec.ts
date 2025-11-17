@@ -128,19 +128,19 @@ test(
 
     await page.getByTestId("dropdown_str_api_endpoint").first().click();
 
-    await page.waitForSelector('[data-testid="kozmoai-1-option"]', {
+    await page.waitForSelector('[data-testid="flowai-1-option"]', {
       timeout: 100000,
     });
 
-    await page.getByTestId("kozmoai-1-option").last().click();
+    await page.getByTestId("flowai-1-option").last().click();
 
     await page.getByTestId("dropdown_str_api_endpoint").last().click();
 
-    await page.waitForSelector('[data-testid="kozmoai-1-option"]', {
+    await page.waitForSelector('[data-testid="flowai-1-option"]', {
       timeout: 100000,
     });
 
-    await page.getByTestId("kozmoai-1-option").last().click();
+    await page.getByTestId("flowai-1-option").last().click();
 
     const fileChooserPromise = page.waitForEvent("filechooser");
     await page.getByTestId("input-file-component").last().click();

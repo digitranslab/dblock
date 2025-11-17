@@ -1,6 +1,6 @@
 import pandas as pd
 import pytest
-from kozmoai.components.processing.dataframe_operations import DataFrameOperationsComponent
+from flowai.components.processing.dataframe_operations import DataFrameOperationsComponent
 
 
 @pytest.fixture

@@ -2,11 +2,11 @@ from datetime import datetime, timezone
 
 import pytest
 from httpx import AsyncClient
-from kozmoai.services.auth.utils import create_super_user, get_password_hash
-from kozmoai.services.database.models.user import UserUpdate
-from kozmoai.services.database.models.user.model import User
-from kozmoai.services.database.utils import session_getter
-from kozmoai.services.deps import get_db_service, get_settings_service
+from flowai.services.auth.utils import create_super_user, get_password_hash
+from flowai.services.database.models.user import UserUpdate
+from flowai.services.database.models.user.model import User
+from flowai.services.database.utils import session_getter
+from flowai.services.deps import get_db_service, get_settings_service
 from sqlmodel import select
 
 

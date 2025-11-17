@@ -59,7 +59,7 @@ export function createTabsArray(
     tabs.push({
       name: "Chat Widget HTML",
       description:
-        "Insert this code anywhere in your &lt;body&gt; tag. To use with react and other libs, check our <a class='link-color' href='https://kozmoai.cloud/guidelines/widget'>documentation</a>.",
+        "Insert this code anywhere in your &lt;body&gt; tag. To use with react and other libs, check our <a class='link-color' href='https://flowai.cloud/guidelines/widget'>documentation</a>.",
       mode: "html",
       image: "https://cdn-icons-png.flaticon.com/512/5968/5968350.png",
       language: "html",

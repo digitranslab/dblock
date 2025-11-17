@@ -1,5 +1,5 @@
 import pytest
-from kozmoai.components.tools.calculator_core import CalculatorComponent
+from flowai.components.tools.calculator_core import CalculatorComponent
 
 from tests.base import ComponentTestBaseWithoutClient
 

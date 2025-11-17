@@ -162,8 +162,8 @@ test(
     await page.goto("/");
     await page.getByTestId("user-profile-settings").click();
     await page.getByText("Settings").click();
-    await page.getByText("Kozmoai API").first().click();
-    await page.getByText("Kozmoai API", { exact: true }).nth(1).isVisible();
+    await page.getByText("Flowai API").first().click();
+    await page.getByText("Flowai API", { exact: true }).nth(1).isVisible();
     await page.getByText("Add New").click();
     await page.getByPlaceholder("Insert a name for your API Key").isVisible();
 
