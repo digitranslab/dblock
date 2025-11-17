@@ -119,7 +119,7 @@ jobs:
 
   release-main:
     name: Release Minerva Main
-    if: inputs.release_package_main == true
+    if: ${{ inputs.release_package_main == true && always() }}
     needs: [release-base]
     runs-on: ubuntu-latest
     outputs:
@@ -192,7 +192,7 @@ jobs:
 
   call_docker_build_base:
     name: Call Docker Build Workflow for Minerva Base
-    if: inputs.build_docker_base == true
+    if: ${{ inputs.build_docker_base == true && always() }}
     needs: [release-base, release-main]
     uses: ./.github/workflows/docker-build.yml
     with:
@@ -204,7 +204,7 @@ jobs:
 
   call_docker_build_main:
     name: Call Docker Build Workflow for Minerva
-    if: inputs.build_docker_main == true
+    if: ${{ inputs.build_docker_main == true && always() }}
     needs: [release-main]
     uses: ./.github/workflows/docker-build.yml
     with:
@@ -215,7 +215,7 @@ jobs:
 
   call_docker_build_main_ep:
     name: Call Docker Build Workflow for Minerva with Entrypoint
-    if: inputs.build_docker_ep == true
+    if: ${{ inputs.build_docker_ep == true && always() }}
     needs: [release-main]
     uses: ./.github/workflows/docker-build.yml
     with:
@@ -226,6 +226,7 @@ jobs:
 
   create_release:
     name: Create Release
+    if: ${{ always() && needs.release-main.result == 'success' }}
     runs-on: ubuntu-latest
     needs: release-main
     steps:
