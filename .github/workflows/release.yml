@@ -99,7 +99,7 @@ jobs:
           # Check if the server is still running
           if kill -0 $SERVER_PID 2>/dev/null; then
             echo "Failed to terminate the server"
-            exit 0
+            exit 1
           else
             echo "Server terminated successfully"
           fi
@@ -173,7 +173,7 @@ jobs:
           # Check if the server is still running
           if kill -0 $SERVER_PID 2>/dev/null; then
             echo "Failed to terminate the server"
-            exit 0
+            exit 1
           else
             echo "Server terminated successfully"
           fi
