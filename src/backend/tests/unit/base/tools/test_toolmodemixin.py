@@ -1,8 +1,8 @@
-from kozmoai.base.tools.component_tool import ComponentToolkit
-from kozmoai.custom import Component
+from minerva.base.tools.component_tool import ComponentToolkit
+from minerva.custom import Component
 
 # Import all input types
-from kozmoai.io import (
+from minerva.io import (
     BoolInput,
     DataFrameInput,
     DataInput,
@@ -20,14 +20,14 @@ from kozmoai.io import (
     StrInput,
     TableInput,
 )
-from kozmoai.schema import Data
+from minerva.schema import Data
 from pydantic import BaseModel
 
 
 class AllInputsComponent(Component):
     display_name = "All Inputs Component"
-    description = "A component with all input types available in Kozmoai."
-    documentation: str = "http://docs.kozmoai.cloud/components/all_inputs"
+    description = "A component with all input types available in Minerva."
+    documentation: str = "http://docs.minerva.cloud/components/all_inputs"
     icon = "code"
     name = "AllInputsComponent"
 

@@ -51,17 +51,17 @@ test(
     await page.getByTestId("code-button-modal").nth(0).click();
 
     const waitTimeoutCode = `
-# from kozmoai.field_typing import Data
-from kozmoai.custom import Component
-from kozmoai.io import MessageTextInput, Output
-from kozmoai.schema import Data
+# from minerva.field_typing import Data
+from minerva.custom import Component
+from minerva.io import MessageTextInput, Output
+from minerva.schema import Data
 from time import sleep
-from kozmoai.schema.message import Message
+from minerva.schema.message import Message
 
 class CustomComponent(Component):
     display_name = "Custom Component"
     description = "Use as a template to create your own component."
-    documentation: str = "https://docs.kozmoai.cloud/components-custom-components"
+    documentation: str = "https://docs.minerva.cloud/components-custom-components"
     icon = "custom_components"
     name = "CustomComponent"
 

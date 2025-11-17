@@ -52,7 +52,7 @@ export default function ShortcutsPage() {
       const fixedName = toCamelCase(name);
       updateUniqueShortcut(fixedName, shortcut);
     });
-    localStorage.removeItem("kozmoai-shortcuts");
+    localStorage.removeItem("minerva-shortcuts");
   }
 
   return (

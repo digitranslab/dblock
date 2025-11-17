@@ -1,6 +1,6 @@
-from kozmoai.graph import Graph
-from kozmoai.initial_setup.setup import load_starter_projects
-from kozmoai.load import aload_flow_from_json
+from minerva.graph import Graph
+from minerva.initial_setup.setup import load_starter_projects
+from minerva.load import aload_flow_from_json
 
 # TODO: UPDATE BASIC EXAMPLE
 # def test_load_flow_from_json():

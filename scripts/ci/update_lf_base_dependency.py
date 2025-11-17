@@ -11,16 +11,16 @@ ARGUMENT_NUMBER = 2
 
 
 def update_base_dep(pyproject_path: str, new_version: str) -> None:
-    """Update the kozmoai-base dependency in pyproject.toml."""
+    """Update the minerva-base dependency in pyproject.toml."""
     filepath = BASE_DIR / pyproject_path
     content = filepath.read_text(encoding="utf-8")
 
-    replacement = f'kozmoai-base-nightly = "{new_version}"'
+    replacement = f'minerva-base-nightly = "{new_version}"'
 
     # Updates the pattern for poetry
-    pattern = re.compile(r'kozmoai-base = \{ path = "\./src/backend/base", develop = true \}')
+    pattern = re.compile(r'minerva-base = \{ path = "\./src/backend/base", develop = true \}')
     if not pattern.search(content):
-        msg = f'kozmoai-base poetry dependency not found in "{filepath}"'
+        msg = f'minerva-base poetry dependency not found in "{filepath}"'
         raise ValueError(msg)
     content = pattern.sub(replacement, content)
     filepath.write_text(content, encoding="utf-8")

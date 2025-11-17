@@ -4,7 +4,7 @@ export const PROXY_TARGET = "http://127.0.0.1:7860";
 export const API_ROUTES = ["^/api/v1/", "/api/v2/", "/health"];
 export const BASE_URL_API = "/api/v1/";
 export const HEALTH_CHECK_URL = "/health_check";
-export const DOCS_LINK = "https://docs.kozmoai.cloud";
+export const DOCS_LINK = "https://docs.minerva.cloud";
 
 export default {
   DOCS_LINK,

@@ -8,7 +8,7 @@ import httpx
 import pytest
 import respx
 from httpx import Response
-from kozmoai.components import data
+from minerva.components import data
 
 
 @pytest.fixture

@@ -5,13 +5,13 @@ from unittest.mock import MagicMock
 from uuid import uuid4
 
 import pytest
-from kozmoai.custom.custom_component.component import Component
-from kozmoai.events.event_manager import EventManager
-from kozmoai.schema.content_block import ContentBlock
-from kozmoai.schema.content_types import TextContent, ToolContent
-from kozmoai.schema.message import Message
-from kozmoai.schema.properties import Properties, Source
-from kozmoai.template.field.base import Output
+from minerva.custom.custom_component.component import Component
+from minerva.events.event_manager import EventManager
+from minerva.schema.content_block import ContentBlock
+from minerva.schema.content_types import TextContent, ToolContent
+from minerva.schema.message import Message
+from minerva.schema.properties import Properties, Source
+from minerva.template.field.base import Output
 
 
 def blocking_cb(manager, event_type, data):

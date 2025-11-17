@@ -1,5 +1,5 @@
 [project]
-name = "kozmoai-base"
+name = "minerva-base"
 version = "0.1.7.post1"
 description = "A Python package with a built-in web application"
 requires-python = ">=3.10,<3.13"
@@ -78,7 +78,7 @@ dependencies = [
 
 
 [tool.hatch.build.targets.wheel]
-packages = ["kozmoai"]
+packages = ["minerva"]
 
 
 [tool.pytest.ini_options]
@@ -97,12 +97,12 @@ plugins = ["pydantic.mypy"]
 follow_imports = "skip"
 disable_error_code = ["type-var"]
 namespace_packages = true
-mypy_path = "kozmoai"
+mypy_path = "minerva"
 ignore_missing_imports = true
 
 [tool.ruff]
 target-version = "py310"
-exclude = ["kozmoai/alembic/versions"]
+exclude = ["minerva/alembic/versions"]
 line-length = 120
 
 [tool.ruff.lint]
@@ -141,13 +141,13 @@ ignore = [
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"kozmoai/api/v1/*" = [
+"minerva/api/v1/*" = [
     "TCH", # FastAPI needs to evaluate types at runtime
 ]
-"kozmoai/{components/tools/python_code_structured_tool.py,custom/code_parser/code_parser.py,utils/validate.py}" = [
+"minerva/{components/tools/python_code_structured_tool.py,custom/code_parser/code_parser.py,utils/validate.py}" = [
     "S102", # Use of exec
 ]
-"kozmoai/services/cache/*" = [
+"minerva/services/cache/*" = [
     "S301", # Use of pickle
 ]
 
@@ -160,7 +160,7 @@ dev-dependencies = [
 ]
 [tool.codeflash]
 # All paths are relative to this pyproject.toml's directory.
-module-root = "kozmoai"
+module-root = "minerva"
 tests-root = "../tests/unit"
 test-framework = "pytest"
 ignore-paths = []
@@ -174,8 +174,8 @@ build-backend = "hatchling.build"
 
 
 [project.urls]
-Repository = "https://github.com/digitranslab/kozmoai"
-Documentation = "https://docs.kozmoai.cloud"
+Repository = "https://github.com/digitranslab/minerva"
+Documentation = "https://docs.minerva.cloud"
 
 # Optional dependencies for uv
 [project.optional-dependencies]
@@ -234,4 +234,4 @@ dev = [
 ]
 
 [project.scripts]
-kozmoai-base = "kozmoai.__main__:main"
+minerva-base = "minerva.__main__:main"

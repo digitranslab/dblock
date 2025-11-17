@@ -1,7 +1,7 @@
 import pytest
-from kozmoai.services.auth.utils import get_password_hash
-from kozmoai.services.database.models.user import User
-from kozmoai.services.deps import session_scope
+from minerva.services.auth.utils import get_password_hash
+from minerva.services.database.models.user import User
+from minerva.services.deps import session_scope
 from sqlalchemy.exc import IntegrityError
 
 

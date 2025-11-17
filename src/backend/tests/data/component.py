@@ -1,6 +1,6 @@
 import random
 
-from kozmoai.custom import CustomComponent
+from minerva.custom import CustomComponent
 
 
 class TestComponent(CustomComponent):

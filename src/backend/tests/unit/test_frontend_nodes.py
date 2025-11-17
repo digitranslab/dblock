@@ -1,7 +1,7 @@
 import pytest
-from kozmoai.template.field.base import Input
-from kozmoai.template.frontend_node.base import FrontendNode
-from kozmoai.template.template.base import Template
+from minerva.template.field.base import Input
+from minerva.template.frontend_node.base import FrontendNode
+from minerva.template.template.base import Template
 
 
 @pytest.fixture

@@ -1,4 +1,4 @@
-from kozmoai.components import prototypes
+from minerva.components import prototypes
 
 
 def test_python_function_component():

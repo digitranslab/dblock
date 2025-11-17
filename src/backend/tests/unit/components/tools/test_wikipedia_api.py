@@ -1,11 +1,11 @@
 from unittest.mock import MagicMock
 
 import pytest
-from kozmoai.components.tools import WikipediaComponent
-from kozmoai.custom import Component
-from kozmoai.custom.utils import build_custom_component_template
-from kozmoai.schema import Data
-from kozmoai.schema.message import Message
+from minerva.components.tools import WikipediaComponent
+from minerva.custom import Component
+from minerva.custom.utils import build_custom_component_template
+from minerva.schema import Data
+from minerva.schema.message import Message
 
 # Import the base test class
 from tests.base import ComponentTestBaseWithoutClient

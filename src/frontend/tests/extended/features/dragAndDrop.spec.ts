@@ -91,7 +91,7 @@ test(
 
     const randomName = Math.random().toString(36).substring(2, 15);
     const jsonContentWithNewName = jsonContent.replace(
-      "KOZMOAI TEST",
+      "MINERVA TEST",
       randomName,
     );
 

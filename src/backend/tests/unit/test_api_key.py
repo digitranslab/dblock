@@ -1,6 +1,6 @@
 import pytest
 from httpx import AsyncClient
-from kozmoai.services.database.models.api_key import ApiKeyCreate
+from minerva.services.database.models.api_key import ApiKeyCreate
 
 
 @pytest.fixture

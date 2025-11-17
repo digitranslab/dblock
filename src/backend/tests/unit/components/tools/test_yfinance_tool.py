@@ -2,10 +2,10 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 from langchain_core.tools import ToolException
-from kozmoai.components.tools import YfinanceComponent
-from kozmoai.components.tools.yahoo import YahooFinanceMethod
-from kozmoai.custom.utils import build_custom_component_template
-from kozmoai.schema import Data
+from minerva.components.tools import YfinanceComponent
+from minerva.components.tools.yahoo import YahooFinanceMethod
+from minerva.custom.utils import build_custom_component_template
+from minerva.schema import Data
 
 
 class TestYfinanceComponent:
@@ -38,7 +38,7 @@ class TestYfinanceComponent:
         for input_name in expected_inputs:
             assert input_name in input_names
 
-    @patch("kozmoai.components.tools.yahoo.yf.Ticker")
+    @patch("minerva.components.tools.yahoo.yf.Ticker")
     def test_fetch_info(self, mock_ticker, component_class, default_kwargs):
         component = component_class(**default_kwargs)
 
@@ -53,7 +53,7 @@ class TestYfinanceComponent:
         assert len(result) == 1
         assert "Apple Inc." in result[0].text
 
-    @patch("kozmoai.components.tools.yahoo.yf.Ticker")
+    @patch("minerva.components.tools.yahoo.yf.Ticker")
     def test_fetch_news(self, mock_ticker, component_class):
         component = component_class(symbol="AAPL", method=YahooFinanceMethod.GET_NEWS, num_news=2)
 

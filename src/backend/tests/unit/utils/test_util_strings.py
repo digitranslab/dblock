@@ -1,5 +1,5 @@
 import pytest
-from kozmoai.utils import util_strings
+from minerva.utils import util_strings
 
 
 @pytest.mark.parametrize(

@@ -128,7 +128,7 @@ export default function ComponentsComponent({
 
           const fileNameSuffix =
             selectedFlowsComponentsCards.length > 1
-              ? "_kozmoai_flows.zip"
+              ? "_minerva_flows.zip"
               : `${selectedFlow!.name}.json`;
 
           const blob = new Blob([data], { type: blobType });

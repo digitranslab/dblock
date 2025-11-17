@@ -1,6 +1,6 @@
 import pytest
-from kozmoai.components.outputs import ChatOutput, TextOutputComponent
-from kozmoai.utils.constants import MESSAGE_SENDER_AI, MESSAGE_SENDER_NAME_AI
+from minerva.components.outputs import ChatOutput, TextOutputComponent
+from minerva.utils.constants import MESSAGE_SENDER_AI, MESSAGE_SENDER_NAME_AI
 
 from tests.base import ComponentTestBaseWithClient, ComponentTestBaseWithoutClient
 

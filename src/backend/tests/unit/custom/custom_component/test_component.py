@@ -1,15 +1,15 @@
 from typing import Any
 
 import pytest
-from kozmoai.components.agents import AgentComponent
-from kozmoai.components.crewai import CrewAIAgentComponent, SequentialTaskComponent
-from kozmoai.components.custom_component import CustomComponent
-from kozmoai.components.inputs import ChatInput
-from kozmoai.components.models import OpenAIModelComponent
-from kozmoai.components.outputs import ChatOutput
-from kozmoai.custom.utils import update_component_build_config
-from kozmoai.schema import dotdict
-from kozmoai.template import Output
+from minerva.components.agents import AgentComponent
+from minerva.components.crewai import CrewAIAgentComponent, SequentialTaskComponent
+from minerva.components.custom_component import CustomComponent
+from minerva.components.inputs import ChatInput
+from minerva.components.models import OpenAIModelComponent
+from minerva.components.outputs import ChatOutput
+from minerva.custom.utils import update_component_build_config
+from minerva.schema import dotdict
+from minerva.template import Output
 from typing_extensions import override
 
 

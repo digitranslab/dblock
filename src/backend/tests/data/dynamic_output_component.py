@@ -1,15 +1,15 @@
-# from kozmoai.field_typing import Data
+# from minerva.field_typing import Data
 from typing import Any
 
-from kozmoai.custom import Component
-from kozmoai.io import BoolInput, MessageTextInput, Output
-from kozmoai.schema import Data
+from minerva.custom import Component
+from minerva.io import BoolInput, MessageTextInput, Output
+from minerva.schema import Data
 
 
 class DynamicOutputComponent(Component):
     display_name = "Dynamic Output Component"
     description = "Use as a template to create your own component."
-    documentation: str = "https://docs.kozmoai.cloud/components-custom-components"
+    documentation: str = "https://docs.minerva.cloud/components-custom-components"
     icon = "custom_components"
     name = "DynamicOutputComponent"
 

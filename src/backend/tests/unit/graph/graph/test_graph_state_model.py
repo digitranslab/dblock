@@ -1,14 +1,14 @@
 from typing import TYPE_CHECKING
 
 import pytest
-from kozmoai.components.helpers.memory import MemoryComponent
-from kozmoai.components.inputs import ChatInput
-from kozmoai.components.models import OpenAIModelComponent
-from kozmoai.components.outputs import ChatOutput
-from kozmoai.components.prompts import PromptComponent
-from kozmoai.graph import Graph
-from kozmoai.graph.graph.constants import Finish
-from kozmoai.graph.graph.state_model import create_state_model_from_graph
+from minerva.components.helpers.memory import MemoryComponent
+from minerva.components.inputs import ChatInput
+from minerva.components.models import OpenAIModelComponent
+from minerva.components.outputs import ChatOutput
+from minerva.components.prompts import PromptComponent
+from minerva.graph import Graph
+from minerva.graph.graph.constants import Finish
+from minerva.graph.graph.state_model import create_state_model_from_graph
 
 if TYPE_CHECKING:
     from pydantic import BaseModel

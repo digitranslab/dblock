@@ -133,12 +133,12 @@ test(
     await page.locator("textarea").press("Control+a");
     const emptyOptionsCode = `from langchain_community.chat_models.bedrock import BedrockChat
 
-from kozmoai.base.constants import STREAM_INFO_TEXT
-from kozmoai.base.models.model import LCModelComponent
-from kozmoai.field_typing import BaseLanguageModel, Text
-from kozmoai.io import BoolInput, DictInput, DropdownInput, StrInput
-from kozmoai.io import MessageInput
-from kozmoai.io import Output
+from minerva.base.constants import STREAM_INFO_TEXT
+from minerva.base.models.model import LCModelComponent
+from minerva.field_typing import BaseLanguageModel, Text
+from minerva.io import BoolInput, DictInput, DropdownInput, StrInput
+from minerva.io import MessageInput
+from minerva.io import Output
 
 
 class AmazonBedrockComponent(LCModelComponent):

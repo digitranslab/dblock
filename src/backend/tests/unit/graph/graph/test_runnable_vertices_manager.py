@@ -2,7 +2,7 @@ import pickle
 from typing import TYPE_CHECKING
 
 import pytest
-from kozmoai.graph.graph.runnable_vertices_manager import RunnableVerticesManager
+from minerva.graph.graph.runnable_vertices_manager import RunnableVerticesManager
 
 if TYPE_CHECKING:
     from collections import defaultdict

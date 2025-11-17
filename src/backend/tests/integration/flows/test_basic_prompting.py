@@ -1,8 +1,8 @@
-from kozmoai.components.inputs import ChatInput
-from kozmoai.components.outputs import ChatOutput
-from kozmoai.components.prompts import PromptComponent
-from kozmoai.graph import Graph
-from kozmoai.schema.message import Message
+from minerva.components.inputs import ChatInput
+from minerva.components.outputs import ChatOutput
+from minerva.components.prompts import PromptComponent
+from minerva.graph import Graph
+from minerva.schema.message import Message
 
 from tests.integration.utils import run_flow
 

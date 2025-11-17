@@ -17,19 +17,19 @@ from blockbuster import blockbuster_ctx
 from dotenv import load_dotenv
 from fastapi.testclient import TestClient
 from httpx import ASGITransport, AsyncClient
-from kozmoai.components.inputs import ChatInput
-from kozmoai.graph import Graph
-from kozmoai.initial_setup.constants import STARTER_FOLDER_NAME
-from kozmoai.main import create_app
-from kozmoai.services.auth.utils import get_password_hash
-from kozmoai.services.database.models.api_key.model import ApiKey
-from kozmoai.services.database.models.flow.model import Flow, FlowCreate
-from kozmoai.services.database.models.folder.model import Folder
-from kozmoai.services.database.models.transactions.model import TransactionTable
-from kozmoai.services.database.models.user.model import User, UserCreate, UserRead
-from kozmoai.services.database.models.vertex_builds.crud import delete_vertex_builds_by_flow_id
-from kozmoai.services.database.utils import session_getter
-from kozmoai.services.deps import get_db_service
+from minerva.components.inputs import ChatInput
+from minerva.graph import Graph
+from minerva.initial_setup.constants import STARTER_FOLDER_NAME
+from minerva.main import create_app
+from minerva.services.auth.utils import get_password_hash
+from minerva.services.database.models.api_key.model import ApiKey
+from minerva.services.database.models.flow.model import Flow, FlowCreate
+from minerva.services.database.models.folder.model import Folder
+from minerva.services.database.models.transactions.model import TransactionTable
+from minerva.services.database.models.user.model import User, UserCreate, UserRead
+from minerva.services.database.models.vertex_builds.crud import delete_vertex_builds_by_flow_id
+from minerva.services.database.utils import session_getter
+from minerva.services.deps import get_db_service
 from loguru import logger
 from sqlalchemy.ext.asyncio import create_async_engine
 from sqlalchemy.orm import selectinload
@@ -68,7 +68,7 @@ def blockbuster(request):
             (
                 bb.functions["os.stat"]
                 # TODO: make set_class_code async
-                .can_block_in("kozmoai/custom/custom_component/component.py", "set_class_code")
+                .can_block_in("minerva/custom/custom_component/component.py", "set_class_code")
                 # TODO: follow discussion in https://github.com/encode/httpx/discussions/3456
                 .can_block_in("httpx/_client.py", "_init_transport")
                 .can_block_in("rich/traceback.py", "_render_stack")
@@ -198,12 +198,12 @@ def load_flows_dir():
 
 @pytest.fixture(name="distributed_env")
 def _setup_env(monkeypatch):
-    monkeypatch.setenv("KOZMOAI_CACHE_TYPE", "redis")
-    monkeypatch.setenv("KOZMOAI_REDIS_HOST", "result_backend")
-    monkeypatch.setenv("KOZMOAI_REDIS_PORT", "6379")
-    monkeypatch.setenv("KOZMOAI_REDIS_DB", "0")
-    monkeypatch.setenv("KOZMOAI_REDIS_EXPIRE", "3600")
-    monkeypatch.setenv("KOZMOAI_REDIS_PASSWORD", "")
+    monkeypatch.setenv("MINERVA_CACHE_TYPE", "redis")
+    monkeypatch.setenv("MINERVA_REDIS_HOST", "result_backend")
+    monkeypatch.setenv("MINERVA_REDIS_PORT", "6379")
+    monkeypatch.setenv("MINERVA_REDIS_DB", "0")
+    monkeypatch.setenv("MINERVA_REDIS_EXPIRE", "3600")
+    monkeypatch.setenv("MINERVA_REDIS_PASSWORD", "")
     monkeypatch.setenv("FLOWER_UNAUTHENTICATED_API", "True")
     monkeypatch.setenv("BROKER_URL", "redis://result_backend:6379/0")
     monkeypatch.setenv("RESULT_BACKEND", "redis://result_backend:6379/0")
@@ -217,16 +217,16 @@ def distributed_client_fixture(
     distributed_env,  # noqa: ARG001
 ):
     # Here we load the .env from ../deploy/.env
-    from kozmoai.core import celery_app
+    from minerva.core import celery_app
 
     db_dir = tempfile.mkdtemp()
     try:
         db_path = Path(db_dir) / "test.db"
-        monkeypatch.setenv("KOZMOAI_DATABASE_URL", f"sqlite:///{db_path}")
-        monkeypatch.setenv("KOZMOAI_AUTO_LOGIN", "false")
-        # monkeypatch kozmoai.services.task.manager.USE_CELERY to True
+        monkeypatch.setenv("MINERVA_DATABASE_URL", f"sqlite:///{db_path}")
+        monkeypatch.setenv("MINERVA_AUTO_LOGIN", "false")
+        # monkeypatch minerva.services.task.manager.USE_CELERY to True
         # monkeypatch.setattr(manager, "USE_CELERY", True)
-        monkeypatch.setattr(celery_app, "celery_app", celery_app.make_celery("kozmoai", Config))
+        monkeypatch.setattr(celery_app, "celery_app", celery_app.make_celery("minerva", Config))
 
         # def get_session_override():
         #     return session
@@ -334,7 +334,7 @@ def json_loop_test():
 
 @pytest.fixture(autouse=True)
 def deactivate_tracing(monkeypatch):
-    monkeypatch.setenv("KOZMOAI_DEACTIVATE_TRACING", "true")
+    monkeypatch.setenv("MINERVA_DEACTIVATE_TRACING", "true")
     yield
     monkeypatch.undo()
 
@@ -354,16 +354,16 @@ async def client_fixture(
         def init_app():
             db_dir = tempfile.mkdtemp()
             db_path = Path(db_dir) / "test.db"
-            monkeypatch.setenv("KOZMOAI_DATABASE_URL", f"sqlite:///{db_path}")
-            monkeypatch.setenv("KOZMOAI_AUTO_LOGIN", "false")
+            monkeypatch.setenv("MINERVA_DATABASE_URL", f"sqlite:///{db_path}")
+            monkeypatch.setenv("MINERVA_AUTO_LOGIN", "false")
             if "load_flows" in request.keywords:
                 shutil.copyfile(
                     pytest.BASIC_EXAMPLE_PATH, Path(load_flows_dir) / "c54f9130-f2fa-4a3e-b22a-3856d946351b.json"
                 )
-                monkeypatch.setenv("KOZMOAI_LOAD_FLOWS_PATH", load_flows_dir)
-                monkeypatch.setenv("KOZMOAI_AUTO_LOGIN", "true")
+                monkeypatch.setenv("MINERVA_LOAD_FLOWS_PATH", load_flows_dir)
+                monkeypatch.setenv("MINERVA_AUTO_LOGIN", "true")
             # Clear the services cache
-            from kozmoai.services.manager import service_manager
+            from minerva.services.manager import service_manager
 
             service_manager.factories.clear()
             service_manager.services.clear()  # Clear the services cache

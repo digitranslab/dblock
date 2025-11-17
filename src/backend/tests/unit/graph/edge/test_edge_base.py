@@ -1,11 +1,11 @@
 import re
 
 import pytest
-from kozmoai.components.inputs import ChatInput
-from kozmoai.components.models import OpenAIModelComponent
-from kozmoai.components.outputs import ChatOutput
-from kozmoai.components.prompts import PromptComponent
-from kozmoai.graph import Graph
+from minerva.components.inputs import ChatInput
+from minerva.components.models import OpenAIModelComponent
+from minerva.components.outputs import ChatOutput
+from minerva.components.prompts import PromptComponent
+from minerva.graph import Graph
 
 
 def test_edge_raises_error_on_invalid_target_handle():

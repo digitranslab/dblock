@@ -6,25 +6,25 @@ from pathlib import Path
 import pytest
 from langchain_core.messages import AIMessage, HumanMessage
 from langchain_core.prompts.chat import ChatPromptTemplate
-from kozmoai.schema.message import Message
-from kozmoai.utils.constants import MESSAGE_SENDER_AI, MESSAGE_SENDER_USER
+from minerva.schema.message import Message
+from minerva.utils.constants import MESSAGE_SENDER_AI, MESSAGE_SENDER_USER
 from loguru import logger
 from platformdirs import user_cache_dir
 
 
 @pytest.fixture
-def kozmoai_cache_dir(tmp_path):
-    """Create a temporary kozmoai cache directory."""
-    cache_dir = tmp_path / "kozmoai"
+def minerva_cache_dir(tmp_path):
+    """Create a temporary minerva cache directory."""
+    cache_dir = tmp_path / "minerva"
     cache_dir.mkdir(parents=True)
     return cache_dir
 
 
 @pytest.fixture
-def sample_image(kozmoai_cache_dir):
+def sample_image(minerva_cache_dir):
     """Create a sample image file for testing."""
     # Create the test_flow directory in the cache
-    flow_dir = kozmoai_cache_dir / "test_flow"
+    flow_dir = minerva_cache_dir / "test_flow"
     flow_dir.mkdir(parents=True, exist_ok=True)
 
     # Create the image in the flow directory
@@ -36,7 +36,7 @@ def sample_image(kozmoai_cache_dir):
     image_path.write_bytes(image_content)
 
     # Use platformdirs to get the cache directory
-    real_cache_dir = Path(user_cache_dir("kozmoai"))
+    real_cache_dir = Path(user_cache_dir("minerva"))
     real_cache_dir.mkdir(parents=True, exist_ok=True)
     real_flow_dir = real_cache_dir / "test_flow"
     real_flow_dir.mkdir(parents=True, exist_ok=True)
@@ -50,12 +50,12 @@ def sample_image(kozmoai_cache_dir):
 
 def test_message_prompt_serialization():
     template = "Hello, {name}!"
-    message = Message.from_template(template, name="Kozmoai")
-    assert message.text == "Hello, Kozmoai!"
+    message = Message.from_template(template, name="Minerva")
+    assert message.text == "Hello, Minerva!"
 
     prompt = message.load_lc_prompt()
     assert isinstance(prompt, ChatPromptTemplate)
-    assert prompt.messages[0].content == "Hello, Kozmoai!"
+    assert prompt.messages[0].content == "Hello, Minerva!"
 
 
 def test_message_from_human_text():
@@ -99,15 +99,15 @@ def test_message_with_single_image(sample_image):
     assert lc_message.content[1]["image_url"]["url"].startswith("data:image/png;base64,")
 
 
-def test_message_with_multiple_images(sample_image, kozmoai_cache_dir):
+def test_message_with_multiple_images(sample_image, minerva_cache_dir):
     """Test creating a message with multiple images."""
     # Create a second image in the cache directory
-    flow_dir = kozmoai_cache_dir / "test_flow"
+    flow_dir = minerva_cache_dir / "test_flow"
     second_image = flow_dir / "second_image.png"
     shutil.copy2(str(sample_image), str(second_image))
 
     # Use platformdirs for the real cache location
-    real_cache_dir = Path(user_cache_dir("kozmoai")) / "test_flow"
+    real_cache_dir = Path(user_cache_dir("minerva")) / "test_flow"
     real_cache_dir.mkdir(parents=True, exist_ok=True)
     real_second_image = real_cache_dir / "second_image.png"
     shutil.copy2(str(sample_image), str(real_second_image))
@@ -198,7 +198,7 @@ def test_timestamp_serialization():
 def cleanup():
     yield
     # Clean up the real cache directory after tests
-    cache_dir = Path(user_cache_dir("kozmoai"))
+    cache_dir = Path(user_cache_dir("minerva"))
     if cache_dir.exists():
         try:
             shutil.rmtree(str(cache_dir))

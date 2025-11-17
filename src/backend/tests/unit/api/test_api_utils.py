@@ -1,8 +1,8 @@
 from unittest.mock import patch
 
-from kozmoai.api.utils import get_suggestion_message
-from kozmoai.services.database.models.flow.utils import get_outdated_components
-from kozmoai.utils.version import get_version_info
+from minerva.api.utils import get_suggestion_message
+from minerva.services.database.models.flow.utils import get_outdated_components
+from minerva.utils.version import get_version_info
 
 
 def test_get_suggestion_message():
@@ -37,7 +37,7 @@ def test_get_outdated_components():
     expected_outdated_components = ["component3"]
 
     with patch(
-        "kozmoai.services.database.models.flow.utils.get_components_versions", return_value=mock_component_versions
+        "minerva.services.database.models.flow.utils.get_components_versions", return_value=mock_component_versions
     ):
         # Call the function with the mock flow
         result = get_outdated_components(flow)

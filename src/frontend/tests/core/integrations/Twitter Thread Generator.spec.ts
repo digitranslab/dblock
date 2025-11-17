@@ -56,6 +56,6 @@ test(
     const textContents = await getAllResponseMessage(page);
 
     expect(textContents.length).toBeGreaterThan(100);
-    expect(textContents).toContain("kozmoai");
+    expect(textContents).toContain("minerva");
   },
 );

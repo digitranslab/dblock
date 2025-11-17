@@ -1,6 +1,6 @@
 import pytest
-from kozmoai.helpers.data import data_to_text_list
-from kozmoai.schema import Data
+from minerva.helpers.data import data_to_text_list
+from minerva.schema import Data
 
 
 @pytest.mark.parametrize(

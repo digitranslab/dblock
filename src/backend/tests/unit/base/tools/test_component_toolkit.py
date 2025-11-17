@@ -1,13 +1,13 @@
 import os
 
 import pytest
-from kozmoai.base.tools.component_tool import ComponentToolkit
-from kozmoai.components.langchain_utilities import ToolCallingAgentComponent
-from kozmoai.components.models import OpenAIModelComponent
-from kozmoai.components.outputs import ChatOutput
-from kozmoai.components.tools.calculator import CalculatorToolComponent
-from kozmoai.graph import Graph
-from kozmoai.schema.data import Data
+from minerva.base.tools.component_tool import ComponentToolkit
+from minerva.components.langchain_utilities import ToolCallingAgentComponent
+from minerva.components.models import OpenAIModelComponent
+from minerva.components.outputs import ChatOutput
+from minerva.components.tools.calculator import CalculatorToolComponent
+from minerva.graph import Graph
+from minerva.schema.data import Data
 from pydantic import BaseModel
 
 

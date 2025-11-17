@@ -1,5 +1,5 @@
 import pytest
-from kozmoai.components.tools import PythonREPLComponent
+from minerva.components.tools import PythonREPLComponent
 
 from tests.base import DID_NOT_EXIST, ComponentTestBaseWithoutClient
 

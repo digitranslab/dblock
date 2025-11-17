@@ -1,5 +1,5 @@
 import pytest
-from kozmoai.base.data.utils import format_directory_path
+from minerva.base.data.utils import format_directory_path
 
 
 @pytest.mark.parametrize(

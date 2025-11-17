@@ -1,8 +1,8 @@
 import math
 
 import pytest
-from kozmoai.serialization.constants import MAX_TEXT_LENGTH
-from kozmoai.utils.util_strings import truncate_long_strings
+from minerva.serialization.constants import MAX_TEXT_LENGTH
+from minerva.utils.util_strings import truncate_long_strings
 
 
 @pytest.mark.parametrize(

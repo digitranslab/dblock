@@ -2,10 +2,10 @@ from datetime import datetime, timezone
 
 from hypothesis import HealthCheck, example, given, settings
 from hypothesis import strategies as st
-from kozmoai.api.v1.schemas import ResultDataResponse, VertexBuildResponse
-from kozmoai.schema.schema import OutputValue
-from kozmoai.serialization import serialize
-from kozmoai.services.tracing.schema import Log
+from minerva.api.v1.schemas import ResultDataResponse, VertexBuildResponse
+from minerva.schema.schema import OutputValue
+from minerva.serialization import serialize
+from minerva.services.tracing.schema import Log
 from pydantic import BaseModel
 
 # Use a smaller test size for hypothesis

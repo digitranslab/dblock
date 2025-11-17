@@ -3,7 +3,7 @@
 from typing import Any
 
 import pytest
-from kozmoai.helpers.base_model import build_model_from_schema
+from minerva.helpers.base_model import build_model_from_schema
 from pydantic import BaseModel
 from pydantic_core import PydanticUndefined
 

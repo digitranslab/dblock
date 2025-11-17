@@ -1,5 +1,5 @@
 import pytest
-from kozmoai.components.astra_assistants import (
+from minerva.components.astra_assistants import (
     AssistantsCreateAssistant,
     AssistantsCreateThread,
     AssistantsGetAssistantName,

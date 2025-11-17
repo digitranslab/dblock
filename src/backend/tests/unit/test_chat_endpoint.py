@@ -2,8 +2,8 @@ import json
 from uuid import UUID
 
 import pytest
-from kozmoai.memory import aget_messages
-from kozmoai.services.database.models.flow import FlowCreate, FlowUpdate
+from minerva.memory import aget_messages
+from minerva.services.database.models.flow import FlowCreate, FlowUpdate
 from orjson import orjson
 
 

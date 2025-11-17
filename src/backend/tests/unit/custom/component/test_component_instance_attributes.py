@@ -1,6 +1,6 @@
 import pytest
-from kozmoai.components.inputs.chat import ChatInput
-from kozmoai.schema.message import Message
+from minerva.components.inputs.chat import ChatInput
+from minerva.schema.message import Message
 
 
 @pytest.fixture

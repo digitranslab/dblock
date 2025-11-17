@@ -16,7 +16,7 @@ host ?= 0.0.0.0
 port ?= 7860
 env ?= .env
 open_browser ?= true
-path = src/backend/base/kozmoai/frontend
+path = src/backend/base/minerva/frontend
 workers ?= 1
 async ?= true
 lf ?= false
@@ -34,10 +34,10 @@ all: help
 CLEAR_DIRS = $(foreach dir,$1,$(shell mkdir -p $(dir) && find $(dir) -mindepth 1 -delete))
 
 # increment the patch version of the current package
-patch: ## bump the version in kozmoai and kozmoai-base
+patch: ## bump the version in minerva and minerva-base
 	@echo 'Patching the version'
 	@poetry version patch
-	@echo 'Patching the version in kozmoai-base'
+	@echo 'Patching the version in minerva-base'
 	@cd src/backend/base && poetry version patch
 	@make lock
 
@@ -79,9 +79,9 @@ build_frontend: ## build the frontend static files
 	@echo 'Building frontend static files...'
 	@cd src/frontend && CI='' npm run build 2>&1 || { echo "\nBuild failed! Error output above ☝️"; exit 1; }
 	@echo 'Clearing destination directory...'
-	$(call CLEAR_DIRS,src/backend/base/kozmoai/frontend)
+	$(call CLEAR_DIRS,src/backend/base/minerva/frontend)
 	@echo 'Copying build files...'
-	@cp -r src/frontend/build/. src/backend/base/kozmoai/frontend
+	@cp -r src/frontend/build/. src/backend/base/minerva/frontend
 	@echo '==== Frontend build complete ===='
 
 init: check_tools clean_python_cache clean_npm_cache ## initialize the project
@@ -89,7 +89,7 @@ init: check_tools clean_python_cache clean_npm_cache ## initialize the project
 	@make install_frontend
 	@make build_frontend
 	@echo "$(GREEN)All requirements are installed.$(NC)"
-	@uv run kozmoai run
+	@uv run minerva run
 
 ######################
 # CLEAN PROJECT
@@ -107,7 +107,7 @@ clean_python_cache:
 clean_npm_cache:
 	@echo "Cleaning npm cache..."
 	cd src/frontend && npm cache clean --force
-	$(call CLEAR_DIRS,src/frontend/node_modules src/frontend/build src/backend/base/kozmoai/frontend)
+	$(call CLEAR_DIRS,src/frontend/node_modules src/frontend/build src/backend/base/minerva/frontend)
 	rm -f src/frontend/package-lock.json
 	@echo "$(GREEN)NPM cache and frontend directories cleaned.$(NC)"
 
@@ -210,7 +210,7 @@ unsafe_fix:
 	@uv run ruff check . --fix --unsafe-fixes
 
 lint: install_backend ## run linters
-	@uv run mypy --namespace-packages -p "kozmoai"
+	@uv run mypy --namespace-packages -p "minerva"
 
 install_frontendci:
 	@cd src/frontend && npm ci > /dev/null 2>&1
@@ -231,7 +231,7 @@ endif
 
 run_cli: install_frontend install_backend build_frontend ## run the CLI
 	@echo 'Running the CLI'
-	@uv run kozmoai run \
+	@uv run minerva run \
 		--frontend-path $(path) \
 		--log-level $(log_level) \
 		--host $(host) \
@@ -257,7 +257,7 @@ setup_devcontainer: ## set up the development container
 	make install_backend
 	make install_frontend
 	make build_frontend
-	uv run kozmoai --frontend-path src/frontend/build
+	uv run minerva --frontend-path src/frontend/build
 
 setup_env: ## set up the environment
 	@sh ./scripts/setup/setup_env.sh
@@ -273,8 +273,8 @@ backend: setup_env install_backend ## run the backend in development mode
 	@-kill -9 $$(lsof -t -i:7860) || true
 ifdef login
 	@echo "Running backend autologin is $(login)";
-	KOZMOAI_AUTO_LOGIN=$(login) uv run uvicorn \
-		--factory kozmoai.main:create_app \
+	MINERVA_AUTO_LOGIN=$(login) uv run uvicorn \
+		--factory minerva.main:create_app \
 		--host 0.0.0.0 \
 		--port $(port) \
 		$(if $(filter-out 1,$(workers)),, --reload) \
@@ -284,7 +284,7 @@ ifdef login
 else
 	@echo "Running backend respecting the $(env) file";
 	uv run uvicorn \
-		--factory kozmoai.main:create_app \
+		--factory minerva.main:create_app \
 		--host 0.0.0.0 \
 		--port $(port) \
 		$(if $(filter-out 1,$(workers)),, --reload) \
@@ -297,7 +297,7 @@ build_and_run: setup_env ## build the project and run it
 	$(call CLEAR_DIRS,dist src/backend/base/dist)
 	make build
 	uv run pip install dist/*.tar.gz
-	uv run kozmoai run
+	uv run minerva run
 
 build_and_install: ## build the project and install it
 	@echo 'Removing dist folder'
@@ -308,23 +308,23 @@ build: setup_env ## build the frontend static files and package the project
 ifdef base
 	make install_frontendci
 	make build_frontend
-	make build_kozmoai_base args="$(args)"
+	make build_minerva_base args="$(args)"
 endif
 
 ifdef main
 	make install_frontendci
 	make build_frontend
-	make build_kozmoai_base args="$(args)"
-	make build_kozmoai args="$(args)"
+	make build_minerva_base args="$(args)"
+	make build_minerva args="$(args)"
 endif
 
-build_kozmoai_base:
+build_minerva_base:
 	cd src/backend/base && uv build $(args)
 
-build_kozmoai_backup:
+build_minerva_backup:
 	uv lock && uv build
 
-build_kozmoai:
+build_minerva:
 	uv lock --no-upgrade
 	uv build $(args)
 ifdef restore
@@ -343,21 +343,21 @@ dockerfile_build:
 	@echo 'BUILDING DOCKER IMAGE: ${DOCKERFILE}'
 	@docker build --rm \
 		-f ${DOCKERFILE} \
-		-t kozmoai:${VERSION} .
+		-t minerva:${VERSION} .
 
 dockerfile_build_be: dockerfile_build
 	@echo 'BUILDING DOCKER IMAGE BACKEND: ${DOCKERFILE_BACKEND}'
 	@docker build --rm \
-		--build-arg KOZMOAI_IMAGE=kozmoai:${VERSION} \
+		--build-arg MINERVA_IMAGE=minerva:${VERSION} \
 		-f ${DOCKERFILE_BACKEND} \
-		-t kozmoai_backend:${VERSION} .
+		-t minerva_backend:${VERSION} .
 
 dockerfile_build_fe: dockerfile_build
 	@echo 'BUILDING DOCKER IMAGE FRONTEND: ${DOCKERFILE_FRONTEND}'
 	@docker build --rm \
-		--build-arg KOZMOAI_IMAGE=kozmoai:${VERSION} \
+		--build-arg MINERVA_IMAGE=minerva:${VERSION} \
 		-f ${DOCKERFILE_FRONTEND} \
-		-t kozmoai_frontend:${VERSION} .
+		-t minerva_frontend:${VERSION} .
 
 clear_dockerimage:
 	@echo 'Clearing the docker build'
@@ -381,7 +381,7 @@ dcdev_up:
 lock_base:
 	cd src/backend/base && uv lock
 
-lock_kozmoai:
+lock_minerva:
 	uv lock
 
 lock: ## lock dependencies
@@ -397,14 +397,14 @@ update: ## update dependencies
 publish_base:
 	cd src/backend/base && uv publish
 
-publish_kozmoai:
+publish_minerva:
 	uv publish
 
 publish_base_testpypi:
 	# TODO: update this to use the test-pypi repository
 	cd src/backend/base && uv publish -r test-pypi
 
-publish_kozmoai_testpypi:
+publish_minerva_testpypi:
 	# TODO: update this to use the test-pypi repository
 	uv publish -r test-pypi
 
@@ -415,7 +415,7 @@ ifdef base
 endif
 
 ifdef main
-	make publish_kozmoai
+	make publish_minerva
 endif
 
 publish_testpypi: ## build the frontend static files and package the project and publish it to PyPI
@@ -430,36 +430,36 @@ endif
 ifdef main
 	#TODO: replace with uvx twine upload dist/*
 	poetry config repositories.test-pypi https://test.pypi.org/legacy/
-	make publish_kozmoai_testpypi
+	make publish_minerva_testpypi
 endif
 
 
 # example make alembic-revision message="Add user table"
 alembic-revision: ## generate a new migration
 	@echo 'Generating a new Alembic revision'
-	cd src/backend/base/kozmoai/ && uv run alembic revision --autogenerate -m "$(message)"
+	cd src/backend/base/minerva/ && uv run alembic revision --autogenerate -m "$(message)"
 
 
 alembic-upgrade: ## upgrade database to the latest version
 	@echo 'Upgrading database to the latest version'
-	cd src/backend/base/kozmoai/ && uv run alembic upgrade head
+	cd src/backend/base/minerva/ && uv run alembic upgrade head
 
 alembic-downgrade: ## downgrade database by one version
 	@echo 'Downgrading database by one version'
-	cd src/backend/base/kozmoai/ && uv run alembic downgrade -1
+	cd src/backend/base/minerva/ && uv run alembic downgrade -1
 
 alembic-current: ## show current revision
 	@echo 'Showing current Alembic revision'
-	cd src/backend/base/kozmoai/ && uv run alembic current
+	cd src/backend/base/minerva/ && uv run alembic current
 
 alembic-history: ## show migration history
 	@echo 'Showing Alembic migration history'
-	cd src/backend/base/kozmoai/ && uv run alembic history --verbose
+	cd src/backend/base/minerva/ && uv run alembic history --verbose
 
 alembic-check: ## check migration status
 	@echo 'Running alembic check'
-	cd src/backend/base/kozmoai/ && uv run alembic check
+	cd src/backend/base/minerva/ && uv run alembic check
 
 alembic-stamp: ## stamp the database with a specific revision
 	@echo 'Stamping the database with revision $(revision)'
-	cd src/backend/base/kozmoai/ && uv run alembic stamp $(revision)
+	cd src/backend/base/minerva/ && uv run alembic stamp $(revision)

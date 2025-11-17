@@ -3,7 +3,7 @@ import { useLogout } from "@/controllers/API/queries/auth";
 import { CustomFeedbackDialog } from "@/customization/components/custom-feedback-dialog";
 import { CustomHeaderMenuItemsTitle } from "@/customization/components/custom-header-menu-items-title";
 import { CustomProfileIcon } from "@/customization/components/custom-profile-icon";
-import { ENABLE_DATASTAX_KOZMOAI } from "@/customization/feature-flags";
+import { ENABLE_DATASTAX_MINERVA } from "@/customization/feature-flags";
 import { useCustomNavigate } from "@/customization/hooks/use-custom-navigate";
 import useAuthStore from "@/stores/authStore";
 import { useDarkStore } from "@/stores/darkStore";
@@ -45,11 +45,11 @@ export const AccountMenu = () => {
             className="h-7 w-7 rounded-lg focus-visible:outline-0"
             data-testid="user-profile-settings"
           >
-            {ENABLE_DATASTAX_KOZMOAI ? <CustomProfileIcon /> : <ProfileIcon />}
+            {ENABLE_DATASTAX_MINERVA ? <CustomProfileIcon /> : <ProfileIcon />}
           </div>
         </HeaderMenuToggle>
         <HeaderMenuItems position="right">
-          {ENABLE_DATASTAX_KOZMOAI && (
+          {ENABLE_DATASTAX_MINERVA && (
             <HeaderMenuItemsSection>
               <CustomHeaderMenuItemsTitle />
             </HeaderMenuItemsSection>
@@ -64,9 +64,9 @@ export const AccountMenu = () => {
                   Version {version}
                 </span>
               </div>
-              {!ENABLE_DATASTAX_KOZMOAI && <ThemeButtons />}
+              {!ENABLE_DATASTAX_MINERVA && <ThemeButtons />}
             </div>
-            {ENABLE_DATASTAX_KOZMOAI ? (
+            {ENABLE_DATASTAX_MINERVA ? (
               <HeaderMenuItemLink newPage href={`/settings/org/${id}/overview`}>
                 Account Settings
               </HeaderMenuItemLink>
@@ -85,7 +85,7 @@ export const AccountMenu = () => {
                 </span>
               </HeaderMenuItemButton>
             )}
-            {!ENABLE_DATASTAX_KOZMOAI && (
+            {!ENABLE_DATASTAX_MINERVA && (
               <>
                 {isAdmin && !autoLogin && (
                   <HeaderMenuItemButton onClick={() => navigate("/admin")}>
@@ -99,7 +99,7 @@ export const AccountMenu = () => {
                 )}
               </>
             )}
-            {ENABLE_DATASTAX_KOZMOAI ? (
+            {ENABLE_DATASTAX_MINERVA ? (
               <HeaderMenuItemButton onClick={() => setIsFeedbackOpen(true)}>
                 <span
                   data-testid="menu_feedback_button"
@@ -109,7 +109,7 @@ export const AccountMenu = () => {
                 </span>
               </HeaderMenuItemButton>
             ) : (
-              <HeaderMenuItemLink newPage href="https://docs.kozmoai.cloud">
+              <HeaderMenuItemLink newPage href="https://docs.minerva.cloud">
                 <span data-testid="menu_docs_button" id="menu_docs_button">
                   Docs
                 </span>
@@ -117,10 +117,10 @@ export const AccountMenu = () => {
             )}
           </HeaderMenuItemsSection>
           <HeaderMenuItemsSection>
-            {ENABLE_DATASTAX_KOZMOAI ? (
+            {ENABLE_DATASTAX_MINERVA ? (
               <HeaderMenuItemLink
                 newPage
-                href="https://github.com/digitranslab/kozmoai"
+                href="https://github.com/digitranslab/minerva"
               >
                 <div className="-my-2 mr-2 flex w-full items-center justify-between">
                   <div className="text-sm">Star the repo</div>
@@ -130,25 +130,25 @@ export const AccountMenu = () => {
             ) : (
               <HeaderMenuItemLink
                 newPage
-                href="https://github.com/digitranslab/kozmoai/discussions"
+                href="https://github.com/digitranslab/minerva/discussions"
               >
                 <span data-testid="menu_github_button" id="menu_github_button">
                   Share Feedback on Github
                 </span>
               </HeaderMenuItemLink>
             )}
-            <HeaderMenuItemLink newPage href="https://twitter.com/kozmoai_ai">
+            <HeaderMenuItemLink newPage href="https://twitter.com/minerva_ai">
               <span data-testid="menu_twitter_button" id="menu_twitter_button">
-                Follow Kozmoai on X
+                Follow Minerva on X
               </span>
             </HeaderMenuItemLink>
             <HeaderMenuItemLink newPage href="https://discord.gg/EqksyE2EX9">
               <span data-testid="menu_discord_button" id="menu_discord_button">
-                Join the Kozmoai Discord
+                Join the Minerva Discord
               </span>
             </HeaderMenuItemLink>
           </HeaderMenuItemsSection>
-          {ENABLE_DATASTAX_KOZMOAI ? (
+          {ENABLE_DATASTAX_MINERVA ? (
             <HeaderMenuItemsSection>
               <HeaderMenuItemLink href="/session/logout" icon="log-out">
                 Logout

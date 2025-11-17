@@ -1,4 +1,4 @@
-import KozmoaiLogo from "@/assets/KozmoaiLogo.svg?react";
+import MinervaLogo from "@/assets/MinervaLogo.svg?react";
 import { ENABLE_NEW_LOGO } from "@/customization/feature-flags";
 import { useState } from "react";
 import { Button } from "../../components/ui/button";
@@ -20,8 +20,8 @@ export default function DeleteAccountPage() {
     <div className="flex h-full w-full flex-col items-center justify-center bg-muted">
       <div className="flex w-72 flex-col items-center justify-center gap-2">
         {ENABLE_NEW_LOGO ? (
-          <KozmoaiLogo
-            title="Kozmoai logo"
+          <MinervaLogo
+            title="Minerva logo"
             className="mb-4 h-10 w-10 scale-[1.5]"
           />
         ) : (

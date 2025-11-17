@@ -2,7 +2,7 @@ import useFlowStore from "@/stores/flowStore";
 import { GetCodeType } from "@/types/tweaks";
 
 /**
- * Function to generate JavaScript code for interfacing with an API using the KozmoaiClient class.
+ * Function to generate JavaScript code for interfacing with an API using the MinervaClient class.
  * @param {string} flowId - The id of the flow.
  * @param {boolean} isAuth - Whether the API requires authentication.
  * @param {any[]} tweaksBuildedObject - Customizations applied to the flow.

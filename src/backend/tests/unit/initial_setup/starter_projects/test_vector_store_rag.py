@@ -3,19 +3,19 @@ import operator
 from textwrap import dedent
 
 import pytest
-from kozmoai.components.data import FileComponent
-from kozmoai.components.embeddings import OpenAIEmbeddingsComponent
-from kozmoai.components.inputs import ChatInput
-from kozmoai.components.models import OpenAIModelComponent
-from kozmoai.components.outputs import ChatOutput
-from kozmoai.components.processing import ParseDataComponent
-from kozmoai.components.processing.split_text import SplitTextComponent
-from kozmoai.components.prompts import PromptComponent
-from kozmoai.components.vectorstores import AstraDBVectorStoreComponent
-from kozmoai.graph import Graph
-from kozmoai.graph.graph.constants import Finish
-from kozmoai.schema import Data
-from kozmoai.schema.dataframe import DataFrame
+from minerva.components.data import FileComponent
+from minerva.components.embeddings import OpenAIEmbeddingsComponent
+from minerva.components.inputs import ChatInput
+from minerva.components.models import OpenAIModelComponent
+from minerva.components.outputs import ChatOutput
+from minerva.components.processing import ParseDataComponent
+from minerva.components.processing.split_text import SplitTextComponent
+from minerva.components.prompts import PromptComponent
+from minerva.components.vectorstores import AstraDBVectorStoreComponent
+from minerva.graph import Graph
+from minerva.graph.graph.constants import Finish
+from minerva.schema import Data
+from minerva.schema.dataframe import DataFrame
 
 
 @pytest.fixture

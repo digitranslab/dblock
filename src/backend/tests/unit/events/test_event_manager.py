@@ -4,8 +4,8 @@ import time
 import uuid
 
 import pytest
-from kozmoai.events.event_manager import EventManager
-from kozmoai.schema.log import LoggableType
+from minerva.events.event_manager import EventManager
+from minerva.schema.log import LoggableType
 
 
 class TestEventManager:

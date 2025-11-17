@@ -18,7 +18,7 @@ export default function getPythonCode({
       .replace(/false/g, "False")
       .replace(/null|undefined/g, "None");
 
-  return `from kozmoai.load import run_flow_from_json
+  return `from minerva.load import run_flow_from_json
 TWEAKS = ${tweaksString}
 
 result = run_flow_from_json(flow="${flowName}.json",

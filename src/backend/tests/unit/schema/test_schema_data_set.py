@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
-from kozmoai.schema.data import Data
-from kozmoai.schema.dataframe import DataFrame
+from minerva.schema.data import Data
+from minerva.schema.dataframe import DataFrame
 
 
 @pytest.fixture

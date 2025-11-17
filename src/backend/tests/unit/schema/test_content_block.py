@@ -1,6 +1,6 @@
 import pytest
-from kozmoai.schema.content_block import ContentBlock
-from kozmoai.schema.content_types import CodeContent, ErrorContent, JSONContent, MediaContent, TextContent, ToolContent
+from minerva.schema.content_block import ContentBlock
+from minerva.schema.content_types import CodeContent, ErrorContent, JSONContent, MediaContent, TextContent, ToolContent
 
 
 class TestContentBlock:

@@ -2,7 +2,7 @@ import { ProfileIcon } from "@/components/core/appHeaderComponent/components/Pro
 import { ContentBlockDisplay } from "@/components/core/chatComponents/ContentBlockDisplay";
 import { useUpdateMessage } from "@/controllers/API/queries/messages";
 import { CustomProfileIcon } from "@/customization/components/custom-profile-icon";
-import { ENABLE_DATASTAX_KOZMOAI } from "@/customization/feature-flags";
+import { ENABLE_DATASTAX_MINERVA } from "@/customization/feature-flags";
 import useFlowsManagerStore from "@/stores/flowsManagerStore";
 import useFlowStore from "@/stores/flowStore";
 import { useUtilityStore } from "@/stores/utilityStore";
@@ -284,7 +284,7 @@ export default function ChatMessage({
                   ) : (
                     <ForwardedIconComponent name={chat.properties.icon} />
                   )
-                ) : !ENABLE_DATASTAX_KOZMOAI ? (
+                ) : !ENABLE_DATASTAX_MINERVA ? (
                   <ProfileIcon />
                 ) : (
                   <CustomProfileIcon />

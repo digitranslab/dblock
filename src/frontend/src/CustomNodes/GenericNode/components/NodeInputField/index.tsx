@@ -13,7 +13,7 @@ import {
   DEFAULT_TOOLSET_PLACEHOLDER,
   FLEX_VIEW_TYPES,
   ICON_STROKE_WIDTH,
-  KOZMOAI_SUPPORTED_TYPES,
+  MINERVA_SUPPORTED_TYPES,
 } from "../../../../constants/constants";
 import useFlowStore from "../../../../stores/flowStore";
 import { useTypesStore } from "../../../../stores/typesStore";
@@ -73,7 +73,7 @@ export default function NodeInputField({
   }, [optionalHandle]);
 
   const displayHandle =
-    (!KOZMOAI_SUPPORTED_TYPES.has(type ?? "") ||
+    (!MINERVA_SUPPORTED_TYPES.has(type ?? "") ||
       (optionalHandle && optionalHandle.length > 0)) &&
     !isToolMode;
 

@@ -211,7 +211,7 @@ export default function ShareModal({
         <BaseModal.Header
           description={`Publish ${
             is_component ? "your component" : "workflow"
-          } to the Kozmoai Store.`}
+          } to the Minerva Store.`}
         >
           <span className="pr-2">Share</span>
           <IconComponent

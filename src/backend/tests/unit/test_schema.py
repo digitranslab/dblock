@@ -3,10 +3,10 @@ from types import NoneType
 from typing import Union
 
 import pytest
-from kozmoai.schema.data import Data
-from kozmoai.template import Input, Output
-from kozmoai.template.field.base import UNDEFINED
-from kozmoai.type_extraction.type_extraction import post_process_type
+from minerva.schema.data import Data
+from minerva.template import Input, Output
+from minerva.template.field.base import UNDEFINED
+from minerva.type_extraction.type_extraction import post_process_type
 from pydantic import ValidationError
 
 

@@ -1,9 +1,9 @@
 from pathlib import Path
 
-from kozmoai.components import helpers, processing
-from kozmoai.custom.utils import build_custom_component_template
-from kozmoai.schema import Data
-from kozmoai.schema.message import Message
+from minerva.components import helpers, processing
+from minerva.custom.utils import build_custom_component_template
+from minerva.schema import Data
+from minerva.schema.message import Message
 
 # def test_update_data_component():
 #     # Arrange

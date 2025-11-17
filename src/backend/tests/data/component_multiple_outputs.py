@@ -1,6 +1,6 @@
-from kozmoai.custom import Component
-from kozmoai.inputs.inputs import IntInput, MessageTextInput
-from kozmoai.template.field.base import Output
+from minerva.custom import Component
+from minerva.inputs.inputs import IntInput, MessageTextInput
+from minerva.template.field.base import Output
 
 
 class MultipleOutputsComponent(Component):

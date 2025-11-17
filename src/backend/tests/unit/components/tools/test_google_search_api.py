@@ -2,8 +2,8 @@ from unittest.mock import patch
 
 import pandas as pd
 import pytest
-from kozmoai.components.tools import GoogleSearchAPICore
-from kozmoai.schema import DataFrame
+from minerva.components.tools import GoogleSearchAPICore
+from minerva.schema import DataFrame
 
 from tests.base import ComponentTestBaseWithoutClient
 

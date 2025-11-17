@@ -1,7 +1,7 @@
 import copy
 
 import pytest
-from kozmoai.graph.graph import utils
+from minerva.graph.graph import utils
 
 
 @pytest.fixture

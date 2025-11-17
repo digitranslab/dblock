@@ -1,10 +1,10 @@
 import pytest
-from kozmoai.components.inputs import ChatInput
-from kozmoai.components.outputs import ChatOutput
-from kozmoai.graph import Graph
-from kozmoai.graph.graph.constants import Finish
-from kozmoai.graph.state.model import create_state_model
-from kozmoai.template.field.base import UNDEFINED
+from minerva.components.inputs import ChatInput
+from minerva.components.outputs import ChatOutput
+from minerva.graph import Graph
+from minerva.graph.graph.constants import Finish
+from minerva.graph.state.model import create_state_model
+from minerva.template.field.base import UNDEFINED
 from pydantic import Field
 
 

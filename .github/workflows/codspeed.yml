@@ -11,7 +11,7 @@ on:
     paths:
       - "src/backend/base/**"
       - "src/backend/tests/performance/**"
-      - "!src/backend/base/kozmoai/components/**"
+      - "!src/backend/base/minerva/components/**"
   workflow_dispatch:
 
 concurrency:

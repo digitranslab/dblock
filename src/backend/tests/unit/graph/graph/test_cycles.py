@@ -1,17 +1,17 @@
 import os
 
 import pytest
-from kozmoai.components.inputs import ChatInput
-from kozmoai.components.inputs.text import TextInputComponent
-from kozmoai.components.logic.conditional_router import ConditionalRouterComponent
-from kozmoai.components.models import OpenAIModelComponent
-from kozmoai.components.outputs import ChatOutput, TextOutputComponent
-from kozmoai.components.prompts import PromptComponent
-from kozmoai.custom import Component
-from kozmoai.graph import Graph
-from kozmoai.graph.graph.utils import find_cycle_vertices
-from kozmoai.io import MessageTextInput, Output
-from kozmoai.schema.message import Message
+from minerva.components.inputs import ChatInput
+from minerva.components.inputs.text import TextInputComponent
+from minerva.components.logic.conditional_router import ConditionalRouterComponent
+from minerva.components.models import OpenAIModelComponent
+from minerva.components.outputs import ChatOutput, TextOutputComponent
+from minerva.components.prompts import PromptComponent
+from minerva.custom import Component
+from minerva.graph import Graph
+from minerva.graph.graph.utils import find_cycle_vertices
+from minerva.io import MessageTextInput, Output
+from minerva.schema.message import Message
 
 
 class Concatenate(Component):

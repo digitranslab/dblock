@@ -103,11 +103,11 @@ export default defineConfig({
   webServer: [
     {
       command:
-        "uv run uvicorn --factory kozmoai.main:create_app --host 127.0.0.1 --port 7860 --loop asyncio",
+        "uv run uvicorn --factory minerva.main:create_app --host 127.0.0.1 --port 7860 --loop asyncio",
       port: 7860,
       env: {
-        KOZMOAI_DATABASE_URL: "sqlite:///./temp",
-        KOZMOAI_AUTO_LOGIN: "true",
+        MINERVA_DATABASE_URL: "sqlite:///./temp",
+        MINERVA_AUTO_LOGIN: "true",
       },
       stdout: "ignore",
 

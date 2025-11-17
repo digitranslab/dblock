@@ -2,9 +2,9 @@ import asyncio
 
 import pandas as pd
 import pytest
-from kozmoai.components.processing.parse_dataframe import ParseDataFrameComponent
-from kozmoai.schema import DataFrame
-from kozmoai.schema.message import Message
+from minerva.components.processing.parse_dataframe import ParseDataFrameComponent
+from minerva.schema import DataFrame
+from minerva.schema.message import Message
 
 from tests.base import ComponentTestBaseWithoutClient
 

@@ -1,5 +1,5 @@
-from kozmoai.components.inputs import TextInputComponent
-from kozmoai.schema.message import Message
+from minerva.components.inputs import TextInputComponent
+from minerva.schema.message import Message
 
 from tests.integration.utils import run_single_component
 

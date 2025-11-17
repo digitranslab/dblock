@@ -1,8 +1,8 @@
 import pytest
 from aiofile import async_open
-from kozmoai.components.inputs import ChatInput, TextInputComponent
-from kozmoai.schema.message import Message
-from kozmoai.utils.constants import MESSAGE_SENDER_AI, MESSAGE_SENDER_NAME_USER, MESSAGE_SENDER_USER
+from minerva.components.inputs import ChatInput, TextInputComponent
+from minerva.schema.message import Message
+from minerva.utils.constants import MESSAGE_SENDER_AI, MESSAGE_SENDER_NAME_USER, MESSAGE_SENDER_USER
 
 from tests.base import ComponentTestBaseWithClient, ComponentTestBaseWithoutClient
 

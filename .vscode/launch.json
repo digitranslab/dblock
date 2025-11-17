@@ -10,7 +10,7 @@
 
       "args": [
         "--factory",
-        "kozmoai.main:create_app",
+        "minerva.main:create_app",
         "--port",
         "7860",
         "--reload",
@@ -24,8 +24,8 @@
       "jinja": true,
       "justMyCode": false,
       "env": {
-        "KOZMOAI_LOG_LEVEL": "debug",
-        "KOZMOAI_PROMETHEUS_PORT": "9090"
+        "MINERVA_LOG_LEVEL": "debug",
+        "MINERVA_PROMETHEUS_PORT": "9090"
       },
       "envFile": "${workspaceFolder}/.env"
     },
@@ -33,11 +33,11 @@
       "name": "Debug CLI",
       "type": "debugpy",
       "request": "launch",
-      "module": "kozmoai",
+      "module": "minerva",
       "args": [
         "run",
         "--path",
-        "${workspaceFolder}/src/backend/base/kozmoai/frontend",
+        "${workspaceFolder}/src/backend/base/minerva/frontend",
         "--env-file",
         "${workspaceFolder}/.env"
       ],

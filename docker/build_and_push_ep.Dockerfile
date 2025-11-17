@@ -49,7 +49,7 @@ WORKDIR /tmp/src/frontend
 RUN --mount=type=cache,target=/root/.npm \
     npm ci \
     && npm run build \
-    && cp -r build /app/src/backend/kozmoai/frontend \
+    && cp -r build /app/src/backend/minerva/frontend \
     && rm -rf /tmp/src/frontend
 
 WORKDIR /app
@@ -76,22 +76,22 @@ RUN apt-get update \
 
 COPY --from=builder --chown=1000 /app/.venv /app/.venv
 
-# curl is required for kozmoai health checks
+# curl is required for minerva health checks
 RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 
 # Place executables in the environment at the front of the path
 ENV PATH="/app/.venv/bin:$PATH"
 
-LABEL org.opencontainers.image.title=kozmoai
-LABEL org.opencontainers.image.authors=['Kozmoai']
+LABEL org.opencontainers.image.title=minerva
+LABEL org.opencontainers.image.authors=['Minerva']
 LABEL org.opencontainers.image.licenses=MIT
-LABEL org.opencontainers.image.url=https://github.com/digitranslab/kozmoai
-LABEL org.opencontainers.image.source=https://github.com/digitranslab/kozmoai
+LABEL org.opencontainers.image.url=https://github.com/digitranslab/minerva
+LABEL org.opencontainers.image.source=https://github.com/digitranslab/minerva
 
 WORKDIR /app
 
-ENV KOZMOAI_HOST=0.0.0.0
-ENV KOZMOAI_PORT=7860
+ENV MINERVA_HOST=0.0.0.0
+ENV MINERVA_PORT=7860
 
 USER 1000
-CMD ["python", "-m", "kozmoai", "run", "--host", "0.0.0.0", "--backend-only"]
+CMD ["python", "-m", "minerva", "run", "--host", "0.0.0.0", "--backend-only"]

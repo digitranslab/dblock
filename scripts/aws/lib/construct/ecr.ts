@@ -19,7 +19,7 @@ export class EcrRepository extends Construct {
     super(scope, id)
 
     const imagePlatform = props.arch == ecs.CpuArchitecture.ARM64 ? Platform.LINUX_ARM64 : Platform.LINUX_AMD64
-    const backendPath = path.join(__dirname, "../../../../../", "kozmoai")
+    const backendPath = path.join(__dirname, "../../../../../", "minerva")
     const excludeDir = ['node_modules','.git', 'cdk.out']
     const LifecycleRule = {
       tagStatus: ecr.TagStatus.ANY,
@@ -28,8 +28,8 @@ export class EcrRepository extends Construct {
     }
 
     // Backend ECR リポジトリ作成
-    this.ecrBackEndRepository = new ecr.Repository(scope, 'KozmoaiBackEndRepository', {
-      repositoryName: 'kozmoai-backend-repository',
+    this.ecrBackEndRepository = new ecr.Repository(scope, 'MinervaBackEndRepository', {
+      repositoryName: 'minerva-backend-repository',
       removalPolicy: RemovalPolicy.RETAIN,
       imageScanOnPush: true,
     })

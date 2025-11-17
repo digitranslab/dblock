@@ -63,7 +63,7 @@ test(
     await page
       .getByTestId("inputlist_str_texts_0")
       .first()
-      .fill("big news! kozmoai 1.0 is out");
+      .fill("big news! minerva 1.0 is out");
     await page
       .getByTestId("inputlist_str_texts_1")
       .first()

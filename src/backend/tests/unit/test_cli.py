@@ -1,6 +1,6 @@
 import pytest
-from kozmoai.__main__ import app
-from kozmoai.services import deps
+from minerva.__main__ import app
+from minerva.services import deps
 
 
 @pytest.fixture(scope="module")

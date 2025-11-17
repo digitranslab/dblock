@@ -1,3 +1,3 @@
-FROM digitranslab/kozmoai:latest
+FROM digitranslab/minerva:latest
 
-ENTRYPOINT ["python", "-m", "kozmoai", "run"]
+ENTRYPOINT ["python", "-m", "minerva", "run"]

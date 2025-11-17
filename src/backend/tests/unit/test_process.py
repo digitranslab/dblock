@@ -1,5 +1,5 @@
-from kozmoai.processing.process import process_tweaks
-from kozmoai.services.deps import get_session_service
+from minerva.processing.process import process_tweaks
+from minerva.services.deps import get_session_service
 
 
 def test_no_tweaks():

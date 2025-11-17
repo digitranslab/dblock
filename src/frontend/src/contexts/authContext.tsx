@@ -1,8 +1,8 @@
 import {
-  KOZMOAI_ACCESS_TOKEN,
-  KOZMOAI_API_TOKEN,
-  KOZMOAI_AUTO_LOGIN_OPTION,
-  KOZMOAI_REFRESH_TOKEN,
+  MINERVA_ACCESS_TOKEN,
+  MINERVA_API_TOKEN,
+  MINERVA_AUTO_LOGIN_OPTION,
+  MINERVA_REFRESH_TOKEN,
 } from "@/constants/constants";
 import { useGetUserData } from "@/controllers/API/queries/auth";
 import { useGetGlobalVariablesMutation } from "@/controllers/API/queries/variables/use-get-mutation-global-variables";
@@ -30,11 +30,11 @@ export const AuthContext = createContext<AuthContextType>(initialValue);
 export function AuthProvider({ children }): React.ReactElement {
   const cookies = new Cookies();
   const [accessToken, setAccessToken] = useState<string | null>(
-    cookies.get(KOZMOAI_ACCESS_TOKEN) ?? null,
+    cookies.get(MINERVA_ACCESS_TOKEN) ?? null,
   );
   const [userData, setUserData] = useState<Users | null>(null);
   const [apiKey, setApiKey] = useState<string | null>(
-    cookies.get(KOZMOAI_API_TOKEN),
+    cookies.get(MINERVA_API_TOKEN),
   );
 
   const checkHasStore = useStoreStore((state) => state.checkHasStore);
@@ -45,14 +45,14 @@ export function AuthProvider({ children }): React.ReactElement {
   const { mutate: mutateGetGlobalVariables } = useGetGlobalVariablesMutation();
 
   useEffect(() => {
-    const storedAccessToken = cookies.get(KOZMOAI_ACCESS_TOKEN);
+    const storedAccessToken = cookies.get(MINERVA_ACCESS_TOKEN);
     if (storedAccessToken) {
       setAccessToken(storedAccessToken);
     }
   }, []);
 
   useEffect(() => {
-    const apiKey = cookies.get(KOZMOAI_API_TOKEN);
+    const apiKey = cookies.get(MINERVA_API_TOKEN);
     if (apiKey) {
       setApiKey(apiKey);
     }
@@ -81,9 +81,9 @@ export function AuthProvider({ children }): React.ReactElement {
     autoLogin: string,
     refreshToken?: string,
   ) {
-    cookies.set(KOZMOAI_AUTO_LOGIN_OPTION, autoLogin, { path: "/" });
+    cookies.set(MINERVA_AUTO_LOGIN_OPTION, autoLogin, { path: "/" });
     if (refreshToken) {
-      cookies.set(KOZMOAI_REFRESH_TOKEN, refreshToken, { path: "/" });
+      cookies.set(MINERVA_REFRESH_TOKEN, refreshToken, { path: "/" });
     }
     setAccessToken(newAccessToken);
     setIsAuthenticated(true);

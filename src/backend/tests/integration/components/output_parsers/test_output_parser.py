@@ -1,9 +1,9 @@
 import os
 
 import pytest
-from kozmoai.components.helpers import OutputParserComponent
-from kozmoai.components.models import OpenAIModelComponent
-from kozmoai.components.prompts import PromptComponent
+from minerva.components.helpers import OutputParserComponent
+from minerva.components.models import OpenAIModelComponent
+from minerva.components.prompts import PromptComponent
 
 from tests.integration.utils import ComponentInputHandle, run_single_component
 

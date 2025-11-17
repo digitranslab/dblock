@@ -3,8 +3,8 @@ from unittest.mock import Mock, patch
 import pytest
 import respx
 from httpx import Response
-from kozmoai.components.data import URLComponent
-from kozmoai.schema import DataFrame, Message
+from minerva.components.data import URLComponent
+from minerva.schema import DataFrame, Message
 
 from tests.base import ComponentTestBaseWithoutClient
 

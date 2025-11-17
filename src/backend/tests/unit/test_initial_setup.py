@@ -7,19 +7,19 @@ from unittest.mock import AsyncMock, patch
 import anyio
 import pytest
 from aiofile import async_open
-from kozmoai.custom.directory_reader.utils import abuild_custom_component_list_from_path
-from kozmoai.initial_setup.constants import STARTER_FOLDER_NAME
-from kozmoai.initial_setup.setup import (
+from minerva.custom.directory_reader.utils import abuild_custom_component_list_from_path
+from minerva.initial_setup.constants import STARTER_FOLDER_NAME
+from minerva.initial_setup.setup import (
     detect_github_url,
     get_project_data,
     load_bundles_from_urls,
     load_starter_projects,
     update_projects_components_with_latest_component_versions,
 )
-from kozmoai.interface.components import aget_all_types_dict
-from kozmoai.services.database.models import Flow
-from kozmoai.services.database.models.folder.model import Folder
-from kozmoai.services.deps import get_settings_service, session_scope
+from minerva.interface.components import aget_all_types_dict
+from minerva.services.database.models import Flow
+from minerva.services.database.models.folder.model import Folder
+from minerva.services.deps import get_settings_service, session_scope
 from sqlalchemy.orm import selectinload
 from sqlmodel import select
 
@@ -139,7 +139,7 @@ def add_edge(source, target, from_output, to_input):
 
 
 async def test_refresh_starter_projects():
-    data_path = str(await anyio.Path(__file__).parent.parent.parent.absolute() / "base" / "kozmoai" / "components")
+    data_path = str(await anyio.Path(__file__).parent.parent.parent.absolute() / "base" / "minerva" / "components")
     components = await abuild_custom_component_list_from_path(data_path)
 
     chat_input = find_component_by_name(components, "ChatInput")
@@ -166,48 +166,48 @@ async def test_refresh_starter_projects():
     ("url", "expected"),
     [
         (
-            "https://github.com/digitranslab/kozmoai-bundles",
-            "https://github.com/digitranslab/kozmoai-bundles/archive/refs/heads/main.zip",
+            "https://github.com/digitranslab/minerva-bundles",
+            "https://github.com/digitranslab/minerva-bundles/archive/refs/heads/main.zip",
         ),
         (
-            "https://github.com/digitranslab/kozmoai-bundles/",
-            "https://github.com/digitranslab/kozmoai-bundles/archive/refs/heads/main.zip",
+            "https://github.com/digitranslab/minerva-bundles/",
+            "https://github.com/digitranslab/minerva-bundles/archive/refs/heads/main.zip",
         ),
         (
-            "https://github.com/digitranslab/kozmoai-bundles.git",
-            "https://github.com/digitranslab/kozmoai-bundles/archive/refs/heads/main.zip",
+            "https://github.com/digitranslab/minerva-bundles.git",
+            "https://github.com/digitranslab/minerva-bundles/archive/refs/heads/main.zip",
         ),
         (
-            "https://github.com/digitranslab/kozmoai-bundles/tree/some.branch-0_1",
-            "https://github.com/digitranslab/kozmoai-bundles/archive/refs/heads/some.branch-0_1.zip",
+            "https://github.com/digitranslab/minerva-bundles/tree/some.branch-0_1",
+            "https://github.com/digitranslab/minerva-bundles/archive/refs/heads/some.branch-0_1.zip",
         ),
         (
-            "https://github.com/digitranslab/kozmoai-bundles/tree/some/branch",
-            "https://github.com/digitranslab/kozmoai-bundles/archive/refs/heads/some/branch.zip",
+            "https://github.com/digitranslab/minerva-bundles/tree/some/branch",
+            "https://github.com/digitranslab/minerva-bundles/archive/refs/heads/some/branch.zip",
         ),
         (
-            "https://github.com/digitranslab/kozmoai-bundles/tree/some/branch/",
-            "https://github.com/digitranslab/kozmoai-bundles/archive/refs/heads/some/branch.zip",
+            "https://github.com/digitranslab/minerva-bundles/tree/some/branch/",
+            "https://github.com/digitranslab/minerva-bundles/archive/refs/heads/some/branch.zip",
         ),
         (
-            "https://github.com/digitranslab/kozmoai-bundles/releases/tag/v1.0.0-0_1",
-            "https://github.com/digitranslab/kozmoai-bundles/archive/refs/tags/v1.0.0-0_1.zip",
+            "https://github.com/digitranslab/minerva-bundles/releases/tag/v1.0.0-0_1",
+            "https://github.com/digitranslab/minerva-bundles/archive/refs/tags/v1.0.0-0_1.zip",
         ),
         (
-            "https://github.com/digitranslab/kozmoai-bundles/releases/tag/foo/v1.0.0",
-            "https://github.com/digitranslab/kozmoai-bundles/archive/refs/tags/foo/v1.0.0.zip",
+            "https://github.com/digitranslab/minerva-bundles/releases/tag/foo/v1.0.0",
+            "https://github.com/digitranslab/minerva-bundles/archive/refs/tags/foo/v1.0.0.zip",
         ),
         (
-            "https://github.com/digitranslab/kozmoai-bundles/releases/tag/foo/v1.0.0/",
-            "https://github.com/digitranslab/kozmoai-bundles/archive/refs/tags/foo/v1.0.0.zip",
+            "https://github.com/digitranslab/minerva-bundles/releases/tag/foo/v1.0.0/",
+            "https://github.com/digitranslab/minerva-bundles/archive/refs/tags/foo/v1.0.0.zip",
         ),
         (
-            "https://github.com/digitranslab/kozmoai-bundles/commit/68428ce16729a385fe1bcc0f1ec91fd5f5f420b9",
-            "https://github.com/digitranslab/kozmoai-bundles/archive/68428ce16729a385fe1bcc0f1ec91fd5f5f420b9.zip",
+            "https://github.com/digitranslab/minerva-bundles/commit/68428ce16729a385fe1bcc0f1ec91fd5f5f420b9",
+            "https://github.com/digitranslab/minerva-bundles/archive/68428ce16729a385fe1bcc0f1ec91fd5f5f420b9.zip",
         ),
         (
-            "https://github.com/digitranslab/kozmoai-bundles/commit/68428ce16729a385fe1bcc0f1ec91fd5f5f420b9/",
-            "https://github.com/digitranslab/kozmoai-bundles/archive/68428ce16729a385fe1bcc0f1ec91fd5f5f420b9.zip",
+            "https://github.com/digitranslab/minerva-bundles/commit/68428ce16729a385fe1bcc0f1ec91fd5f5f420b9/",
+            "https://github.com/digitranslab/minerva-bundles/archive/68428ce16729a385fe1bcc0f1ec91fd5f5f420b9.zip",
         ),
         ("https://example.com/myzip.zip", "https://example.com/myzip.zip"),
     ],
@@ -233,7 +233,7 @@ async def test_detect_github_url(url, expected):
 async def test_load_bundles_from_urls():
     settings_service = get_settings_service()
     settings_service.settings.bundle_urls = [
-        "https://github.com/digitranslab/kozmoai-bundles/commit/68428ce16729a385fe1bcc0f1ec91fd5f5f420b9"
+        "https://github.com/digitranslab/minerva-bundles/commit/68428ce16729a385fe1bcc0f1ec91fd5f5f420b9"
     ]
     settings_service.auth_settings.AUTO_LOGIN = True
 
@@ -241,7 +241,7 @@ async def test_load_bundles_from_urls():
 
     try:
         assert len(components_paths) == 1
-        assert "kozmoai-bundles-68428ce16729a385fe1bcc0f1ec91fd5f5f420b9/components" in components_paths[0]
+        assert "minerva-bundles-68428ce16729a385fe1bcc0f1ec91fd5f5f420b9/components" in components_paths[0]
 
         async with async_open(Path(components_paths[0]) / "embeddings" / "openai2.py") as f:
             content = await f.read()

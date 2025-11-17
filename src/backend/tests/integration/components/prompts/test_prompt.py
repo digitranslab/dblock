@@ -1,5 +1,5 @@
-from kozmoai.components.prompts import PromptComponent
-from kozmoai.schema.message import Message
+from minerva.components.prompts import PromptComponent
+from minerva.schema.message import Message
 
 from tests.integration.utils import run_single_component
 

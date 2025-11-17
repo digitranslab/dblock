@@ -4,10 +4,10 @@
 AWS_REGION="eu-west-1"
 INSTANCE_TYPE="t2.small"
 KEY_NAME="ledger-key-pair"
-SECURITY_GROUP="kozmoai-ec2-sg"
+SECURITY_GROUP="minerva-ec2-sg"
 AMI_ID="ami-047bb4163c506cd98" # Ensure this is Amazon Linux 2
 TAG_KEY="app"
-TAG_VALUE="kozmoai"
+TAG_VALUE="minerva"
 DOCKER_COMPOSE_VERSION="1.29.2"
 VOLUME_SIZE=50 # Increase this value as needed
 

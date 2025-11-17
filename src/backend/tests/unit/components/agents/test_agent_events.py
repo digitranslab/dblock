@@ -3,8 +3,8 @@ from typing import Any
 from unittest.mock import AsyncMock
 
 from langchain_core.agents import AgentFinish
-from kozmoai.base.agents.agent import process_agent_events
-from kozmoai.base.agents.events import (
+from minerva.base.agents.agent import process_agent_events
+from minerva.base.agents.events import (
     handle_on_chain_end,
     handle_on_chain_start,
     handle_on_chain_stream,
@@ -12,10 +12,10 @@ from kozmoai.base.agents.events import (
     handle_on_tool_error,
     handle_on_tool_start,
 )
-from kozmoai.schema.content_block import ContentBlock
-from kozmoai.schema.content_types import ToolContent
-from kozmoai.schema.message import Message
-from kozmoai.utils.constants import MESSAGE_SENDER_AI
+from minerva.schema.content_block import ContentBlock
+from minerva.schema.content_types import ToolContent
+from minerva.schema.message import Message
+from minerva.utils.constants import MESSAGE_SENDER_AI
 
 
 async def create_event_iterator(events: list[dict[str, Any]]) -> AsyncIterator[dict[str, Any]]:

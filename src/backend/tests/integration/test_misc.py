@@ -3,9 +3,9 @@ from uuid import uuid4
 import pytest
 from fastapi import status
 from httpx import AsyncClient
-from kozmoai.graph.schema import RunOutputs
-from kozmoai.initial_setup.setup import load_starter_projects
-from kozmoai.load.load import arun_flow_from_json
+from minerva.graph.schema import RunOutputs
+from minerva.initial_setup.setup import load_starter_projects
+from minerva.load.load import arun_flow_from_json
 
 
 @pytest.mark.api_key_required

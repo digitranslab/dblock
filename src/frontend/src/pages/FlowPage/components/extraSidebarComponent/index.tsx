@@ -313,7 +313,7 @@ export default function ExtraSidebar(): JSX.Element {
           {hasStore && (
             <a
               target={"_blank"}
-              href="https://kozmoai.store"
+              href="https://minerva.store"
               className="components-disclosure-arrangement"
               draggable="false"
             >

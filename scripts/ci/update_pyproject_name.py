@@ -25,16 +25,16 @@ def update_pyproject_name(pyproject_path: str, new_project_name: str) -> None:
 
 
 def update_uv_dep(pyproject_path: str, new_project_name: str) -> None:
-    """Update the kozmoai-base dependency in pyproject.toml."""
+    """Update the minerva-base dependency in pyproject.toml."""
     filepath = BASE_DIR / pyproject_path
     content = filepath.read_text(encoding="utf-8")
 
-    if new_project_name == "kozmoai-nightly":
-        pattern = re.compile(r"kozmoai = \{ workspace = true \}")
-        replacement = "kozmoai-nightly = { workspace = true }"
-    elif new_project_name == "kozmoai-base-nightly":
-        pattern = re.compile(r"kozmoai-base = \{ workspace = true \}")
-        replacement = "kozmoai-base-nightly = { workspace = true }"
+    if new_project_name == "minerva-nightly":
+        pattern = re.compile(r"minerva = \{ workspace = true \}")
+        replacement = "minerva-nightly = { workspace = true }"
+    elif new_project_name == "minerva-base-nightly":
+        pattern = re.compile(r"minerva-base = \{ workspace = true \}")
+        replacement = "minerva-base-nightly = { workspace = true }"
     else:
         msg = f"Invalid project name: {new_project_name}"
         raise ValueError(msg)
@@ -49,7 +49,7 @@ def update_uv_dep(pyproject_path: str, new_project_name: str) -> None:
 
 def main() -> None:
     if len(sys.argv) != ARGUMENT_NUMBER:
-        msg = "Must specify project name and build type, e.g. kozmoai-nightly base"
+        msg = "Must specify project name and build type, e.g. minerva-nightly base"
         raise ValueError(msg)
     new_project_name = sys.argv[1]
     build_type = sys.argv[2]

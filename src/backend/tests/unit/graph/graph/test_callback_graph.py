@@ -1,13 +1,13 @@
 import asyncio
 
 import pytest
-from kozmoai.components.outputs import ChatOutput
-from kozmoai.custom import Component
-from kozmoai.events.event_manager import EventManager
-from kozmoai.graph import Graph
-from kozmoai.inputs import IntInput
-from kozmoai.schema.message import Message
-from kozmoai.template import Output
+from minerva.components.outputs import ChatOutput
+from minerva.custom import Component
+from minerva.events.event_manager import EventManager
+from minerva.graph import Graph
+from minerva.inputs import IntInput
+from minerva.schema.message import Message
+from minerva.template import Output
 
 
 class LogComponent(Component):

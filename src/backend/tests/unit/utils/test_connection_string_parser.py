@@ -1,5 +1,5 @@
 import pytest
-from kozmoai.utils.connection_string_parser import transform_connection_string
+from minerva.utils.connection_string_parser import transform_connection_string
 
 
 @pytest.mark.parametrize(

@@ -1,8 +1,8 @@
 from collections.abc import Callable
 
-from kozmoai.base.agents.agent import DEFAULT_TOOLS_DESCRIPTION
-from kozmoai.components.agents.agent import AgentComponent
-from kozmoai.components.tools.calculator import CalculatorToolComponent
+from minerva.base.agents.agent import DEFAULT_TOOLS_DESCRIPTION
+from minerva.components.agents.agent import AgentComponent
+from minerva.components.tools.calculator import CalculatorToolComponent
 
 
 async def test_component_to_toolkit():

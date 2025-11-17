@@ -1,6 +1,6 @@
 
 [project]
-name = "kozmoai"
+name = "minerva"
 version = "1.1.9.dev"
 description = "A Python package with a built-in web application"
 requires-python = ">=3.10,<3.13"
@@ -12,7 +12,7 @@ maintainers = [
 ]
 # Define your main dependencies here
 dependencies = [
-    "kozmoai-base==0.1.7.post1",
+    "minerva-base==0.1.7.post1",
     "beautifulsoup4==4.12.3",
     "google-search-results>=2.4.1,<3.0.0",
     "google-api-python-client==2.154.0",
@@ -107,19 +107,19 @@ dependencies = [
 ]
 
 [tool.uv.sources]
-kozmoai-base = { workspace = true }
-kozmoai = { workspace = true }
+minerva-base = { workspace = true }
+minerva = { workspace = true }
 
 [tool.uv.workspace]
 members = ["src/backend/base", "."]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/backend/kozmoai"]
+packages = ["src/backend/minerva"]
 
 
 [project.urls]
-Repository = "https://github.com/digitranslab/kozmoai"
-Documentation = "https://docs.kozmoai.cloud"
+Repository = "https://github.com/digitranslab/minerva"
+Documentation = "https://docs.minerva.cloud"
 
 [project.optional-dependencies]
 deploy = [
@@ -142,7 +142,7 @@ clickhouse-connect = [
 ]
 
 [project.scripts]
-kozmoai = "kozmoai.__main__:main"
+minerva = "minerva.__main__:main"
 
 [tool.uv]
 dev-dependencies = [
@@ -210,7 +210,7 @@ command_line = """
     --cov --cov-report=term --cov-report=html
     --instafail -ra -n auto -m "not api_key_required"
 """
-source = ["src/backend/base/kozmoai/"]
+source = ["src/backend/base/minerva/"]
 omit = ["*/alembic/*", "tests/*", "*/__init__.py"]
 
 
@@ -226,7 +226,7 @@ directory = "coverage"
 
 
 [tool.ruff]
-exclude = ["src/backend/base/kozmoai/alembic/*"]
+exclude = ["src/backend/base/minerva/alembic/*"]
 line-length = 120
 
 [tool.ruff.lint]
@@ -271,7 +271,7 @@ plugins = ["pydantic.mypy"]
 follow_imports = "skip"
 disable_error_code = ["type-var"]
 namespace_packages = true
-mypy_path = "kozmoai"
+mypy_path = "minerva"
 ignore_missing_imports = true
 
 [build-system]

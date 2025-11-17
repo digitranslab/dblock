@@ -1,5 +1,5 @@
-from kozmoai.components.models.huggingface import DEFAULT_MODEL, HuggingFaceEndpointsComponent
-from kozmoai.inputs.inputs import DictInput, DropdownInput, FloatInput, IntInput, SecretStrInput, SliderInput, StrInput
+from minerva.components.models.huggingface import DEFAULT_MODEL, HuggingFaceEndpointsComponent
+from minerva.inputs.inputs import DictInput, DropdownInput, FloatInput, IntInput, SecretStrInput, SliderInput, StrInput
 
 
 def test_huggingface_inputs():

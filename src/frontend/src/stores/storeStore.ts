@@ -1,17 +1,17 @@
-import { ENABLE_KOZMOAI_STORE } from "@/customization/feature-flags";
+import { ENABLE_MINERVA_STORE } from "@/customization/feature-flags";
 import { create } from "zustand";
 import { checkHasApiKey, checkHasStore } from "../controllers/API";
 import { StoreStoreType } from "../types/zustand/store";
 
 export const useStoreStore = create<StoreStoreType>((set) => ({
-  hasStore: ENABLE_KOZMOAI_STORE,
+  hasStore: ENABLE_MINERVA_STORE,
   validApiKey: false,
   hasApiKey: false,
   loadingApiKey: true,
   checkHasStore: () => {
     checkHasStore().then((res) => {
       set({
-        hasStore: ENABLE_KOZMOAI_STORE && (res?.enabled ?? false),
+        hasStore: ENABLE_MINERVA_STORE && (res?.enabled ?? false),
       });
     });
   },

@@ -90,8 +90,8 @@ export default function ImageViewer({ image }: { image: string }) {
         {IMGViewErrorTitle}
       </div>
       <div className="align-center flex justify-center">
-        <div className="kozmoai-chat-desc align-center flex justify-center">
-          <div className="kozmoai-chat-desc-span">{IMGViewErrorMSG}</div>
+        <div className="minerva-chat-desc align-center flex justify-center">
+          <div className="minerva-chat-desc-span">{IMGViewErrorMSG}</div>
         </div>
       </div>
     </div>

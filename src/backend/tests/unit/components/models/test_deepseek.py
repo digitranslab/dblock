@@ -1,9 +1,9 @@
 from unittest.mock import MagicMock
 
 import pytest
-from kozmoai.components.models import DeepSeekModelComponent
-from kozmoai.custom import Component
-from kozmoai.custom.utils import build_custom_component_template
+from minerva.components.models import DeepSeekModelComponent
+from minerva.custom import Component
+from minerva.custom.utils import build_custom_component_template
 
 
 def test_deepseek_initialization():

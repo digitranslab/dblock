@@ -10,11 +10,11 @@ export default function Error(): JSX.Element {
       <div className="chat-alert-box">
         <span className="flex gap-2">
           <IconComponent name="FileX2" />
-          <span className="kozmoai-chat-span">{PDFLoadErrorTitle}</span>
+          <span className="minerva-chat-span">{PDFLoadErrorTitle}</span>
         </span>
         <br />
-        <div className="kozmoai-chat-desc">
-          <span className="kozmoai-chat-desc-span">{PDFCheckFlow} </span>
+        <div className="minerva-chat-desc">
+          <span className="minerva-chat-desc-span">{PDFCheckFlow} </span>
         </div>
       </div>
     </div>

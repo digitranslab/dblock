@@ -1,24 +1,24 @@
 services:
   # A Docker web service
   - type: web
-    name: kozmoai
+    name: minerva
     runtime: docker
     dockerfilePath: ./docker/render.Dockerfile
-    repo: https://github.com/digitranslab/kozmoai
+    repo: https://github.com/digitranslab/minerva
     branch: main
     plan: standard
     healthCheckPath: /health_check
     autoDeploy: false
     envVars:
-      - key: KOZMOAI_DATABASE_URL
-        value: sqlite:////app/data/.cache/digitranslab/kozmoai.db
-      - key: KOZMOAI_HOST
+      - key: MINERVA_DATABASE_URL
+        value: sqlite:////app/data/.cache/digitranslab/minerva.db
+      - key: MINERVA_HOST
         value: 0.0.0.0
-      - key: KOZMOAI_PORT
+      - key: MINERVA_PORT
         # default render port https://docs.render.com/web-services#port-binding
         value: 10000
-      - key: KOZMOAI_LOG_LEVEL
+      - key: MINERVA_LOG_LEVEL
         value: INFO
     disk:
-      name: kozmoai-data
+      name: minerva-data
       mountPath: /app/data

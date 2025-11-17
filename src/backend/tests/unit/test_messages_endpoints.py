@@ -3,12 +3,12 @@ from uuid import UUID
 
 import pytest
 from httpx import AsyncClient
-from kozmoai.memory import aadd_messagetables
+from minerva.memory import aadd_messagetables
 
 # Assuming you have these imports available
-from kozmoai.services.database.models.message import MessageCreate, MessageRead, MessageUpdate
-from kozmoai.services.database.models.message.model import MessageTable
-from kozmoai.services.deps import session_scope
+from minerva.services.database.models.message import MessageCreate, MessageRead, MessageUpdate
+from minerva.services.database.models.message.model import MessageTable
+from minerva.services.deps import session_scope
 
 
 @pytest.fixture

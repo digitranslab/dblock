@@ -1,6 +1,6 @@
-from kozmoai.components.outputs import ChatOutput
-from kozmoai.memory import aget_messages
-from kozmoai.schema.message import Message
+from minerva.components.outputs import ChatOutput
+from minerva.memory import aget_messages
+from minerva.schema.message import Message
 
 from tests.integration.utils import run_single_component
 

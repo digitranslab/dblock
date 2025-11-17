@@ -1,4 +1,4 @@
-import KozmoaiLogo from "@/assets/KozmoaiLogo.svg?react";
+import MinervaLogo from "@/assets/MinervaLogo.svg?react";
 import { useLoginUser } from "@/controllers/API/queries/auth";
 import { ENABLE_NEW_LOGO } from "@/customization/feature-flags";
 import { useContext, useState } from "react";
@@ -52,8 +52,8 @@ export default function LoginAdminPage() {
     <div className="flex h-full w-full flex-col items-center justify-center bg-muted">
       <div className="flex w-72 flex-col items-center justify-center gap-2">
         {ENABLE_NEW_LOGO ? (
-          <KozmoaiLogo
-            title="Kozmoai logo"
+          <MinervaLogo
+            title="Minerva logo"
             className="h-10 w-10 scale-[1.5]"
           />
         ) : (

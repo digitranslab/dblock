@@ -2,8 +2,8 @@ import base64
 
 import pytest
 from langchain_core.messages import AIMessage, HumanMessage
-from kozmoai.schema.data import Data
-from kozmoai.utils.constants import MESSAGE_SENDER_AI, MESSAGE_SENDER_USER
+from minerva.schema.data import Data
+from minerva.utils.constants import MESSAGE_SENDER_AI, MESSAGE_SENDER_USER
 
 
 @pytest.fixture

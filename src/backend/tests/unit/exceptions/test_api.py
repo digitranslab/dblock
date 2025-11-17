@@ -1,7 +1,7 @@
 from unittest.mock import Mock, patch
 
-from kozmoai.exceptions.api import APIException, ExceptionBody
-from kozmoai.services.database.models.flow.model import Flow
+from minerva.exceptions.api import APIException, ExceptionBody
+from minerva.services.database.models.flow.model import Flow
 
 
 def test_api_exception():
@@ -17,12 +17,12 @@ def test_api_exception():
 
     with (
         patch(
-            "kozmoai.services.database.models.flow.utils.get_outdated_components",
+            "minerva.services.database.models.flow.utils.get_outdated_components",
             return_value=mock_outdated_components,
         ),
-        patch("kozmoai.api.utils.get_suggestion_message", return_value=mock_suggestion_message),
+        patch("minerva.api.utils.get_suggestion_message", return_value=mock_suggestion_message),
         patch(
-            "kozmoai.services.database.models.flow.utils.get_components_versions",
+            "minerva.services.database.models.flow.utils.get_components_versions",
             return_value=mock_component_versions,
         ),
     ):

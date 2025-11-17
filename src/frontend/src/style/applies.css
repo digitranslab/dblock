@@ -247,11 +247,11 @@
   .flow-page-positioning {
     @apply h-full w-full overflow-hidden;
   }
-  .kozmoai-page-icon {
+  .minerva-page-icon {
     @apply absolute bottom-2 left-7 flex h-6 cursor-pointer flex-col items-center justify-start overflow-hidden rounded-lg bg-foreground px-2 text-center font-sans text-xs tracking-wide text-secondary transition-all duration-500 ease-in-out;
   }
 
-  .kozmoai-page-icon:hover {
+  .minerva-page-icon:hover {
     @apply hover:h-12;
   }
 
@@ -1066,22 +1066,22 @@
   .chat-alert-box {
     @apply flex-max-width h-full flex-col items-center justify-center text-center align-middle;
   }
-  .kozmoai-chat-span {
+  .minerva-chat-span {
     @apply text-lg text-foreground;
   }
   .card-filter {
     @apply bg-background bg-fixed opacity-20;
   }
-  .kozmoai-chat-desc {
+  .minerva-chat-desc {
     @apply w-2/4 rounded-md border border-border bg-muted px-6 py-8;
   }
-  .kozmoai-chat-desc-span {
+  .minerva-chat-desc-span {
     @apply text-base text-muted-foreground;
   }
-  .kozmoai-chat-input-div {
+  .minerva-chat-input-div {
     @apply flex-max-width flex-col items-center justify-between px-8 pb-3;
   }
-  .kozmoai-chat-input {
+  .minerva-chat-input {
     @apply relative w-full rounded-md shadow-sm;
   }
 

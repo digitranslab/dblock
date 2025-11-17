@@ -1,6 +1,6 @@
 import pytest
-from kozmoai.custom.custom_component.custom_component import CustomComponent
-from kozmoai.field_typing.constants import Data
+from minerva.custom.custom_component.custom_component import CustomComponent
+from minerva.field_typing.constants import Data
 
 
 @pytest.fixture

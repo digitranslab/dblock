@@ -8,7 +8,7 @@ from tests.base import ComponentTestBaseWithClient
 class TestArXivComponent(ComponentTestBaseWithClient):
     def test_component_versions(self, default_kwargs, file_names_mapping):
         """Test component compatibility across versions."""
-        from kozmoai.components.tools.arxiv import ArXivComponent
+        from minerva.components.tools.arxiv import ArXivComponent
 
         # Test current version
         component = ArXivComponent(**default_kwargs)
@@ -19,7 +19,7 @@ class TestArXivComponent(ComponentTestBaseWithClient):
         for mapping in file_names_mapping:
             try:
                 module = __import__(
-                    f"kozmoai.components.{mapping['module']}",
+                    f"minerva.components.{mapping['module']}",
                     fromlist=[mapping["file_name"]],
                 )
                 component_class = getattr(module, mapping["file_name"])
@@ -31,7 +31,7 @@ class TestArXivComponent(ComponentTestBaseWithClient):
 
     @pytest.fixture
     def component_class(self):
-        from kozmoai.components.tools.arxiv import ArXivComponent
+        from minerva.components.tools.arxiv import ArXivComponent
 
         return ArXivComponent
 

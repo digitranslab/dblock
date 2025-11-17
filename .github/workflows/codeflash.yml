@@ -3,7 +3,7 @@ name: Codeflash
 on:
   pull_request:
     paths:
-      - "src/backend/base/kozmoai/**"
+      - "src/backend/base/minerva/**"
   workflow_dispatch:
 
 concurrency:

@@ -47,7 +47,7 @@
     "tests/core/inputListComponent.spec.ts",
     "tests/fe-components/intComponent.spec.ts",
     "tests/core/keyPairListComponent.spec.ts",
-    "tests/extended/features/kozmoaiShortcuts.spec.ts",
+    "tests/extended/features/minervaShortcuts.spec.ts",
     "tests/core/nestedComponent.spec.ts",
     "tests/fe-components/promptModalComponent.spec.ts",
     "tests/core/python_api_generation.spec.ts",

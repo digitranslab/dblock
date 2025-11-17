@@ -1,6 +1,6 @@
 import pytest
-from kozmoai.components.processing import SplitTextComponent
-from kozmoai.schema import Data, DataFrame
+from minerva.components.processing import SplitTextComponent
+from minerva.schema import Data, DataFrame
 
 from tests.base import ComponentTestBaseWithoutClient
 

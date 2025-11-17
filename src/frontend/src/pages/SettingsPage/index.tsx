@@ -1,7 +1,7 @@
 import SideBarButtonsComponent from "@/components/core/sidebarComponent";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import {
-  ENABLE_DATASTAX_KOZMOAI,
+  ENABLE_DATASTAX_MINERVA,
   ENABLE_PROFILE_ICONS,
 } from "@/customization/feature-flags";
 import useAuthStore from "@/stores/authStore";
@@ -70,10 +70,10 @@ export default function SettingsPage(): JSX.Element {
     },
   );
 
-  if (!ENABLE_DATASTAX_KOZMOAI) {
-    const kozmoaiItems = [
+  if (!ENABLE_DATASTAX_MINERVA) {
+    const minervaItems = [
       {
-        title: "Kozmoai API Keys",
+        title: "Minerva API Keys",
         href: "/settings/api-keys",
         icon: (
           <ForwardedIconComponent
@@ -83,7 +83,7 @@ export default function SettingsPage(): JSX.Element {
         ),
       },
       {
-        title: "Kozmoai Store",
+        title: "Minerva Store",
         href: "/settings/store",
         icon: (
           <ForwardedIconComponent
@@ -94,14 +94,14 @@ export default function SettingsPage(): JSX.Element {
       },
     ];
 
-    sidebarNavItems.splice(2, 0, ...kozmoaiItems);
+    sidebarNavItems.splice(2, 0, ...minervaItems);
   }
 
   return (
     <PageLayout
       backTo={"/"}
       title="Settings"
-      description="Manage the general settings for Kozmoai."
+      description="Manage the general settings for Minerva."
     >
       <SidebarProvider width="15rem" defaultOpen={false}>
         <SideBarButtonsComponent items={sidebarNavItems} />

@@ -2,7 +2,7 @@ import PaginatorComponent from "@/components/common/paginatorComponent";
 import CardsWrapComponent from "@/components/core/cardsWrapComponent";
 import { useGetFolderQuery } from "@/controllers/API/queries/folders/use-get-folder";
 import { CustomBanner } from "@/customization/components/custom-banner";
-import { ENABLE_DATASTAX_KOZMOAI } from "@/customization/feature-flags";
+import { ENABLE_DATASTAX_MINERVA } from "@/customization/feature-flags";
 import useFlowsManagerStore from "@/stores/flowsManagerStore";
 import { useFolderStore } from "@/stores/foldersStore";
 import { useCallback, useEffect, useState } from "react";
@@ -87,7 +87,7 @@ const HomePage = ({ type }) => {
         data-testid="cards-wrapper"
       >
         <div className="flex h-full w-full flex-col xl:container">
-          {ENABLE_DATASTAX_KOZMOAI && <CustomBanner />}
+          {ENABLE_DATASTAX_MINERVA && <CustomBanner />}
 
           {/* mt-10 to mt-8 for Datastax LF */}
           <div className="flex flex-1 flex-col justify-start px-5 pt-10">
@@ -147,7 +147,7 @@ const HomePage = ({ type }) => {
                     <div className="pt-2 text-center text-sm text-secondary-foreground">
                       No saved or custom components. Learn more about{" "}
                       <a
-                        href="https://docs.kozmoai.cloud/components-custom-components"
+                        href="https://docs.minerva.cloud/components-custom-components"
                         target="_blank"
                         rel="noreferrer"
                         className="underline"

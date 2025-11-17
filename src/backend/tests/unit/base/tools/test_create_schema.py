@@ -1,5 +1,5 @@
-from kozmoai.io.schema import create_input_schema_from_dict
-from kozmoai.schema.dotdict import dotdict
+from minerva.io.schema import create_input_schema_from_dict
+from minerva.schema.dotdict import dotdict
 
 
 def test_create_schema():

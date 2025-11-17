@@ -166,10 +166,10 @@ export default function FlowPage({ view }: { view?: boolean }): JSX.Element {
         {/* {ENABLE_BRANDING && version && (
           <a
             target={"_blank"}
-            href="https://medium.com/logspace/kozmoai-datastax-better-together-1b7462cebc4d"
-            className="kozmoai-page-icon"
+            href="https://medium.com/logspace/minerva-datastax-better-together-1b7462cebc4d"
+            className="minerva-page-icon"
           >
-            <div className="mt-1">Kozmoai</div>
+            <div className="mt-1">Minerva</div>
 
             <div className={version ? "mt-2" : "mt-1"}>⛓️ v{version}</div>
           </a>

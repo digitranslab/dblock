@@ -1,8 +1,8 @@
 import re
 
 import pytest
-from kozmoai.components.helpers.batch_run import BatchRunComponent
-from kozmoai.schema import DataFrame
+from minerva.components.helpers.batch_run import BatchRunComponent
+from minerva.schema import DataFrame
 
 from tests.base import ComponentTestBaseWithoutClient
 from tests.unit.mock_language_model import MockLanguageModel

@@ -1,4 +1,4 @@
-import { KOZMOAI_REFRESH_TOKEN } from "@/constants/constants";
+import { MINERVA_REFRESH_TOKEN } from "@/constants/constants";
 import { useMutationFunctionType } from "@/types/api";
 import { Cookies } from "react-cookie";
 import { api } from "../../api";
@@ -20,7 +20,7 @@ export const useRefreshAccessToken: useMutationFunctionType<
 
   async function refreshAccess(): Promise<IRefreshAccessToken> {
     const res = await api.post<IRefreshAccessToken>(`${getURL("REFRESH")}`);
-    cookies.set(KOZMOAI_REFRESH_TOKEN, res.data.refresh_token, { path: "/" });
+    cookies.set(MINERVA_REFRESH_TOKEN, res.data.refresh_token, { path: "/" });
 
     return res.data;
   }

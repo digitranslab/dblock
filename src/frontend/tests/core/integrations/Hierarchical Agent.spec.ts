@@ -52,6 +52,6 @@ test.skip(
 
     expect(await page.locator(".markdown").count()).toBeGreaterThan(0);
 
-    expect(await page.getByText("Kozmoai").count()).toBeGreaterThan(2);
+    expect(await page.getByText("Minerva").count()).toBeGreaterThan(2);
   },
 );

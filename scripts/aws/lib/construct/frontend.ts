@@ -36,13 +36,13 @@ export class Web extends Construct {
   };
 
   // CDKにて 静的WebサイトをホストするためのAmazon S3バケットを作成
-  const websiteBucket = new s3.Bucket(this, 'KozmoaiWebsiteBucket', commonBucketProps);
+  const websiteBucket = new s3.Bucket(this, 'MinervaWebsiteBucket', commonBucketProps);
   
   const originAccessIdentity = new cloudfront.OriginAccessIdentity(
     this,
     'OriginAccessIdentity',
     {
-      comment: 'kozmoai-distribution-originAccessIdentity',
+      comment: 'minerva-distribution-originAccessIdentity',
     }
   );
 
@@ -75,7 +75,7 @@ export class Web extends Construct {
   }
 
   const cloudFrontWebDistribution = new cloudfront.Distribution(this, 'distribution', {
-    comment: 'kozmoai-distribution',
+    comment: 'minerva-distribution',
     defaultRootObject: 'index.html',
     errorResponses: [
       {

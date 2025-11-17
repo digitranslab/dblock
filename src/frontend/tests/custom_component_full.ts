@@ -1,10 +1,10 @@
-export const custom = `from kozmoai.custom import CustomComponent
+export const custom = `from minerva.custom import CustomComponent
 
-from kozmoai.field_typing import BaseLanguageModel
+from minerva.field_typing import BaseLanguageModel
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 from langchain_core.documents import Document
-from kozmoai.field_typing import NestedDict
+from minerva.field_typing import NestedDict
 
 import requests
 

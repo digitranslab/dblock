@@ -1,30 +1,30 @@
 version: "3.8"
 
 services:
-  kozmoai:
-    image: digitranslab/kozmoai:1.0-alpha
+  minerva:
+    image: digitranslab/minerva:1.0-alpha
     ports:
       - "7860:7860"
     depends_on:
       - postgres
     environment:
-      - KOZMOAI_DATABASE_URL=postgresql://kozmoai:kozmoai@postgres:5432/kozmoai
+      - MINERVA_DATABASE_URL=postgresql://minerva:minerva@postgres:5432/minerva
       # This variable defines where the logs, file storage, monitor data and secret keys are stored.
-      - KOZMOAI_CONFIG_DIR=app/kozmoai
+      - MINERVA_CONFIG_DIR=app/minerva
     volumes:
-      - kozmoai-data:/app/kozmoai
+      - minerva-data:/app/minerva
 
   postgres:
     image: postgres:16
     environment:
-      POSTGRES_USER: kozmoai
-      POSTGRES_PASSWORD: kozmoai
-      POSTGRES_DB: kozmoai
+      POSTGRES_USER: minerva
+      POSTGRES_PASSWORD: minerva
+      POSTGRES_DB: minerva
     ports:
       - "5432:5432"
     volumes:
-      - kozmoai-postgres:/var/lib/postgresql/data
+      - minerva-postgres:/var/lib/postgresql/data
 
 volumes:
-  kozmoai-postgres:
-  kozmoai-data:
+  minerva-postgres:
+  minerva-data:

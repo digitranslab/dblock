@@ -28,9 +28,9 @@ import requests
 from typing import Optional
 import warnings
 try:
-    from kozmoai.load import upload_file
+    from minerva.load import upload_file
 except ImportError:
-    warnings.warn("Kozmoai provides a function to help you upload files to the flow. Please install kozmoai to use it.")
+    warnings.warn("Minerva provides a function to help you upload files to the flow. Please install minerva to use it.")
     upload_file = None
 
 BASE_API_URL = "${window.location.protocol}//${window.location.host}"
@@ -94,7 +94,7 @@ def main():
 
     if args.upload_file:
         if not upload_file:
-            raise ImportError("Kozmoai is not installed. Please install it to use the upload_file function.")
+            raise ImportError("Minerva is not installed. Please install it to use the upload_file function.")
         elif not args.components:
             raise ValueError("You need to provide the components to upload the file to.")
         tweaks = upload_file(file_path=args.upload_file, host=BASE_API_URL, flow_id=args.endpoint, components=[args.components], tweaks=tweaks)

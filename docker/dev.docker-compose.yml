@@ -1,23 +1,23 @@
 networks:
-  dev-kozmoai:
+  dev-minerva:
 
 services:
-  kozmoai:
+  minerva:
     build:
       context: ..
       dockerfile: docker/dev.Dockerfile
-    image: dev-kozmoai
-    container_name: dev-kozmoai
+    image: dev-minerva
+    container_name: dev-minerva
     restart: always
     ports:
       - "7860:7860"
       - "3000:3000"
     environment:
       - PYTHONDONTWRITEBYTECODE=1
-      - KOZMOAI_DATABASE_URL=postgresql://kozmoai:kozmoai@postgres:5432/kozmoai
-      - KOZMOAI_SUPERUSER=kozmoai
-      - KOZMOAI_SUPERUSER_PASSWORD=kozmoai
-      - KOZMOAI_CONFIG_DIR=/var/lib/kozmoai
+      - MINERVA_DATABASE_URL=postgresql://minerva:minerva@postgres:5432/minerva
+      - MINERVA_SUPERUSER=minerva
+      - MINERVA_SUPERUSER_PASSWORD=minerva
+      - MINERVA_CONFIG_DIR=/var/lib/minerva
     env_file:
       - ../.env
     volumes:
@@ -25,18 +25,18 @@ services:
     depends_on:
       - postgres
     networks:
-      -  dev-kozmoai
+      -  dev-minerva
 
 
   postgres:
     container_name: postgres
     image: pgvector/pgvector:pg16
     environment:
-      POSTGRES_USER: kozmoai
-      POSTGRES_PASSWORD: kozmoai
-      POSTGRES_DB: kozmoai
+      POSTGRES_USER: minerva
+      POSTGRES_PASSWORD: minerva
+      POSTGRES_DB: minerva
     ports:
       - "5432:5432"
     networks:
-      -  dev-kozmoai
+      -  dev-minerva
 

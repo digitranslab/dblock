@@ -3,11 +3,11 @@ from unittest.mock import patch
 from uuid import uuid4
 
 import pytest
-from kozmoai.services.database.models.variable.model import VariableUpdate
-from kozmoai.services.deps import get_settings_service
-from kozmoai.services.settings.constants import VARIABLES_TO_GET_FROM_ENVIRONMENT
-from kozmoai.services.variable.constants import CREDENTIAL_TYPE
-from kozmoai.services.variable.service import DatabaseVariableService
+from minerva.services.database.models.variable.model import VariableUpdate
+from minerva.services.deps import get_settings_service
+from minerva.services.settings.constants import VARIABLES_TO_GET_FROM_ENVIRONMENT
+from minerva.services.variable.constants import CREDENTIAL_TYPE
+from minerva.services.variable.service import DatabaseVariableService
 from sqlalchemy.ext.asyncio import create_async_engine
 from sqlmodel import SQLModel
 from sqlmodel.ext.asyncio.session import AsyncSession
@@ -51,7 +51,7 @@ async def test_initialize_user_variables__create_and_update(service, session: As
 
 
 async def test_initialize_user_variables__not_found_variable(service, session: AsyncSession):
-    with patch("kozmoai.services.variable.service.DatabaseVariableService.create_variable") as m:
+    with patch("minerva.services.variable.service.DatabaseVariableService.create_variable") as m:
         m.side_effect = Exception()
         await service.initialize_user_variables(uuid4(), session=session)
     assert True

@@ -35,13 +35,13 @@ def main():
     base_tag = sys.argv[3]
 
     # First handle base package updates
-    update_pyproject_name("src/backend/base/pyproject.toml", "kozmoai-base-nightly")
-    update_name_uv_dep("pyproject.toml", "kozmoai-base-nightly")
+    update_pyproject_name("src/backend/base/pyproject.toml", "minerva-base-nightly")
+    update_name_uv_dep("pyproject.toml", "minerva-base-nightly")
     update_pyproject_version("src/backend/base/pyproject.toml", base_tag)
 
     # Then handle main package updates
-    update_pyproject_name("pyproject.toml", "kozmoai-nightly")
-    update_name_uv_dep("pyproject.toml", "kozmoai-nightly")
+    update_pyproject_name("pyproject.toml", "minerva-nightly")
+    update_name_uv_dep("pyproject.toml", "minerva-nightly")
     update_pyproject_version("pyproject.toml", main_tag)
     # Update dependency version (strip 'v' prefix if present)
     base_version = base_tag.lstrip("v")

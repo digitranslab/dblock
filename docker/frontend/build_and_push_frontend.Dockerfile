@@ -16,11 +16,11 @@ RUN cd /frontend && npm install && npm run build
 ################################
 FROM nginxinc/nginx-unprivileged:stable-bookworm-perl AS runtime
 
-LABEL org.opencontainers.image.title=kozmoai-frontend
-LABEL org.opencontainers.image.authors=['Kozmoai']
+LABEL org.opencontainers.image.title=minerva-frontend
+LABEL org.opencontainers.image.authors=['Minerva']
 LABEL org.opencontainers.image.licenses=MIT
-LABEL org.opencontainers.image.url=https://github.com/digitranslab/kozmoai
-LABEL org.opencontainers.image.source=https://github.com/digitranslab/kozmoai
+LABEL org.opencontainers.image.url=https://github.com/digitranslab/minerva
+LABEL org.opencontainers.image.source=https://github.com/digitranslab/minerva
 
 COPY --from=builder-base --chown=nginx /frontend/build /usr/share/nginx/html
 COPY --chown=nginx ./docker/frontend/start-nginx.sh /start-nginx.sh

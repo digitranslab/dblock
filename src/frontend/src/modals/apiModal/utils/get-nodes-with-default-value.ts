@@ -1,6 +1,6 @@
 import { AllNodeType } from "@/types/flow";
 import { cloneDeep } from "lodash";
-import { KOZMOAI_SUPPORTED_TYPES } from "../../../constants/constants";
+import { MINERVA_SUPPORTED_TYPES } from "../../../constants/constants";
 
 export const getNodesWithDefaultValue = (nodes: AllNodeType[]) => {
   const filteredNodes: AllNodeType[] = [];
@@ -11,7 +11,7 @@ export const getNodesWithDefaultValue = (nodes: AllNodeType[]) => {
         (templateField) =>
           templateField.charAt(0) !== "_" &&
           node!.data!.node!.template[templateField]?.show &&
-          KOZMOAI_SUPPORTED_TYPES.has(
+          MINERVA_SUPPORTED_TYPES.has(
             node!.data!.node!.template[templateField].type,
           ) &&
           templateField !== "code",

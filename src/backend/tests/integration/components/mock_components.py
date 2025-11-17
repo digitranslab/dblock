@@ -1,9 +1,9 @@
 import json
 
-from kozmoai.custom import Component
-from kozmoai.inputs import BoolInput, StrInput
-from kozmoai.schema import Data
-from kozmoai.template import Output
+from minerva.custom import Component
+from minerva.inputs import BoolInput, StrInput
+from minerva.schema import Data
+from minerva.template import Output
 
 
 class TextToData(Component):

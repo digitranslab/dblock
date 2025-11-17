@@ -9,8 +9,8 @@ resolution-markers = [
 
 [manifest]
 members = [
-    "kozmoai",
-    "kozmoai-base",
+    "minerva",
+    "minerva-base",
 ]
 
 [[package]]
@@ -3803,7 +3803,7 @@ wheels = [
 ]
 
 [[package]]
-name = "kozmoai"
+name = "minerva"
 version = "1.1.9.dev"
 source = { editable = "." }
 dependencies = [
@@ -3855,7 +3855,7 @@ dependencies = [
     { name = "langchain-pinecone" },
     { name = "langchain-sambanova" },
     { name = "langchain-unstructured" },
-    { name = "kozmoai-base" },
+    { name = "minerva-base" },
     { name = "langfuse" },
     { name = "langsmith" },
     { name = "langwatch" },
@@ -4018,7 +4018,7 @@ requires-dist = [
     { name = "langchain-pinecone", specifier = "==0.2.2" },
     { name = "langchain-sambanova", specifier = "==0.1.0" },
     { name = "langchain-unstructured", specifier = "==0.1.5" },
-    { name = "kozmoai-base", editable = "src/backend/base" },
+    { name = "minerva-base", editable = "src/backend/base" },
     { name = "langfuse", specifier = "==2.53.9" },
     { name = "langsmith", specifier = "==0.1.147" },
     { name = "langwatch", specifier = "==0.1.16" },
@@ -4107,7 +4107,7 @@ dev = [
 ]
 
 [[package]]
-name = "kozmoai-base"
+name = "minerva-base"
 version = "0.1.7.post1"
 source = { editable = "src/backend/base" }
 dependencies = [

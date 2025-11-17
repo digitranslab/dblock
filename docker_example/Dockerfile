@@ -1,3 +1,3 @@
-FROM digitranslab/kozmoai:latest
+FROM digitranslab/minerva:latest
 
-CMD ["python", "-m", "kozmoai", "run", "--host", "0.0.0.0", "--port", "7860"]
+CMD ["python", "-m", "minerva", "run", "--host", "0.0.0.0", "--port", "7860"]

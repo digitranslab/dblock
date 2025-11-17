@@ -1,6 +1,6 @@
-from kozmoai.components.inputs import ChatInput
-from kozmoai.components.processing.parse_json_data import ParseJSONDataComponent
-from kozmoai.schema import Data
+from minerva.components.inputs import ChatInput
+from minerva.components.processing.parse_json_data import ParseJSONDataComponent
+from minerva.schema import Data
 
 from tests.integration.components.mock_components import TextToData
 from tests.integration.utils import ComponentInputHandle, run_single_component

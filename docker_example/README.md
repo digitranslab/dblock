@@ -1,6 +1,6 @@
-# Running KozmoAi with Docker
+# Running Minerva with Docker
 
-This guide will help you get KozmoAi up and running using Docker and Docker Compose.
+This guide will help you get Minerva up and running using Docker and Docker Compose.
 
 ## Prerequisites
 
@@ -9,16 +9,16 @@ This guide will help you get KozmoAi up and running using Docker and Docker Comp
 
 ## Steps
 
-1. Clone the KozmoAi repository:
+1. Clone the Minerva repository:
 
    ```sh
-   git clone https://github.com/digitranslab/kozmoai.git
+   git clone https://github.com/digitranslab/minerva.git
    ```
 
 2. Navigate to the `docker_example` directory:
 
    ```sh
-   cd kozmoai/docker_example
+   cd minerva/docker_example
    ```
 
 3. Run the Docker Compose file:
@@ -27,24 +27,24 @@ This guide will help you get KozmoAi up and running using Docker and Docker Comp
    docker compose up
    ```
 
-KozmoAi will now be accessible at [http://localhost:7860/](http://localhost:7860/).
+Minerva will now be accessible at [http://localhost:7860/](http://localhost:7860/).
 
 ## Docker Compose Configuration
 
-The Docker Compose configuration spins up two services: `kozmoai` and `postgres`.
+The Docker Compose configuration spins up two services: `minerva` and `postgres`.
 
-### KozmoAi Service
+### Minerva Service
 
-The `kozmoai` service uses the `digitranslab/kozmoai:latest` Docker image and exposes port 7860. It depends on the `postgres` service.
+The `minerva` service uses the `digitranslab/minerva:latest` Docker image and exposes port 7860. It depends on the `postgres` service.
 
 Environment variables:
 
-- `KOZMOAI_DATABASE_URL`: The connection string for the PostgreSQL database.
-- `KOZMOAI_CONFIG_DIR`: The directory where KozmoAi stores logs, file storage, monitor data, and secret keys.
+- `MINERVA_DATABASE_URL`: The connection string for the PostgreSQL database.
+- `MINERVA_CONFIG_DIR`: The directory where Minerva stores logs, file storage, monitor data, and secret keys.
 
 Volumes:
 
-- `kozmoai-data`: This volume is mapped to `/app/kozmoai` in the container.
+- `minerva-data`: This volume is mapped to `/app/minerva` in the container.
 
 ### PostgreSQL Service
 
@@ -58,8 +58,8 @@ Environment variables:
 
 Volumes:
 
-- `kozmoai-postgres`: This volume is mapped to `/var/lib/postgresql/data` in the container.
+- `minerva-postgres`: This volume is mapped to `/var/lib/postgresql/data` in the container.
 
-## Switching to a Specific KozmoAi Version
+## Switching to a Specific Minerva Version
 
-If you want to use a specific version of KozmoAi, you can modify the `image` field under the `kozmoai` service in the Docker Compose file. For example, to use version 1.0-alpha, change `digitranslab/kozmoai:latest` to `digitranslab/kozmoai:1.0-alpha`.
+If you want to use a specific version of Minerva, you can modify the `image` field under the `minerva` service in the Docker Compose file. For example, to use version 1.0-alpha, change `digitranslab/minerva:latest` to `digitranslab/minerva:1.0-alpha`.

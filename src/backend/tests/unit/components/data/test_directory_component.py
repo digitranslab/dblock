@@ -3,8 +3,8 @@ from pathlib import Path
 from unittest.mock import Mock, patch
 
 import pytest
-from kozmoai.components.data import DirectoryComponent
-from kozmoai.schema import Data, DataFrame
+from minerva.components.data import DirectoryComponent
+from minerva.schema import Data, DataFrame
 
 from tests.base import ComponentTestBaseWithoutClient
 
@@ -35,9 +35,9 @@ class TestDirectoryComponent(ComponentTestBaseWithoutClient):
             {"version": "1.1.1", "module": "data", "file_name": "directory"},
         ]
 
-    @patch("kozmoai.components.data.directory.parallel_load_data")
-    @patch("kozmoai.components.data.directory.retrieve_file_paths")
-    @patch("kozmoai.components.data.DirectoryComponent.resolve_path")
+    @patch("minerva.components.data.directory.parallel_load_data")
+    @patch("minerva.components.data.directory.retrieve_file_paths")
+    @patch("minerva.components.data.DirectoryComponent.resolve_path")
     def test_directory_component_build_with_multithreading(
         self, mock_resolve_path, mock_retrieve_file_paths, mock_parallel_load_data
     ):
@@ -325,7 +325,7 @@ class TestDirectoryComponent(ComponentTestBaseWithoutClient):
             assert "regular" in texts
             assert "hidden" in texts
 
-    @patch("kozmoai.components.data.directory.parallel_load_data")
+    @patch("minerva.components.data.directory.parallel_load_data")
     def test_directory_with_multithreading(self, mock_parallel_load):
         """Test DirectoryComponent with multithreading enabled."""
         directory_component = DirectoryComponent()

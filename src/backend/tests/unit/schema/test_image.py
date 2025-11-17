@@ -2,7 +2,7 @@ import tempfile
 
 import aiofiles
 import pytest
-from kozmoai.schema.image import (
+from minerva.schema.image import (
     get_file_paths,
     get_files,
     is_image_file,

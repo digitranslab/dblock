@@ -1,6 +1,6 @@
 import pytest
-from kozmoai.custom import Component
-from kozmoai.inputs.inputs import MessageTextInput, StrInput
+from minerva.custom import Component
+from minerva.inputs.inputs import MessageTextInput, StrInput
 
 
 @pytest.fixture

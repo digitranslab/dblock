@@ -1,9 +1,9 @@
 from typing import TYPE_CHECKING, Literal
 
 import pytest
-from kozmoai.components.inputs import ChatInput
-from kozmoai.inputs.inputs import DropdownInput, FileInput, IntInput, NestedDictInput, StrInput
-from kozmoai.io.schema import create_input_schema
+from minerva.components.inputs import ChatInput
+from minerva.inputs.inputs import DropdownInput, FileInput, IntInput, NestedDictInput, StrInput
+from minerva.io.schema import create_input_schema
 
 if TYPE_CHECKING:
     from pydantic.fields import FieldInfo

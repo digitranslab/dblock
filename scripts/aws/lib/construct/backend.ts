@@ -52,15 +52,15 @@ export class BackEndCluster extends Construct {
     );
     backendTaskDefinition.addContainer('backendContainer', {
       image: ecs.ContainerImage.fromEcrRepository(props.ecrBackEndRepository, "latest"),
-      containerName:'kozmoai-back-container',
+      containerName:'minerva-back-container',
       logging: ecs.LogDriver.awsLogs({
         streamPrefix: 'my-stream',
         logGroup: props.backendLogGroup,
       }),
       environment:{
-        "KOZMOAI_AUTO_LOGIN" : process.env.KOZMOAI_AUTO_LOGIN ?? 'false',
-        "KOZMOAI_SUPERUSER" : process.env.KOZMOAI_SUPERUSER ?? "admin",
-        "KOZMOAI_SUPERUSER_PASSWORD" : process.env.KOZMOAI_SUPERUSER_PASSWORD ?? "123456"
+        "MINERVA_AUTO_LOGIN" : process.env.MINERVA_AUTO_LOGIN ?? 'false',
+        "MINERVA_SUPERUSER" : process.env.MINERVA_SUPERUSER ?? "admin",
+        "MINERVA_SUPERUSER_PASSWORD" : process.env.MINERVA_SUPERUSER_PASSWORD ?? "123456"
       },
       portMappings: [
           {

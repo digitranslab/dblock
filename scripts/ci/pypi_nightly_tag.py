@@ -6,11 +6,11 @@ import sys
 import packaging.version
 from packaging.version import Version
 
-PYPI_KOZMOAI_URL = "https://pypi.org/pypi/kozmoai/json"
-PYPI_KOZMOAI_NIGHTLY_URL = "https://pypi.org/pypi/kozmoai-nightly/json"
+PYPI_MINERVA_URL = "https://pypi.org/pypi/minerva/json"
+PYPI_MINERVA_NIGHTLY_URL = "https://pypi.org/pypi/minerva-nightly/json"
 
-PYPI_KOZMOAI_BASE_URL = "https://pypi.org/pypi/kozmoai-base/json"
-PYPI_KOZMOAI_BASE_NIGHTLY_URL = "https://pypi.org/pypi/kozmoai-base-nightly/json"
+PYPI_MINERVA_BASE_URL = "https://pypi.org/pypi/minerva-base/json"
+PYPI_MINERVA_BASE_NIGHTLY_URL = "https://pypi.org/pypi/minerva-base-nightly/json"
 
 ARGUMENT_NUMBER = 2
 
@@ -20,9 +20,9 @@ def get_latest_published_version(build_type: str, *, is_nightly: bool) -> Versio
 
     url = ""
     if build_type == "base":
-        url = PYPI_KOZMOAI_BASE_NIGHTLY_URL if is_nightly else PYPI_KOZMOAI_BASE_URL
+        url = PYPI_MINERVA_BASE_NIGHTLY_URL if is_nightly else PYPI_MINERVA_BASE_URL
     elif build_type == "main":
-        url = PYPI_KOZMOAI_NIGHTLY_URL if is_nightly else PYPI_KOZMOAI_URL
+        url = PYPI_MINERVA_NIGHTLY_URL if is_nightly else PYPI_MINERVA_URL
     else:
         msg = f"Invalid build type: {build_type}"
         raise ValueError(msg)
