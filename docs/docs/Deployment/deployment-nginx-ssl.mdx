@@ -18,7 +18,7 @@ This example uses [Digital Ocean cloud](https://www.digitalocean.com) for hostin
 For example, if your server's IP is `203.0.113.1`, configure your DNS like this:
     ```bash
     Type: A
-    Name: langflow.example.com
+    Name: minerva.example.com
     Value: 203.0.113.1
     ```
 
@@ -89,18 +89,18 @@ To install Langflow on your server, do the following:
 
 4. Create a virtual environment for Langflow.
     ```bash
-    uv venv langflow-venv
-    source langflow-venv/bin/activate
+    uv venv minerva-venv
+    source minerva-venv/bin/activate
     ```
 
 5. Install Langflow using uv.
     ```bash
-    uv pip install langflow
+    uv pip install minerva
     ```
 
 6. Optionally, start Langflow.
     ```bash
-    uv run langflow run --host 127.0.0.1 --port 7860 &
+    uv run minerva run --host 127.0.0.1 --port 7860 &
     ```
 
     Test access at your `http://YOUR_PUBLIC_IP:7860`.
@@ -124,14 +124,14 @@ Nginx is a reverse proxy that receives external requests and forwards them to yo
     ```
 
 3. Create an Nginx configuration file.
-Replace **DOMAIN_NAME** with your actual domain name, such as `langflow.example.com`.
+Replace **DOMAIN_NAME** with your actual domain name, such as `minerva.example.com`.
     ```bash
     sudo nano /etc/nginx/sites-available/DOMAIN_NAME
     ```
 
 4. Paste the following content to the configuration file you created at `/etc/nginx/sites-available/DOMAIN_NAME`.
 
-    Replace **DOMAIN_NAME** with your actual domain name, such as `langflow.example.com`.
+    Replace **DOMAIN_NAME** with your actual domain name, such as `minerva.example.com`.
     ```nginx
     server {
         listen 80;
@@ -212,12 +212,12 @@ Install the Certbot client on your server to manage certificates, and install th
 
     a. Activate the virtual environment.
     ```bash
-    source langflow-venv/bin/activate
+    source minerva-venv/bin/activate
     ```
 
     b. Start Langflow in the background.
     ```bash
-    uv run langflow run --host 127.0.0.1 --port 7860 &
+    uv run minerva run --host 127.0.0.1 --port 7860 &
     ```
 
 4. To test the deployment, navigate to `https://DOMAIN_NAME` in your browser.

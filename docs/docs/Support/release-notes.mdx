@@ -7,7 +7,7 @@ import Icon from "@site/src/components/icon";
 import McpIcon from '@site/static/logos/mcp-icon.svg';
 
 This page summarizes significant changes to Langflow in each release.
-For all changes, see the [Changelog](https://github.com/langflow-ai/langflow/releases/latest).
+For all changes, see the [Changelog](https://github.com/minerva-ai/minerva/releases/latest).
 
 Due to strict SemVer requirements, Langflow Desktop can have different patch versions than the core Langflow OSS Python package, but the major and minor versions are aligned.
 
@@ -35,7 +35,7 @@ To avoid the impact of potential breaking changes and test new versions, the Lan
 
 2. Install the new version:
 
-   * **Langflow OSS Python package**: Install the new version in a new virtual environment. For instructions, see [Install and run the Langflow OSS Python package](/get-started-installation#install-and-run-the-langflow-oss-python-package).
+   * **Langflow OSS Python package**: Install the new version in a new virtual environment. For instructions, see [Install and run the Langflow OSS Python package](/get-started-installation#install-and-run-the-minerva-oss-python-package).
    * **Langflow Docker image**: Run the new image in a separate container.
    * **Langflow Desktop**: To upgrade in place, open Langflow Desktop, and then click **Upgrade Available** in the Langflow header. If you want to isolate the new version, you must install Langflow Desktop on a separate physical or virtual machine, and then [import your flows](/concepts-flows-import) to the new installation.
 
@@ -50,7 +50,7 @@ To avoid the impact of potential breaking changes and test new versions, the Lan
 ## 1.6.0
 
 Highlights of this release include the following changes.
-For all changes, see the [Changelog](https://github.com/langflow-ai/langflow/releases).
+For all changes, see the [Changelog](https://github.com/minerva-ai/minerva/releases).
 
 ### Known issue, potential security vulnerability: .env file not loaded in versions 1.6.0 through 1.6.3 {#env-file-bug}
 
@@ -74,20 +74,20 @@ Only Windows Desktop users upgrading to Langflow version 1.6.0 are affected.
 
 The **Update** button in Langflow Desktop will not work for Windows users, and may result in data loss.
 
-Instead, download a fresh installation from the [Langflow website](https://langflow.org) when a new version is available.
+Instead, download a fresh installation from the [Langflow website](https://minerva.org) when a new version is available.
 
 Follow the instructions below to minimize the risk of losing flows.
 
-These instructions assume the default path for the Langflow database of `C:\Users\YOUR_USERNAME\AppData\Roaming\com.langflow\data\database.db` or `C:\Users\%YOUR_USERNAME%\AppData\Roaming\com.langflow\data\database.db`. Replace `YOUR_USERNAME` with your Windows username.
+These instructions assume the default path for the Langflow database of `C:\Users\YOUR_USERNAME\AppData\Roaming\com.minerva\data\database.db` or `C:\Users\%YOUR_USERNAME%\AppData\Roaming\com.minerva\data\database.db`. Replace `YOUR_USERNAME` with your Windows username.
 
 1. Ensure you have Administrator privileges.
 2. Ensure you have enough disk space for a second installation of Langflow.
 3. Close Langflow, and ensure no Langflow process is running in Task Manager.
 4. The Langflow 1.6.0 installer automatically performs a database backup in a later step, but an additional manual backup provides additional redundancy and is recommended.
 To manually back up your Langflow database file, do the following:
-   1. In Windows Explorer, navigate to `C:\Users\YOUR_USERNAME\AppData\Roaming\com.langflow\data\`. Replace `YOUR_USERNAME` with your Windows username.
+   1. In Windows Explorer, navigate to `C:\Users\YOUR_USERNAME\AppData\Roaming\com.minerva\data\`. Replace `YOUR_USERNAME` with your Windows username.
    2. Copy the `database.db` at this location, and paste it to a safe location.
-5. Download the Windows installer from the [Langflow website](https://langflow.org).
+5. Download the Windows installer from the [Langflow website](https://minerva.org).
 6. Run the Windows installer as an Administrator. To run the installer as an Administrator, right-click the executable and select **Run as administrator**.
 7. Follow the Windows installer's guided steps.
 The Langflow 1.6.0 installer automatically performs a database backup.
@@ -114,7 +114,7 @@ This is expected behavior.
     However, a future release will set `LANGFLOW_AUTO_LOGIN=False` and remove `LANGFLOW_SKIP_AUTH_AUTO_LOGIN`.
     At that point, Langflow will strictly enforce API key authentication for API requests, and you can manually disable authentication for some features, like the visual editor, by setting `LANGFLOW_AUTO_LOGIN=True`.
 
-    For more information, see the documentation for [`LANGFLOW_AUTO_LOGIN`](/api-keys-and-authentication#langflow-auto-login).
+    For more information, see the documentation for [`LANGFLOW_AUTO_LOGIN`](/api-keys-and-authentication#minerva-auto-login).
 
 ### New features and enhancements
 
@@ -158,7 +158,7 @@ Replace this component with the [**Chroma DB** component](/bundles-chroma).
 ## 1.5.0
 
 Highlights of this release include the following changes.
-For all changes, see the [Changelog](https://github.com/langflow-ai/langflow/releases).
+For all changes, see the [Changelog](https://github.com/minerva-ai/minerva/releases).
 
 ### New features and enhancements
 
@@ -169,7 +169,7 @@ For all changes, see the [Changelog](https://github.com/langflow-ai/langflow/rel
     For temporary backwards compatibility, this release adds the `LANGFLOW_SKIP_AUTH_AUTO_LOGIN` environment variable.
     The default value is `true`, which disables API authentication enforcement.
     To enforce API authentication, set `LANGFLOW_SKIP_AUTH_AUTO_LOGIN=False`.
-    For more information, see the documentation for [`LANGFLOW_AUTO_LOGIN`](/api-keys-and-authentication#langflow-auto-login).
+    For more information, see the documentation for [`LANGFLOW_AUTO_LOGIN`](/api-keys-and-authentication#minerva-auto-login).
 
 - Centralized **Language Model** and **Embedding Model** components
 
@@ -207,7 +207,7 @@ For all changes, see the [Changelog](https://github.com/langflow-ai/langflow/rel
 - Stability improvements
 
     General stability improvements and bug fixes for enhanced reliability.
-    See an issue? [Raise it on GitHub](https://github.com/langflow-ai/langflow/issues).
+    See an issue? [Raise it on GitHub](https://github.com/minerva-ai/minerva/issues).
 
 - New integrations and bundles
 
@@ -216,7 +216,7 @@ For all changes, see the [Changelog](https://github.com/langflow-ai/langflow/rel
 ## 1.4.2
 
 Highlights of this release include the following changes.
-For all changes, see the [Changelog](https://github.com/langflow-ai/langflow/releases).
+For all changes, see the [Changelog](https://github.com/minerva-ai/minerva/releases).
 
 ### New features and enhancements
 
@@ -232,7 +232,7 @@ For all changes, see the [Changelog](https://github.com/langflow-ai/langflow/rel
 ## 1.4.1
 
 Highlights of this release include the following changes.
-For all changes, see the [Changelog](https://github.com/langflow-ai/langflow/releases).
+For all changes, see the [Changelog](https://github.com/minerva-ai/minerva/releases).
 
 ### New features and enhancements
 
@@ -241,7 +241,7 @@ For all changes, see the [Changelog](https://github.com/langflow-ai/langflow/rel
 ## 1.4.0
 
 Highlights of this release include the following changes.
-For all changes, see the [Changelog](https://github.com/langflow-ai/langflow/releases).
+For all changes, see the [Changelog](https://github.com/minerva-ai/minerva/releases).
 
 ### New features and enhancements
 
@@ -256,4 +256,4 @@ For alternatives, see the [**Google** bundle](/bundles-google).
 
 ## Earlier releases
 
-See the [Changelog](https://github.com/langflow-ai/langflow/releases).
+See the [Changelog](https://github.com/minerva-ai/minerva/releases).

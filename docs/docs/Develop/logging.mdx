@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 Langflow produces logs for individual flows and the Langflow application itself using the [structlog](https://www.structlog.org) library for logging.
 
-The default, primary logfile is named `langflow.log`.
+The default, primary logfile is named `minerva.log`.
 
 Log files are stored in JSON format with structured metadata.
 
@@ -25,12 +25,12 @@ The default config directory location depends on your operating system and insta
 
 - **OSS Langflow**:
 
-    - **macOS with `uv pip install`**: `/Users/<username>/Library/Caches/langflow`
-    - **Linux with `uv pip install`**: `/home/<username>/.cache/langflow`
-    - **Windows/WSL with `uv pip install`**: `C:\Users\<username>\AppData\Local\langflow\langflow\Cache`
-    - **macOS/Windows/Linux/WSL with `git clone`**: `<path_to_clone>/src/backend/base/langflow/`
+    - **macOS with `uv pip install`**: `/Users/<username>/Library/Caches/minerva`
+    - **Linux with `uv pip install`**: `/home/<username>/.cache/minerva`
+    - **Windows/WSL with `uv pip install`**: `C:\Users\<username>\AppData\Local\minerva\minerva\Cache`
+    - **macOS/Windows/Linux/WSL with `git clone`**: `<path_to_clone>/src/backend/base/minerva/`
 
-To customize log storage locations and behaviors, set the following [Langflow environment variables](/environment-variables) in your Langflow `.env` file, and then start Langflow with `uv run langflow run --env-file .env`:
+To customize log storage locations and behaviors, set the following [Langflow environment variables](/environment-variables) in your Langflow `.env` file, and then start Langflow with `uv run minerva run --env-file .env`:
 
 | Variable | Format | Default | Description |
 |----------|--------|---------|-------------|
@@ -54,7 +54,7 @@ To monitor Langflow logs as they are generated, you can follow the log file:
     <TabItem value="macOS" label="macOS" default>
 
     ```bash
-    cd /Users/**USERNAME**/Library/Caches/langflow
+    cd /Users/**USERNAME**/Library/Caches/minerva
     ```
 
     </TabItem>
@@ -73,14 +73,14 @@ To monitor Langflow logs as they are generated, you can follow the log file:
     <TabItem value="macOS" label="macOS" default>
 
     ```bash
-    tail -f langflow.log
+    tail -f minerva.log
     ```
 
     </TabItem>
     <TabItem value="Windows" label="Windows">
 
     ```cmd
-    Get-Content -Wait -Path langflow.log
+    Get-Content -Wait -Path minerva.log
     ```
 
     </TabItem>
@@ -152,7 +152,7 @@ Follow the steps for your operating system.
    open .
    ```
 
-3. Locate the `langflow.log` file.
+3. Locate the `minerva.log` file.
 
 </TabItem>
 <TabItem value="windows" label="Windows">
@@ -169,12 +169,12 @@ Follow the steps for your operating system.
    start .
    ```
 
-3. Locate the `langflow.log` file.
+3. Locate the `minerva.log` file.
 
 </TabItem>
 </Tabs>
 
-You can use the log file to investigate the issue on your own, add context to a [GitHub Issue](/contributing-github-issues), or send it to [support](/luna-for-langflow) for debugging assistance.
+You can use the log file to investigate the issue on your own, add context to a [GitHub Issue](/contributing-github-issues), or send it to [support](/luna-for-minerva) for debugging assistance.
 
 The log file is only created when Langflow Desktop runs. If you don't see a log file, try starting Langflow Desktop first, then check for the log file.
 

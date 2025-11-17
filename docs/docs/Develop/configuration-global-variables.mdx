@@ -72,7 +72,7 @@ The global variable is deleted from the database.
 Langflow can source custom global variables from your runtime environment.
 For information about how Langflow detects and applies environment variables, see [Langflow environment variables](/environment-variables).
 
-Langflow automatically generates global variables based on [`constants.py`](https://github.com/langflow-ai/langflow/blob/main/src/lfx/src/lfx/services/settings/constants.py) if it detects any matching environment variables.
+Langflow automatically generates global variables based on [`constants.py`](https://github.com/minerva-ai/minerva/blob/main/src/lfx/src/lfx/services/settings/constants.py) if it detects any matching environment variables.
 For example, if you set `OPENAI_API_KEY` in your runtime environment, Langflow automatically generates a global variable using that value.
 
 You can declare additional variables in `LANGFLOW_VARIABLES_TO_GET_FROM_ENVIRONMENT`.
@@ -105,13 +105,13 @@ If you installed Langflow locally, set `LANGFLOW_VARIABLES_TO_GET_FROM_ENVIRONME
 4. Start Langflow with the `.env` file:
 
    ```bash
-   uv run langflow run --env-file .env
+   uv run minerva run --env-file .env
    ```
 
    Alternatively, you can set environment variables directly in the command line:
 
    ```bash
-   VARIABLE1="VALUE1" VARIABLE2="VALUE2" uv run langflow run --env-file .env
+   VARIABLE1="VALUE1" VARIABLE2="VALUE2" uv run minerva run --env-file .env
    ```
 
    The command-line variables override matching variables in the `.env` file.
@@ -136,7 +136,7 @@ If you're using Docker, there are two ways that you can set `LANGFLOW_VARIABLES_
       -e LANGFLOW_VARIABLES_TO_GET_FROM_ENVIRONMENT="VARIABLE1,VARIABLE2" \
       -e VARIABLE1="VALUE1" \
       -e VARIABLE2="VALUE2" \
-      langflowai/langflow:latest
+      minerva/minerva:latest
    ```
 
 * In your `.env` file:
@@ -147,7 +147,7 @@ If you're using Docker, there are two ways that you can set `LANGFLOW_VARIABLES_
       --env-file .env \
       -e VARIABLE1="VALUE1" \
       -e VARIABLE2="VALUE2" \
-      langflowai/langflow:latest
+      minerva/minerva:latest
    ```
 
 The list in `LANGFLOW_VARIABLES_TO_GET_FROM_ENVIRONMENT` includes only the variable names.

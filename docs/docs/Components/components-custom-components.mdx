@@ -54,7 +54,7 @@ A Langflow custom component is more than a class with inputs and outputs. It inc
 
 A basic component:
 
-* Inherits from `langflow.custom.Component`.
+* Inherits from `minerva.custom.Component`.
 * Declares metadata like `display_name`, `description`, `icon`, and more.
 * Defines `inputs` and `outputs` lists.
 * Implements methods matching output specifications.
@@ -62,8 +62,8 @@ A basic component:
 A minimal custom component skeleton contains the following:
 
 ```python
-from langflow.custom import Component
-from langflow.template import Output
+from minerva.custom import Component
+from minerva.template import Output
 
 class MyComponent(Component):
     display_name = "My Component"
@@ -291,7 +291,7 @@ Inputs and outputs define how data flows through the component, how it appears i
 
 Inputs are defined in a class-level `inputs` list. When Langflow loads the component, it uses this list to render component fields and [ports](/concepts-components#component-ports) in the visual editor. Users or other components provide values or connections to fill these inputs.
 
-An input is usually an instance of a class from `langflow.io` (such as `StrInput`, `DataInput`, or `MessageTextInput`). The most common constructor parameters are:
+An input is usually an instance of a class from `minerva.io` (such as `StrInput`, `DataInput`, or `MessageTextInput`). The most common constructor parameters are:
 
 * **`name`**: The internal variable name, accessed with `self.<name>`.
 * **`display_name`**: The label shown to users in the visual editor.
@@ -333,7 +333,7 @@ Here are the most commonly used input classes and their typical usage.
 This example defines three inputs: a text field (`StrInput`), a Boolean toggle (`BoolInput`), and a dropdown selection (`DropdownInput`).
 
 ```python
-from langflow.io import StrInput, BoolInput, DropdownInput
+from minerva.io import StrInput, BoolInput, DropdownInput
 
 inputs = [
     StrInput(name="title", display_name="Title"),
@@ -346,7 +346,7 @@ inputs = [
 
 Outputs are defined in a class-level `outputs` list. When Langflow renders a component, each output becomes a connector point in the visual editor. When you connect something to an output, Langflow automatically calls the corresponding method and passes the returned object to the next component.
 
-An output is usually an instance of `Output` from `langflow.io`, with common parameters:
+An output is usually an instance of `Output` from `minerva.io`, with common parameters:
 
 * **`name`**: The internal variable name.
 * **`display_name`**: The label shown in the visual editor.
@@ -359,15 +359,15 @@ You can also set a `self.status` message inside the method to show progress or l
 **Common Return Types**:
 - **`Message`**: Structured chat messages.
 - **`Data`**: Flexible object with `.data` and optional `.text`.
-- **`DataFrame`**: Pandas-based tables (`langflow.schema.DataFrame`).
+- **`DataFrame`**: Pandas-based tables (`minerva.schema.DataFrame`).
 - **Primitive types**: `str`, `int`, `bool` (not recommended if you need type/color consistency).
 
 In this example, the `DataToDataFrame` component defines its output using the outputs list. The `df_out` output is linked to the `build_df` method, so when connected to another component (node), Langflow calls this method and passes its returned `DataFrame` to the next node. This demonstrates how each output maps to a method that generates the actual output data.
 
 ```python
-from langflow.custom import Component
-from langflow.io import DataInput, Output
-from langflow.schema import Data, DataFrame
+from minerva.custom import Component
+from minerva.io import DataInput, Output
+from minerva.schema import Data, DataFrame
 
 class DataToDataFrame(Component):
     display_name = "Data to DataFrame"
@@ -494,7 +494,7 @@ In this example, the operator field triggers updates with `real_time_refresh=Tru
 The `regex_pattern` field is initially hidden and controlled with `dynamic=True`.
 
 ```python
-from langflow.io import DropdownInput, StrInput
+from minerva.io import DropdownInput, StrInput
 
 class RegexRouter(Component):
     display_name = "Regex Router"

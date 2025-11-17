@@ -70,7 +70,7 @@ This example uses a local Langflow instance, and it asks the LLM to evaluate a s
 If you don't have a resume on hand, you can download [fake-resume.txt](/files/fake-resume.txt).
 
 :::tip
-For help with constructing file upload requests in Python, JavaScript, and curl, see the [Langflow File Upload Utility](https://langflow-file-upload-examples.onrender.com).
+For help with constructing file upload requests in Python, JavaScript, and curl, see the [Langflow File Upload Utility](https://minerva-file-upload-examples.onrender.com).
 :::
 
 1. To construct the request, gather the following information:
@@ -128,11 +128,11 @@ For help with constructing file upload requests in Python, JavaScript, and curl,
         'x-api-key': 'LANGFLOW_API_KEY'
     }
     run_response = requests.post(run_url, headers=run_headers, data=json.dumps(run_payload))
-    langflow_data = run_response.json()
+    minerva_data = run_response.json()
     # Output only the message
     message = None
     try:
-        message = langflow_data['outputs'][0]['outputs'][0]['results']['message']['data']['text']
+        message = minerva_data['outputs'][0]['outputs'][0]['results']['message']['data']['text']
     except (KeyError, IndexError, TypeError):
         pass
     print(message)

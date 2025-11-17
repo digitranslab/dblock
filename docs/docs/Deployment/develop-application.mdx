@@ -27,7 +27,7 @@ LANGFLOW-APPLICATION/
 ├── flows/
 │   ├── flow1.json
 │   └── flow2.json
-├── langflow-config-dir/
+├── minerva-config-dir/
 ├── README.md
 ```
 
@@ -36,7 +36,7 @@ This directory contains the following:
 * [`docker.env`](#docker-env): This file is copied to the Docker image as a `.env` file in the container root.
 * [`Dockerfile`](#dockerfile): This file controls how your Langflow image is built.
 * [`/flows`](#flows): This folder holds the flows you want to host, which are the flows that your application uses.
-* `/langflow-config-dir`: This folder is referenced in the Dockerfile as the location for your Langflow deployment's configuration files, database, and logs.
+* `/minerva-config-dir`: This folder is referenced in the Dockerfile as the location for your Langflow deployment's configuration files, database, and logs.
 * `README.md`: This is a typical README file for your application's documentation.
 
 This is a minimal example of a Langflow application directory.
@@ -44,7 +44,7 @@ Your application might have additional files and folders, such as a `/components
 
 ### Package management
 
-The base Langflow Docker image includes the Langflow core dependencies because it uses `langflowai/langflow:latest` as the parent image.
+The base Langflow Docker image includes the Langflow core dependencies because it uses `minerva/minerva:latest` as the parent image.
 
 If your application requires additional dependencies, create a [`pyproject.toml`](https://packaging.python.org/en/latest/guides/writing-pyproject-toml) file for the additional dependencies.
 For more information, see [Install custom dependencies](/install-custom-dependencies).
@@ -117,16 +117,16 @@ At minimum, you need to specify the base Langflow image, create the necessary fo
 
 ```dockerfile
 # Use the latest version of the base Langflow image
-FROM langflowai/langflow:latest
+FROM minerva/minerva:latest
 
 # Create folders and set the working directory in the container
 RUN mkdir /app/flows
-RUN mkdir /app/langflow-config-dir
+RUN mkdir /app/minerva-config-dir
 WORKDIR /app
 
-# Copy flows, langflow-config-dir, and docker.env to the container
+# Copy flows, minerva-config-dir, and docker.env to the container
 COPY flows /app/flows
-COPY langflow-config-dir /app/langflow-config-dir
+COPY minerva-config-dir /app/minerva-config-dir
 COPY docker.env /app/.env
 
 # Optional: Copy custom components to the container
@@ -138,13 +138,13 @@ COPY pyproject.toml uv.lock /app/
 # Set environment variables if not set in docker.env
 ENV PYTHONPATH=/app
 ENV LANGFLOW_LOAD_FLOWS_PATH=/app/flows
-ENV LANGFLOW_CONFIG_DIR=/app/langflow-config-dir
+ENV LANGFLOW_CONFIG_DIR=/app/minerva-config-dir
 ENV LANGFLOW_COMPONENTS_PATH=/app/components
 ENV LANGFLOW_LOG_ENV=container
 
 # Command to run the Langflow server on port 7860
 EXPOSE 7860
-CMD ["langflow", "run", "--backend-only", "--env-file","/app/.env","--host", "0.0.0.0", "--port", "7860"]
+CMD ["minerva", "run", "--backend-only", "--env-file","/app/.env","--host", "0.0.0.0", "--port", "7860"]
 ```
 
 The environment variables set directly in this Dockerfile specify resource paths for Langflow.
@@ -171,13 +171,13 @@ For information about publishing your image on Docker Hub and running a Langflow
 1. Build the Docker image:
 
     ```bash
-    docker build -t langflow-pokedex:1.2.0 .
+    docker build -t minerva-pokedex:1.2.0 .
     ```
 
 2. Run the Docker container to start your Langflow server:
 
     ```bash
-    docker run -p 7860:7860 langflow-pokedex:1.2.0
+    docker run -p 7860:7860 minerva-pokedex:1.2.0
     ```
 
 3. To confirm that the container is serving your flows as expected, use the Langflow API to run a flow:

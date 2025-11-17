@@ -65,7 +65,7 @@ If you need a flow to test the Langfuse integration, see the [Langflow quickstar
 1. Start Langflow in the same environment where you set the Langfuse environment variables:
 
     ```bash
-    uv run langflow run
+    uv run minerva run
     ```
 
 2. Run a flow.
@@ -94,41 +94,41 @@ As an alternative to the previous setup, particularly for self-hosted Langfuse, 
 
 3. Add your Langflow credentials to your Langflow `docker-compose.yml` file in the `environment` section.
 
-    The following example is based on the [example `docker-compose.yml`](https://github.com/langflow-ai/langflow/blob/main/docker_example/docker-compose.yml).
+    The following example is based on the [example `docker-compose.yml`](https://github.com/minerva-ai/minerva/blob/main/docker_example/docker-compose.yml).
 
     ```yml
     services:
-      langflow:
-        image: langflowai/langflow:latest # or another version tag on https://hub.docker.com/r/langflowai/langflow
+      minerva:
+        image: minerva/minerva:latest # or another version tag on https://hub.docker.com/r/minerva/minerva
         pull_policy: always               # set to 'always' when using 'latest' image
         ports:
           - "7860:7860"
         depends_on:
           - postgres
         environment:
-          - LANGFLOW_DATABASE_URL=postgresql://langflow:langflow@postgres:5432/langflow
+          - LANGFLOW_DATABASE_URL=postgresql://minerva:minerva@postgres:5432/minerva
           # This variable defines where the logs, file storage, monitor data and secret keys are stored.
-          - LANGFLOW_CONFIG_DIR=app/langflow
+          - LANGFLOW_CONFIG_DIR=app/minerva
           - LANGFUSE_SECRET_KEY=sk-...
           - LANGFUSE_PUBLIC_KEY=pk-...
           - LANGFUSE_HOST=https://us.cloud.langfuse.com
         volumes:
-          - langflow-data:/app/langflow
+          - minerva-data:/app/minerva
 
       postgres:
         image: postgres:16
         environment:
-          POSTGRES_USER: langflow
-          POSTGRES_PASSWORD: langflow
-          POSTGRES_DB: langflow
+          POSTGRES_USER: minerva
+          POSTGRES_PASSWORD: minerva
+          POSTGRES_DB: minerva
         ports:
           - "5432:5432"
         volumes:
-          - langflow-postgres:/var/lib/postgresql/data
+          - minerva-postgres:/var/lib/postgresql/data
 
     volumes:
-      langflow-postgres:
-      langflow-data:
+      minerva-postgres:
+      minerva-data:
     ```
 
 4. Start the Docker container:
@@ -140,7 +140,7 @@ As an alternative to the previous setup, particularly for self-hosted Langfuse, 
 5. To confirm Langfuse is connected to your Langflow container, run the following command:
 
     ```sh
-    docker compose exec langflow python -c "import requests, os; addr = os.environ.get('LANGFUSE_HOST'); print(addr); res = requests.get(addr, timeout=5); print(res.status_code)"
+    docker compose exec minerva python -c "import requests, os; addr = os.environ.get('LANGFUSE_HOST'); print(addr); res = requests.get(addr, timeout=5); print(res.status_code)"
     ```
 
     If there is an error, make sure you have set the `LANGFUSE_HOST` environment variable in your terminal session.

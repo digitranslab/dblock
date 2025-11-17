@@ -11,7 +11,7 @@ let isDataAttributeTrackingInitialized = false;
  *
  * Example - UI Interaction:
  * {
- *   href: "https://github.com/langflow-ai/langflow",
+ *   href: "https://github.com/minerva-ai/minerva",
  *   'data-event': 'UI Interaction',
  *   'data-action': 'clicked',
  *   'data-channel': 'docs',

@@ -37,11 +37,11 @@ Install Langflow from source by forking the repository and setting up your devel
 
 ### Clone the Langflow repository
 
-1. Fork the [Langflow GitHub repository](https://github.com/langflow-ai/langflow).
+1. Fork the [Langflow GitHub repository](https://github.com/minerva-ai/minerva).
 
 2. Add the new remote to your local repository on your local machine:
 ```bash
-git remote add FORK_NAME https://github.com/GIT_USERNAME/langflow.git
+git remote add FORK_NAME https://github.com/GIT_USERNAME/minerva.git
 ```
 Replace the following:
 * `FORK_NAME`: A name for your fork of the repository
@@ -52,7 +52,7 @@ Replace the following:
 You can run Langflow from source after cloning the repository, even if you aren't contributing to the codebase.
 This builds the frontend and serves it through the backend on port `7860`.
 
-The instructions below are for running Langflow from source. For development with hot reload, see [Set up development environment](#set-up-your-langflow-development-environment).
+The instructions below are for running Langflow from source. For development with hot reload, see [Set up development environment](#set-up-your-minerva-development-environment).
 
 <details>
 <summary>Run from source on macOS/Linux</summary>
@@ -87,12 +87,12 @@ Do one of the following:
         npm run build
         ```
 
-    2. Copy the contents of the built `src/frontend/build` directory to `src/backend/base/langflow/frontend`.
+    2. Copy the contents of the built `src/frontend/build` directory to `src/backend/base/minerva/frontend`.
 
     3. Start Langflow:
 
         ```
-        uv run langflow run
+        uv run minerva run
         ```
 
 The Langflow frontend is served at `http://localhost:7860`.
@@ -118,12 +118,12 @@ Do one of the following:
         npm run build
         ```
 
-    2. Copy the contents of the built `src/frontend/build` directory to `src/backend/base/langflow/frontend`.
+    2. Copy the contents of the built `src/frontend/build` directory to `src/backend/base/minerva/frontend`.
 
     3. Start Langflow:
 
         ```
-        uv run langflow run
+        uv run minerva run
         ```
 
 The Langflow frontend is served at `http://localhost:7860`.
@@ -138,7 +138,7 @@ Run `make help` to display all available make commands.
 
 This section is for contributors who want to develop and test code changes with hot reload enabled.
 
-If you just want to run Langflow locally without making code changes, see [Run Langflow from source](#run-langflow-from-source).
+If you just want to run Langflow locally without making code changes, see [Run Langflow from source](#run-minerva-from-source).
 
 <Tabs>
 <TabItem value="linux-macos" label="Linux or macOS" default>
@@ -203,7 +203,7 @@ To set up the Langflow development environment, run the frontend and backend in 
 2. In a separate terminal, run the following command to run the backend:
 
     ```bash
-    uv run langflow run --backend-only
+    uv run minerva run --backend-only
     ```
 
 The frontend is served at `http://localhost:3000` and the backend at `http://localhost:7860`. This setup preserves hot reload for frontend development, with no need to copy build files after every edit.
@@ -241,12 +241,12 @@ For style guidance, see the [Google Developer Documentation Style Guide](https:/
 
 1. Install [Node.js](https://nodejs.org/en/download/package-manager) and [Yarn](https://yarnpkg.com/)
 
-2. Fork the [Langflow GitHub repository](https://github.com/langflow-ai/langflow).
+2. Fork the [Langflow GitHub repository](https://github.com/minerva-ai/minerva).
 
 3. Add the new remote to your local repository on your local machine:
 
     ```bash
-    git remote add FORK_NAME https://github.com/GIT_USERNAME/langflow.git
+    git remote add FORK_NAME https://github.com/GIT_USERNAME/minerva.git
     ```
 
     Replace the following:
@@ -272,11 +272,11 @@ For style guidance, see the [Google Developer Documentation Style Guide](https:/
 
     The documentation is served at `http://localhost:3000`.
 
-6. To edit and create content, work with the `.mdx` files in the `langflow/docs/docs` directory.
+6. To edit and create content, work with the `.mdx` files in the `minerva/docs/docs` directory.
 
     Create new files in `.mdx` format.
 
-    Navigation is defined in `langflow/docs/sidebars.js`.
+    Navigation is defined in `minerva/docs/sidebars.js`.
 
     Most pages use a `slug` for shorthand cross-referencing, rather than supplying the full or relative directory path.
     For example, if a page has a `slug` of `/cool-page`, you can link to it with `[Cool page](/cool-page)` from any other `/docs` page.

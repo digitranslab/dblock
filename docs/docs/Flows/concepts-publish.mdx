@@ -12,7 +12,7 @@ Langflow provides several ways to run flows from external applications:
 
 * [Trigger flows with the Langflow API](#api-access)
 * [Add an embedded chat widget to a website](#embedded-chat-widget)
-* [Serve flows through a Langflow MCP server](#serve-flows-through-a-langflow-mcp-server)
+* [Serve flows through a Langflow MCP server](#serve-flows-through-a-minerva-mcp-server)
 * [Run flows with the OpenAI Responses compatible endpoint](#openai-responses-api)
 
 Although you can use these options with an isolated, local Langflow instance, they are typically more valuable when you have [deployed a Langflow server](/deployment-overview) or [packaged Langflow as a dependency of an application](/develop-application).
@@ -125,7 +125,7 @@ The chat widget only supports flows that have **Chat Input** and **Chat Output**
 Attempting to chat with a flow that doesn't have [**Chat Input** component](/components-io) will trigger the flow, but the response only indicates that the input was empty.
 :::
 
-### Get a langflow-chat snippet
+### Get a minerva-chat snippet
 
 To get a flow's embedded chat widget code snippet, do the following:
 
@@ -133,23 +133,23 @@ To get a flow's embedded chat widget code snippet, do the following:
 2. Click **Share**, and then select **Embed into site**.
 3. Copy the code snippet and use it in the `<body>` of your website's HTML.
 For more information, see [Embed the chat widget with React, Angular, or HTML](#embed-the-chat-widget).
-4. Add the `api_key` prop to ensure the widget has permission to run the flow, as explained in [Configure the langflow-chat web component](#configure-the-langflow-chat-web-component).
+4. Add the `api_key` prop to ensure the widget has permission to run the flow, as explained in [Configure the minerva-chat web component](#configure-the-minerva-chat-web-component).
 
-The chat widget is implemented as a web component called `langflow-chat` that is loaded from a CDN. For more information, see the [langflow-embedded-chat repository](https://github.com/langflow-ai/langflow-embedded-chat).
+The chat widget is implemented as a web component called `minerva-chat` that is loaded from a CDN. For more information, see the [minerva-embedded-chat repository](https://github.com/minerva-ai/minerva-embedded-chat).
 
 For example, the following HTML embeds a chat widget for a **Basic Prompting** template flow hosted on a Langflow server deployed on ngrok:
 
 ```html
 <html>
   <head>
-    <script src="https://cdn.jsdelivr.net/gh/langflow-ai/langflow-embedded-chat@main/dist/build/static/js/bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/minerva-ai/minerva-embedded-chat@main/dist/build/static/js/bundle.min.js"></script>
   </head>
   <body>
-    <langflow-chat
+    <minerva-chat
       host_url="https://c822-73-64-93-151.ngrok-free.app"
       flow_id="dcbed533-859f-4b99-b1f5-16fce884f28f"
       api_key="$LANGFLOW_API_KEY"
-    ></langflow-chat>
+    ></minerva-chat>
   </body>
 </html>
 ```
@@ -160,8 +160,8 @@ If a user interacts with the chatbot, the input triggers the specified flow, and
 ![Default chat widget](/img/chat-widget-default.png)
 
 :::tip Try it
-Use the [Langflow embedded chat CodeSandbox](https://codesandbox.io/p/sandbox/langflow-embedded-chat-example-dv9zpx) for an interactive live demo of the embedded chat widget that uses your own flow.
-For more information, see the [langflow-embedded-chat README](https://github.com/langflow-ai/langflow-embedded-chat?tab=readme-ov-file#live-example).
+Use the [Langflow embedded chat CodeSandbox](https://codesandbox.io/p/sandbox/minerva-embedded-chat-example-dv9zpx) for an interactive live demo of the embedded chat widget that uses your own flow.
+For more information, see the [minerva-embedded-chat README](https://github.com/minerva-ai/minerva-embedded-chat?tab=readme-ov-file#live-example).
 :::
 
 ### Embed the chat widget with React, Angular, or HTML {#embed-the-chat-widget}
@@ -176,24 +176,24 @@ To use the chat widget in your React application, create a component that loads 
 1. Declare your web component, and then encapsulate it in a React component:
 
     ```javascript
-    //Declaration of langflow-chat web component
+    //Declaration of minerva-chat web component
     declare global {
     namespace JSX {
         interface IntrinsicElements {
-        "langflow-chat": any;
+        "minerva-chat": any;
         }
     }
     }
 
-    //Definition for langflow-chat React component
+    //Definition for minerva-chat React component
     export default function ChatWidget({ className }) {
     return (
         <div className={className}>
-        <langflow-chat
+        <minerva-chat
             host_url="https://c822-73-64-93-151.ngrok-free.app"
             flow_id="dcbed533-859f-4b99-b1f5-16fce884f28f"
             api_key="$LANGFLOW_API_KEY"
-        ></langflow-chat>
+        ></minerva-chat>
         </div>
     );
     }
@@ -209,9 +209,9 @@ To use the chat widget in your React application, create a component that loads 
     // Component to load the chat widget script
     const ChatScriptLoader = () => {
     useEffect(() => {
-        if (!document.querySelector('script[src*="langflow-embedded-chat"]')) {
+        if (!document.querySelector('script[src*="minerva-embedded-chat"]')) {
         const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/gh/langflow-ai/langflow-embedded-chat@main/dist/build/static/js/bundle.min.js';
+        script.src = 'https://cdn.jsdelivr.net/gh/minerva-ai/minerva-embedded-chat@main/dist/build/static/js/bundle.min.js';
         script.async = true;
         document.body.appendChild(script);
         }
@@ -220,38 +220,38 @@ To use the chat widget in your React application, create a component that loads 
     return null;
     };
 
-    //Declaration of langflow-chat web component
+    //Declaration of minerva-chat web component
     declare global {
     namespace JSX {
         interface IntrinsicElements {
-        "langflow-chat": any;
+        "minerva-chat": any;
         }
     }
     }
 
-    //Definition for langflow-chat React component
+    //Definition for minerva-chat React component
     export default function ChatWidget({ className }) {
     return (
         <div className={className}>
         <ChatScriptLoader />
-        <langflow-chat
+        <minerva-chat
             host_url="https://c822-73-64-93-151.ngrok-free.app"
             flow_id="dcbed533-859f-4b99-b1f5-16fce884f28f"
             api_key="$LANGFLOW_API_KEY"
-        ></langflow-chat>
+        ></minerva-chat>
         </div>
     );
     }
     ```
 
-3. Import the `langflow-chat` React component to make it available for use on a page.
+3. Import the `minerva-chat` React component to make it available for use on a page.
 Modify the following import statement with your React component's name and path:
 
     ```jsx
     import ChatWidget from '@site/src/components/ChatWidget';
     ```
 
-4. To display the widget, call your `langflow-chat` component in the desired location on the page.
+4. To display the widget, call your `minerva-chat` component in the desired location on the page.
 Modify the following reference for your React component's name and the desired `className`:
 
    ```
@@ -263,14 +263,14 @@ Modify the following reference for your React component's name and the desired `
 
 To use the chat widget in your Angular application, create a component that loads the widget script and renders the chat interface.
 
-In an Angular application, `langflow-chat` is a custom web component that you must explicitly allow in your site's `.components.ts`.
-Therefore, to use the embedded chat widget, you must add `CUSTOM_ELEMENTS_SCHEMA` to your module's configuration, and then integrate the `<langflow-chat>` element.
+In an Angular application, `minerva-chat` is a custom web component that you must explicitly allow in your site's `.components.ts`.
+Therefore, to use the embedded chat widget, you must add `CUSTOM_ELEMENTS_SCHEMA` to your module's configuration, and then integrate the `<minerva-chat>` element.
 
-Angular requires you to explicitly allow custom web components, like `langflow-chat`, in your site's  `components`.
-Therefore, you must add the `<langflow-chat>` element to your Angular template and configure Angular to recognize it.
+Angular requires you to explicitly allow custom web components, like `minerva-chat`, in your site's  `components`.
+Therefore, you must add the `<minerva-chat>` element to your Angular template and configure Angular to recognize it.
 You must add `CUSTOM_ELEMENTS_SCHEMA` to your module's configuration to enable this.
 
-1. In your Angular application, edit the `.module.ts` file where you want to add the `langflow-chat` web component.
+1. In your Angular application, edit the `.module.ts` file where you want to add the `minerva-chat` web component.
 
 2. At the top of `.module.ts`, import `CUSTOM_ELEMENTS_SCHEMA`:
 
@@ -301,7 +301,7 @@ You must add `CUSTOM_ELEMENTS_SCHEMA` to your module's configuration to enable t
 
 4. Edit the `.component.ts` file where you want to use the embedded chat widget.
 
-5. In the `@Component` decorator, add the `<langflow-chat>` element to the `template` key:
+5. In the `@Component` decorator, add the `<minerva-chat>` element to the `template` key:
 
     ```javascript
     import { Component } from '@angular/core';
@@ -311,11 +311,11 @@ You must add `CUSTOM_ELEMENTS_SCHEMA` to your module's configuration to enable t
     template: `
         <div class="container">
         <h1>Langflow Chat Test</h1>
-        <langflow-chat
+        <minerva-chat
             host_url="https://c822-73-64-93-151.ngrok-free.app"
             flow_id="dcbed533-859f-4b99-b1f5-16fce884f28f"
             api_key="$LANGFLOW_API_KEY"
-        ></langflow-chat>
+        ></minerva-chat>
         </div>
     `,
     styles: [`
@@ -336,14 +336,14 @@ You must add `CUSTOM_ELEMENTS_SCHEMA` to your module's configuration to enable t
 ```html
 <html lang="en">
 <head>
-<script src="https://cdn.jsdelivr.net/gh/langflow-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/minerva-ai/minerva-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
 </head>
 <body>
-<langflow-chat
+<minerva-chat
     host_url="https://c822-73-64-93-151.ngrok-free.app"
     flow_id="dcbed533-859f-4b99-b1f5-16fce884f28f"
     api_key="$LANGFLOW_API_KEY"
-  ></langflow-chat>
+  ></minerva-chat>
 </body>
 </html>
 ```
@@ -351,19 +351,19 @@ You must add `CUSTOM_ELEMENTS_SCHEMA` to your module's configuration to enable t
 </TabItem>
 </Tabs>
 
-### Configure the langflow-chat web component {#configure-the-langflow-chat-web-component}
+### Configure the minerva-chat web component {#configure-the-minerva-chat-web-component}
 
-To use the embedded chat widget in your HTML, the `langflow-chat` web component must include the following minimum inputs (also known as _props_ in React):
+To use the embedded chat widget in your HTML, the `minerva-chat` web component must include the following minimum inputs (also known as _props_ in React):
 
 * `host_url`: Your Langflow server URL. Must be `HTTPS`. Don't include a trailing slash (`/`).
 * `flow_id`: The ID of the flow you want to embed.
 * `api_key`: A [Langflow API key](/api-keys-and-authentication).
 This prop is recommended to ensure the widget has permission to run the flow.
 
-The minimum inputs are automatically populated in the [**Embed into site** code snippet](#get-a-langflow-chat-snippet) that is generated by Langflow.
+The minimum inputs are automatically populated in the [**Embed into site** code snippet](#get-a-minerva-chat-snippet) that is generated by Langflow.
 
 You can use additional inputs (props) to modify the embedded chat widget.
-For a list of all props, types, and descriptions, see the [langflow-embedded-chat README](https://github.com/langflow-ai/langflow-embedded-chat?tab=readme-ov-file#configuration).
+For a list of all props, types, and descriptions, see the [minerva-embedded-chat README](https://github.com/minerva-ai/minerva-embedded-chat?tab=readme-ov-file#configuration).
 
 <details>
 <summary>Example: Langflow API key prop</summary>
@@ -374,11 +374,11 @@ The Langflow team recommends following industry best practices for handling sens
 For example, securely store your API key, and then retrieve with an environment variable:
 
 ```html
-<langflow-chat
+<minerva-chat
     host_url="https://c822-73-64-93-151.ngrok-free.app"
     flow_id="dcbed533-859f-4b99-b1f5-16fce884f28f"
     api_key="$LANGFLOW_API_KEY"
-></langflow-chat>
+></minerva-chat>
 ```
 
 </details>
@@ -387,12 +387,12 @@ For example, securely store your API key, and then retrieve with an environment 
 <summary>Example: Style props</summary>
 
 There are many props you can use to customize the style and positioning of the embedded chat widget.
-Many of these props are of type JSON, and they require specific formatting, depending on where you embed the `langflow-chat` web component.
+Many of these props are of type JSON, and they require specific formatting, depending on where you embed the `minerva-chat` web component.
 
 In React and plain HTML, JSON props are expressed as JSON objects or stringified JSON, such as `\{"key":"value"\}`:
 
 ```html
-<langflow-chat
+<minerva-chat
     host_url="https://c822-73-64-93-151.ngrok-free.app"
     flow_id="dcbed533-859f-4b99-b1f5-16fce884f28f"
     api_key="$LANGFLOW_API_KEY"
@@ -408,7 +408,7 @@ In React and plain HTML, JSON props are expressed as JSON objects or stringified
     window_title="Custom Styled Chat"
     height="600"
     width="400"
-></langflow-chat>
+></minerva-chat>
 ```
 
 For Angular applications, use [property binding syntax](https://angular.dev/guide/templates/binding#binding-dynamic-properties-and-attributes) to pass JSON props as JavaScript objects.
@@ -422,7 +422,7 @@ import { Component } from '@angular/core';
   template: `
     <div class="container">
       <h1>Langflow Chat Test</h1>
-      <langflow-chat
+      <minerva-chat
         host_url="https://c822-73-64-93-151.ngrok-free.app"
         flow_id="dcbed533-859f-4b99-b1f5-16fce884f28f"
         api_key="$LANGFLOW_API_KEY"
@@ -432,7 +432,7 @@ import { Component } from '@angular/core';
         height="600"
         width="400"
         chat_position="bottom-right"
-      ></langflow-chat>
+      ></minerva-chat>
     </div>
   `,
   styles: [`
@@ -455,12 +455,12 @@ export class AppComponent {
 The following example adds a custom [session ID](/session-id) to help identify flow runs started by the embedded chat widget:
 
 ```html
-<langflow-chat
+<minerva-chat
     host_url="https://c822-73-64-93-151.ngrok-free.app"
     flow_id="dcbed533-859f-4b99-b1f5-16fce884f28f"
     api_key="$LANGFLOW_API_KEY"
     session_id="$SESSION_ID"
-></langflow-chat>
+></minerva-chat>
 ```
 
 </details>
@@ -475,14 +475,14 @@ In React and plain HTML, `tweaks` are declared as a JSON object, similar to how 
 For example:
 
 ```html
-<langflow-chat
+<minerva-chat
     host_url="https://c822-73-64-93-151.ngrok-free.app"
     flow_id="dcbed533-859f-4b99-b1f5-16fce884f28f"
     api_key="$LANGFLOW_API_KEY"
     tweaks='{
         "model_name": "llama-3.1-8b-instant"
     }'
-></langflow-chat>
+></minerva-chat>
 ```
 
 For Angular applications, use [property binding syntax](https://angular.dev/guide/templates/binding#binding-dynamic-properties-and-attributes) to pass JSON props as JavaScript objects.
@@ -496,12 +496,12 @@ import { Component } from '@angular/core';
   template: `
     <div class="container">
       <h1>Langflow Chat Test</h1>
-      <langflow-chat
+      <minerva-chat
         host_url="https://c822-73-64-93-151.ngrok-free.app"
         flow_id="dcbed533-859f-4b99-b1f5-16fce884f28f"
         api_key="$LANGFLOW_API_KEY"
         [tweaks]='{"model_name": "llama-3.1-8b-instant"}'
-      ></langflow-chat>
+      ></minerva-chat>
     </div>
   `,
   styles: [`

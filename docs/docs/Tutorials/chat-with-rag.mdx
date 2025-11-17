@@ -73,7 +73,7 @@ In situations where many users load data or you need to load data programmatical
 To load data programmatically, use the `/v2/files/` and `/v1/run/$FLOW_ID` endpoints. The first endpoint loads a file to your Langflow server, and then returns an uploaded file path. The second endpoint runs the **Load Data Flow**, referencing the uploaded file path, to chunk, embed, and load the data into the vector store.
 
 The following script demonstrates this process.
-For help with creating this script, use the [Langflow File Upload Utility](https://langflow-file-upload-examples.onrender.com/).
+For help with creating this script, use the [Langflow File Upload Utility](https://minerva-file-upload-examples.onrender.com/).
 
 ```js
 // Node 18+ example using global fetch, FormData, and Blob
@@ -110,9 +110,9 @@ const runRes = await fetch('LANGFLOW_SERVER_ADDRESS/api/v1/run/FLOW_ID', {
   headers: { 'Content-Type': 'application/json', 'x-api-key': 'LANGFLOW_API_KEY' },
   body: JSON.stringify(payload)
 });
-const langflowData = await runRes.json();
+const minervaData = await runRes.json();
 // Output only the message
-console.log(langflowData.outputs?.[0]?.outputs?.[0]?.results?.message?.data?.text);
+console.log(minervaData.outputs?.[0]?.outputs?.[0]?.results?.message?.data?.text);
 ```
 
 </TabItem>
@@ -138,7 +138,7 @@ This tutorial uses JavaScript for demonstration purposes.
 
     ```js
     const readline = require('readline');
-    const { LangflowClient } = require('@datastax/langflow-client');
+    const { LangflowClient } = require('@datastax/minerva-client');
 
     const API_KEY = 'LANGFLOW_API_KEY';
     const SERVER = 'LANGFLOW_SERVER_ADDRESS';

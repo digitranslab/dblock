@@ -7,7 +7,7 @@ There are two broad types of Langflow deployments:
 
 * **Langflow IDE (development)**: Deploy both the Langflow visual editor (frontend) and API (backend). Typically, this is used for development environments where developers use the visual editor to create and manage flows before packaging and serving them through a production runtime deployment.
 
-    The Langflow repository's example [`docker-compose.yml`](https://github.com/langflow-ai/langflow/blob/main/docker_example/docker-compose.yml) file builds a Langflow IDE image.
+    The Langflow repository's example [`docker-compose.yml`](https://github.com/minerva-ai/minerva/blob/main/docker_example/docker-compose.yml) file builds a Langflow IDE image.
 
     For information about IDE deployments on Kubernetes, see [Deploy the Langflow development environment on Kubernetes](/deployment-kubernetes-dev).
 
@@ -33,7 +33,7 @@ Deploying on Kubernetes offers the following advantages:
 * **Security**: Kubernetes provides security features, such as role-based access control and network isolation, to protect the Langflow service and its data.
 * **Portability**: Kubernetes is a portable platform, which means that you can deploy the Langflow service to any Kubernetes cluster, on-premises or in the cloud.
 
-    Langflow can be deployed on cloud platforms like AWS EKS, Google GKE, or Azure AKS. For more information, see the [Langflow Helm charts repository](https://github.com/langflow-ai/langflow-helm-charts).
+    Langflow can be deployed on cloud platforms like AWS EKS, Google GKE, or Azure AKS. For more information, see the [Langflow Helm charts repository](https://github.com/minerva-ai/minerva-helm-charts).
 
 ## Langflow deployment
 
@@ -46,7 +46,7 @@ A typical Langflow deployment includes:
 * **Load balancer**: Balances traffic across multiple Langflow replicas.
 * **Vector database**: If you are using Langflow for RAG, you can integrate with the vector database in Astra Serverless.
 
-![Langflow reference architecture on Kubernetes](/img/langflow-reference-architecture.png)
+![Langflow reference architecture on Kubernetes](/img/minerva-reference-architecture.png)
 
 ## Environment isolation
 
@@ -55,7 +55,7 @@ It is recommended to deploy and run separate development and production environm
 * Deploy the IDE in your development environment where your developers prototype and test new flows.
 * Deploy the runtime in your production environment to serve flows as standalone services.
 
-![Langflow environments](/img/langflow-env.png)
+![Langflow environments](/img/minerva-env.png)
 
 This separation is designed to enhance security, support an organized software development pipeline, and optimize infrastructure resource allocation:
 

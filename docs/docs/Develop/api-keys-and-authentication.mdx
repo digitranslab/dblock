@@ -10,18 +10,18 @@ import Icon from "@site/src/components/icon";
 :::warning
 Never expose Langflow ports directly to the internet without proper security measures.
 Set `LANGFLOW_AUTO_LOGIN=False`, use a non-default `LANGFLOW_SECRET_KEY`, and deploy your Langflow server behind a reverse proxy with authentication enabled.
-For more information, see [Start a Langflow server with authentication enabled](#start-a-langflow-server-with-authentication-enabled).
+For more information, see [Start a Langflow server with authentication enabled](#start-a-minerva-server-with-authentication-enabled).
 :::
 
 Authentication credentials help prevent unauthorized access to your Langflow server, flows, and services connected through components.
 
 There are three types of credentials that you use in Langflow:
 
-* [Langflow API keys](#langflow-api-keys): For authentication with the Langflow API and authorizing server-side Langflow actions like running flows and uploading files.
+* [Langflow API keys](#minerva-api-keys): For authentication with the Langflow API and authorizing server-side Langflow actions like running flows and uploading files.
 * [Component API keys](#component-api-keys): For authentication between Langflow and a service connected through a component, such as a model provider or third-party API.
 * [Authentication environment variables](#authentication-environment-variables): These environment variables configure how Langflow handles user authentication and authorization.
 
-## Langflow API keys {#langflow-api-keys}
+## Langflow API keys {#minerva-api-keys}
 
 You can use Langflow API keys to interact with Langflow programmatically.
 
@@ -38,7 +38,7 @@ A Langflow API key cannot be used to access resources outside of your own Langfl
 In single-user environments, you are always a superuser, and your Langflow API keys always have superuser privileges.
 
 In multi-user environments, users who aren't superusers cannot use their API keys to access other users' resources.
-You must [start your Langflow server with authentication enabled](#start-a-langflow-server-with-authentication-enabled) to allow user management and creation of non-superuser accounts.
+You must [start your Langflow server with authentication enabled](#start-a-minerva-server-with-authentication-enabled) to allow user management and creation of non-superuser accounts.
 
 ### Create a Langflow API key
 
@@ -60,15 +60,15 @@ The CLI option is required if your Langflow server is running in `--backend-only
 If you're serving your flow with `--backend-only=true`, you can't create API keys in your Langflow **Settings** because the frontend isn't running.
 In this case, you must create API keys with the Langflow CLI.
 
-1. Recommended: [Start your Langflow server with authentication enabled](#start-a-langflow-server-with-authentication-enabled).
+1. Recommended: [Start your Langflow server with authentication enabled](#start-a-minerva-server-with-authentication-enabled).
 
     The Langflow team recommends enabling authentication for security reasons to prevent unauthorized creation of API keys and superusers, especially in production environments.
     If authentication isn't enabled (`LANGFLOW_AUTO_LOGIN=True`), all users are effectively superusers, and they can create API keys with the Langflow CLI.
 
-2. Create an API key with [`langflow api-key`](/configuration-cli#langflow-api-key):
+2. Create an API key with [`minerva api-key`](/configuration-cli#minerva-api-key):
 
     ```shell
-    uv run langflow api-key
+    uv run minerva api-key
     ```
 
     All API keys created with the Langflow CLI have superuser privileges because the command requires superuser authentication, and Langflow API keys adopt the privileges of the user who created them.
@@ -143,23 +143,23 @@ Additionally, when [exporting flows](/concepts-flows-import), you can choose to 
 
 This section describes the available authentication configuration variables.
 
-You can use the [`.env.example`](https://github.com/langflow-ai/langflow/blob/main/.env.example) file in the Langflow repository as a template for your own `.env` file.
+You can use the [`.env.example`](https://github.com/minerva-ai/minerva/blob/main/.env.example) file in the Langflow repository as a template for your own `.env` file.
 
-### LANGFLOW_AUTO_LOGIN {#langflow-auto-login}
+### LANGFLOW_AUTO_LOGIN {#minerva-auto-login}
 
 This variable controls whether authentication is required to access your Langflow server, including the visual editor, API, and Langflow CLI:
 
 * If `LANGFLOW_AUTO_LOGIN=False`, automatic login is disabled. Users must sign in to the visual editor, authenticate as a superuser to run certain Langflow CLI commands, and use a Langflow API key for Langflow API requests.
-If `false`, the Langflow team recommends that you also explicitly set [`LANGFLOW_SUPERUSER` and `LANGFLOW_SUPERUSER_PASSWORD`](#langflow-superuser) to avoid using the insecure default values.
+If `false`, the Langflow team recommends that you also explicitly set [`LANGFLOW_SUPERUSER` and `LANGFLOW_SUPERUSER_PASSWORD`](#minerva-superuser) to avoid using the insecure default values.
 
-* If `LANGFLOW_AUTO_LOGIN=True` (default), all API requests require authentication with a Langflow API key, but the visual editor automatically signs in all users as superusers, and Langflow uses _only_ the default [superuser credentials](/api-keys-and-authentication#langflow-superuser).
+* If `LANGFLOW_AUTO_LOGIN=True` (default), all API requests require authentication with a Langflow API key, but the visual editor automatically signs in all users as superusers, and Langflow uses _only_ the default [superuser credentials](/api-keys-and-authentication#minerva-superuser).
 All users access the same visual editor environment without password protection, they can run all Langflow CLI commands as superusers, and Langflow automatically authenticates internal requests between the backend and frontend based on the users' superuser privileges.
-If you also want to bypass authentication for Langflow API requests in addition to other bypassed authentication, see [`LANGFLOW_SKIP_AUTH_AUTO_LOGIN`](/api-keys-and-authentication#langflow-skip-auth-auto-login).
+If you also want to bypass authentication for Langflow API requests in addition to other bypassed authentication, see [`LANGFLOW_SKIP_AUTH_AUTO_LOGIN`](/api-keys-and-authentication#minerva-skip-auth-auto-login).
 
 Langflow doesn't allow users to simultaneously edit the same flow in real time.
 If two users edit the same flow, Langflow saves only the work of the most recent editor based on the state of that user's [workspace](/concepts-overview#workspace). Any changes made by the other user in the interim are overwritten.
 
-#### Default authentication enforcement and LANGFLOW_SKIP_AUTH_AUTO_LOGIN {#langflow-skip-auth-auto-login}
+#### Default authentication enforcement and LANGFLOW_SKIP_AUTH_AUTO_LOGIN {#minerva-skip-auth-auto-login}
 
 In Langflow version 1.6, the default settings are `LANGFLOW_AUTO_LOGIN=True` and `LANGFLOW_SKIP_AUTH_AUTO_LOGIN=False`.
 This enforces authentication for API requests only, as explained in the preceding section.
@@ -179,13 +179,13 @@ In Langflow versions earlier than 1.5, Langflow API requests didn't require auth
 Additionally, the default setting of `LANGFLOW_AUTO_LOGIN=True` automatically granted all users superuser privileges in the visual editor, and it allowed all users to run all Langflow CLI commands as superusers.
 </details>
 
-### LANGFLOW_ENABLE_SUPERUSER_CLI {#langflow-enable-superuser-cli}
+### LANGFLOW_ENABLE_SUPERUSER_CLI {#minerva-enable-superuser-cli}
 
-Controls the availability of the `langflow superuser` command in the Langflow CLI.
+Controls the availability of the `minerva superuser` command in the Langflow CLI.
 The default is `true`, but `false` is recommended to prevent unrestricted superuser creation.
-For more information, see [`langflow superuser`](/configuration-cli#langflow-superuser).
+For more information, see [`minerva superuser`](/configuration-cli#minerva-superuser).
 
-### LANGFLOW_SUPERUSER and LANGFLOW_SUPERUSER_PASSWORD {#langflow-superuser}
+### LANGFLOW_SUPERUSER and LANGFLOW_SUPERUSER_PASSWORD {#minerva-superuser}
 
 These variables specify the username and password for the Langflow server's superuser.
 
@@ -197,10 +197,10 @@ LANGFLOW_SUPERUSER_PASSWORD=securepassword
 They are required if `LANGFLOW_AUTO_LOGIN=False`.
 Otherwise, they aren't relevant.
 
-When you [start a Langflow server with authentication enabled](#start-a-langflow-server-with-authentication-enabled), if these variables are required but _not_ set, then Langflow uses the default values of `langflow` and `langflow`.
-These defaults don't apply when using the Langflow CLI command [`langflow superuser`](/configuration-cli#langflow-superuser).
+When you [start a Langflow server with authentication enabled](#start-a-minerva-server-with-authentication-enabled), if these variables are required but _not_ set, then Langflow uses the default values of `minerva` and `minerva`.
+These defaults don't apply when using the Langflow CLI command [`minerva superuser`](/configuration-cli#minerva-superuser).
 
-### LANGFLOW_SECRET_KEY {#langflow-secret-key}
+### LANGFLOW_SECRET_KEY {#minerva-secret-key}
 
 This environment variable stores a secret key used for encrypting sensitive data like API keys.
 Langflow uses the [Fernet](https://pypi.org/project/cryptography/) library for secret key encryption.
@@ -268,7 +268,7 @@ To generate a secret encryption key for `LANGFLOW_SECRET_KEY`, do the following:
           - LANGFLOW_SECRET_KEY=${LANGFLOW_SECRET_KEY}
         ```
 
-### LANGFLOW_NEW_USER_IS_ACTIVE {#langflow-new-user-is-active}
+### LANGFLOW_NEW_USER_IS_ACTIVE {#minerva-new-user-is-active}
 
 When `LANGFLOW_NEW_USER_IS_ACTIVE=False` (default), a superuser must explicitly activate a new user's account before they can sign in to the visual editor.
 The superuser can also deactivate a user's account as needed.
@@ -280,7 +280,7 @@ LANGFLOW_NEW_USER_IS_ACTIVE=False
 ```
 
 Only superusers can manage user accounts for a Langflow server, but user management only matters if your server has authentication enabled.
-For more information, see [Start a Langflow server with authentication enabled](#start-a-langflow-server-with-authentication-enabled).
+For more information, see [Start a Langflow server with authentication enabled](#start-a-minerva-server-with-authentication-enabled).
 
 ### LANGFLOW_CORS_* {#cors-configuration-for-authentication}
 
@@ -326,7 +326,7 @@ This involves disabling automatic login, setting superuser credentials, generati
 This configuration is recommended for any deployment where Langflow is exposed to a shared or public network, or where multiple users access the same Langflow server.
 
 With authentication enabled, all users must sign in to the visual editor with valid credentials, and API requests require authentication with a Langflow API key.
-Additionally, you must sign in as a superuser to manage users and [create a Langflow API key](#create-a-langflow-api-key) with superuser privileges.
+Additionally, you must sign in as a superuser to manage users and [create a Langflow API key](#create-a-minerva-api-key) with superuser privileges.
 
 ### Start the Langflow server
 
@@ -353,7 +353,7 @@ Additionally, you must sign in as a superuser to manage users and [create a Lang
 
     If you don't set a secret key, Langflow generates one automatically, but this isn't recommended for production environments.
 
-    For instructions on generating at setting a secret key, see [`LANGFLOW_SECRET_KEY`](#langflow-secret-key).
+    For instructions on generating at setting a secret key, see [`LANGFLOW_SECRET_KEY`](#minerva-secret-key).
 
 4. Save your `.env` file with the populated variables. For example:
 
@@ -369,11 +369,11 @@ Additionally, you must sign in as a superuser to manage users and [create a Lang
 5. Start Langflow with the configuration from your `.env` file:
 
     ```text
-    uv run langflow run --env-file .env
+    uv run minerva run --env-file .env
     ```
 
     Starting Langflow with a `.env` file automatically authenticates you as the superuser set in `LANGFLOW_SUPERUSER` and `LANGFLOW_SUPERUSER_PASSWORD`.
-    If you don't explicitly set these variables, the default values are `langflow` and `langflow` for system auto-login.
+    If you don't explicitly set these variables, the default values are `minerva` and `minerva` for system auto-login.
 
 6. Verify the server is running. The default location is `http://localhost:7860`.
 

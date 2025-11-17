@@ -996,7 +996,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/langflow__api__v1__schemas__UploadFileResponse"
+                  "$ref": "#/components/schemas/minerva__api__v1__schemas__UploadFileResponse"
                 }
               }
             }
@@ -3309,7 +3309,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/langflow__api__v1__schemas__UploadFileResponse"
+                  "$ref": "#/components/schemas/minerva__api__v1__schemas__UploadFileResponse"
                 }
               }
             }
@@ -5822,7 +5822,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/langflow__api__schemas__UploadFileResponse"
+                  "$ref": "#/components/schemas/minerva__api__schemas__UploadFileResponse"
                 }
               }
             }
@@ -5939,7 +5939,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/langflow__api__schemas__UploadFileResponse"
+                  "$ref": "#/components/schemas/minerva__api__schemas__UploadFileResponse"
                 }
               }
             }
@@ -6214,7 +6214,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/langflow__api__schemas__UploadFileResponse"
+                  "$ref": "#/components/schemas/minerva__api__schemas__UploadFileResponse"
                 }
               }
             }
@@ -7487,7 +7487,7 @@
           },
           "files": {
             "items": {
-              "$ref": "#/components/schemas/langflow__utils__schemas__File"
+              "$ref": "#/components/schemas/minerva__utils__schemas__File"
             },
             "type": "array",
             "title": "Files",
@@ -13998,7 +13998,7 @@
         ],
         "title": "ViewPort"
       },
-      "langflow__api__schemas__UploadFileResponse": {
+      "minerva__api__schemas__UploadFileResponse": {
         "properties": {
           "id": {
             "type": "string",
@@ -14040,7 +14040,7 @@
         "title": "UploadFileResponse",
         "description": "File upload response schema."
       },
-      "langflow__api__v1__schemas__UploadFileResponse": {
+      "minerva__api__v1__schemas__UploadFileResponse": {
         "properties": {
           "flowId": {
             "type": "string",
@@ -14060,7 +14060,7 @@
         "title": "UploadFileResponse",
         "description": "Upload file response schema."
       },
-      "langflow__utils__schemas__File": {
+      "minerva__utils__schemas__File": {
         "properties": {
           "path": {
             "type": "string",

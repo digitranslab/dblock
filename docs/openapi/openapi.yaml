@@ -711,7 +711,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/langflow__api__v1__schemas__UploadFileResponse'
+                $ref: '#/components/schemas/minerva__api__v1__schemas__UploadFileResponse'
         '422':
           description: Validation Error
           content:
@@ -2087,7 +2087,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/langflow__api__v1__schemas__UploadFileResponse'
+                $ref: '#/components/schemas/minerva__api__v1__schemas__UploadFileResponse'
         '422':
           description: Validation Error
           content:
@@ -3609,7 +3609,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/langflow__api__schemas__UploadFileResponse'
+                $ref: '#/components/schemas/minerva__api__schemas__UploadFileResponse'
         '422':
           description: Validation Error
           content:
@@ -3675,7 +3675,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/langflow__api__schemas__UploadFileResponse'
+                $ref: '#/components/schemas/minerva__api__schemas__UploadFileResponse'
         '422':
           description: Validation Error
           content:
@@ -3840,7 +3840,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/langflow__api__schemas__UploadFileResponse'
+                $ref: '#/components/schemas/minerva__api__schemas__UploadFileResponse'
         '422':
           description: Validation Error
           content:
@@ -6341,7 +6341,7 @@ components:
           title: Edit
           default: false
         properties:
-          $ref: '#/components/schemas/langflow__schema__properties__Properties'
+          $ref: '#/components/schemas/minerva__schema__properties__Properties'
         category:
           type: string
           title: Category
@@ -6417,7 +6417,7 @@ components:
           title: Duration
         properties:
           anyOf:
-          - $ref: '#/components/schemas/langflow__schema__properties__Properties'
+          - $ref: '#/components/schemas/minerva__schema__properties__Properties'
           - type: 'null'
         category:
           anyOf:
@@ -6486,7 +6486,7 @@ components:
           title: Duration
         properties:
           anyOf:
-          - $ref: '#/components/schemas/langflow__schema__properties__Properties'
+          - $ref: '#/components/schemas/minerva__schema__properties__Properties'
           - type: 'null'
         category:
           anyOf:
@@ -6549,7 +6549,7 @@ components:
           title: Error
         properties:
           anyOf:
-          - $ref: '#/components/schemas/langflow__schema__properties__Properties'
+          - $ref: '#/components/schemas/minerva__schema__properties__Properties'
           - type: 'null'
       type: object
       title: MessageUpdate
@@ -6856,7 +6856,7 @@ components:
       properties:
         properties:
           anyOf:
-          - $ref: '#/components/schemas/langflow__schema__properties__Properties'
+          - $ref: '#/components/schemas/minerva__schema__properties__Properties'
           - type: 'null'
         sender_name:
           anyOf:
@@ -6908,7 +6908,7 @@ components:
       properties:
         properties:
           anyOf:
-          - $ref: '#/components/schemas/langflow__schema__properties__Properties'
+          - $ref: '#/components/schemas/minerva__schema__properties__Properties'
           - type: 'null'
         sender_name:
           anyOf:
@@ -8006,7 +8006,7 @@ components:
       - y
       - zoom
       title: ViewPort
-    langflow__api__schemas__UploadFileResponse:
+    minerva__api__schemas__UploadFileResponse:
       properties:
         id:
           type: string
@@ -8035,7 +8035,7 @@ components:
       - size
       title: UploadFileResponse
       description: File upload response schema.
-    langflow__api__v1__schemas__UploadFileResponse:
+    minerva__api__v1__schemas__UploadFileResponse:
       properties:
         flowId:
           type: string
@@ -8050,7 +8050,7 @@ components:
       - file_path
       title: UploadFileResponse
       description: Upload file response schema.
-    langflow__schema__content_block__ContentBlock-Input:
+    minerva__schema__content_block__ContentBlock-Input:
       properties:
         title:
           type: string
@@ -8058,9 +8058,9 @@ components:
         contents:
           items:
             oneOf:
-            - $ref: '#/components/schemas/langflow__schema__content_types__ToolContent'
+            - $ref: '#/components/schemas/minerva__schema__content_types__ToolContent'
             - $ref: '#/components/schemas/lfx__schema__content_types__ErrorContent'
-            - $ref: '#/components/schemas/langflow__schema__content_types__TextContent'
+            - $ref: '#/components/schemas/minerva__schema__content_types__TextContent'
             - $ref: '#/components/schemas/lfx__schema__content_types__MediaContent'
             - $ref: '#/components/schemas/lfx__schema__content_types__CodeContent'
             - $ref: '#/components/schemas/lfx__schema__content_types__JSONContent'
@@ -8083,7 +8083,7 @@ components:
       - contents
       title: ContentBlock
       description: A block of content that can contain different types of content.
-    langflow__schema__content_types__TextContent:
+    minerva__schema__content_types__TextContent:
       properties:
         type:
           type: string
@@ -8107,7 +8107,7 @@ components:
       - text
       title: TextContent
       description: Content type for simple text content.
-    langflow__schema__content_types__ToolContent:
+    minerva__schema__content_types__ToolContent:
       properties:
         type:
           type: string
@@ -8144,7 +8144,7 @@ components:
       type: object
       title: ToolContent
       description: Content type for tool start content.
-    langflow__schema__properties__Properties:
+    minerva__schema__properties__Properties:
       properties:
         text_color:
           anyOf:
@@ -8161,7 +8161,7 @@ components:
           title: Edited
           default: false
         source:
-          $ref: '#/components/schemas/langflow__schema__properties__Source'
+          $ref: '#/components/schemas/minerva__schema__properties__Source'
         icon:
           anyOf:
           - type: string
@@ -8190,7 +8190,7 @@ components:
           default: []
       type: object
       title: Properties
-    langflow__schema__properties__Source:
+    minerva__schema__properties__Source:
       properties:
         id:
           anyOf:
@@ -8221,9 +8221,9 @@ components:
         contents:
           items:
             oneOf:
-            - $ref: '#/components/schemas/langflow__schema__content_types__ToolContent'
+            - $ref: '#/components/schemas/minerva__schema__content_types__ToolContent'
             - $ref: '#/components/schemas/lfx__schema__content_types__ErrorContent'
-            - $ref: '#/components/schemas/langflow__schema__content_types__TextContent'
+            - $ref: '#/components/schemas/minerva__schema__content_types__TextContent'
             - $ref: '#/components/schemas/lfx__schema__content_types__MediaContent'
             - $ref: '#/components/schemas/lfx__schema__content_types__CodeContent'
             - $ref: '#/components/schemas/lfx__schema__content_types__JSONContent'

@@ -13,13 +13,13 @@ const config = {
   tagline:
     "Langflow is a low-code app builder for RAG and multi-agent AI applications.",
   favicon: "img/favicon.ico",
-  url: "https://docs.langflow.org",
+  url: "https://docs.minerva.org",
   baseUrl: process.env.BASE_URL ? process.env.BASE_URL : "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   onBrokenAnchors: "warn",
-  organizationName: "langflow-ai",
-  projectName: "langflow",
+  organizationName: "minerva-ai",
+  projectName: "minerva",
   trailingSlash: false,
   staticDirectories: ["static"],
   i18n: {
@@ -172,11 +172,11 @@ const config = {
           {
             to: "/",
             from: [
-              "/whats-new-a-new-chapter-langflow",
+              "/whats-new-a-new-chapter-minerva",
               "/👋 Welcome-to-Langflow",
-              "/getting-started-welcome-to-langflow",
+              "/getting-started-welcome-to-minerva",
               "/guides-new-to-llms",
-              "/about-langflow",
+              "/about-minerva",
             ],
           },
           {
@@ -311,13 +311,13 @@ const config = {
           {
             to: "/bundles-google",
             from: [
-              "/integrations-setup-google-oauth-langflow",
+              "/integrations-setup-google-oauth-minerva",
               "/integrations-google-big-query",
             ],
           },
           {
             to: "/bundles-vertexai",
-            from: "/integrations-setup-google-cloud-vertex-ai-langflow",
+            from: "/integrations-setup-google-cloud-vertex-ai-minerva",
           },
           {
             to: "/develop-application",
@@ -403,7 +403,7 @@ const config = {
           // right
           {
             position: "right",
-            href: "https://github.com/langflow-ai/langflow",
+            href: "https://github.com/minerva-ai/minerva",
             className: "header-github-link",
             target: "_blank",
             rel: null,
@@ -416,7 +416,7 @@ const config = {
           },
           {
             position: "right",
-            href: "https://twitter.com/langflow_ai",
+            href: "https://twitter.com/minerva_ai",
             className: "header-twitter-link",
             target: "_blank",
             rel: null,
@@ -485,7 +485,7 @@ const config = {
         appId: "UZK6BDPCVY",
         // public key, safe to commit
         apiKey: "adbd7686dceb1cd510d5ce20d04bf74c",
-        indexName: "langflow",
+        indexName: "minerva",
         contextualSearch: true,
         searchParameters: {},
         searchPagePath: "search",

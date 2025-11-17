@@ -18,7 +18,7 @@ If a component appears to be missing from the <Icon name="Component" aria-hidden
 * <Icon name="Search" aria-hidden="true" /> **Search** for the component.
 * Check other component categories and <Icon name="Blocks" aria-hidden="true" /> [**Bundles**](/components-bundle-components).
 * Check [legacy components](/concepts-components#legacy-components), which are hidden by default.
-* Check the [Changelog](https://github.com/langflow-ai/langflow/releases/latest) for component changes in recent releases.
+* Check the [Changelog](https://github.com/minerva-ai/minerva/releases/latest) for component changes in recent releases.
 * Make sure the component isn't already present in your flow if it is a single-use component.
 
 If you still cannot locate the component, see [Langflow GitHub Issues and Discussions](/contributing-github-issues).
@@ -45,13 +45,13 @@ The following issues can occur when installing Langflow.
 
 ### Langflow installation freezes at pip dependency resolution
 
-Installing Langflow OSS with `pip install langflow` slowly fails with this error message:
+Installing Langflow OSS with `pip install minerva` slowly fails with this error message:
 
 ```text
 pip is looking at multiple versions of <<library>> to determine which version is compatible with other requirements. This could take a while.
 ```
 
-To work around this issue, install Langflow with `uv` instead of `pip`, as explained in [Install and run the Langflow OSS Python package](/get-started-installation#install-and-run-the-langflow-oss-python-package).
+To work around this issue, install Langflow with `uv` instead of `pip`, as explained in [Install and run the Langflow OSS Python package](/get-started-installation#install-and-run-the-minerva-oss-python-package).
 
 ### Linux installation fails to build required package
 
@@ -89,42 +89,42 @@ Microsoft Windows installations of Langflow Desktop require a C++ compiler that 
 
 The following issues can occur when attempting to start Langflow.
 
-### No `langflow.__main__` module
+### No `minerva.__main__` module
 
-When you try to run Langflow with the command `langflow run`, you encounter the following error:
+When you try to run Langflow with the command `minerva run`, you encounter the following error:
 
 ```bash
-> No module named 'langflow.__main__'
+> No module named 'minerva.__main__'
 ```
 
 To resolve this issue, try the following:
 
-1. Run `uv run langflow run` instead of `langflow run`.
-2. If that doesn't work, reinstall the latest Langflow version with `uv pip install langflow -U`.
-3. If that doesn't work, reinstall Langflow and its dependencies with `uv pip install langflow --pre -U --force-reinstall`.
+1. Run `uv run minerva run` instead of `minerva run`.
+2. If that doesn't work, reinstall the latest Langflow version with `uv pip install minerva -U`.
+3. If that doesn't work, reinstall Langflow and its dependencies with `uv pip install minerva --pre -U --force-reinstall`.
 
 ### Langflow runTraceback
 
-When you try to run Langflow using the command `langflow run`, you encounter the following error:
+When you try to run Langflow using the command `minerva run`, you encounter the following error:
 
 ```bash
-> langflow runTraceback (most recent call last): File ".../langflow", line 5, in <module>  from langflow.__main__ import mainModuleNotFoundError: No module named 'langflow.__main__'
+> minerva runTraceback (most recent call last): File ".../minerva", line 5, in <module>  from minerva.__main__ import mainModuleNotFoundError: No module named 'minerva.__main__'
 ```
 
 There are two possible reasons for this error:
 
-* **Multiple Langflow installations**: You installed Langflow using `pip install langflow` but you already had a previous version of Langflow installed in your system. In this case, you might be running the wrong executable.
+* **Multiple Langflow installations**: You installed Langflow using `pip install minerva` but you already had a previous version of Langflow installed in your system. In this case, you might be running the wrong executable.
 
-    To solve this issue, run the correct executable by running `python -m langflow run` instead of `langflow run`.
+    To solve this issue, run the correct executable by running `python -m minerva run` instead of `minerva run`.
 
-    If that doesn't work, try uninstalling and reinstalling Langflow with `uv pip install langflow --pre -U`.
+    If that doesn't work, try uninstalling and reinstalling Langflow with `uv pip install minerva --pre -U`.
 
-* **Version conflict during installation**: Some version conflicts might have occurred during the installation process. To resolve this issue, reinstall Langflow and its dependencies by running `python -m pip install langflow --pre -U --force-reinstall`.
+* **Version conflict during installation**: Some version conflicts might have occurred during the installation process. To resolve this issue, reinstall Langflow and its dependencies by running `python -m pip install minerva --pre -U --force-reinstall`.
 
 ### Environment variables not available from terminal
 
 Environment variables set in your terminal aren't automatically available to GUI-based applications like Langflow Desktop when launched through the Finder or the Start Menu.
-To set environment variables for Langflow Desktop, see [Set environment variables for Langflow Desktop](/environment-variables#set-environment-variables-for-langflow-desktop).
+To set environment variables for Langflow Desktop, see [Set environment variables for Langflow Desktop](/environment-variables#set-environment-variables-for-minerva-desktop).
 
 ### Access Langflow Desktop startup logs
 
@@ -145,7 +145,7 @@ To resolve this error, use separate browser instances or browser profiles to acc
 
 In Langflow OSS, you can follow the error message's instructions to install the missing dependency.
 
-To manage dependencies in Langflow Desktop, see [Install custom dependencies in Langflow Desktop](/install-custom-dependencies#langflow-desktop).
+To manage dependencies in Langflow Desktop, see [Install custom dependencies in Langflow Desktop](/install-custom-dependencies#minerva-desktop).
 
 ## Langflow upgrade issues
 
@@ -155,10 +155,10 @@ For information about managing Langflow versions, see [Install Langflow](/get-st
 
 ### Something went wrong running migrations
 
-The following error can occur during Langflow upgrades when the new version can't override `langflow-pre.db` in the Langflow cache folder:
+The following error can occur during Langflow upgrades when the new version can't override `minerva-pre.db` in the Langflow cache folder:
 
 ```bash
-> Something went wrong running migrations. Please, run 'langflow migration --fix'
+> Something went wrong running migrations. Please, run 'minerva migration --fix'
 ```
 
 To resolve this error, clear the cache by deleting the contents of your Langflow cache folder.
@@ -177,7 +177,7 @@ If you are running Langflow Desktop version 1.4.2 or earlier, the UI might incor
 This happens because the automatic update feature in the UI was introduced in version 1.4.2.
 Earlier versions can't automatically detect or apply updates.
 
-To resolve this issue, uninstall Langflow Desktop, and then [download and install the latest version of Langflow Desktop](https://langflow.org/desktop).
+To resolve this issue, uninstall Langflow Desktop, and then [download and install the latest version of Langflow Desktop](https://minerva.org/desktop).
 
 ### 422 error when freezing components after upgrading Pydantic/FastAPI dependencies
 
@@ -188,7 +188,7 @@ This error occurs due to changes in how request bodies are handled in newer vers
 If you're experiencing this issue, update your Langflow installation to version 1.6.5 or later, which includes a fix for this issue.
 
 ```bash
-uv pip install langflow -U
+uv pip install minerva -U
 ```
 
 ## Langflow uninstall issues
@@ -197,14 +197,14 @@ The following issues can occur when uninstalling Langflow.
 
 ### Dot directory isn't deleted when uninstalling Langflow Desktop on macOS
 
-On macOS, uninstalling Langflow Desktop deletes the `.app` file but doesn't delete files in `~/.langflow`, which includes files generated during usage like cache and settings.
+On macOS, uninstalling Langflow Desktop deletes the `.app` file but doesn't delete files in `~/.minerva`, which includes files generated during usage like cache and settings.
 
 If you reinstall Langflow Desktop, it starts with the existing data from the previous installation.
 
-To fully remove a Langflow Desktop macOS installation, you must also delete `~/.langflow`:
+To fully remove a Langflow Desktop macOS installation, you must also delete `~/.minerva`:
 
     ```bash
-    rm -rf .langflow
+    rm -rf .minerva
     ```
 
 ## Langflow MCP issues {#mcp}
@@ -295,7 +295,7 @@ If you are building a custom component, see [Error handling and logging for cust
 
 If your custom components are not appearing in the Langflow visual editor, try the following troubleshooting steps:
 
-1. Ensure your components follow the [required directory structure](https://docs.langflow.org/components-custom-components#directory-structure-requirements).
+1. Ensure your components follow the [required directory structure](https://docs.minerva.org/components-custom-components#directory-structure-requirements).
     ```
     /your/custom/components/path/       # Base directory set by LANGFLOW_COMPONENTS_PATH
         └── category_name/              # Required category subfolder that determines menu name
@@ -310,10 +310,10 @@ This is required for Python to recognize the directory as a module.
 If you're using the `LANGFLOW_COMPONENTS_PATH` environment variable and components aren't loading, try the `--components-path` command line argument instead:
 
     ```bash
-    uv run langflow run --components-path /path/to/your/custom/components
+    uv run minerva run --components-path /path/to/your/custom/components
     ```
 
-If you continue to experience issues, please [report them on GitHub](https://github.com/langflow-ai/langflow/issues) with details about your directory structure and component setup.
+If you continue to experience issues, please [report them on GitHub](https://github.com/minerva-ai/minerva/issues) with details about your directory structure and component setup.
 
 ## See also
 

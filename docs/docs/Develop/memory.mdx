@@ -14,11 +14,11 @@ Langflow's default storage option is a [SQLite](https://www.sqlite.org/) databas
 The default storage path depends on your operating system and installation method:
 
 - **Langflow Desktop**:
-    - **macOS**: `/Users/<username>/.langflow/data/database.db`
+    - **macOS**: `/Users/<username>/.minerva/data/database.db`
     - **Windows**: `C:\Users\<name>\AppData\Roaming\com.LangflowDesktop\data\database.db`
 - **Langflow OSS**
-    - **macOS/Windows/Linux/WSL with `uv pip install`**: `<path_to_venv>/lib/python3.12/site-packages/langflow/langflow.db` (Python version can vary. Database isn't shared between virtual environments because it is tied to the venv path.)
-    - **macOS/Windows/Linux/WSL with `git clone`**: `<path_to_clone>/src/backend/base/langflow/langflow.db`
+    - **macOS/Windows/Linux/WSL with `uv pip install`**: `<path_to_venv>/lib/python3.12/site-packages/minerva/minerva.db` (Python version can vary. Database isn't shared between virtual environments because it is tied to the venv path.)
+    - **macOS/Windows/Linux/WSL with `git clone`**: `<path_to_clone>/src/backend/base/minerva/minerva.db`
 
 Langflow offers a few alternatives to the default database path:
 
@@ -37,7 +37,7 @@ This is useful for testing when you don't want to persist any data.
 
 ## Langflow database tables
 
-The following tables are stored in `langflow.db`:
+The following tables are stored in `minerva.db`:
 
 • **ApiKey**: Manages Langflow API authentication keys. Component API keys are stored in the **Variables** table. For more information, see [API keys and authentication](/api-keys-and-authentication).
 
@@ -63,7 +63,7 @@ The following tables are stored in `langflow.db`:
 
 • **VertexBuild**: Tracks the build status of individual nodes within flows. For more information, see [Test flows in the Playground](/concepts-playground).
 
-For more information, see the database models in the [source code](https://github.com/langflow-ai/langflow/tree/main/src/backend/base/langflow/services/database/models).
+For more information, see the database models in the [source code](https://github.com/minerva-ai/minerva/tree/main/src/backend/base/minerva/services/database/models).
 
 ## Configure external memory {#configure-external-memory}
 
@@ -71,7 +71,7 @@ To replace the default Langflow SQLite database with another database, set the `
 For more information and examples, see [Configure an external PostgreSQL database](/configuration-custom-database).
 
 ```text
-LANGFLOW_DATABASE_URL=postgresql://user:password@localhost:5432/langflow
+LANGFLOW_DATABASE_URL=postgresql://user:password@localhost:5432/minerva
 ```
 
 To fine-tune your database connection pool and timeout settings, you can set the following additional environment variables:

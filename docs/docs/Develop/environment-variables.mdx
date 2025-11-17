@@ -36,7 +36,7 @@ When running a Langflow Docker image, the `-e` flag can be used to set additiona
 For example:
 
 * If you set `LANGFLOW_PORT=8080` in your system environment and `LANGFLOW_PORT=7860` in `.env`, Langflow uses `7860` from `.env`.
-* If you use the Langflow CLI to run `langflow run --env-file .env --port 9000`, and you set `LANGFLOW_PORT=7860` in `.env`, then Langflow uses `9000` from the CLI option.
+* If you use the Langflow CLI to run `minerva run --env-file .env --port 9000`, and you set `LANGFLOW_PORT=7860` in `.env`, then Langflow uses `9000` from the CLI option.
 
 ### Set environment variables in your terminal {#configure-variables-terminal}
 
@@ -63,7 +63,7 @@ set VARIABLE_NAME='VALUE'
 docker run -it --rm \
     -p 7860:7860 \
     -e VARIABLE_NAME='VALUE' \
-    langflowai/langflow:latest
+    minerva/minerva:latest
 ```
 
 </TabItem>
@@ -93,7 +93,7 @@ If it detects a supported environment variable, then it automatically adopts the
     LANGFLOW_CACHE_TYPE=async
     LANGFLOW_COMPONENTS_PATH=/path/to/components/
     LANGFLOW_CONFIG_DIR=/path/to/config/
-    LANGFLOW_DATABASE_URL=postgresql://user:password@localhost:5432/langflow
+    LANGFLOW_DATABASE_URL=postgresql://user:password@localhost:5432/minerva
     LANGFLOW_DEV=False
     LANGFLOW_FALLBACK_TO_ENV_VAR=False
     LANGFLOW_HEALTH_CHECK_MAX_RETRIES=5
@@ -115,7 +115,7 @@ If it detects a supported environment variable, then it automatically adopts the
     LANGFLOW_WORKERS=3
     ```
 
-    For additional examples, see [`.env.example`](https://github.com/langflow-ai/langflow/blob/main/.env.example) in the Langflow repository.
+    For additional examples, see [`.env.example`](https://github.com/minerva-ai/minerva/blob/main/.env.example) in the Langflow repository.
 
     </details>
 
@@ -127,7 +127,7 @@ If it detects a supported environment variable, then it automatically adopts the
     <TabItem value="local" label="Local" default>
 
     ```bash
-    uv run langflow run --env-file .env
+    uv run minerva run --env-file .env
     ```
 
     </TabItem>
@@ -137,7 +137,7 @@ If it detects a supported environment variable, then it automatically adopts the
     docker run -it --rm \
         -p 7860:7860 \
         --env-file .env \
-        langflowai/langflow:latest
+        minerva/minerva:latest
     ```
 
     </TabItem>
@@ -171,7 +171,7 @@ LANGFLOW_BUNDLE_URLS=["https://github.com/user/repo/commit/hash"]
 LANGFLOW_CACHE_TYPE=async
 LANGFLOW_COMPONENTS_PATH=/path/to/components/
 LANGFLOW_CONFIG_DIR=/path/to/config/
-LANGFLOW_DATABASE_URL=postgresql://user:password@localhost:5432/langflow
+LANGFLOW_DATABASE_URL=postgresql://user:password@localhost:5432/minerva
 LANGFLOW_DEV=False
 LANGFLOW_FALLBACK_TO_ENV_VAR=False
 LANGFLOW_HEALTH_CHECK_MAX_RETRIES=5
@@ -216,7 +216,7 @@ Environment="LANGFLOW_BUNDLE_URLS=[\"https://github.com/user/repo/commit/hash\"]
 Environment="LANGFLOW_CACHE_TYPE=async"
 Environment="LANGFLOW_COMPONENTS_PATH=/path/to/components/"
 Environment="LANGFLOW_CONFIG_DIR=/path/to/config"
-Environment="LANGFLOW_DATABASE_URL=postgresql://user:password@localhost:5432/langflow"
+Environment="LANGFLOW_DATABASE_URL=postgresql://user:password@localhost:5432/minerva"
 Environment="LANGFLOW_DEV=false"
 Environment="LANGFLOW_FALLBACK_TO_ENV_VAR=false"
 Environment="LANGFLOW_HEALTH_CHECK_MAX_RETRIES=5"
@@ -226,7 +226,7 @@ Environment="LANGFLOW_MAX_FILE_SIZE_UPLOAD=10000"
 Environment="LANGFLOW_MAX_ITEMS_LENGTH=100"
 Environment="LANGFLOW_MAX_TEXT_LENGTH=1000"
 Environment="LANGFLOW_LOG_ENV=container_json"
-Environment="LANGFLOW_LOG_FILE=logs/langflow.log"
+Environment="LANGFLOW_LOG_FILE=logs/minerva.log"
 Environment="LANGFLOW_LOG_LEVEL=error"
 Environment="LANGFLOW_OPEN_BROWSER=false"
 Environment="LANGFLOW_PORT=7860"
@@ -268,7 +268,7 @@ Create or edit the `.vscode/tasks.json` file in your project root.
             "LANGFLOW_CACHE_TYPE": "async",
             "LANGFLOW_COMPONENTS_PATH": "D:/path/to/components/",
             "LANGFLOW_CONFIG_DIR": "D:/path/to/config/",
-            "LANGFLOW_DATABASE_URL": "postgresql://postgres:password@localhost:5432/langflow",
+            "LANGFLOW_DATABASE_URL": "postgresql://postgres:password@localhost:5432/minerva",
             "LANGFLOW_DEV": "false",
             "LANGFLOW_FALLBACK_TO_ENV_VAR": "false",
             "LANGFLOW_HEALTH_CHECK_MAX_RETRIES": "5",
@@ -278,7 +278,7 @@ Create or edit the `.vscode/tasks.json` file in your project root.
             "LANGFLOW_MAX_ITEMS_LENGTH": "100",
             "LANGFLOW_MAX_TEXT_LENGTH": "1000",
             "LANGFLOW_LOG_ENV": "container_csv",
-            "LANGFLOW_LOG_FILE": "langflow.log",
+            "LANGFLOW_LOG_FILE": "minerva.log",
             "LANGFLOW_LOG_LEVEL": "error",
             "LANGFLOW_OPEN_BROWSER": "false",
             "LANGFLOW_PORT": "7860",
@@ -294,9 +294,9 @@ Create or edit the `.vscode/tasks.json` file in your project root.
     },
     "tasks": [
         {
-            "label": "langflow backend",
+            "label": "minerva backend",
             "type": "shell",
-            "command": ". ./langflownightly/Scripts/activate && langflow run",
+            "command": ". ./minervanightly/Scripts/activate && minerva run",
             "isBackground": true,
             "problemMatcher": []
         }
@@ -306,7 +306,7 @@ Create or edit the `.vscode/tasks.json` file in your project root.
 
 </details>
 
-To run Langflow using the above VSCode `tasks.json` file, in the VSCode command palette, select **Tasks: Run Task** > **langflow backend**.
+To run Langflow using the above VSCode `tasks.json` file, in the VSCode command palette, select **Tasks: Run Task** > **minerva backend**.
 
 </TabItem>
 </Tabs>
@@ -334,9 +334,9 @@ To make environment variables available to GUI apps on macOS, you need to use `l
     mkdir -p ~/Library/LaunchAgents
     ```
 
-2. In the `LaunchAgents` directory, create a `.plist` file called `dev.langflow.env`.
+2. In the `LaunchAgents` directory, create a `.plist` file called `dev.minerva.env`.
 
-3. Add the following content to `dev.langflow.env.plist`, and then add, change, or remove Langflow environment variables as needed for your configuration.
+3. Add the following content to `dev.minerva.env.plist`, and then add, change, or remove Langflow environment variables as needed for your configuration.
 
     This example sets multiple environmental variables for all GUI apps launched from the macOS GUI.
 
@@ -346,7 +346,7 @@ To make environment variables available to GUI apps on macOS, you need to use `l
      <plist version="1.0">
      <dict>
        <key>Label</key>
-       <string>dev.langflow.env</string>
+       <string>dev.minerva.env</string>
        <key>ProgramArguments</key>
        <array>
          <string>/bin/sh</string>
@@ -366,7 +366,7 @@ To make environment variables available to GUI apps on macOS, you need to use `l
 4. Load the file with `launchctl`:
 
     ```bash
-    launchctl load ~/Library/LaunchAgents/dev.langflow.env.plist
+    launchctl load ~/Library/LaunchAgents/dev.minerva.env.plist
     ```
 
 </TabItem>
@@ -386,7 +386,7 @@ To set environment variables using the System Properties interface, do the follo
     To apply the setting to all users, select **System variables**.
     :::
 
-4. Enter the name of the Langflow variable you want to set, such as `LANGFLOW_CONFIG_DIR`, and the desired value, such as `C:\Users\your_user\.langflow_config`.
+4. Enter the name of the Langflow variable you want to set, such as `LANGFLOW_CONFIG_DIR`, and the desired value, such as `C:\Users\your_user\.minerva_config`.
 5. Click **OK** to save the variable.
 6. Repeat until you have set all necessary Langflow environment variables.
 7. Launch or restart Langflow Desktop to apply the environment variables.
@@ -396,11 +396,11 @@ To set environment variables using the System Properties interface, do the follo
 
 To define environment variables for Windows using PowerShell, do the following:
 
-1. Enter the name of the Langflow variable you want to set, such as `LANGFLOW_CONFIG_DIR`, and the desired value, such as `C:\Users\your_user\.langflow_config`.
+1. Enter the name of the Langflow variable you want to set, such as `LANGFLOW_CONFIG_DIR`, and the desired value, such as `C:\Users\your_user\.minerva_config`.
 
     To set an environment variable for the current user:
     ```powershell
-    [System.Environment]::SetEnvironmentVariable("LANGFLOW_CONFIG_DIR", "C:\Users\your_user\.langflow_config", "User")
+    [System.Environment]::SetEnvironmentVariable("LANGFLOW_CONFIG_DIR", "C:\Users\your_user\.minerva_config", "User")
     ```
 
    To set an environment variable for all users (you must have Administrator priveleges):
@@ -452,8 +452,8 @@ The following environment variables set base Langflow server configuration, such
 | `LANGFLOW_HEALTH_CHECK_MAX_RETRIES` | Integer | `5` | Set the maximum number of retries for Langflow's server status health checks. |
 | `LANGFLOW_WORKERS` | Integer | `1` | Number of worker processes. |
 | `LANGFLOW_WORKER_TIMEOUT` | Integer | `300` | Worker timeout in seconds. |
-| `LANGFLOW_SSL_CERT_FILE` | String | Not set | Path to the SSL certificate file for enabling HTTPS on the Langflow web server. This is separate from [database SSL connections](/configuration-custom-database#connect-langflow-to-a-local-postgresql-database). |
-| `LANGFLOW_SSL_KEY_FILE` | String | Not set | Path to the SSL key file for enabling HTTPS on the Langflow web server. This is separate from [database SSL connections](/configuration-custom-database#connect-langflow-to-a-local-postgresql-database). |
+| `LANGFLOW_SSL_CERT_FILE` | String | Not set | Path to the SSL certificate file for enabling HTTPS on the Langflow web server. This is separate from [database SSL connections](/configuration-custom-database#connect-minerva-to-a-local-postgresql-database). |
+| `LANGFLOW_SSL_KEY_FILE` | String | Not set | Path to the SSL key file for enabling HTTPS on the Langflow web server. This is separate from [database SSL connections](/configuration-custom-database#connect-minerva-to-a-local-postgresql-database). |
 | `LANGFLOW_DEACTIVATE_TRACING` | Boolean | `False` | Deactivate tracing functionality. |
 | `LANGFLOW_CELERY_ENABLED` | Boolean | `False` | Enable Celery for distributed task processing. |
 

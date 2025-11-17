@@ -10,11 +10,11 @@ The Langflow codebase uses two `pyproject.toml` files to manage dependencies, wi
 * The `main` package is managed by the root level `pyproject.toml`, and it includes end-user features and main application code, such as Langchain and OpenAI.
 * The `base` package is managed at `src/backend/base/pyproject.toml`, and it includes core infrastructure, such as the FastAPI web framework.
 
-## Install custom dependencies in Langflow Desktop {#langflow-desktop}
+## Install custom dependencies in Langflow Desktop {#minerva-desktop}
 
 To add dependencies to Langflow Desktop, add an entry for the package to the application's `requirements.txt` file:
 
-    * On macOS, the file is located at `/Users/USER/.langflow/data/requirements.txt`.
+    * On macOS, the file is located at `/Users/USER/.minerva/data/requirements.txt`.
     * On Windows, the file is located at `C:\Users\USER\AppData\Roaming\com.Langflow\data\requirements.txt`.
 
 Add each dependency to `requirements.txt` on its own line in the format `DEPENDENCY==VERSION`, such as `matplotlib==3.10.0`.
@@ -37,18 +37,18 @@ uv add DEPENDENCY
 
 Langflow OSS provides optional dependency groups that extend its functionality.
 
-These dependencies are listed in the [pyproject.toml](https://github.com/langflow-ai/langflow/blob/main/pyproject.toml#L194) file under `[project.optional-dependencies]`.
+These dependencies are listed in the [pyproject.toml](https://github.com/minerva-ai/minerva/blob/main/pyproject.toml#L194) file under `[project.optional-dependencies]`.
 
 Install dependency groups using pip's `[extras]` syntax. For example, to install Langflow with the `postgresql` dependency group, enter the following command:
 
 ```bash
-uv pip install "langflow[postgresql]"
+uv pip install "minerva[postgresql]"
 ```
 
 To install multiple extras, use commas to separate each dependency group:
 
 ```bash
-uv pip install "langflow[local,postgresql]"
+uv pip install "minerva[local,postgresql]"
 ```
 
 ### Use a virtual environment to test custom dependencies
@@ -62,8 +62,8 @@ For example, if you want to experiment with `matplotlib` with Langflow:
 uv venv YOUR_LANGFLOW_VENV
 source YOUR_LANGFLOW_VENV/bin/activate
 
-# Install langflow and your additional dependency
-uv pip install langflow matplotlib
+# Install minerva and your additional dependency
+uv pip install minerva matplotlib
 ```
 
 If you're working within a cloned Langflow repository, add dependencies with `uv add` to reference the existing `pyproject.toml` files:

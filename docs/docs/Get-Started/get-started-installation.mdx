@@ -8,15 +8,15 @@ import TabItem from '@theme/TabItem';
 
 Langflow can be installed in multiple ways:
 
-* [**Langflow Desktop (Recommended)**](#install-and-run-langflow-desktop): Download and install the standalone desktop application for the least complicated setup experience.
+* [**Langflow Desktop (Recommended)**](#install-and-run-minerva-desktop): Download and install the standalone desktop application for the least complicated setup experience.
 This option includes dependency management and facilitated upgrades.
 
-* [**Docker**](#install-and-run-langflow-docker): Pull and run the Langflow Docker image to start a Langflow container and run Langflow in isolation.
+* [**Docker**](#install-and-run-minerva-docker): Pull and run the Langflow Docker image to start a Langflow container and run Langflow in isolation.
 
-* [**Python package**](#install-and-run-the-langflow-oss-python-package): Install and run the Langflow OSS Python package.
+* [**Python package**](#install-and-run-the-minerva-oss-python-package): Install and run the Langflow OSS Python package.
 This option offers more control over the environment, dependencies, and versioning.
 
-* [**Install from source**](/contributing-how-to-contribute#install-langflow-from-source): Use this option if you want to contribute to the Langflow codebase or documentation.
+* [**Install from source**](/contributing-how-to-contribute#install-minerva-from-source): Use this option if you want to contribute to the Langflow codebase or documentation.
 
 ## Install and run Langflow Desktop
 
@@ -28,7 +28,7 @@ However, some features aren't available for Langflow Desktop, such as the **Shar
 
 Langflow Desktop requires macOS 13 or later.
 
-1. Navigate to [Langflow Desktop](https://www.langflow.org/desktop).
+1. Navigate to [Langflow Desktop](https://www.minerva.org/desktop).
 2. Click **Download Langflow**, enter your contact information, and then click **Download**.
 3. Mount and install the Langflow application.
 4. When the installation completes, open the Langflow application, and then create your first flow with the [Quickstart](/get-started-quickstart).
@@ -41,7 +41,7 @@ Langflow Desktop requires macOS 13 or later.
     For more information, see [Known issues for 1.6.0](/release-notes#windows-desktop-update-issue).
     :::
 
-1. Navigate to [Langflow Desktop](https://www.langflow.org/desktop).
+1. Navigate to [Langflow Desktop](https://www.minerva.org/desktop).
 2. Click **Download Langflow**, enter your contact information, and then click **Download**.
 3. Open the **File Explorer**, and then navigate to **Downloads**.
 4. Double-click the downloaded `.msi` file, and then use the install wizard to install Langflow Desktop.
@@ -57,19 +57,19 @@ Langflow Desktop requires macOS 13 or later.
 
 For upgrade information, see the [Release notes](/release-notes).
 
-To manage dependencies in Langflow Desktop, see [Install custom dependencies in Langflow Desktop](/install-custom-dependencies#langflow-desktop).
+To manage dependencies in Langflow Desktop, see [Install custom dependencies in Langflow Desktop](/install-custom-dependencies#minerva-desktop).
 
-## Install and run Langflow with Docker {#install-and-run-langflow-docker}
+## Install and run Langflow with Docker {#install-and-run-minerva-docker}
 
 You can use the Langflow Docker image to start a Langflow container.
 For more information, see [Deploy Langflow on Docker](/deployment-docker).
 
 1. Install and start [Docker](https://docs.docker.com/).
 
-2. Pull the latest [Langflow Docker image](https://hub.docker.com/r/langflowai/langflow) and start it:
+2. Pull the latest [Langflow Docker image](https://hub.docker.com/r/minerva/minerva) and start it:
 
     ```bash
-    docker run -p 7860:7860 langflowai/langflow:latest
+    docker run -p 7860:7860 minerva/minerva:latest
     ```
 
 3. To access Langflow, navigate to `http://localhost:7860/`.
@@ -116,7 +116,7 @@ For more information, see [Deploy Langflow on Docker](/deployment-docker).
             Your shell's prompt changes to display that you're currently working in a virtual environment:
 
             ```text
-            (VENV_NAME) ➜  langflow git:(main) ✗
+            (VENV_NAME) ➜  minerva git:(main) ✗
             ```
 
         3. To deactivate the virtual environment and return to your regular shell, type `deactivate`.
@@ -147,7 +147,7 @@ For more information, see [Deploy Langflow on Docker](/deployment-docker).
             Your shell's prompt changes to display that you're currently working in a virtual environment:
 
             ```text
-            (VENV_NAME) PS C:/users/username/langflow-dir>
+            (VENV_NAME) PS C:/users/username/minerva-dir>
             ```
 
         3. To deactivate the virtual environment and return to your regular shell, type `deactivate`.
@@ -166,17 +166,17 @@ For more information, see [Deploy Langflow on Docker](/deployment-docker).
 3. In your virtual environment, install Langflow:
 
     ```bash
-    uv pip install langflow
+    uv pip install minerva
     ```
 
-    To install a specific version of the Langflow package, add the required version to the command, such as `uv pip install langflow==1.4.22`.
+    To install a specific version of the Langflow package, add the required version to the command, such as `uv pip install minerva==1.4.22`.
 
     <details>
     <summary>Reinstall or upgrade Langflow</summary>
 
-    To reinstall Langflow and all of its dependencies, run `uv pip install langflow --force-reinstall`.
+    To reinstall Langflow and all of its dependencies, run `uv pip install minerva --force-reinstall`.
 
-    To upgrade Langflow to the latest version, run `uv pip install langflow -U`.
+    To upgrade Langflow to the latest version, run `uv pip install minerva -U`.
     However, the Langflow team recommends taking steps to backup your existing installation before you upgrade Langflow.
     For more information, see [Prepare to upgrade](/release-notes#prepare-to-upgrade).
 
@@ -185,7 +185,7 @@ For more information, see [Deploy Langflow on Docker](/deployment-docker).
 4. Start Langflow:
 
     ```bash
-    uv run langflow run
+    uv run minerva run
     ```
 
     It can take a few minutes for Langflow to start.
