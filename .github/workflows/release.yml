@@ -29,6 +29,11 @@ on:
         required: false
         type: boolean
         default: true
+      publish_to_pypi:
+        description: "Publish packages to PyPI"
+        required: false
+        type: boolean
+        default: false
       pre_release:
         description: "Pre-release"
         required: false
@@ -114,7 +119,7 @@ jobs:
             echo "Server forcefully terminated"
           fi
       - name: Publish to PyPI
-        if: steps.check-version.outputs.skipped == 'false'
+        if: steps.check-version.outputs.skipped == 'false' && inputs.publish_to_pypi == true
         env:
           UV_PUBLISH_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
         run: |
@@ -198,6 +203,7 @@ jobs:
             echo "Server forcefully terminated"
           fi
       - name: Publish to PyPI
+        if: inputs.publish_to_pypi == true
         env:
           UV_PUBLISH_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
         run: |
@@ -208,39 +214,128 @@ jobs:
           name: dist-main
           path: dist
 
-  call_docker_build_base:
-    name: Call Docker Build Workflow for Flowai Base
+  docker_build_base:
+    name: Build Docker Image for Flowai Base (Local Packages)
     if: inputs.build_docker_base == true
-    needs: [release-base, release-main]
-    uses: ./.github/workflows/docker-build.yml
-    with:
-      base_version: ${{ needs.release-base.outputs.version }}
-      main_version: ${{ needs.release-main.outputs.version }}
-      release_type: base
-      pre_release: ${{ inputs.pre_release }}
-    secrets: inherit
+    needs: [release-base]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Download base artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-base
+          path: dist
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      
+      - name: Build and push base image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          file: ./docker/build_and_push_base_local.Dockerfile
+          tags: |
+            digitranslab/flowai:base-${{ needs.release-base.outputs.version }}
+            digitranslab/flowai:base-latest
+          platforms: linux/amd64,linux/arm64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
-  call_docker_build_main:
-    name: Call Docker Build Workflow for Flowai
+  docker_build_main:
+    name: Build Docker Image for Flowai (Local Packages)
     if: inputs.build_docker_main == true
-    needs: [release-main]
-    uses: ./.github/workflows/docker-build.yml
-    with:
-      main_version: ${{ needs.release-main.outputs.version }}
-      release_type: main
-      pre_release: ${{ inputs.pre_release }}
-    secrets: inherit
+    needs: [release-base, release-main]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Download base artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-base
+          path: dist
+      
+      - name: Download main artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-main
+          path: dist
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      
+      - name: Build and push main image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          file: ./docker/build_and_push_local.Dockerfile
+          tags: |
+            digitranslab/flowai:${{ needs.release-main.outputs.version }}
+            ${{ inputs.pre_release == false && 'digitranslab/flowai:latest' || '' }}
+          platforms: linux/amd64,linux/arm64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
-  call_docker_build_main_ep:
-    name: Call Docker Build Workflow for Flowai with Entrypoint
+  docker_build_main_ep:
+    name: Build Docker Image for Flowai with Entrypoint (Local Packages)
     if: inputs.build_docker_ep == true
-    needs: [release-main]
-    uses: ./.github/workflows/docker-build.yml
-    with:
-      main_version: ${{ needs.release-main.outputs.version }}
-      release_type: main-ep
-      pre_release: False
-    secrets: inherit
+    needs: [release-base, release-main]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Download base artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-base
+          path: dist
+      
+      - name: Download main artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-main
+          path: dist
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      
+      - name: Build and push entrypoint image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          file: ./docker/build_and_push_ep_local.Dockerfile
+          tags: |
+            digitranslab/flowai-ep:${{ needs.release-main.outputs.version }}
+            digitranslab/flowai-ep:latest
+          platforms: linux/amd64,linux/arm64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
   create_release:
     name: Create Release
