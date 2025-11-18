@@ -224,7 +224,7 @@ jobs:
 #          tags: ${{ needs.setup.outputs.docker_tags }}
           platforms: linux/amd64,linux/arm64
           cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-to: type=gha,mode=min
 
   build_components:
     if: ${{ inputs.release_type == 'main' }}

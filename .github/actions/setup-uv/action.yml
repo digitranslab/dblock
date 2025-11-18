@@ -12,10 +12,14 @@ runs:
     - name: Install uv
       uses: astral-sh/setup-uv@v3
       with:
-        enable-cache: true
-        cache-dependency-glob: "uv.lock"
+        enable-cache: false
 
     - name: "Set up Python"
       uses: actions/setup-python@v5
       with:
         python-version: ${{ inputs.python-version }}
+    
+    - name: Setup uv cache manually
+      shell: bash
+      run: |
+        echo "UV_CACHE_DIR=${{ runner.temp }}/.uv-cache" >> $GITHUB_ENV
