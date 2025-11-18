@@ -284,4 +284,3 @@ jobs:
           file: ${{ matrix.dockerfile }}
           tags: ${{ matrix.tags }}
           provenance: false
-          provenance: false
