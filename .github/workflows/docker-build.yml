@@ -269,6 +269,11 @@ jobs:
       - name: Wait for propagation (for backend)
         run: sleep 120
 
+      - name: Verify base image exists
+        run: |
+          echo "Checking if base image ${{ matrix.minerva_image }} exists..."
+          docker pull ${{ matrix.minerva_image }} || (echo "Base image not found, waiting longer..." && sleep 60 && docker pull ${{ matrix.minerva_image }})
+
       - name: Build and push ${{ matrix.component }}
         uses: docker/build-push-action@v6
         with:
@@ -278,4 +283,5 @@ jobs:
             MINERVA_IMAGE=${{ matrix.minerva_image }}
           file: ${{ matrix.dockerfile }}
           tags: ${{ matrix.tags }}
+          provenance: false
           provenance: false
