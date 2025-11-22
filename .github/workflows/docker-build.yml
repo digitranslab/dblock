@@ -50,7 +50,7 @@ on:
 
 env:
   POETRY_VERSION: "1.8.2"
-  TEST_TAG: "digitranslab/kozmoai:test"
+  TEST_TAG: "digitranslab/dblock:test"
 
 jobs:
 #  get-version:
@@ -152,25 +152,25 @@ jobs:
 #          fi
 #
 #          if [[ "${{ inputs.release_type }}" == "base" || "${{ inputs.release_type }}" == "nightly-base" ]]; then
-#            # KOZMOAI-BASE RELEASE
-#            echo "docker_tags=digitranslab/kozmoai${nightly_suffix}:base-${{ needs.get-version.outputs.version }},digitranslab/kozmoai${nightly_suffix}:base-latest" >> $GITHUB_OUTPUT
-#            # echo "ghcr_tags=ghcr.io/digitranslab/kozmoai${nightly_suffix}:base-${{ needs.get-version.outputs.version }},ghcr.io/digitranslab/kozmoai${nightly_suffix}:base-latest" >> $GITHUB_OUTPUT
+#            # DBLOCK-BASE RELEASE
+#            echo "docker_tags=digitranslab/dblock${nightly_suffix}:base-${{ needs.get-version.outputs.version }},digitranslab/dblock${nightly_suffix}:base-latest" >> $GITHUB_OUTPUT
+#            # echo "ghcr_tags=ghcr.io/digitranslab/dblock${nightly_suffix}:base-${{ needs.get-version.outputs.version }},ghcr.io/digitranslab/dblock${nightly_suffix}:base-latest" >> $GITHUB_OUTPUT
 #            echo "file=./docker/build_and_push_base.Dockerfile" >> $GITHUB_OUTPUT
 #          else
 #            if [[ "${{ inputs.pre_release }}" == "true" ]]; then
-#              # KOZMOAI-MAIN PRE-RELEASE
-#              echo "docker_tags=digitranslab/kozmoai${nightly_suffix}:${{ needs.get-version.outputs.version }}" >> $GITHUB_OUTPUT
-#              # echo "ghcr_tags=ghcr.io/digitranslab/kozmoai${nightly_suffix}:${{ needs.get-version.outputs.version }}" >> $GITHUB_OUTPUT
+#              # DBLOCK-MAIN PRE-RELEASE
+#              echo "docker_tags=digitranslab/dblock${nightly_suffix}:${{ needs.get-version.outputs.version }}" >> $GITHUB_OUTPUT
+#              # echo "ghcr_tags=ghcr.io/digitranslab/dblock${nightly_suffix}:${{ needs.get-version.outputs.version }}" >> $GITHUB_OUTPUT
 #              echo "file=./docker/build_and_push.Dockerfile" >> $GITHUB_OUTPUT
 #            elif [[ "${{ inputs.release_type }}" == "main-ep" ]]; then
-#              # KOZMOAI-MAIN (ENTRYPOINT) RELEASE
-#              echo "docker_tags=digitranslab/kozmoai-ep${nightly_suffix}:${{ needs.get-version.outputs.version }},digitranslab/kozmoai-ep${nightly_suffix}:latest" >> $GITHUB_OUTPUT
-#              # echo "ghcr_tags=ghcr.io/digitranslab/kozmoai-ep${nightly_suffix}:${{ needs.get-version.outputs.version }},ghcr.io/digitranslab/kozmoai-ep${nightly_suffix}:latest" >> $GITHUB_OUTPUT
+#              # DBLOCK-MAIN (ENTRYPOINT) RELEASE
+#              echo "docker_tags=digitranslab/dblock-ep${nightly_suffix}:${{ needs.get-version.outputs.version }},digitranslab/dblock-ep${nightly_suffix}:latest" >> $GITHUB_OUTPUT
+#              # echo "ghcr_tags=ghcr.io/digitranslab/dblock-ep${nightly_suffix}:${{ needs.get-version.outputs.version }},ghcr.io/digitranslab/dblock-ep${nightly_suffix}:latest" >> $GITHUB_OUTPUT
 #              echo "file=./docker/build_and_push_ep.Dockerfile" >> $GITHUB_OUTPUT
 #            elif [[ "${{ inputs.release_type }}" == "main" || "${{ inputs.release_type }}" == "nightly-main" ]]; then
-#              # KOZMOAI-MAIN RELEASE
-#              echo "docker_tags=digitranslab/kozmoai${nightly_suffix}:${{ needs.get-version.outputs.version }},digitranslab/kozmoai${nightly_suffix}:latest" >> $GITHUB_OUTPUT
-#              # echo "ghcr_tags=ghcr.io/digitranslab/kozmoai${nightly_suffix}:${{ needs.get-version.outputs.version }},ghcr.io/digitranslab/kozmoai${nightly_suffix}:latest" >> $GITHUB_OUTPUT
+#              # DBLOCK-MAIN RELEASE
+#              echo "docker_tags=digitranslab/dblock${nightly_suffix}:${{ needs.get-version.outputs.version }},digitranslab/dblock${nightly_suffix}:latest" >> $GITHUB_OUTPUT
+#              # echo "ghcr_tags=ghcr.io/digitranslab/dblock${nightly_suffix}:${{ needs.get-version.outputs.version }},ghcr.io/digitranslab/dblock${nightly_suffix}:latest" >> $GITHUB_OUTPUT
 #              echo "file=./docker/build_and_push.Dockerfile" >> $GITHUB_OUTPUT
 #            else
 #              echo "Invalid release type. Exiting the workflow."
@@ -219,12 +219,12 @@ jobs:
           context: .
           push: true
           file: ./docker/build_and_push.Dockerfile
-          tags: digitranslab/kozmoai:latest
+          tags: digitranslab/dblock:latest
 #          file: ${{ needs.setup.outputs.file }}
 #          tags: ${{ needs.setup.outputs.docker_tags }}
           platforms: linux/amd64,linux/arm64
           cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-to: type=gha,mode=min
 
   build_components:
     if: ${{ inputs.release_type == 'main' }}
@@ -240,16 +240,16 @@ jobs:
         include:
           - component: docker-backend
             dockerfile: ./docker/build_and_push_backend.Dockerfile
-            tags: digitranslab/kozmoai-backend:latest
-#            tags: digitranslab/kozmoai-backend:${{ needs.get-version.outputs.version }},digitranslab/kozmoai-backend:latest
-            kozmoai_image: digitranslab/kozmoai:latest
-#            kozmoai_image: digitranslab/kozmoai:${{ needs.get-version.outputs.version }}
+            tags: digitranslab/dblock-backend:latest
+#            tags: digitranslab/dblock-backend:${{ needs.get-version.outputs.version }},digitranslab/dblock-backend:latest
+            dblock_image: digitranslab/dblock:latest
+#            dblock_image: digitranslab/dblock:${{ needs.get-version.outputs.version }}
 
           - component: docker-frontend
             dockerfile: ./docker/frontend/build_and_push_frontend.Dockerfile
-            tags: digitranslab/kozmoai-frontend:latest
-#            tags: digitranslab/kozmoai-frontend:${{ needs.get-version.outputs.version }},digitranslab/kozmoai-frontend:latest
-            kozmoai_image: digitranslab/kozmoai:latest
+            tags: digitranslab/dblock-frontend:latest
+#            tags: digitranslab/dblock-frontend:${{ needs.get-version.outputs.version }},digitranslab/dblock-frontend:latest
+            dblock_image: digitranslab/dblock:latest
     steps:
       - name: Check out the code at a specific ref
         uses: actions/checkout@v4
@@ -275,7 +275,7 @@ jobs:
           context: .
           push: true
           build-args: |
-            KOZMOAI_IMAGE=${{ matrix.kozmoai_image }}
+            DBLOCK_IMAGE=${{ matrix.dblock_image }}
           file: ${{ matrix.dockerfile }}
           tags: ${{ matrix.tags }}
           provenance: false
