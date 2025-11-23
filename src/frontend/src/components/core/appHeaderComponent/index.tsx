@@ -143,36 +143,6 @@ export default function AppHeader(): JSX.Element {
             </AlertDropdown>
           </ShadTooltip>
         </AlertDropdown>
-        {!ENABLE_DATASTAX_KOZMOAI && (
-          <>
-            <ShadTooltip
-              content="Go to KozmoaiStore"
-              side="bottom"
-              styleClasses="z-10"
-            >
-              <Button
-                variant="ghost"
-                className={` ${lastPath === "store" ? "bg-accent text-accent-foreground" : ""}`}
-                onClick={() => {
-                  navigate("/store");
-                }}
-                data-testid="button-store"
-              >
-                <ForwardedIconComponent
-                  name="Store"
-                  className="side-bar-button-size h-[18px] w-[18px]"
-                />
-                <span className="hidden whitespace-nowrap 2xl:inline">
-                  Store
-                </span>
-              </Button>
-            </ShadTooltip>
-            <Separator
-              orientation="vertical"
-              className="my-auto h-7 dark:border-zinc-700"
-            />
-          </>
-        )}
         {ENABLE_DATASTAX_KOZMOAI && (
           <>
             <ShadTooltip content="Docs" side="bottom" styleClasses="z-10">
