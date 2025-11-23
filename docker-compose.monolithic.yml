@@ -1,0 +1,36 @@
+version: "3.8"
+
+# This is the simpler setup using the monolithic dblock image
+# Use this if you don't need separate frontend/backend containers
+
+services:
+  dblock:
+    image: digitranslab/dblock:latest
+    pull_policy: always
+    ports:
+      - "7860:7860"
+    depends_on:
+      - postgres
+    environment:
+      - KOZMOAI_DATABASE_URL=postgresql://kozmoai:kozmoai@postgres:5432/kozmoai
+      - KOZMOAI_CONFIG_DIR=/app/data
+      - KOZMOAI_HOST=0.0.0.0
+      - KOZMOAI_PORT=7860
+    user: "0:0"
+    volumes:
+      - dblock-data:/app/data
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: kozmoai
+      POSTGRES_PASSWORD: kozmoai
+      POSTGRES_DB: kozmoai
+    ports:
+      - "5432:5432"
+    volumes:
+      - dblock-postgres:/var/lib/postgresql/data
+
+volumes:
+  dblock-postgres:
+  dblock-data:
