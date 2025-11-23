@@ -18,7 +18,6 @@ import useAlertStore from "@/stores/alertStore";
 import { useEffect, useRef, useState } from "react";
 import { AccountMenu } from "./components/AccountMenu";
 import FlowMenu from "./components/FlowMenu";
-import GithubStarComponent from "./components/GithubStarButton";
 
 export default function AppHeader(): JSX.Element {
   const notificationCenter = useAlertStore((state) => state.notificationCenter);
@@ -91,19 +90,6 @@ export default function AppHeader(): JSX.Element {
         className={`flex items-center gap-2`}
         data-testid="header_right_section_wrapper"
       >
-        {!ENABLE_DATASTAX_KOZMOAI && (
-          <>
-            <Button
-              unstyled
-              className="hidden items-center whitespace-nowrap pr-2 2xl:inline"
-              onClick={() =>
-                window.open("https://github.com/digitranslab/kozmoai", "_blank")
-              }
-            >
-              <GithubStarComponent />
-            </Button>
-          </>
-        )}
         <AlertDropdown
           notificationRef={notificationContentRef}
           onClose={() => setActiveState(null)}

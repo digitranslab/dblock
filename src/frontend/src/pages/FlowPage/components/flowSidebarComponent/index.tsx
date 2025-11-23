@@ -77,9 +77,9 @@ export function FlowSidebarComponent() {
   const [search, setSearch] = useState("");
   const [fuse, setFuse] = useState<Fuse<any> | null>(null);
   const [openCategories, setOpenCategories] = useState<string[]>([]);
-  const [showConfig, setShowConfig] = useState(false);
-  const [showBeta, setShowBeta] = useState(true);
-  const [showLegacy, setShowLegacy] = useState(false);
+  // Always show beta and legacy components
+  const showBeta = true;
+  const showLegacy = true;
   const [isInputFocused, setIsInputFocused] = useState(false);
 
   const searchInputRef = useRef<HTMLInputElement | null>(null);
@@ -305,12 +305,6 @@ export function FlowSidebarComponent() {
       className="noflow"
     >
       <SidebarHeaderComponent
-        showConfig={showConfig}
-        setShowConfig={setShowConfig}
-        showBeta={showBeta}
-        setShowBeta={setShowBeta}
-        showLegacy={showLegacy}
-        setShowLegacy={setShowLegacy}
         searchInputRef={searchInputRef}
         isInputFocused={isInputFocused}
         search={search}
