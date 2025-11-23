@@ -274,8 +274,7 @@ jobs:
         with:
           context: .
           push: true
-          build-args: |
-            DBLOCK_IMAGE=${{ matrix.dblock_image }}
+          build-args: DBLOCK_IMAGE=${{ matrix.dblock_image }}
           file: ${{ matrix.dockerfile }}
           tags: ${{ matrix.tags }}
           provenance: false
