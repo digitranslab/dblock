@@ -278,3 +278,5 @@ jobs:
           file: ${{ matrix.dockerfile }}
           tags: ${{ matrix.tags }}
           provenance: false
+          no-cache: true
+          pull: true

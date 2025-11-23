@@ -39,6 +39,11 @@ on:
         required: false
         type: boolean
         default: true
+      ref:
+        description: "Git ref (branch/tag) to build from. Leave empty to use the branch you're running from."
+        required: false
+        type: string
+        default: ""
 
 
 jobs:
@@ -219,6 +224,7 @@ jobs:
       main_version: ${{ needs.get-version.outputs.version }}
       release_type: base
       pre_release: ${{ inputs.pre_release }}
+      ref: ${{ inputs.ref || github.ref }}
     secrets: inherit
 
   call_docker_build_main:
@@ -230,6 +236,7 @@ jobs:
       main_version: ${{ needs.get-version.outputs.version }}
       release_type: main
       pre_release: ${{ inputs.pre_release }}
+      ref: ${{ inputs.ref || github.ref }}
     secrets: inherit
 
   call_docker_build_main_ep:
@@ -241,6 +248,7 @@ jobs:
       main_version: ${{ needs.get-version.outputs.version }}
       release_type: main-ep
       pre_release: False
+      ref: ${{ inputs.ref || github.ref }}
     secrets: inherit
 
   # TEMPORARILY DISABLED - GitHub Release creation
