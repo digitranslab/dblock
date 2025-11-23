@@ -5,7 +5,11 @@ echo "🚀 DBLock Docker Build & Run Script"
 echo "===================================="
 echo ""
 
-# Build all images
+# Stop any running containers
+echo "🛑 Stopping any running containers..."
+docker-compose -f docker-compose.monolithic.yml down 2>/dev/null || true
+
+# Build main image (uses cache for speed)
 echo "📦 Building digitranslab/dblock:latest..."
 docker build -f docker/build_and_push.Dockerfile -t digitranslab/dblock:latest . --platform linux/amd64
 
