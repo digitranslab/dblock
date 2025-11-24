@@ -19,11 +19,6 @@ export default function ParentDisclosureComponent({
             >
               <div className="flex items-baseline gap-1 align-baseline">
                 <span className="text-sm font-medium">{title}</span>
-                {beta && (
-                  <div className="h-fit rounded-full bg-beta-background px-2 py-1 text-xs/3 font-semibold text-beta-foreground-soft">
-                    Beta
-                  </div>
-                )}
               </div>
               <div className="components-disclosure-div">
                 {buttons.map((btn, index) => (
