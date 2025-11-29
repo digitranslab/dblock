@@ -21,7 +21,6 @@ import { useAddComponent } from "@/hooks/useAddComponent";
 import { nodeColorsName } from "@/utils/styleUtils";
 import { cn, isSupportedNodeTypes } from "@/utils/utils";
 import {
-  Background,
   Connection,
   Edge,
   OnNodeDrag,
@@ -574,7 +573,6 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
             onPaneClick={onPaneClick}
             onEdgeClick={handleEdgeClick}
           >
-            <Background size={2} gap={20} className="" />
             {!view && (
               <>
                 <CanvasControls>
