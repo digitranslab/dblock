@@ -67,7 +67,7 @@ export default function AppHeader(): JSX.Element {
           {ENABLE_DATASTAX_KOZMOAI ? (
             <DataStaxLogo className="fill-black dark:fill-[white]" />
           ) : ENABLE_NEW_LOGO ? (
-            <KozmoaiLogo className="h-5 w-6" />
+            <KozmoaiLogo className="h-8 w-10" />
           ) : (
             <span className="fill-black text-2xl dark:fill-white">⛓️</span>
           )}
