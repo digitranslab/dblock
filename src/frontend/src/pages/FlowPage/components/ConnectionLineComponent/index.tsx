@@ -12,18 +12,22 @@ const ConnectionLineComponent = ({
   const color = handleDragging?.color;
   const accentColor = `hsl(var(--datatype-${color}))`;
 
+  // Calculate orthogonal path
+  // Start from source, go right, then turn to reach target
+  const midX = fromX + (toX - fromX) / 2;
+  const orthogonalPath = `M${fromX},${fromY} L${midX},${fromY} L${midX},${toY} L${toX},${toY}`;
+
   return (
     <g>
       <path
         fill="none"
-        // ! Replace hash # colors here
         strokeWidth={2}
         className={`animated`}
         style={{
           stroke: handleDragging ? accentColor : "",
           ...connectionLineStyle,
         }}
-        d={`M${fromX},${fromY} C ${fromX} ${toY} ${fromX} ${toY} ${toX},${toY}`}
+        d={orthogonalPath}
       />
       <circle
         cx={toX}
