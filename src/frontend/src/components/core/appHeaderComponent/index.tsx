@@ -61,13 +61,18 @@ export default function AppHeader(): JSX.Element {
         <Button
           unstyled
           onClick={() => navigate("/")}
-          className="mr-1 flex h-8 w-8 items-center"
+          className="mr-1 flex items-center gap-2"
           data-testid="icon-ChevronLeft"
         >
           {ENABLE_DATASTAX_KOZMOAI ? (
             <DataStaxLogo className="fill-black dark:fill-[white]" />
           ) : ENABLE_NEW_LOGO ? (
-            <KozmoaiLogo className="h-8 w-10" />
+            <>
+              <KozmoaiLogo className="h-16 w-20" />
+              <span className="text-2xl font-bold" style={{ color: "#ffbd59" }}>
+                DBlock
+              </span>
+            </>
           ) : (
             <span className="fill-black text-2xl dark:fill-white">⛓️</span>
           )}

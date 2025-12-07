@@ -39,13 +39,14 @@ on:
         required: true
         type: string
       pre_release:
+        description: "Whether this is a pre-release build"
         required: false
         type: boolean
         default: false
       ref:
+        description: "Ref to check out. If not specified, will default to the main version or current branch."
         required: false
         type: string
-        description: "Ref to check out. If not specified, will default to the main version or current branch."
 
 
 env:
@@ -186,6 +187,17 @@ jobs:
     runs-on: ubuntu-latest
 #    needs: [get-version, setup]
     steps:
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: true
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: true
+
       - name: Check out the code at a specific ref
         uses: actions/checkout@v4
         with:
@@ -251,6 +263,17 @@ jobs:
 #            tags: digitranslab/dblock-frontend:${{ needs.get-version.outputs.version }},digitranslab/dblock-frontend:latest
             dblock_image: digitranslab/dblock:latest
     steps:
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: true
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: true
+
       - name: Check out the code at a specific ref
         uses: actions/checkout@v4
         with:
