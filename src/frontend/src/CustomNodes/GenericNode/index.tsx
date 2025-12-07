@@ -459,13 +459,13 @@ function GenericNode({
         className={cn(
           borderColor,
           showNode ? "w-80" : `w-48`,
-          "generic-node-div group/node relative rounded-xl shadow-sm hover:shadow-md",
+          "generic-node-div group/node relative rounded-none shadow-sm hover:shadow-md",
           !hasOutputs && "pb-4",
         )}
       >
         {memoizedNodeToolbarComponent}
         {isOutdated && !isUserEdited && !dismissAll && (
-          <div className="flex h-10 w-full items-center gap-4 rounded-t-[0.69rem] bg-warning p-2 px-4 text-warning-foreground">
+          <div className="flex h-10 w-full items-center gap-4 bg-warning p-2 px-4 text-warning-foreground">
             <ForwardedIconComponent
               name="AlertTriangle"
               strokeWidth={ICON_STROKE_WIDTH}
@@ -499,7 +499,7 @@ function GenericNode({
             className={
               !showNode
                 ? ""
-                : "generic-node-div-title justify-between rounded-t-lg"
+                : "generic-node-div-title justify-between"
             }
           >
             <div

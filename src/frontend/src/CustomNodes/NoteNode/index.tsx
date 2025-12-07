@@ -135,7 +135,7 @@ function NoteNode({
         }}
         ref={nodeDiv}
         className={cn(
-          "relative flex h-full w-full flex-col gap-3 rounded-xl p-3",
+          "relative flex h-full w-full flex-col gap-3 rounded-none p-3",
           "transition-all duration-200 ease-in-out",
           !isResizing && "transition-transform",
           COLOR_OPTIONS[bgColor] !== null &&
