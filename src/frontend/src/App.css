@@ -136,7 +136,50 @@ body {
 .react-flow__edge.selected .react-flow__edge-path {
   stroke: var(--selected) !important;
   stroke-width: 2px !important;
+  stroke-dasharray: 5 5 !important;
+  animation: flow-animation 0.5s linear infinite !important;
 }
+
+@keyframes flow-animation {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -10;
+  }
+}
+
+/* Animated purple border for selected/hovered nodes */
+.react-flow__node.selected .generic-node-div,
+.react-flow__node:hover .generic-node-div {
+  position: relative;
+  border: 2px solid transparent !important;
+  background: linear-gradient(hsl(var(--background)), hsl(var(--background))) padding-box,
+    conic-gradient(
+      from var(--border-angle, 0deg),
+      #a855f7,
+      #7c3aed,
+      #6366f1,
+      #a855f7
+    ) border-box !important;
+  animation: rotate-border 2s linear infinite !important;
+}
+
+@keyframes rotate-border {
+  from {
+    --border-angle: 0deg;
+  }
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
 .react-flow__controls-button svg {
   fill: none !important;
 }
