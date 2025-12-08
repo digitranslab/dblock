@@ -82,6 +82,7 @@ const NodeToolbarComponent = memo(
     const setNodes = useFlowStore((state) => state.setNodes);
     const setEdges = useFlowStore((state) => state.setEdges);
     const getNodePosition = useFlowStore((state) => state.getNodePosition);
+    const setPropertiesPanelOpen = useFlowStore((state) => state.setPropertiesPanelOpen);
     const flows = useFlowsManagerStore((state) => state.flows);
     const takeSnapshot = useFlowsManagerStore((state) => state.takeSnapshot);
     const { mutate: FreezeAllVertices } = usePostRetrieveVertexOrder({
@@ -343,7 +344,7 @@ const NodeToolbarComponent = memo(
             setOpenModal(!openModal);
             break;
           case "advanced":
-            setShowModalAdvanced(true);
+            setPropertiesPanelOpen(true, data.id);
             break;
           case "show":
             takeSnapshot();
@@ -408,7 +409,7 @@ const NodeToolbarComponent = memo(
         freezeFunction,
         FreezeAllVertices,
         setOpenModal,
-        setShowModalAdvanced,
+        setPropertiesPanelOpen,
         handleMinimize,
         shareComponent,
         downloadNode,
@@ -422,6 +423,7 @@ const NodeToolbarComponent = memo(
         paste,
         handleActivateToolMode,
         toolMode,
+        data.id,
       ],
     );
 
@@ -463,7 +465,7 @@ const NodeToolbarComponent = memo(
             <ToolbarButton
               icon="SlidersHorizontal"
               label="Controls"
-              onClick={() => setShowModalAdvanced(true)}
+              onClick={() => setPropertiesPanelOpen(true, data.id)}
               shortcut={shortcuts.find((s) =>
                 s.name.toLowerCase().startsWith("advanced"),
               )}
@@ -549,6 +551,7 @@ const NodeToolbarComponent = memo(
         shortcuts,
         frozen,
         handleSelectChange,
+        setPropertiesPanelOpen,
       ],
     );
 

@@ -481,30 +481,19 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
   const onSelectionChange = useCallback(
     (flow: OnSelectionChangeParams): void => {
       setLastSelection(flow);
-      // Open properties panel when a single generic node is selected
+      // Update the selected node for the properties panel (but don't auto-open)
       if (flow.nodes.length === 1 && flow.nodes[0].type === "genericNode") {
         const selectedNode = flow.nodes[0];
-        const nodeData = selectedNode.data as NodeDataType;
-        // Only open if the node has template parameters
-        if (
-          nodeData.node?.template &&
-          Object.keys(nodeData.node.template).length > 0
-        ) {
-          setPropertiesPanelOpen(true, selectedNode.id);
-        }
-      } else if (flow.nodes.length === 0) {
-        // Close panel when nothing is selected
-        setPropertiesPanelOpen(false);
+        // Store the selected node ID for when Controls button is clicked
+        useFlowStore.setState({ propertiesPanelNodeId: selectedNode.id });
       }
     },
-    [setPropertiesPanelOpen],
+    [],
   );
 
   const onPaneClick = useCallback(
     (event: React.MouseEvent) => {
       setFilterEdge([]);
-      // Close properties panel when clicking on empty canvas
-      setPropertiesPanelOpen(false);
       if (isAddingNote) {
         const shadowBox = document.getElementById("shadow-box");
         if (shadowBox) {
@@ -544,7 +533,6 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
       reactFlowInstance,
       getNodeId,
       setFilterEdge,
-      setPropertiesPanelOpen,
     ],
   );
 

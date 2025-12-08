@@ -23,20 +23,20 @@ const useColumnDefs = (
           );
         },
         wrapText: true,
-        autoHeight: true,
         flex: 1,
         resizable: false,
         cellClass: "no-border",
+        suppressSizeToFit: true,
       },
       {
         headerName: "Description",
         field: "info",
         tooltipField: "info",
         wrapText: true,
-        autoHeight: true,
         flex: 2,
         resizable: false,
         cellClass: "no-border",
+        suppressSizeToFit: true,
       },
       {
         headerName: "Value",
@@ -53,10 +53,10 @@ const useColumnDefs = (
           params.event.key === "a" &&
           (params.event.ctrlKey || params.event.metaKey),
         minWidth: 340,
-        autoHeight: true,
         flex: 1,
         resizable: false,
         cellClass: "no-border",
+        suppressSizeToFit: true,
       },
     ];
     if (!hideVisibility) {

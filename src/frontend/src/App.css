@@ -263,3 +263,17 @@ code {
   box-shadow: none !important;
   border-radius: 0px !important;
 }
+
+/* Prevent AG Grid row shaking on cell interaction */
+.ag-row {
+  contain: layout style;
+}
+
+.ag-cell {
+  contain: layout style;
+}
+
+/* Stabilize cell content during focus/interaction */
+.ag-cell-focus {
+  transform: translateZ(0);
+}

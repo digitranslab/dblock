@@ -1,6 +1,5 @@
 import CodeAreaModal from "@/modals/codeAreaModal";
 import ConfirmationModal from "@/modals/confirmationModal";
-import EditNodeModal from "@/modals/editNodeModal";
 import ShareModal from "@/modals/shareModal";
 import { APIClassType } from "@/types/api";
 import { FlowType } from "@/types/flow";
@@ -76,14 +75,6 @@ const ToolbarModals = memo(
 
     return (
       <>
-        {showModalAdvanced && (
-          <EditNodeModal
-            data={data}
-            open={showModalAdvanced}
-            setOpen={setShowModalAdvanced}
-          />
-        )}
-
         {showconfirmShare && (
           <ShareModal
             open={showconfirmShare}
