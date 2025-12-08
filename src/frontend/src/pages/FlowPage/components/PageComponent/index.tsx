@@ -53,7 +53,12 @@ import useFlowsManagerStore from "../../../../stores/flowsManagerStore";
 import { useShortcutsStore } from "../../../../stores/shortcuts";
 import { useTypesStore } from "../../../../stores/typesStore";
 import { APIClassType } from "../../../../types/api";
-import { AllNodeType, EdgeType, NoteNodeType } from "../../../../types/flow";
+import {
+  AllNodeType,
+  EdgeType,
+  NodeDataType,
+  NoteNodeType,
+} from "../../../../types/flow";
 import {
   generateFlow,
   generateNodeFromFlow,
@@ -63,6 +68,7 @@ import {
   updateIds,
   validateSelection,
 } from "../../../../utils/reactflowUtils";
+import EditNodeModal from "../../../../modals/editNodeModal";
 import ConnectionLineComponent from "../ConnectionLineComponent";
 import SelectionMenu from "../SelectionMenuComponent";
 import UpdateAllComponents from "../UpdateAllComponents";
@@ -124,6 +130,17 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
   const currentFlowId = useFlowsManagerStore((state) => state.currentFlowId);
 
   const [isAddingNote, setIsAddingNote] = useState(false);
+
+  // Properties panel state
+  const propertiesPanelOpen = useFlowStore(
+    (state) => state.propertiesPanelOpen,
+  );
+  const propertiesPanelNodeId = useFlowStore(
+    (state) => state.propertiesPanelNodeId,
+  );
+  const selectedNodeData = nodes.find(
+    (n) => n.id === propertiesPanelNodeId,
+  )?.data as NodeDataType | undefined;
 
   const addComponent = useAddComponent();
 
@@ -457,16 +474,37 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
     }
   }, [selectionEnded, lastSelection]);
 
+  const setPropertiesPanelOpen = useFlowStore(
+    (state) => state.setPropertiesPanelOpen,
+  );
+
   const onSelectionChange = useCallback(
     (flow: OnSelectionChangeParams): void => {
       setLastSelection(flow);
+      // Open properties panel when a single generic node is selected
+      if (flow.nodes.length === 1 && flow.nodes[0].type === "genericNode") {
+        const selectedNode = flow.nodes[0];
+        const nodeData = selectedNode.data as NodeDataType;
+        // Only open if the node has template parameters
+        if (
+          nodeData.node?.template &&
+          Object.keys(nodeData.node.template).length > 0
+        ) {
+          setPropertiesPanelOpen(true, selectedNode.id);
+        }
+      } else if (flow.nodes.length === 0) {
+        // Close panel when nothing is selected
+        setPropertiesPanelOpen(false);
+      }
     },
-    [],
+    [setPropertiesPanelOpen],
   );
 
   const onPaneClick = useCallback(
     (event: React.MouseEvent) => {
       setFilterEdge([]);
+      // Close properties panel when clicking on empty canvas
+      setPropertiesPanelOpen(false);
       if (isAddingNote) {
         const shadowBox = document.getElementById("shadow-box");
         if (shadowBox) {
@@ -500,7 +538,14 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
         setIsAddingNote(false);
       }
     },
-    [isAddingNote, setNodes, reactFlowInstance, getNodeId, setFilterEdge],
+    [
+      isAddingNote,
+      setNodes,
+      reactFlowInstance,
+      getNodeId,
+      setFilterEdge,
+      setPropertiesPanelOpen,
+    ],
   );
 
   const handleEdgeClick = (event, edge) => {
@@ -638,6 +683,14 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
         <div className="flex h-full w-full items-center justify-center">
           <CustomLoader remSize={30} />
         </div>
+      )}
+      {/* Properties Panel - Sliding from right */}
+      {selectedNodeData && (
+        <EditNodeModal
+          open={propertiesPanelOpen}
+          setOpen={(open) => setPropertiesPanelOpen(open)}
+          data={selectedNodeData}
+        />
       )}
     </div>
   );
