@@ -1,5 +1,4 @@
 import { APIClassType } from "@/types/api";
-import { customStringify } from "@/utils/reactflowUtils";
 import { useEffect, useState } from "react";
 import { Badge } from "../../components/ui/badge";
 import { Button } from "../../components/ui/button";
@@ -28,22 +27,20 @@ const EditNodeModal = ({
 
   const [nodeClass, setNodeClass] = useState<APIClassType>(data.node!);
 
+  // Update nodeClass when data.id changes (different node selected) or when template changes
   useEffect(() => {
-    if (
-      customStringify(Object.keys(data?.node?.template ?? {})) ===
-      customStringify(Object.keys(nodeClass?.template ?? {}))
-    )
-      return;
-    setNodeClass(data.node!);
-  }, [data.node]);
+    if (data.node) {
+      setNodeClass(data.node);
+    }
+  }, [data.id, data.node]);
 
   return (
     <Sheet key={data.id} open={open} onOpenChange={setOpen}>
       <SheetContent
         side="right"
-        className="w-[500px] overflow-y-auto sm:max-w-[500px]"
+        className="flex h-full w-[1000px] flex-col overflow-hidden sm:max-w-[1000px]"
       >
-        <SheetHeader className="pb-4">
+        <SheetHeader className="flex-shrink-0 pb-4">
           <SheetTitle className="flex items-center gap-2">
             <span data-testid="node-modal-title">
               {data.node?.display_name ?? data.type}
@@ -54,14 +51,17 @@ const EditNodeModal = ({
           </SheetTitle>
           <SheetDescription>{data.node?.description}</SheetDescription>
         </SheetHeader>
-        <div className="flex-1 overflow-y-auto">
-          <EditNodeComponent
-            open={open}
-            nodeClass={nodeClass}
-            nodeId={data.id}
-          />
+        <div className="min-h-0 flex-1 overflow-y-auto">
+          {nodeClass && (
+            <EditNodeComponent
+              open={open}
+              nodeClass={nodeClass}
+              nodeId={data.id}
+              autoHeight={true}
+            />
+          )}
         </div>
-        <SheetFooter className="pt-4">
+        <SheetFooter className="flex-shrink-0 pt-4">
           <Button onClick={() => setOpen(false)}>Close</Button>
         </SheetFooter>
       </SheetContent>
