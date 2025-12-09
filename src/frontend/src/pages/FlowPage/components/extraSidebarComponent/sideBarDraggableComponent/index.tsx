@@ -1,6 +1,9 @@
 import useDeleteFlow from "@/hooks/flows/use-delete-flow";
+import useFlowStore from "@/stores/flowStore";
 import { DragEventHandler, forwardRef, useRef, useState } from "react";
 import IconComponent from "../../../../../components/common/genericIconComponent";
+import ShadTooltip from "../../../../../components/common/shadTooltipComponent";
+import { Button } from "../../../../../components/ui/button";
 import {
   Select,
   SelectContent,
@@ -43,6 +46,7 @@ export const SidebarDraggableComponent = forwardRef(
     const [open, setOpen] = useState(false);
     const { deleteFlow } = useDeleteFlow();
     const flows = useFlowsManagerStore((state) => state.flows);
+    const setDocsPanelOpen = useFlowStore((state) => state.setDocsPanelOpen);
 
     const version = useDarkStore((state) => state.version);
     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
@@ -115,43 +119,58 @@ export const SidebarDraggableComponent = forwardRef(
               className="side-bar-components-div-form"
             >
               <span className="side-bar-components-text">{display_name}</span>
-              <div ref={popoverRef}>
-                <IconComponent
-                  name="Menu"
-                  className="side-bar-components-icon"
-                />
-                <SelectTrigger></SelectTrigger>
-                <SelectContent
-                  position="popper"
-                  side="bottom"
-                  sideOffset={-25}
-                  style={{
-                    position: "absolute",
-                    left: cursorPos.x,
-                    top: cursorPos.y,
-                  }}
-                >
-                  <SelectItem value={"download"}>
-                    <div className="flex">
-                      <IconComponent
-                        name="Download"
-                        className="relative top-0.5 mr-2 h-4 w-4"
-                      />{" "}
-                      Download{" "}
-                    </div>{" "}
-                  </SelectItem>
-                  {!official && (
-                    <SelectItem value={"delete"}>
+              <div className="flex items-center gap-1">
+                <ShadTooltip content="Documentation" styleClasses="z-50">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-6 w-6 text-muted-foreground hover:text-primary"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setDocsPanelOpen(true, apiClass);
+                    }}
+                  >
+                    <IconComponent name="FileText" className="h-4 w-4" />
+                  </Button>
+                </ShadTooltip>
+                <div ref={popoverRef}>
+                  <IconComponent
+                    name="Menu"
+                    className="side-bar-components-icon"
+                  />
+                  <SelectTrigger></SelectTrigger>
+                  <SelectContent
+                    position="popper"
+                    side="bottom"
+                    sideOffset={-25}
+                    style={{
+                      position: "absolute",
+                      left: cursorPos.x,
+                      top: cursorPos.y,
+                    }}
+                  >
+                    <SelectItem value={"download"}>
                       <div className="flex">
                         <IconComponent
-                          name="Trash2"
+                          name="Download"
                           className="relative top-0.5 mr-2 h-4 w-4"
                         />{" "}
-                        Delete{" "}
+                        Download{" "}
                       </div>{" "}
                     </SelectItem>
-                  )}
-                </SelectContent>
+                    {!official && (
+                      <SelectItem value={"delete"}>
+                        <div className="flex">
+                          <IconComponent
+                            name="Trash2"
+                            className="relative top-0.5 mr-2 h-4 w-4"
+                          />{" "}
+                          Delete{" "}
+                        </div>{" "}
+                      </SelectItem>
+                    )}
+                  </SelectContent>
+                </div>
               </div>
             </div>
           </div>

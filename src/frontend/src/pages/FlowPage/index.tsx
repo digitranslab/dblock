@@ -3,6 +3,7 @@ import { useGetFlow } from "@/controllers/API/queries/flows/use-get-flow";
 import { useCustomNavigate } from "@/customization/hooks/use-custom-navigate";
 import useSaveFlow from "@/hooks/flows/use-save-flow";
 import { useIsMobile } from "@/hooks/use-mobile";
+import DocsModal from "@/modals/docsModal";
 import { SaveChangesModal } from "@/modals/saveChangesModal";
 import useAlertStore from "@/stores/alertStore";
 import { customStringify } from "@/utils/reactflowUtils";
@@ -18,6 +19,11 @@ export default function FlowPage({ view }: { view?: boolean }): JSX.Element {
   const currentFlow = useFlowStore((state) => state.currentFlow);
   const currentSavedFlow = useFlowsManagerStore((state) => state.currentFlow);
   const setSuccessData = useAlertStore((state) => state.setSuccessData);
+
+  // Documentation panel state
+  const docsPanelOpen = useFlowStore((state) => state.docsPanelOpen);
+  const docsPanelComponent = useFlowStore((state) => state.docsPanelComponent);
+  const setDocsPanelOpen = useFlowStore((state) => state.setDocsPanelOpen);
 
   const changesNotSaved =
     customStringify(currentFlow) !== customStringify(currentSavedFlow) &&
@@ -198,6 +204,14 @@ export default function FlowPage({ view }: { view?: boolean }): JSX.Element {
             />
           )}
         </>
+      )}
+      {/* Documentation Panel */}
+      {docsPanelComponent && (
+        <DocsModal
+          open={docsPanelOpen}
+          setOpen={(open) => setDocsPanelOpen(open)}
+          component={docsPanelComponent}
+        />
       )}
     </>
   );

@@ -1,5 +1,6 @@
 from kozmoai.api.v1.api_key import router as api_key_router
 from kozmoai.api.v1.chat import router as chat_router
+from kozmoai.api.v1.docs import router as docs_router
 from kozmoai.api.v1.endpoints import router as endpoints_router
 from kozmoai.api.v1.files import router as files_router
 from kozmoai.api.v1.flows import router as flows_router
@@ -16,6 +17,7 @@ from kozmoai.api.v1.variable import router as variables_router
 __all__ = [
     "api_key_router",
     "chat_router",
+    "docs_router",
     "endpoints_router",
     "files_router",
     "flows_router",

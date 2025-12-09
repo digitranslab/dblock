@@ -951,6 +951,15 @@ const useFlowStore = create<FlowStoreType>((set, get) => ({
       propertiesPanelNodeId: open ? (nodeId ?? get().propertiesPanelNodeId) : null,
     });
   },
+  // Documentation panel state
+  docsPanelOpen: false,
+  docsPanelComponent: null,
+  setDocsPanelOpen: (open: boolean, component?: any | null) => {
+    set({
+      docsPanelOpen: open,
+      docsPanelComponent: open ? (component ?? get().docsPanelComponent) : null,
+    });
+  },
 }));
 
 export default useFlowStore;

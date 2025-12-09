@@ -1,0 +1,85 @@
+# Component Documentation Schema
+# This file defines the structure for component documentation YAML files
+
+# Example structure for a component documentation file:
+#
+# component_name: OpenAIModel
+# display_name: OpenAI
+# category: models
+# version: "1.0.0"
+#
+# overview:
+#   summary: "Generate text using OpenAI's GPT models"
+#   description: |
+#     The OpenAI component allows you to integrate OpenAI's powerful language models
+#     into your workflows. It supports various GPT models including GPT-4, GPT-4 Turbo,
+#     and GPT-3.5 Turbo.
+#
+# features:
+#   - "Support for multiple OpenAI models"
+#   - "Configurable temperature and token limits"
+#   - "JSON mode for structured outputs"
+#   - "Custom API base URL for compatible APIs"
+#
+# inputs:
+#   api_key:
+#     display_name: "OpenAI API Key"
+#     type: "SecretStr"
+#     required: true
+#     description: "Your OpenAI API key for authentication"
+#     how_to_get: |
+#       1. Go to https://platform.openai.com/api-keys
+#       2. Click 'Create new secret key'
+#       3. Copy the key and paste it here
+#
+#   model_name:
+#     display_name: "Model Name"
+#     type: "Dropdown"
+#     required: true
+#     description: "The OpenAI model to use"
+#     options:
+#       - name: "gpt-4o"
+#         description: "Most capable model, best for complex tasks"
+#       - name: "gpt-4o-mini"
+#         description: "Faster and cheaper, good for most tasks"
+#       - name: "gpt-3.5-turbo"
+#         description: "Fast and cost-effective"
+#
+# outputs:
+#   language_model:
+#     display_name: "Language Model"
+#     type: "LanguageModel"
+#     description: "The configured OpenAI language model instance"
+#
+# examples:
+#   - title: "Basic Chat Completion"
+#     description: "Simple example of using OpenAI for chat"
+#     configuration:
+#       model_name: "gpt-4o-mini"
+#       temperature: 0.7
+#       max_tokens: 1000
+#
+#   - title: "JSON Mode Output"
+#     description: "Get structured JSON responses"
+#     configuration:
+#       model_name: "gpt-4o"
+#       json_mode: true
+#       temperature: 0
+#
+# troubleshooting:
+#   - issue: "API Key Invalid"
+#     solution: "Ensure your API key is correct and has not expired"
+#
+#   - issue: "Rate Limit Exceeded"
+#     solution: "Reduce request frequency or upgrade your OpenAI plan"
+#
+# related_components:
+#   - "AzureOpenAI"
+#   - "Anthropic"
+#   - "GoogleGenerativeAI"
+#
+# external_links:
+#   - title: "OpenAI API Documentation"
+#     url: "https://platform.openai.com/docs"
+#   - title: "Model Pricing"
+#     url: "https://openai.com/pricing"

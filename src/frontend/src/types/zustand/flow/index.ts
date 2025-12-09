@@ -8,7 +8,7 @@ import {
   Viewport,
 } from "@xyflow/react";
 import { BuildStatus } from "../../../constants/enums";
-import { VertexBuildTypeAPI } from "../../api";
+import { APIClassType, VertexBuildTypeAPI } from "../../api";
 import { ChatInputType, ChatOutputType } from "../../chat";
 import { FlowState } from "../../tabs";
 
@@ -255,4 +255,8 @@ export type FlowStoreType = {
   propertiesPanelOpen: boolean;
   propertiesPanelNodeId: string | null;
   setPropertiesPanelOpen: (open: boolean, nodeId?: string | null) => void;
+  // Documentation panel state
+  docsPanelOpen: boolean;
+  docsPanelComponent: APIClassType | null;
+  setDocsPanelOpen: (open: boolean, component?: APIClassType | null) => void;
 };
