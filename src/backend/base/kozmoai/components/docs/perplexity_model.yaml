@@ -1,0 +1,48 @@
+component_name: Perplexity
+display_name: Perplexity
+category: models
+version: 1.0.0
+overview:
+  summary: Use Perplexity for AI and data tasks
+  description: This component generates text using Perplexity's language models. It can output either a **Model Response**
+    (`Message`) or a **Language Model** (`LanguageModel`). Use the **Language Model** output when you want to use a Perplexity
+    model as the LLM for another LLM-driven component, such as an **Agent** or **Smart Function** component. For more information,
+    see Language model components.
+features:
+- Advanced language model capabilities
+- Flexible configuration options
+- Support for various use cases
+- High-quality text generation
+inputs:
+  model_name:
+    display_name: model_name
+    type: String
+    description: Input parameter. The name of the Perplexity model to use. Options include various Llama 3.1 models.
+  max_tokens:
+    display_name: max_tokens
+    type: Integer
+    description: Input parameter. The maximum number of tokens to generate.
+  api_key:
+    display_name: api_key
+    type: SecretString
+    description: Input parameter. The Perplexity API Key for authentication.
+  temperature:
+    display_name: temperature
+    type: Float
+    description: 'Input parameter. Controls randomness in the output. Default: 0.75.'
+  top_p:
+    display_name: top_p
+    type: Float
+    description: Input parameter. The maximum cumulative probability of tokens to consider when sampling.
+outputs:
+  language_model:
+    display_name: Language Model
+    type: LanguageModel
+    description: Configured language model ready for use
+examples:
+- title: Basic Perplexity Setup
+  description: Standard configuration for Perplexity
+  use_case: General purpose usage
+external_links:
+- title: Perplexity documentation
+  url: https://perplexity.ai/

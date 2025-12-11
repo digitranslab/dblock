@@ -1,0 +1,58 @@
+component_name: Upstash
+display_name: Upstash
+category: vector_stores
+version: 1.0.0
+overview:
+  summary: Use Upstash for AI and data tasks
+  description: 'The **Upstash** component reads and writes to Upstash vector stores using an instance of `UpstashVectorStore`.
+    :::tip For a tutorial using a vector database in a flow, see Create a vector RAG chatbot. :::'
+features:
+- High-performance vector storage and retrieval
+- Semantic search capabilities
+- Scalable architecture
+- Integration with embedding models
+inputs:
+  index_url:
+    display_name: index_url
+    type: String
+    description: Input parameter. The URL of the Upstash index.
+  index_token:
+    display_name: index_token
+    type: SecretString
+    description: Input parameter. The token for the Upstash index.
+  text_key:
+    display_name: text_key
+    type: String
+    description: Input parameter. The key in the record to use as text.
+  namespace:
+    display_name: namespace
+    type: String
+    description: Input parameter. The namespace for the index.
+  search_query:
+    display_name: search_query
+    type: String
+    description: Input parameter. The query for similarity search.
+  metadata_filter:
+    display_name: metadata_filter
+    type: String
+    description: Input parameter. Filter documents by metadata.
+  ingest_data:
+    display_name: ingest_data
+    type: Data
+    description: Input parameter. The data to be ingested into the vector store.
+  embedding:
+    display_name: embedding
+    type: Embeddings
+    description: Input parameter. The embedding function to use.
+outputs:
+  vector_store:
+    display_name: Vector Store
+    type: VectorStore
+    description: Configured vector store instance
+examples:
+- title: Basic Upstash Setup
+  description: Standard configuration for Upstash
+  use_case: General purpose usage
+external_links:
+- title: Upstash documentation
+  url: https://upstash.com/docs/introduction

@@ -1,0 +1,19 @@
+component_name: AssemblyaiLemur
+display_name: LeMUR
+category: assemblyai
+version: 1.0.0
+overview:
+  summary: AI analysis of audio
+  description: LeMUR component for Kozmoai workflows. AI analysis of audio.
+features:
+- Integration with LeMUR
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic LeMUR Usage
+  description: Simple example using LeMUR
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

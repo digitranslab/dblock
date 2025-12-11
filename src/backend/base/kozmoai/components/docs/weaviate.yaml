@@ -1,0 +1,59 @@
+component_name: Weaviate
+display_name: Weaviate
+category: vector_stores
+version: 1.0.0
+overview:
+  summary: Use Weaviate for AI and data tasks
+  description: 'The **Weaviate** component reads and writes to Weaviate vector stores using an instance of `Weaviate` vector
+    store. :::tip For a tutorial using a vector database in a flow, see Create a vector RAG chatbot. :::'
+features:
+- High-performance vector storage and retrieval
+- Semantic search capabilities
+- Scalable architecture
+- Integration with embedding models
+inputs:
+  weaviate_url:
+    display_name: weaviate_url
+    type: String
+    description: Input parameter. The default instance URL.
+  api_key:
+    display_name: api_key
+    type: SecretString
+    description: Input parameter. The optional API key for authentication.
+  index_name:
+    display_name: index_name
+    type: String
+    description: Input parameter. The optional index name.
+  text_key:
+    display_name: text_key
+    type: String
+    description: Input parameter. The default text extraction key.
+  input:
+    display_name: input
+    type: Data or DataFrame
+    description: Input parameter. The document or record.
+  cache_vector_store:
+    display_name: cache_vector_store
+    type: Cache Vector Store
+    description: 'Input parameter. If `true`, the component caches the vector store in memory for faster reads. Default: Enabled
+      (`true`).'
+  embedding:
+    display_name: embedding
+    type: Embeddings
+    description: Input parameter. Connect an embedding model component.
+  number_of_results:
+    display_name: number_of_results
+    type: Integer
+    description: 'Input parameter. The number of search results to return. Default: `4`.'
+outputs:
+  vector_store:
+    display_name: Vector Store
+    type: VectorStore
+    description: Configured vector store instance
+examples:
+- title: Basic Weaviate Setup
+  description: Standard configuration for Weaviate
+  use_case: General purpose usage
+external_links:
+- title: Weaviate documentation
+  url: https://weaviate.io/developers/weaviate

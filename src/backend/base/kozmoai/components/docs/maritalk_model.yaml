@@ -1,0 +1,45 @@
+component_name: MariTalk
+display_name: MariTalk
+category: models
+version: 1.0.0
+overview:
+  summary: Use MariTalk for AI and data tasks
+  description: The **MariTalk** component generates text using MariTalk LLMs. It can output either a **Model Response** (`Message`)
+    or a **Language Model** (`LanguageModel`). Use the **Language Model** output when you want to use a MariTalk model as
+    the LLM for another LLM-driven component, such as an **Agent** or **Smart Function** component. For more information,
+    see Language model components.
+features:
+- Advanced language model capabilities
+- Flexible configuration options
+- Support for various use cases
+- High-quality text generation
+inputs:
+  max_tokens:
+    display_name: max_tokens
+    type: Integer
+    description: 'Input parameter. The maximum number of tokens to generate. Set to `0` for unlimited tokens. Default: `512`.'
+  model_name:
+    display_name: model_name
+    type: String
+    description: 'Input parameter. The name of the MariTalk model to use. Options: `sabia-2-small`, `sabia-2-medium`. Default:
+      `sabia-2-small`.'
+  api_key:
+    display_name: api_key
+    type: SecretString
+    description: Input parameter. The MariTalk API Key to use for authentication.
+  temperature:
+    display_name: temperature
+    type: Float
+    description: 'Input parameter. Controls randomness in the output. Range: `[0.0, 1.0]`. Default: `0.5`.'
+outputs:
+  language_model:
+    display_name: Language Model
+    type: LanguageModel
+    description: Configured language model ready for use
+examples:
+- title: Basic MariTalk Setup
+  description: Standard configuration for MariTalk
+  use_case: General purpose usage
+external_links:
+- title: MariTalk documentation
+  url: https://www.maritalk.com/

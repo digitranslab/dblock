@@ -1,0 +1,19 @@
+component_name: CreateAssistant
+display_name: Create Assistant
+category: astra_assistants
+version: 1.0.0
+overview:
+  summary: Create new assistant
+  description: Create Assistant component for Kozmoai workflows. Create new assistant.
+features:
+- Integration with Create Assistant
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Create Assistant Usage
+  description: Simple example using Create Assistant
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

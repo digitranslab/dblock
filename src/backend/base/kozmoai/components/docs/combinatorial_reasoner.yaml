@@ -1,0 +1,19 @@
+component_name: CombinatorialReasoner
+display_name: Combinatorial Reasoner
+category: icosacomputing
+version: 1.0.0
+overview:
+  summary: Advanced reasoning
+  description: Combinatorial Reasoner component for Kozmoai workflows. Advanced reasoning.
+features:
+- Integration with Combinatorial Reasoner
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Combinatorial Reasoner Usage
+  description: Simple example using Combinatorial Reasoner
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

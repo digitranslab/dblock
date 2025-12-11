@@ -1,0 +1,19 @@
+component_name: YoutubeSearch
+display_name: YouTube Search
+category: youtube
+version: 1.0.0
+overview:
+  summary: Search YouTube videos
+  description: YouTube Search component for Kozmoai workflows. Search YouTube videos.
+features:
+- Integration with YouTube Search
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic YouTube Search Usage
+  description: Simple example using YouTube Search
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

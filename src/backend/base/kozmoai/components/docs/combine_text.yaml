@@ -1,0 +1,19 @@
+component_name: CombineText
+display_name: Combine Text
+category: processing
+version: 1.0.0
+overview:
+  summary: Merge text pieces
+  description: Combine Text component for Kozmoai workflows. Merge text pieces.
+features:
+- Integration with Combine Text
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Combine Text Usage
+  description: Simple example using Combine Text
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

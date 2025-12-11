@@ -1,0 +1,64 @@
+component_name: HuggingFace
+display_name: Hugging Face
+category: models
+version: 1.0.0
+overview:
+  summary: Use Hugging Face for AI and data tasks
+  description: The **Hugging Face** component generates text using a specified model by sending requests to the Hugging Face
+    API, which is a hosted inference API for models hosted on Hugging Face. Authentication is required. This component can
+    output either a **Model Response** (`Message`) or a **Language Model** (`LanguageModel`). Specifically, the **Language
+    Model** output is an instance of `ChatHuggingFace` configured according to the component's parameters. Use the **Language
+    Model** output when you want to use a Hugging Face model as the LLM for another LLM-driven component, such as an **Agent**
+    or **Smart Function** component.
+features:
+- High-performance vector storage and retrieval
+- Semantic search capabilities
+- Scalable architecture
+- Integration with embedding models
+inputs:
+  model_id:
+    display_name: model_id
+    type: String
+    description: Input parameter. The model ID from Hugging Face Hub. For example, "gpt2", "facebook/bart-large".
+  huggingfacehub_api_token:
+    display_name: huggingfacehub_api_token
+    type: SecretString
+    description: Input parameter. Your Hugging Face API token for authentication.
+  temperature:
+    display_name: temperature
+    type: Float
+    description: 'Input parameter. Controls randomness in the output. Range: [0.0, 1.0]. Default: 0.7.'
+  max_new_tokens:
+    display_name: max_new_tokens
+    type: Integer
+    description: 'Input parameter. Maximum number of tokens to generate. Default: 512.'
+  top_p:
+    display_name: top_p
+    type: Float
+    description: 'Input parameter. Nucleus sampling parameter. Range: [0.0, 1.0]. Default: 0.95.'
+  top_k:
+    display_name: top_k
+    type: Integer
+    description: 'Input parameter. Top-k sampling parameter. Default: 50.'
+  model_kwargs:
+    display_name: model_kwargs
+    type: Dictionary
+    description: Input parameter. Additional keyword arguments to pass to the model.
+outputs:
+  language_model:
+    display_name: Language Model
+    type: LanguageModel
+    description: Configured language model ready for use
+examples:
+- title: Basic Hugging Face Setup
+  description: Standard configuration for Hugging Face
+  use_case: General purpose usage
+external_links:
+- title: Hugging Face documentation
+  url: https://huggingface.co/docs
+- title: '`ChatHuggingFace`'
+  url: https://docs.langchain.com/oss/python/integrations/chat/huggingface
+- title: Hugging Face API token
+  url: https://huggingface.co/docs/hub/security-tokens
+- title: Hugging Face API token
+  url: https://huggingface.co/docs/hub/security-tokens

@@ -1,0 +1,19 @@
+component_name: AstradbCqlTool
+display_name: Astra CQL Tool
+category: tools
+version: 1.0.0
+overview:
+  summary: Execute CQL queries
+  description: Astra CQL Tool component for Kozmoai workflows. Execute CQL queries.
+features:
+- Integration with Astra CQL Tool
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Astra CQL Tool Usage
+  description: Simple example using Astra CQL Tool
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

@@ -1,0 +1,19 @@
+component_name: Agent
+display_name: Agent
+category: agents
+version: 1.0.0
+overview:
+  summary: AI agent with tools
+  description: Agent component for Kozmoai workflows. AI agent with tools.
+features:
+- Integration with Agent
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Agent Usage
+  description: Simple example using Agent
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

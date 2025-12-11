@@ -1,0 +1,19 @@
+component_name: Directory
+display_name: Directory
+category: data
+version: 1.0.0
+overview:
+  summary: Load files from directory
+  description: Directory component for Kozmoai workflows. Load files from directory.
+features:
+- Integration with Directory
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Directory Usage
+  description: Simple example using Directory
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

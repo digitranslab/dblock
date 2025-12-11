@@ -1,0 +1,50 @@
+component_name: FAISS
+display_name: FAISS
+category: vector_stores
+version: 1.0.0
+overview:
+  summary: Use FAISS for AI and data tasks
+  description: The **FAISS** component provides access to the Facebook AI Similarity Search (FAISS) library through an instance
+    of `FAISS` vector store.
+features:
+- High-performance vector storage and retrieval
+- Semantic search capabilities
+- Scalable architecture
+- Integration with embedding models
+inputs:
+  index_name:
+    display_name: index_name
+    type: String
+    description: 'Input parameter. The name of the FAISS index. Default: "langflow_index".'
+  persist_directory:
+    display_name: persist_directory
+    type: String
+    description: Input parameter. Path to save the FAISS index. It is relative to where Langflow is running.
+  search_query:
+    display_name: search_query
+    type: String
+    description: Input parameter. The query to search for in the vector store.
+  ingest_data:
+    display_name: ingest_data
+    type: Data
+    description: Input parameter. The list of data to ingest into the vector store.
+  allow_dangerous_deserialization:
+    display_name: allow_dangerous_deserialization
+    type: Boolean
+    description: 'Input parameter. Set to `True` to allow loading pickle files from untrusted sources. Default: `True`.'
+  embedding:
+    display_name: embedding
+    type: Embeddings
+    description: Input parameter. The embedding function to use for the vector store.
+outputs:
+  vector_store:
+    display_name: Vector Store
+    type: VectorStore
+    description: Configured vector store instance
+examples:
+- title: Basic FAISS Setup
+  description: Standard configuration for FAISS
+  use_case: General purpose usage
+external_links:
+- title: FAISS documentation
+  url: https://faiss.ai/index.html

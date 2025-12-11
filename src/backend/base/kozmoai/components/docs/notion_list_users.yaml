@@ -1,0 +1,19 @@
+component_name: NotionListUsers
+display_name: List Users
+category: Notion
+version: 1.0.0
+overview:
+  summary: List workspace users
+  description: List Users component for Kozmoai workflows. List workspace users.
+features:
+- Integration with List Users
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic List Users Usage
+  description: Simple example using List Users
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

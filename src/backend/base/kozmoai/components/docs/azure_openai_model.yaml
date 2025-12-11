@@ -1,0 +1,69 @@
+component_name: AzureOpenAI
+display_name: Azure OpenAI
+category: models
+version: 1.0.0
+overview:
+  summary: Use Azure OpenAI for AI and data tasks
+  description: This component generates text using Azure OpenAI LLMs. It can output either a **Model Response** (`Message`)
+    or a **Language Model** (`LanguageModel`). Specifically, the **Language Model** output is an instance of `AzureChatOpenAI`
+    configured according to the component's parameters. Use the **Language Model** output when you want to use an Azure OpenAI
+    model as the LLM for another LLM-driven component, such as an **Agent** or **Smart Function** component. For more information,
+    see Language model components.
+features:
+- Advanced language model capabilities
+- Flexible configuration options
+- Support for various use cases
+- High-quality text generation
+inputs:
+  model_name:
+    display_name: Model Name
+    type: String
+    description: Input parameter. Specifies the name of the Azure OpenAI model to be used for text generation.
+  azure_endpoint:
+    display_name: Azure Endpoint
+    type: String
+    description: Input parameter. Your Azure endpoint, including the resource.
+  deployment_name:
+    display_name: Deployment Name
+    type: String
+    description: Input parameter. Specifies the name of the deployment.
+  api_version:
+    display_name: API Version
+    type: String
+    description: Input parameter. Specifies the version of the Azure OpenAI API to be used.
+  api_key:
+    display_name: API Key
+    type: SecretString
+    description: Input parameter. Your Azure OpenAI API key.
+  temperature:
+    display_name: Temperature
+    type: Float
+    description: Input parameter. Specifies the sampling temperature. Defaults to `0.7`.
+  max_tokens:
+    display_name: Max Tokens
+    type: Integer
+    description: Input parameter. Specifies the maximum number of tokens to generate. Defaults to `1000`.
+  input_value:
+    display_name: Input Value
+    type: String
+    description: Input parameter. Specifies the input text for text generation.
+  stream:
+    display_name: Stream
+    type: Boolean
+    description: Input parameter. Specifies whether to stream the response from the model. Default to `false`.
+  model:
+    display_name: Model
+    type: String
+    description: 'Input parameter. The name of the model to use. Default: `text-embedding-3-small`.'
+outputs:
+  language_model:
+    display_name: Language Model
+    type: LanguageModel
+    description: Configured language model ready for use
+examples:
+- title: Basic Azure OpenAI Setup
+  description: Standard configuration for Azure OpenAI
+  use_case: General purpose usage
+external_links:
+- title: '`AzureChatOpenAI`'
+  url: https://docs.langchain.com/oss/python/integrations/chat/azure_chat_openai

@@ -1,0 +1,18 @@
+component_name: CouchbaseVectorstore
+display_name: Couchbase
+category: vectorstores
+version: 1.0.0
+overview:
+  summary: NoSQL database with vectors
+  description: Couchbase component for Kozmoai workflows.
+features:
+- Integration with Couchbase
+inputs: {}
+outputs: {}
+examples: []
+troubleshooting:
+- issue: Configuration Error
+  symptoms:
+  - Component not working as expected
+  solution: Verify all required parameters are set correctly and check the component documentation for specific requirements.
+external_links: []

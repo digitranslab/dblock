@@ -1,0 +1,19 @@
+component_name: NotionPageViewer
+display_name: Page Viewer
+category: Notion
+version: 1.0.0
+overview:
+  summary: View page content
+  description: Page Viewer component for Kozmoai workflows. View page content.
+features:
+- Integration with Page Viewer
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Page Viewer Usage
+  description: Simple example using Page Viewer
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

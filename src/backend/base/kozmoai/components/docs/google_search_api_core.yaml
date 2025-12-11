@@ -1,0 +1,19 @@
+component_name: GoogleSearchApiCore
+display_name: Google Search Core
+category: tools
+version: 1.0.0
+overview:
+  summary: Core Google search
+  description: Google Search Core component for Kozmoai workflows. Core Google search.
+features:
+- Integration with Google Search Core
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Google Search Core Usage
+  description: Simple example using Google Search Core
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

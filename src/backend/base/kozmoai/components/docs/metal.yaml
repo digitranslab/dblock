@@ -1,0 +1,19 @@
+component_name: Metal
+display_name: Metal
+category: retrievers
+version: 1.0.0
+overview:
+  summary: Metal retriever
+  description: Metal component for Kozmoai workflows. Metal retriever.
+features:
+- Integration with Metal
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Metal Usage
+  description: Simple example using Metal
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

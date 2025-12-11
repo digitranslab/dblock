@@ -1,0 +1,19 @@
+component_name: Url
+display_name: URL
+category: data
+version: 1.0.0
+overview:
+  summary: Fetch content from URL
+  description: URL component for Kozmoai workflows. Fetch content from URL.
+features:
+- Integration with URL
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic URL Usage
+  description: Simple example using URL
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

@@ -1,0 +1,19 @@
+component_name: OutputParser
+display_name: Output Parser
+category: helpers
+version: 1.0.0
+overview:
+  summary: Parse LLM outputs
+  description: Output Parser component for Kozmoai workflows. Parse LLM outputs.
+features:
+- Integration with Output Parser
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Output Parser Usage
+  description: Simple example using Output Parser
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

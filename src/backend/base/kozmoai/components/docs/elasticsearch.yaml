@@ -1,0 +1,74 @@
+component_name: Elasticsearch
+display_name: Elasticsearch
+category: vector_stores
+version: 1.0.0
+overview:
+  summary: Use Elasticsearch for AI and data tasks
+  description: The **Elasticsearch** component reads and writes to an Elasticsearch instance using `ElasticsearchStore`.
+features:
+- High-performance vector storage and retrieval
+- Semantic search capabilities
+- Scalable architecture
+- Integration with embedding models
+inputs:
+  elasticsearch_url:
+    display_name: elasticsearch_url
+    type: String
+    description: Input parameter. Elasticsearch server URL.
+  cloud_id:
+    display_name: cloud_id
+    type: String
+    description: Input parameter. Elasticsearch Cloud ID.
+  index_name:
+    display_name: index_name
+    type: String
+    description: Input parameter. Name of the Elasticsearch index.
+  ingest_data:
+    display_name: ingest_data
+    type: Data
+    description: Input parameter. Records to load into the vector store.
+  search_query:
+    display_name: search_query
+    type: String
+    description: Input parameter. Query string for similarity search.
+  cache_vector_store:
+    display_name: cache_vector_store
+    type: Boolean
+    description: 'Input parameter. If `true`, the component caches the vector store in memory for faster reads. Default: Enabled
+      (`true`).'
+  username:
+    display_name: username
+    type: String
+    description: Input parameter. Username for Elasticsearch authentication. Required for all local deployments. Required
+      for cloud deployments if `api_key` is empty.
+  password:
+    display_name: password
+    type: SecretString
+    description: Input parameter. Password for Elasticsearch authentication. Required for all local deployments. Required
+      for cloud deployments if `api_key` is empty
+  embedding:
+    display_name: embedding
+    type: Embeddings
+    description: Input parameter. The embedding model to use.
+  search_type:
+    display_name: search_type
+    type: String
+    description: Input parameter. The type of search to perform. Options are `similarity` (default) or `mmr`.
+outputs:
+  vector_store:
+    display_name: Vector Store
+    type: VectorStore
+    description: Configured vector store instance
+examples:
+- title: Basic Elasticsearch Setup
+  description: Standard configuration for Elasticsearch
+  use_case: General purpose usage
+external_links:
+- title: '`ElasticsearchStore`'
+  url: https://docs.langchain.com/oss/python/integrations/vectorstores/elasticsearch
+- title: Elasticsearch documentation
+  url: https://www.elastic.co/guide/en/elasticsearch/reference/current/dense-vector.html
+- title: '`OpenSearchVectorSearch`'
+  url: https://docs.langchain.com/oss/python/integrations/vectorstores/opensearch
+- title: OpenSearch documentation
+  url: https://opensearch.org/platform/search/vector-database.html

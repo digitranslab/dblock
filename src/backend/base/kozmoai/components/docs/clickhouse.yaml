@@ -1,0 +1,68 @@
+component_name: ClickHouse
+display_name: ClickHouse
+category: vector_stores
+version: 1.0.0
+overview:
+  summary: Use ClickHouse for AI and data tasks
+  description: 'The **ClickHouse** component reads and writes to a ClickHouse vector store using an instance of `ClickHouse`
+    vector store. :::tip For a tutorial using a vector database in a flow, see Create a vector RAG chatbot. :::'
+features:
+- High-performance vector storage and retrieval
+- Semantic search capabilities
+- Scalable architecture
+- Integration with embedding models
+inputs:
+  host:
+    display_name: host
+    type: hostname
+    description: 'Input parameter. The ClickHouse server hostname. Required. Default: `localhost`.'
+  port:
+    display_name: port
+    type: port
+    description: 'Input parameter. The ClickHouse server port. Required. Default: `8123`.'
+  database:
+    display_name: database
+    type: database
+    description: Input parameter. The ClickHouse database name. Required.
+  table:
+    display_name: table
+    type: Table name
+    description: Input parameter. The ClickHouse table name. Required.
+  username:
+    display_name: username
+    type: Username
+    description: Input parameter. ClickHouse username for authentication. Required.
+  password:
+    display_name: password
+    type: Password
+    description: Input parameter. ClickHouse password for authentication. Required.
+  index_type:
+    display_name: index_type
+    type: index_type
+    description: Input parameter. Type of the index, either `annoy` (default) or `vector_similarity`.
+  metric:
+    display_name: metric
+    type: metric
+    description: Input parameter. Metric to compute distance for similarity search. The options are `angular` (default), `euclidean`,
+      `manhattan`, `hamming`, `dot`.
+  secure:
+    display_name: secure
+    type: Use HTTPS/TLS
+    description: 'Input parameter. If `true`, enables HTTPS/TLS for the ClickHouse server and overrides inferred values for
+      interface or port arguments. Default: `false`.'
+  index_param:
+    display_name: index_param
+    type: Param of the index
+    description: 'Input parameter. Index parameters. Default: `100,''L2Distance''`.'
+outputs:
+  vector_store:
+    display_name: Vector Store
+    type: VectorStore
+    description: Configured vector store instance
+examples:
+- title: Basic ClickHouse Setup
+  description: Standard configuration for ClickHouse
+  use_case: General purpose usage
+external_links:
+- title: ClickHouse Documentation
+  url: https://clickhouse.com/docs/en/intro

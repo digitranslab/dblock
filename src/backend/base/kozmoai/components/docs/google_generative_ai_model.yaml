@@ -1,0 +1,58 @@
+component_name: GoogleGenerativeAI
+display_name: Google Generative AI
+category: models
+version: 1.0.0
+overview:
+  summary: Use Google Generative AI for AI and data tasks
+  description: Langflow integrates with Google BigQuery through the **BigQuery** component in the **Google** bundle, allowing
+    you to execute SQL queries and retrieve data from your BigQuery datasets.
+features:
+- Advanced language model capabilities
+- Flexible configuration options
+- Support for various use cases
+- High-quality text generation
+inputs:
+  google_api_key:
+    display_name: google_api_key
+    type: SecretString
+    description: Input parameter. A Google API key for authentication.
+  model:
+    display_name: model
+    type: LanguageModel
+    description: Output parameter. An instance of ChatGoogleGenerativeAI configured with the specified parameters.
+  max_output_tokens:
+    display_name: Max Output Tokens
+    type: Integer
+    description: Input parameter. The maximum number of tokens to generate.
+  temperature:
+    display_name: Temperature
+    type: Float
+    description: Input parameter. Run inference with this temperature.
+  top_k:
+    display_name: Top K
+    type: Integer
+    description: Input parameter. Consider the set of top K most probable tokens.
+  top_p:
+    display_name: Top P
+    type: Float
+    description: Input parameter. The maximum cumulative probability of tokens to consider when sampling.
+  n:
+    display_name: N
+    type: Integer
+    description: Input parameter. Number of chat completions to generate for each prompt.
+  google_cse_id:
+    display_name: google_cse_id
+    type: SecretString
+    description: Input parameter. A Google Custom Search Engine ID.
+outputs:
+  language_model:
+    display_name: Language Model
+    type: LanguageModel
+    description: Configured language model ready for use
+examples:
+- title: Basic Google Generative AI Setup
+  description: Standard configuration for Google Generative AI
+  use_case: General purpose usage
+external_links:
+- title: BigQuery dataset and table
+  url: https://cloud.google.com/bigquery/docs/datasets-intro

@@ -1,0 +1,19 @@
+component_name: SplitText
+display_name: Split Text
+category: processing
+version: 1.0.0
+overview:
+  summary: Split text into chunks
+  description: Split Text component for Kozmoai workflows. Split text into chunks.
+features:
+- Integration with Split Text
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Split Text Usage
+  description: Simple example using Split Text
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

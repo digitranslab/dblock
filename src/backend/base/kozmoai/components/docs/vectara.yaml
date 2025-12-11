@@ -1,0 +1,53 @@
+component_name: Vectara
+display_name: Vectara
+category: vector_stores
+version: 1.0.0
+overview:
+  summary: Use Vectara for AI and data tasks
+  description: The **Vectara** component reads and writes to Vectara vector stores using an instance of `Vectara` vector store.
+features:
+- High-performance vector storage and retrieval
+- Semantic search capabilities
+- Scalable architecture
+- Integration with embedding models
+inputs:
+  vectara_customer_id:
+    display_name: vectara_customer_id
+    type: String
+    description: Input parameter. The Vectara customer ID.
+  vectara_corpus_id:
+    display_name: vectara_corpus_id
+    type: String
+    description: Input parameter. The Vectara corpus ID.
+  vectara_api_key:
+    display_name: vectara_api_key
+    type: SecretString
+    description: Input parameter. The Vectara API key.
+  embedding:
+    display_name: embedding
+    type: Embeddings
+    description: Input parameter. The embedding function to use (optional).
+  ingest_data:
+    display_name: ingest_data
+    type: List[Document/Data]
+    description: Input parameter. The data to be ingested into the vector store.
+  search_query:
+    display_name: search_query
+    type: String
+    description: Input parameter. The query for similarity search.
+  number_of_results:
+    display_name: number_of_results
+    type: Integer
+    description: Input parameter. The number of results to return in search.
+outputs:
+  vector_store:
+    display_name: Vector Store
+    type: VectorStore
+    description: Configured vector store instance
+examples:
+- title: Basic Vectara Setup
+  description: Standard configuration for Vectara
+  use_case: General purpose usage
+external_links:
+- title: Vectara documentation
+  url: https://docs.vectara.com/docs/

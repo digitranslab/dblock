@@ -1,0 +1,18 @@
+component_name: GoogleGenerativeAiEmbeddings
+display_name: Google AI Embeddings
+category: embeddings
+version: 1.0.0
+overview:
+  summary: Gemini embeddings
+  description: Google AI Embeddings component for Kozmoai workflows.
+features:
+- Integration with Google AI Embeddings
+inputs: {}
+outputs: {}
+examples: []
+troubleshooting:
+- issue: Configuration Error
+  symptoms:
+  - Component not working as expected
+  solution: Verify all required parameters are set correctly and check the component documentation for specific requirements.
+external_links: []

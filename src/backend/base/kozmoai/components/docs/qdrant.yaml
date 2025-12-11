@@ -1,0 +1,66 @@
+component_name: Qdrant
+display_name: Qdrant
+category: vector_stores
+version: 1.0.0
+overview:
+  summary: Use Qdrant for AI and data tasks
+  description: 'The **Qdrant** component reads and writes to Qdrant vector stores using an instance of `QdrantVectorStore`.
+    :::tip For a tutorial using a vector database in a flow, see Create a vector RAG chatbot. :::'
+features:
+- High-performance vector storage and retrieval
+- Semantic search capabilities
+- Scalable architecture
+- Integration with embedding models
+inputs:
+  collection_name:
+    display_name: collection_name
+    type: String
+    description: Input parameter. The name of the Qdrant collection.
+  host:
+    display_name: host
+    type: String
+    description: Input parameter. The Qdrant server host.
+  port:
+    display_name: port
+    type: Integer
+    description: Input parameter. The Qdrant server port.
+  grpc_port:
+    display_name: grpc_port
+    type: Integer
+    description: Input parameter. The Qdrant gRPC port.
+  api_key:
+    display_name: api_key
+    type: SecretString
+    description: Input parameter. The API key for Qdrant.
+  prefix:
+    display_name: prefix
+    type: String
+    description: Input parameter. The prefix for Qdrant.
+  timeout:
+    display_name: timeout
+    type: Integer
+    description: Input parameter. The timeout for Qdrant operations.
+  path:
+    display_name: path
+    type: String
+    description: Input parameter. The path for Qdrant.
+  url:
+    display_name: url
+    type: String
+    description: Input parameter. The URL for Qdrant.
+  distance_func:
+    display_name: distance_func
+    type: String
+    description: Input parameter. The distance function for vector similarity.
+outputs:
+  vector_store:
+    display_name: Vector Store
+    type: VectorStore
+    description: Configured vector store instance
+examples:
+- title: Basic Qdrant Setup
+  description: Standard configuration for Qdrant
+  use_case: General purpose usage
+external_links:
+- title: Qdrant documentation
+  url: https://qdrant.tech/documentation/

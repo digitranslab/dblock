@@ -1,0 +1,19 @@
+component_name: ExaSearch
+display_name: Exa Search
+category: tools
+version: 1.0.0
+overview:
+  summary: Exa AI search
+  description: Exa Search component for Kozmoai workflows. Exa AI search.
+features:
+- Integration with Exa Search
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Exa Search Usage
+  description: Simple example using Exa Search
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

@@ -1,220 +1,74 @@
-component_name: OpenAIModel
+component_name: OpenAI
 display_name: OpenAI
 category: models
-version: "1.0.0"
-
+version: 1.0.0
 overview:
-  summary: "Generate text using OpenAI's GPT models"
-  description: |
-    The OpenAI component integrates OpenAI's powerful language models into your workflows.
-    It supports various GPT models including GPT-4o, GPT-4 Turbo, and GPT-3.5 Turbo.
-    
-    This component is ideal for:
-    - Text generation and completion
-    - Conversational AI applications
-    - Content creation and summarization
-    - Code generation and explanation
-
+  summary: Use OpenAI for AI and data tasks
+  description: The **OpenAI** component generates text using OpenAI's language models. It provides access to the same OpenAI
+    models that are available in the core **Language Model** component, but the **OpenAI** component provides additional parameters
+    for customizing the request to the OpenAI API. It can output either a **Model Response** (`Message`) or a **Language Model**
+    (`LanguageModel`). Use the **Language Model** output when you want to use a specific OpenAI model configuration as the
+    LLM for another LLM-driven component, such as an **Agent** or **Smart Function** component. For more information, see
+    Language model components.
 features:
-  - "Support for multiple OpenAI models (GPT-4o, GPT-4, GPT-3.5)"
-  - "Configurable temperature for creativity control"
-  - "Token limit management"
-  - "JSON mode for structured outputs"
-  - "Custom API base URL for OpenAI-compatible APIs"
-  - "Seed parameter for reproducible outputs"
-
+- Advanced language model capabilities
+- Flexible configuration options
+- Support for various use cases
+- High-quality text generation
 inputs:
   api_key:
-    display_name: "OpenAI API Key"
-    type: "SecretStr"
-    required: true
-    description: "Your OpenAI API key for authentication"
-    how_to_get: |
-      1. Go to https://platform.openai.com/api-keys
-      2. Sign in or create an account
-      3. Click 'Create new secret key'
-      4. Give it a name and copy the key
-      5. Paste the key in this field
-
-  model_name:
-    display_name: "Model Name"
-    type: "Dropdown"
-    required: true
-    default: "gpt-4o-mini"
-    description: "The OpenAI model to use for generation"
-    options:
-      - name: "gpt-4o"
-        description: "Most capable model, best for complex reasoning tasks"
-        context_window: 128000
-        pricing: "$5.00 / 1M input tokens"
-      - name: "gpt-4o-mini"
-        description: "Faster and more affordable, great for most tasks"
-        context_window: 128000
-        pricing: "$0.15 / 1M input tokens"
-      - name: "gpt-4-turbo"
-        description: "Previous generation, high capability"
-        context_window: 128000
-        pricing: "$10.00 / 1M input tokens"
-      - name: "gpt-3.5-turbo"
-        description: "Fast and cost-effective for simpler tasks"
-        context_window: 16385
-        pricing: "$0.50 / 1M input tokens"
-
-  temperature:
-    display_name: "Temperature"
-    type: "Slider"
-    required: false
-    default: 0.1
-    range:
-      min: 0
-      max: 2
-      step: 0.01
-    description: |
-      Controls randomness in the output.
-      - 0: Deterministic, focused responses
-      - 0.5-0.7: Balanced creativity
-      - 1.0+: More creative and varied responses
-
+    display_name: api_key
+    type: SecretString
+    description: Input parameter. Your OpenAI API Key.
+  model:
+    display_name: model
+    type: String
+    description: Input parameter. The name of the OpenAI model to use. Options include "gpt-3.5-turbo" and "gpt-4".
   max_tokens:
-    display_name: "Max Tokens"
-    type: "Integer"
-    required: false
-    default: 0
-    description: |
-      Maximum number of tokens to generate.
-      Set to 0 for unlimited (model's maximum).
-      
-      Token estimates:
-      - 1 token ≈ 4 characters in English
-      - 100 tokens ≈ 75 words
-
-  json_mode:
-    display_name: "JSON Mode"
-    type: "Boolean"
-    required: false
-    default: false
-    advanced: true
-    description: |
-      When enabled, the model will output valid JSON.
-      Useful for structured data extraction and API responses.
-
-  openai_api_base:
-    display_name: "OpenAI API Base"
-    type: "String"
-    required: false
-    advanced: true
-    default: "https://api.openai.com/v1"
-    description: |
-      Custom API endpoint URL.
-      Use this to connect to OpenAI-compatible APIs like:
-      - Azure OpenAI
-      - LocalAI
-      - Ollama (with OpenAI compatibility)
-
-  seed:
-    display_name: "Seed"
-    type: "Integer"
-    required: false
-    advanced: true
-    default: 1
-    description: |
-      Seed for reproducible outputs.
-      Using the same seed with identical inputs will produce
-      similar (but not guaranteed identical) outputs.
-
+    display_name: max_tokens
+    type: Integer
+    description: Input parameter. The maximum number of tokens to generate. Set to 0 for unlimited tokens.
+  temperature:
+    display_name: temperature
+    type: Float
+    description: 'Input parameter. Controls randomness in the output. Range: [0.0, 1.0]. Default: 0.7.'
+  top_p:
+    display_name: top_p
+    type: Float
+    description: 'Input parameter. Controls the nucleus sampling. Range: [0.0, 1.0]. Default: 1.0.'
+  frequency_penalty:
+    display_name: frequency_penalty
+    type: Float
+    description: 'Input parameter. Controls the frequency penalty. Range: [0.0, 2.0]. Default: 0.0.'
+  presence_penalty:
+    display_name: presence_penalty
+    type: Float
+    description: 'Input parameter. Controls the presence penalty. Range: [0.0, 2.0]. Default: 0.0.'
+  openai_api_key:
+    display_name: OpenAI API Key
+    type: String
+    description: Input parameter. The API key to use for accessing the OpenAI API.
+  default_headers:
+    display_name: Default Headers
+    type: Dict
+    description: Input parameter. The default headers for the HTTP requests.
+  default_query:
+    display_name: Default Query
+    type: NestedDict
+    description: Input parameter. The default query parameters for the HTTP requests.
 outputs:
   language_model:
-    display_name: "Language Model"
-    type: "LanguageModel"
-    description: "Configured OpenAI language model ready for use in chains and agents"
-
+    display_name: Language Model
+    type: LanguageModel
+    description: Configured language model ready for use
 examples:
-  - title: "Basic Chat Completion"
-    description: "Simple configuration for general chat applications"
-    configuration:
-      model_name: "gpt-4o-mini"
-      temperature: 0.7
-      max_tokens: 1000
-    use_case: "Customer support chatbot, general Q&A"
-
-  - title: "Precise Analysis"
-    description: "Low temperature for consistent, factual responses"
-    configuration:
-      model_name: "gpt-4o"
-      temperature: 0
-      max_tokens: 2000
-    use_case: "Data analysis, code review, fact extraction"
-
-  - title: "Creative Writing"
-    description: "Higher temperature for creative content"
-    configuration:
-      model_name: "gpt-4o"
-      temperature: 1.2
-      max_tokens: 4000
-    use_case: "Story generation, brainstorming, creative content"
-
-  - title: "Structured JSON Output"
-    description: "Get structured data from the model"
-    configuration:
-      model_name: "gpt-4o-mini"
-      json_mode: true
-      temperature: 0
-    use_case: "API responses, data extraction, form filling"
-
-troubleshooting:
-  - issue: "Invalid API Key"
-    symptoms:
-      - "401 Unauthorized error"
-      - "Invalid API key provided"
-    solution: |
-      1. Verify your API key at https://platform.openai.com/api-keys
-      2. Ensure the key hasn't been revoked
-      3. Check for extra spaces when copying the key
-
-  - issue: "Rate Limit Exceeded"
-    symptoms:
-      - "429 Too Many Requests"
-      - "Rate limit reached"
-    solution: |
-      1. Wait a few seconds and retry
-      2. Reduce request frequency
-      3. Consider upgrading your OpenAI plan
-      4. Implement exponential backoff in your workflow
-
-  - issue: "Context Length Exceeded"
-    symptoms:
-      - "Maximum context length exceeded"
-      - "Token limit error"
-    solution: |
-      1. Reduce input text length
-      2. Use a model with larger context window
-      3. Implement text chunking in your workflow
-
-  - issue: "Timeout Errors"
-    symptoms:
-      - "Request timed out"
-      - "Connection error"
-    solution: |
-      1. Increase the timeout value
-      2. Check your internet connection
-      3. Reduce max_tokens for faster responses
-
-related_components:
-  - name: "AzureOpenAI"
-    description: "Use OpenAI models through Azure"
-  - name: "Anthropic"
-    description: "Alternative LLM provider with Claude models"
-  - name: "GoogleGenerativeAI"
-    description: "Google's Gemini models"
-  - name: "Ollama"
-    description: "Run open-source models locally"
-
+- title: Basic OpenAI Setup
+  description: Standard configuration for OpenAI
+  use_case: General purpose usage
 external_links:
-  - title: "OpenAI API Documentation"
-    url: "https://platform.openai.com/docs"
-  - title: "Model Pricing"
-    url: "https://openai.com/pricing"
-  - title: "API Reference"
-    url: "https://platform.openai.com/docs/api-reference"
-  - title: "Best Practices"
-    url: "https://platform.openai.com/docs/guides/best-practices"
+- title: OpenAI documentation
+  url: https://platform.openai.com/docs/overview
+- title: OpenAI's language models
+  url: https://platform.openai.com/docs/models
+- title: OpenAI embedding models
+  url: https://platform.openai.com/docs/guides/embeddings

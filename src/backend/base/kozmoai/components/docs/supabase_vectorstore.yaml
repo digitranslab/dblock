@@ -1,0 +1,18 @@
+component_name: SupabaseVectorstore
+display_name: Supabase
+category: vectorstores
+version: 1.0.0
+overview:
+  summary: Open-source Firebase alternative
+  description: Supabase component for Kozmoai workflows.
+features:
+- Integration with Supabase
+inputs: {}
+outputs: {}
+examples: []
+troubleshooting:
+- issue: Configuration Error
+  symptoms:
+  - Component not working as expected
+  solution: Verify all required parameters are set correctly and check the component documentation for specific requirements.
+external_links: []

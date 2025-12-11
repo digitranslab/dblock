@@ -1,0 +1,19 @@
+component_name: ScrapegraphScraper
+display_name: Smart Scraper
+category: scrapegraph
+version: 1.0.0
+overview:
+  summary: AI-powered scraping
+  description: Smart Scraper component for Kozmoai workflows. AI-powered scraping.
+features:
+- Integration with Smart Scraper
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Smart Scraper Usage
+  description: Simple example using Smart Scraper
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

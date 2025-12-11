@@ -1,0 +1,52 @@
+component_name: OpenRouter
+display_name: OpenRouter
+category: models
+version: 1.0.0
+overview:
+  summary: Use OpenRouter for AI and data tasks
+  description: This component generates text using OpenRouter's unified API for multiple AI models from different providers.
+    It can output either a **Model Response** (`Message`) or a **Language Model** (`LanguageModel`). Use the **Language Model**
+    output when you want to use an OpenRouter model as the LLM for another LLM-driven component, such as an **Agent** or **Smart
+    Function** component. For more information, see Language model components.
+features:
+- Advanced language model capabilities
+- Flexible configuration options
+- Support for various use cases
+- High-quality text generation
+inputs:
+  api_key:
+    display_name: api_key
+    type: SecretString
+    description: Input parameter. Your OpenRouter API key for authentication.
+  site_url:
+    display_name: site_url
+    type: String
+    description: Input parameter. Your site URL for OpenRouter rankings.
+  app_name:
+    display_name: app_name
+    type: String
+    description: Input parameter. Your app name for OpenRouter rankings.
+  provider:
+    display_name: provider
+    type: String
+    description: Input parameter. The AI model provider to use.
+  model_name:
+    display_name: model_name
+    type: String
+    description: Input parameter. The specific model to use for chat completion.
+  temperature:
+    display_name: temperature
+    type: Float
+    description: 'Input parameter. Controls randomness in the output. Range: [0.0, 2.0]. Default: 0.7.'
+outputs:
+  language_model:
+    display_name: Language Model
+    type: LanguageModel
+    description: Configured language model ready for use
+examples:
+- title: Basic OpenRouter Setup
+  description: Standard configuration for OpenRouter
+  use_case: General purpose usage
+external_links:
+- title: OpenRouter documentation
+  url: https://openrouter.ai/docs

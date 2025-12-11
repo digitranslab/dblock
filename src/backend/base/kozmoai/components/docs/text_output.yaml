@@ -1,0 +1,19 @@
+component_name: TextOutput
+display_name: Text Output
+category: outputs
+version: 1.0.0
+overview:
+  summary: Output text
+  description: Text Output component for Kozmoai workflows. Output text.
+features:
+- Integration with Text Output
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Text Output Usage
+  description: Simple example using Text Output
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

@@ -1,0 +1,19 @@
+component_name: AstraAssistantManager
+display_name: Assistant Manager
+category: astra_assistants
+version: 1.0.0
+overview:
+  summary: Manage assistants
+  description: Assistant Manager component for Kozmoai workflows. Manage assistants.
+features:
+- Integration with Assistant Manager
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Assistant Manager Usage
+  description: Simple example using Assistant Manager
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

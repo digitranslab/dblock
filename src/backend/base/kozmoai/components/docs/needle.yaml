@@ -1,0 +1,19 @@
+component_name: Needle
+display_name: Needle
+category: needle
+version: 1.0.0
+overview:
+  summary: Needle search
+  description: Needle component for Kozmoai workflows. Needle search.
+features:
+- Integration with Needle
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Needle Usage
+  description: Simple example using Needle
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

@@ -1,0 +1,19 @@
+component_name: Webhook
+display_name: Webhook
+category: data
+version: 1.0.0
+overview:
+  summary: Receive webhook data
+  description: Webhook component for Kozmoai workflows. Receive webhook data.
+features:
+- Integration with Webhook
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Webhook Usage
+  description: Simple example using Webhook
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

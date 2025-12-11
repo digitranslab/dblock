@@ -1,0 +1,19 @@
+component_name: PassMessage
+display_name: Pass Message
+category: logic
+version: 1.0.0
+overview:
+  summary: Pass messages through
+  description: Pass Message component for Kozmoai workflows. Pass messages through.
+features:
+- Integration with Pass Message
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Pass Message Usage
+  description: Simple example using Pass Message
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

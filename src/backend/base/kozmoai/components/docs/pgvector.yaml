@@ -1,0 +1,48 @@
+component_name: PGVector
+display_name: PGVector
+category: vector_stores
+version: 1.0.0
+overview:
+  summary: Use PGVector for AI and data tasks
+  description: 'The **PGVector** component reads and writes to PostgreSQL vector stores using an instance of `PGVector`. :::tip
+    For a tutorial using a vector database in a flow, see Create a vector RAG chatbot. :::'
+features:
+- High-performance vector storage and retrieval
+- Semantic search capabilities
+- Scalable architecture
+- Integration with embedding models
+inputs:
+  pg_server_url:
+    display_name: pg_server_url
+    type: SecretString
+    description: Input parameter. The PostgreSQL server connection string.
+  collection_name:
+    display_name: collection_name
+    type: String
+    description: Input parameter. The table name for the vector store.
+  search_query:
+    display_name: search_query
+    type: String
+    description: Input parameter. The query for similarity search.
+  ingest_data:
+    display_name: ingest_data
+    type: Data
+    description: Input parameter. The data to be ingested into the vector store.
+  embedding:
+    display_name: embedding
+    type: Embeddings
+    description: Input parameter. The embedding function to use.
+outputs:
+  vector_store:
+    display_name: Vector Store
+    type: VectorStore
+    description: Configured vector store instance
+examples:
+- title: Basic PGVector Setup
+  description: Standard configuration for PGVector
+  use_case: General purpose usage
+external_links:
+- title: '`PGVector`'
+  url: https://docs.langchain.com/oss/python/integrations/vectorstores/pgvector
+- title: PGVector documentation
+  url: https://github.com/pgvector/pgvector

@@ -1,0 +1,19 @@
+component_name: UpdateData
+display_name: Update Data
+category: processing
+version: 1.0.0
+overview:
+  summary: Modify data fields
+  description: Update Data component for Kozmoai workflows. Modify data fields.
+features:
+- Integration with Update Data
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Update Data Usage
+  description: Simple example using Update Data
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

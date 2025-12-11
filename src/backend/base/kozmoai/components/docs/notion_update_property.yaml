@@ -1,0 +1,19 @@
+component_name: NotionUpdateProperty
+display_name: Update Property
+category: Notion
+version: 1.0.0
+overview:
+  summary: Update page property
+  description: Update Property component for Kozmoai workflows. Update page property.
+features:
+- Integration with Update Property
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Update Property Usage
+  description: Simple example using Update Property
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

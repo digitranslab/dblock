@@ -1,0 +1,47 @@
+component_name: CloudflareEmbeddings
+display_name: Cloudflare Embeddings
+category: models
+version: 1.0.0
+overview:
+  summary: Use Cloudflare Embeddings for AI tasks
+  description: The **Cloudflare Workers AI Embeddings** component generates embeddings using [Cloudflare Workers AI models](https://developers.cloudflare.com/workers-ai/).
+features:
+- High-quality vector embeddings
+- Support for multiple models
+- Batch processing capabilities
+- Integration with vector stores
+inputs:
+  account_id:
+    display_name: account_id
+    type: Cloudflare account ID
+    description: Input parameter. Your [Cloudflare account ID](https://developers.cloudflare.com/fundamentals/setup/find-account-and-zone-ids/#find-account-id-workers-and-pages).
+  api_token:
+    display_name: api_token
+    type: Cloudflare API token
+    description: Input parameter. Your [Cloudflare API token](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/).
+  model_name:
+    display_name: model_name
+    type: Model Name
+    description: Input parameter. A [supported model](https://developers.cloudflare.com/workers-ai/models/#text-embeddings)
+      for embedding generation.
+  strip_new_lines:
+    display_name: strip_new_lines
+    type: Strip New Lines
+    description: Input parameter. Whether to strip new lines from the input text.
+  batch_size:
+    display_name: batch_size
+    type: Batch Size
+    description: Input parameter. The number of texts to embed in each batch.
+  api_base_url:
+    display_name: api_base_url
+    type: Cloudflare API base URL
+    description: Input parameter. The base URL for the Cloudflare API.
+examples:
+- title: Basic Cloudflare Embeddings Usage
+  description: Standard configuration for Cloudflare Embeddings
+  use_case: General purpose usage
+troubleshooting:
+- issue: Configuration Error
+  symptoms:
+  - Component not working as expected
+  solution: Verify all required parameters are set correctly and check the component documentation for specific requirements.

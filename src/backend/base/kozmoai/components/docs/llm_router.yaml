@@ -1,0 +1,19 @@
+component_name: LlmRouter
+display_name: LLM Router
+category: processing
+version: 1.0.0
+overview:
+  summary: Route to different LLMs
+  description: LLM Router component for Kozmoai workflows. Route to different LLMs.
+features:
+- Integration with LLM Router
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic LLM Router Usage
+  description: Simple example using LLM Router
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

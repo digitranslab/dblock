@@ -1,0 +1,19 @@
+component_name: CurrentDate
+display_name: Current Date
+category: helpers
+version: 1.0.0
+overview:
+  summary: Get current date/time
+  description: Current Date component for Kozmoai workflows. Get current date/time.
+features:
+- Integration with Current Date
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Current Date Usage
+  description: Simple example using Current Date
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

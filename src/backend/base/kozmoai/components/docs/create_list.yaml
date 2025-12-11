@@ -1,0 +1,19 @@
+component_name: CreateList
+display_name: Create List
+category: helpers
+version: 1.0.0
+overview:
+  summary: Create data lists
+  description: Create List component for Kozmoai workflows. Create data lists.
+features:
+- Integration with Create List
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Create List Usage
+  description: Simple example using Create List
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

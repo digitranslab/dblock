@@ -1,0 +1,18 @@
+component_name: AmazonBedrockEmbeddings
+display_name: Amazon Bedrock Embeddings
+category: embeddings
+version: 1.0.0
+overview:
+  summary: AWS embeddings
+  description: Amazon Bedrock Embeddings component for Kozmoai workflows.
+features:
+- Integration with Amazon Bedrock Embeddings
+inputs: {}
+outputs: {}
+examples: []
+troubleshooting:
+- issue: Configuration Error
+  symptoms:
+  - Component not working as expected
+  solution: Verify all required parameters are set correctly and check the component documentation for specific requirements.
+external_links: []

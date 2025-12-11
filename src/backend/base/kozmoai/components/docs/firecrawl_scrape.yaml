@@ -1,0 +1,19 @@
+component_name: FirecrawlScrape
+display_name: Firecrawl Scrape
+category: firecrawl
+version: 1.0.0
+overview:
+  summary: Scrape web pages
+  description: Firecrawl Scrape component for Kozmoai workflows. Scrape web pages.
+features:
+- Integration with Firecrawl Scrape
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Firecrawl Scrape Usage
+  description: Simple example using Firecrawl Scrape
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

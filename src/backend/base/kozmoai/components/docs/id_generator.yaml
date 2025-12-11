@@ -1,0 +1,19 @@
+component_name: IdGenerator
+display_name: ID Generator
+category: helpers
+version: 1.0.0
+overview:
+  summary: Generate unique IDs
+  description: ID Generator component for Kozmoai workflows. Generate unique IDs.
+features:
+- Integration with ID Generator
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic ID Generator Usage
+  description: Simple example using ID Generator
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

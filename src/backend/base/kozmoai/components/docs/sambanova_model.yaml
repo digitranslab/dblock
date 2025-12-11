@@ -1,0 +1,44 @@
+component_name: SambaNova
+display_name: SambaNova
+category: models
+version: 1.0.0
+overview:
+  summary: Use SambaNova for AI and data tasks
+  description: This component generates text using SambaNova LLMs. It can output either a **Model Response** (`Message`) or
+    a **Language Model** (`LanguageModel`). Use the **Language Model** output when you want to use a SambaNova model as the
+    LLM for another LLM-driven component, such as an **Agent** or **Smart Function** component. For more information, see
+    Language model components.
+features:
+- Advanced language model capabilities
+- Flexible configuration options
+- Support for various use cases
+- High-quality text generation
+inputs:
+  sambanova_url:
+    display_name: sambanova_url
+    type: String
+    description: 'Input parameter. Base URL path for API requests. Default: `https://api.sambanova.ai/v1/chat/completions`.'
+  sambanova_api_key:
+    display_name: sambanova_api_key
+    type: SecretString
+    description: Input parameter. Your SambaNova API Key.
+  model_name:
+    display_name: model_name
+    type: String
+    description: Input parameter. The name of the SambaNova model to use. Options include various Llama models.
+  max_tokens:
+    display_name: max_tokens
+    type: Integer
+    description: Input parameter. The maximum number of tokens to generate. Set to 0 for unlimited tokens.
+outputs:
+  language_model:
+    display_name: Language Model
+    type: LanguageModel
+    description: Configured language model ready for use
+examples:
+- title: Basic SambaNova Setup
+  description: Standard configuration for SambaNova
+  use_case: General purpose usage
+external_links:
+- title: SambaNova Cloud documentation
+  url: https://cloud.sambanova.ai/

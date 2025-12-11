@@ -1,0 +1,19 @@
+component_name: SearchApi
+display_name: Search API
+category: tools
+version: 1.0.0
+overview:
+  summary: Generic search API
+  description: Search API component for Kozmoai workflows. Generic search API.
+features:
+- Integration with Search API
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Search API Usage
+  description: Simple example using Search API
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []
