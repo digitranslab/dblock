@@ -25,12 +25,12 @@ test(
     const property = fc.property(
       fc.boolean(), // isInput flag
       fc.integer({ min: 1, max: 10 }), // number of handles
-      (isInput, numHandles) => {
+      (isInputHandle, numHandles) => {
         // For each handle, verify the position is correct
         for (let i = 0; i < numHandles; i++) {
-          const position = getHandlePosition(isInput);
+          const position = getHandlePosition(isInputHandle);
           
-          if (isInput) {
+          if (isInputHandle) {
             // Input handles should be at top
             if (position !== Position.Top) {
               console.error(`Input handle ${i} has incorrect position: ${position}`);
@@ -352,7 +352,7 @@ test(
     }
 
     // Simulate state change (collapse/expand) - edge data should remain unchanged
-    const simulateStateChange = (edge: EdgeConnection, isCollapsed: boolean): EdgeConnection => {
+    const simulateStateChange = (edge: EdgeConnection, _isCollapsed: boolean): EdgeConnection => {
       // Edge connection data should not change based on node state
       return { ...edge };
     };
@@ -364,7 +364,7 @@ test(
       fc.string({ minLength: 1, maxLength: 10 }), // target node id
       fc.string({ minLength: 1, maxLength: 10 }), // target handle id
       fc.boolean(), // initial collapsed state
-      (edgeId, sourceId, sourceHandleId, targetId, targetHandleId, initialCollapsed) => {
+      (edgeId, sourceId, sourceHandleId, targetId, targetHandleId, _initialCollapsed) => {
         const originalEdge: EdgeConnection = {
           id: edgeId,
           source: sourceId,
