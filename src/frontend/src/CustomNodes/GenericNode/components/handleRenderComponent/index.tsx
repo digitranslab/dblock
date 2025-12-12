@@ -14,7 +14,7 @@ import HandleTooltipComponent from "../HandleTooltipComponent";
 const BASE_HANDLE_STYLES = {
   width: "32px",
   height: "32px",
-  top: "50%",
+  left: "50%",  // Center horizontally for vertical layout
   position: "absolute" as const,
   zIndex: 30,
   background: "transparent",
@@ -411,11 +411,11 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
             left={left}
           />
         }
-        side={left ? "left" : "right"}
+        side={left ? "top" : "bottom"}
       >
         <Handle
           type={left ? "target" : "source"}
-          position={left ? Position.Left : Position.Right}
+          position={left ? Position.Top : Position.Bottom}
           id={myId}
           isValidConnection={(connection) =>
             isValidConnection(connection as Connection, nodes, edges)

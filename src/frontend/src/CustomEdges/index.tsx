@@ -25,17 +25,18 @@ export function DefaultEdge({
 
   const targetHandleObject = scapeJSONParse(targetHandleId!);
 
-  const sourceXNew =
-    (sourceNode?.position.x ?? 0) + (sourceNode?.measured?.width ?? 0);
-  const targetXNew = targetNode?.position.x ?? 0;
+  // Vertical layout: source at bottom, target at top
+  const sourceYNew =
+    (sourceNode?.position.y ?? 0) + (sourceNode?.measured?.height ?? 0);
+  const targetYNew = targetNode?.position.y ?? 0;
 
   const [edgePath] = getSmoothStepPath({
-    sourceX: sourceXNew,
-    sourceY,
-    sourcePosition: Position.Right,
-    targetPosition: Position.Left,
-    targetX: targetXNew,
-    targetY,
+    sourceX,
+    sourceY: sourceYNew,
+    sourcePosition: Position.Bottom,
+    targetPosition: Position.Top,
+    targetX,
+    targetY: targetYNew,
   });
 
   return (

@@ -12,10 +12,10 @@ const ConnectionLineComponent = ({
   const color = handleDragging?.color;
   const accentColor = `hsl(var(--datatype-${color}))`;
 
-  // Calculate orthogonal path
-  // Start from source, go right, then turn to reach target
-  const midX = fromX + (toX - fromX) / 2;
-  const orthogonalPath = `M${fromX},${fromY} L${midX},${fromY} L${midX},${toY} L${toX},${toY}`;
+  // Calculate orthogonal path for vertical layout
+  // Start from source (bottom), go down, then turn to reach target (top)
+  const midY = fromY + (toY - fromY) / 2;
+  const orthogonalPath = `M${fromX},${fromY} L${fromX},${midY} L${toX},${midY} L${toX},${toY}`;
 
   return (
     <g>
