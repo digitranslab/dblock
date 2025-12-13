@@ -18,6 +18,7 @@ import useAlertStore from "@/stores/alertStore";
 import { useEffect, useRef, useState } from "react";
 import { AccountMenu } from "./components/AccountMenu";
 import FlowMenu from "./components/FlowMenu";
+import HeaderActionButtons from "./components/HeaderActionButtons";
 
 export default function AppHeader(): JSX.Element {
   const notificationCenter = useAlertStore((state) => state.notificationCenter);
@@ -95,6 +96,14 @@ export default function AppHeader(): JSX.Element {
         className={`flex items-center gap-2`}
         data-testid="header_right_section_wrapper"
       >
+        {/* Run, API, Share buttons */}
+        <HeaderActionButtons />
+        
+        <Separator
+          orientation="vertical"
+          className="my-auto h-7 dark:border-zinc-700"
+        />
+        
         <AlertDropdown
           notificationRef={notificationContentRef}
           onClose={() => setActiveState(null)}

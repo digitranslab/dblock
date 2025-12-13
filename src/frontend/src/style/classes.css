@@ -294,3 +294,18 @@ input[type="search"]::-webkit-search-cancel-button {
 .react-flow__background pattern circle {
   fill: hsl(var(--canvas-dot)) !important;
 }
+
+/* Edge animation for selected nodes */
+@keyframes flowAnimation {
+  0% {
+    stroke-dashoffset: 24;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.react-flow__edge.selected path,
+.react-flow__edge-path-animated {
+  animation: flowAnimation 0.5s linear infinite;
+}

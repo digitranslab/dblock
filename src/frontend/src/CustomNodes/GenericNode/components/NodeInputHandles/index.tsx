@@ -68,9 +68,10 @@ const NodeInputHandles = memo(function NodeInputHandles({
   return (
     <div className="absolute left-0 right-0 top-0 z-50 flex justify-center" style={{ transform: "translateY(-50%)" }}>
       <div 
-        className="flex items-center justify-center gap-4"
+        className="flex items-center justify-center"
         style={{ 
-          minWidth: handleCount > 1 ? `${handleCount * 40}px` : "auto",
+          gap: "24px", // Increased spacing between handles
+          minWidth: handleCount > 1 ? `${handleCount * 56}px` : "auto",
         }}
       >
         {handleFields.map((templateField, idx) => {

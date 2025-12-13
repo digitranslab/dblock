@@ -31,6 +31,7 @@ import NodeDescription from "./components/NodeDescription";
 import NodeInputHandles from "./components/NodeInputHandles";
 import NodeName from "./components/NodeName";
 import { OutputParameter } from "./components/NodeOutputParameter";
+import NodeOutputHandles from "./components/NodeOutputHandles";
 import NodeStatus from "./components/NodeStatus";
 import RenderInputParameters from "./components/RenderInputParameters";
 import { NodeIcon } from "./components/nodeIcon";
@@ -43,6 +44,7 @@ const MemoizedNodeName = memo(NodeName);
 const MemoizedNodeStatus = memo(NodeStatus);
 const MemoizedNodeDescription = memo(NodeDescription);
 const MemoizedNodeInputHandles = memo(NodeInputHandles);
+const MemoizedNodeOutputHandles = memo(NodeOutputHandles);
 
 const HiddenOutputsButton = memo(
   ({
@@ -582,6 +584,15 @@ function GenericNode({
               )}
             </>
           </div>
+        )}
+        {/* Output handles at bottom of node for vertical layout */}
+        {showNode && (
+          <MemoizedNodeOutputHandles
+            data={data}
+            showNode={showNode}
+            shownOutputs={shownOutputs}
+            showHiddenOutputs={showHiddenOutputs}
+          />
         )}
       </div>
     </div>
