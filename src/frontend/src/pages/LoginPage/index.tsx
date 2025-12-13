@@ -1,4 +1,4 @@
-import KozmoaiLogo from "@/assets/KozmoaiLogo.svg?react";
+import DBlockLogo from "@/assets/DBlockLogo.svg?react";
 import { useLoginUser } from "@/controllers/API/queries/auth";
 import { CustomLink } from "@/customization/components/custom-link";
 import { ENABLE_NEW_LOGO } from "@/customization/feature-flags";
@@ -68,15 +68,15 @@ export default function LoginPage(): JSX.Element {
       <div className="flex h-full w-full flex-col items-center justify-center bg-muted">
         <div className="flex w-72 flex-col items-center justify-center gap-2">
           {ENABLE_NEW_LOGO ? (
-            <KozmoaiLogo
-              title="Kozmoai logo"
+            <DBlockLogo
+              title="DBlock logo"
               className="mb-4 h-10 w-10 scale-[1.5]"
             />
           ) : (
             <span className="mb-4 text-5xl">⛓️</span>
           )}
           <span className="mb-6 text-2xl font-semibold text-primary">
-            Sign in to Kozmoai
+            Sign in to DBlock
           </span>
           <div className="mb-3 w-full">
             <Form.Field name="username">

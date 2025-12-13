@@ -1,4 +1,4 @@
-import KozmoaiLogo from "@/assets/KozmoaiLogo.svg?react";
+import DBlockLogo from "@/assets/DBlockLogo.svg?react";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import { Button } from "@/components/ui/button";
 import { ENABLE_NEW_LOGO } from "@/customization/feature-flags";
@@ -16,7 +16,7 @@ export const EmptyPage = ({ setOpenModal }: EmptyPageProps) => {
       <div className="text-container">
         <div className="relative z-20 flex w-full flex-col items-center justify-center gap-2">
           {ENABLE_NEW_LOGO ? (
-            <KozmoaiLogo className="h-7 w-8" />
+            <DBlockLogo className="h-7 w-8" />
           ) : (
             <span className="fill-foreground text-4xl">⛓️</span>
           )}

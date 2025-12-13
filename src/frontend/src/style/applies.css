@@ -1266,7 +1266,7 @@
   }
 
   .toolbar-wrapper {
-    @apply flex h-10 items-center gap-1 rounded-xl border border-border bg-background p-1 shadow-sm;
+    @apply flex flex-col w-auto items-stretch gap-1 rounded-xl border border-border bg-background p-1 shadow-sm;
   }
 
   .playground-btn-flow-toolbar {

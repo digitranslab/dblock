@@ -554,6 +554,7 @@ export type nodeToolbarPropsType = {
   updateNode: () => void;
   closeToolbar?: () => void;
   setOpenShowMoreOptions?: (open: boolean) => void;
+  onRename?: () => void;
 };
 
 export type parsedDataType = {

@@ -1,6 +1,6 @@
 import AlertDropdown from "@/alerts/alertDropDown";
 import DataStaxLogo from "@/assets/DataStaxLogo.svg?react";
-import KozmoaiLogo from "@/assets/KozmoaiLogo.svg?react";
+import DBlockLogo from "@/assets/DBlockLogo.svg?react";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import ShadTooltip from "@/components/common/shadTooltipComponent";
 import { Button } from "@/components/ui/button";
@@ -69,7 +69,7 @@ export default function AppHeader(): JSX.Element {
             <DataStaxLogo className="fill-black dark:fill-[white]" />
           ) : ENABLE_NEW_LOGO ? (
             <>
-              <KozmoaiLogo className="h-16 w-20" />
+              <DBlockLogo className="h-16 w-20" />
               <span className="text-2xl font-bold" style={{ color: "#ffbd59" }}>
                 DBlock
               </span>

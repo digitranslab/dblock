@@ -234,9 +234,10 @@ function GenericNode({
   const memoizedNodeToolbarComponent = useMemo(() => {
     return selected ? (
       <>
+        {/* Toolbar positioned on the right side of the node */}
         <div
           className={cn(
-            "absolute -top-12 left-1/2 z-50 -translate-x-1/2",
+            "absolute left-full top-0 z-50 ml-2",
             "transform transition-all duration-300 ease-out",
           )}
         >
@@ -258,46 +259,11 @@ function GenericNode({
             onCloseAdvancedModal={() => {}}
             updateNode={handleUpdateCode}
             isOutdated={isOutdated && isUserEdited}
-          />
-        </div>
-        <div className="-z-10">
-          <Button
-            unstyled
-            onClick={() => {
+            onRename={() => {
               toggleEditNameDescription();
               setHasChangedNodeDescription(false);
             }}
-            className={cn(
-              "nodrag absolute left-1/2 z-50 flex h-6 w-6 cursor-pointer items-center justify-center rounded-md",
-              "transform transition-all duration-300 ease-out",
-              showNode
-                ? "top-2 translate-x-[10.4rem]"
-                : "top-0 translate-x-[6.4rem]",
-              editNameDescription && hasChangedNodeDescription
-                ? "bg-accent-emerald"
-                : "bg-zinc-foreground",
-            )}
-            data-testid={
-              editNameDescription && hasChangedNodeDescription
-                ? "save-name-description-button"
-                : "edit-name-description-button"
-            }
-          >
-            <ForwardedIconComponent
-              name={
-                editNameDescription && hasChangedNodeDescription
-                  ? "Check"
-                  : "PencilLine"
-              }
-              strokeWidth={ICON_STROKE_WIDTH}
-              className={cn(
-                editNameDescription && hasChangedNodeDescription
-                  ? "text-accent-emerald-foreground"
-                  : "text-muted-foreground",
-                "icon-size",
-              )}
-            />
-          </Button>
+          />
         </div>
       </>
     ) : (
@@ -314,8 +280,8 @@ function GenericNode({
     isUserEdited,
     selected,
     shortcuts,
-    editNameDescription,
-    hasChangedNodeDescription,
+    shownOutputs.length,
+    handleUpdateCode,
     toggleEditNameDescription,
   ]);
 
