@@ -28,6 +28,7 @@ import { processNodeAdvancedFields } from "../helpers/process-node-advanced-fiel
 import useCheckCodeValidity from "../hooks/use-check-code-validity";
 import useUpdateNodeCode from "../hooks/use-update-node-code";
 import NodeDescription from "./components/NodeDescription";
+import NodeInputHandles from "./components/NodeInputHandles";
 import NodeName from "./components/NodeName";
 import { OutputParameter } from "./components/NodeOutputParameter";
 import NodeStatus from "./components/NodeStatus";
@@ -41,6 +42,7 @@ const MemoizedNodeIcon = memo(NodeIcon);
 const MemoizedNodeName = memo(NodeName);
 const MemoizedNodeStatus = memo(NodeStatus);
 const MemoizedNodeDescription = memo(NodeDescription);
+const MemoizedNodeInputHandles = memo(NodeInputHandles);
 
 const HiddenOutputsButton = memo(
   ({
@@ -463,6 +465,14 @@ function GenericNode({
           !hasOutputs && "pb-4",
         )}
       >
+        {/* Input handles at top of node for vertical layout */}
+        {showNode && (
+          <MemoizedNodeInputHandles
+            data={data}
+            isToolMode={isToolMode}
+            showNode={showNode}
+          />
+        )}
         {memoizedNodeToolbarComponent}
         {isOutdated && !isUserEdited && !dismissAll && (
           <div className="flex h-10 w-full items-center gap-4 bg-warning p-2 px-4 text-warning-foreground">

@@ -98,6 +98,8 @@ export default function NodeInputField({
     />
   );
 
+  // For vertical layout: handles are rendered at node level via NodeInputHandles
+  // Only render handles here when showNode is false (collapsed state)
   return !showNode ? (
     displayHandle ? (
       Handle
@@ -116,7 +118,7 @@ export default function NodeInputField({
           : "",
       )}
     >
-      {displayHandle && Handle}
+      {/* Handles are now rendered at node level for vertical layout */}
       <div
         className={cn(
           "flex w-full flex-col gap-2",
