@@ -56,7 +56,7 @@ const HeaderActionButtons = memo(function HeaderActionButtons() {
           canvasOpen={true}
         >
           <Button
-            className="bg-emerald-500 hover:bg-emerald-600 text-white gap-1.5 px-4"
+            className="bg-emerald-500 hover:bg-emerald-600 text-white dark:text-black gap-1.5 px-4"
             data-testid="header-run-button"
           >
             <ForwardedIconComponent
@@ -70,7 +70,7 @@ const HeaderActionButtons = memo(function HeaderActionButtons() {
         <ShadTooltip content="Add a Chat Input or Chat Output to run">
           <div>
             <Button
-              className="bg-emerald-500/50 text-white/70 gap-1.5 px-4 cursor-not-allowed"
+              className="bg-emerald-500/50 text-white/70 dark:text-black/50 gap-1.5 px-4 cursor-not-allowed"
               disabled
               data-testid="header-run-button-disabled"
             >

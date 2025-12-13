@@ -19,12 +19,12 @@ import { useEffect, useRef, useState } from "react";
 import { AccountMenu } from "./components/AccountMenu";
 import FlowMenu from "./components/FlowMenu";
 import HeaderActionButtons from "./components/HeaderActionButtons";
+import ThemeButtons from "./components/ThemeButtons";
 
 export default function AppHeader(): JSX.Element {
   const notificationCenter = useAlertStore((state) => state.notificationCenter);
   const navigate = useCustomNavigate();
   const [activeState, setActiveState] = useState<"notifications" | null>(null);
-  const lastPath = window.location.pathname.split("/").filter(Boolean).pop();
   const notificationRef = useRef<HTMLButtonElement | null>(null);
   const notificationContentRef = useRef<HTMLDivElement | null>(null);
   useTheme();
@@ -143,6 +143,25 @@ export default function AppHeader(): JSX.Element {
             </AlertDropdown>
           </ShadTooltip>
         </AlertDropdown>
+        
+        {/* Theme Buttons - Dark/Light/System */}
+        <ThemeButtons />
+        
+        {/* Settings Button */}
+        <ShadTooltip content="Settings" side="bottom" styleClasses="z-10">
+          <Button
+            data-testid="header-settings-button"
+            variant="ghost"
+            className="flex"
+            onClick={() => navigate("/settings")}
+          >
+            <ForwardedIconComponent
+              name="Settings"
+              className="side-bar-button-size h-[18px] w-[18px]"
+            />
+          </Button>
+        </ShadTooltip>
+        
         {ENABLE_DATASTAX_KOZMOAI && (
           <>
             <ShadTooltip content="Docs" side="bottom" styleClasses="z-10">
@@ -162,22 +181,6 @@ export default function AppHeader(): JSX.Element {
                 />
                 <span className="hidden whitespace-nowrap 2xl:inline">
                   Docs
-                </span>
-              </Button>
-            </ShadTooltip>
-            <ShadTooltip content="Settings" side="bottom" styleClasses="z-10">
-              <Button
-                data-testid="user-profile-settings"
-                variant="ghost"
-                className="flex text-sm font-medium"
-                onClick={() => navigate("/settings")}
-              >
-                <ForwardedIconComponent
-                  name="Settings"
-                  className="side-bar-button-size h-[18px] w-[18px]"
-                />
-                <span className="hidden whitespace-nowrap 2xl:inline">
-                  Settings
                 </span>
               </Button>
             </ShadTooltip>
