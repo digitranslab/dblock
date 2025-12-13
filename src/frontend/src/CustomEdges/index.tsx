@@ -51,18 +51,14 @@ export function DefaultEdge({
   const isTargetSelected = targetNode?.selected ?? false;
   const isConnectedToSelectedNode = isSourceSelected || isTargetSelected;
 
-  // Vertical layout: source at bottom, target at top
-  const sourceYNew =
-    (sourceNode?.position.y ?? 0) + (sourceNode?.measured?.height ?? 0);
-  const targetYNew = targetNode?.position.y ?? 0;
-
+  // Vertical layout: use the actual handle positions provided by React Flow
   const [edgePath] = getSmoothStepPath({
     sourceX,
-    sourceY: sourceYNew,
+    sourceY,
     sourcePosition: Position.Bottom,
     targetPosition: Position.Top,
     targetX,
-    targetY: targetYNew,
+    targetY,
   });
 
   // Determine stroke style based on selection state

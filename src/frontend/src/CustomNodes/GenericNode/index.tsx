@@ -1,15 +1,10 @@
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
-import ShadTooltip from "@/components/common/shadTooltipComponent";
 import { usePostValidateComponentCode } from "@/controllers/API/queries/nodes/use-post-validate-component-code";
 import { useUpdateNodeInternals } from "@xyflow/react";
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 import { Button } from "../../components/ui/button";
-import {
-  ICON_STROKE_WIDTH,
-  TOOLTIP_HIDDEN_OUTPUTS,
-  TOOLTIP_OPEN_HIDDEN_OUTPUTS,
-} from "../../constants/constants";
+import { ICON_STROKE_WIDTH } from "../../constants/constants";
 import NodeToolbarComponent from "../../pages/FlowPage/components/nodeToolbarComponent";
 import useAlertStore from "../../stores/alertStore";
 import useFlowStore from "../../stores/flowStore";
@@ -46,27 +41,7 @@ const MemoizedNodeDescription = memo(NodeDescription);
 const MemoizedNodeInputHandles = memo(NodeInputHandles);
 const MemoizedNodeOutputHandles = memo(NodeOutputHandles);
 
-const HiddenOutputsButton = memo(
-  ({
-    showHiddenOutputs,
-    onClick,
-  }: {
-    showHiddenOutputs: boolean;
-    onClick: () => void;
-  }) => (
-    <Button
-      unstyled
-      className="group flex h-[1.75rem] w-[1.75rem] items-center justify-center rounded-full border bg-muted hover:text-foreground"
-      onClick={onClick}
-    >
-      <ForwardedIconComponent
-        name={showHiddenOutputs ? "ChevronsDownUp" : "ChevronsUpDown"}
-        strokeWidth={ICON_STROKE_WIDTH}
-        className="icon-size text-placeholder-foreground group-hover:text-foreground"
-      />
-    </Button>
-  ),
-);
+
 
 function GenericNode({
   data,
@@ -501,10 +476,7 @@ function GenericNode({
         )}
         <div
           data-testid={`${data.id}-main-node`}
-          className={cn(
-            "grid gap-3 truncate text-wrap p-4 leading-5",
-            showNode && "border-b",
-          )}
+          className="grid gap-3 truncate text-wrap p-4 leading-5"
         >
           <div
             data-testid={"div-generic-node"}
@@ -535,49 +507,7 @@ function GenericNode({
           </div>
           {showNode && <div>{renderDescription()}</div>}
         </div>
-        {/* Output labels section - minimal view without input parameters */}
-        {showNode && (
-          <div className="nopan nodelete nodrag noflow relative cursor-auto">
-            <>
-              {/* Only show output labels, no input parameters */}
-              {!showHiddenOutputs &&
-                shownOutputs &&
-                renderOutputs(shownOutputs, "shown")}
-
-              <div
-                className={cn(showHiddenOutputs ? "" : "h-0 overflow-hidden")}
-              >
-                <div className="block">
-                  {renderOutputs(data.node!.outputs, "hidden")}
-                </div>
-              </div>
-              {hiddenOutputs && hiddenOutputs.length > 0 && (
-                <ShadTooltip
-                  content={
-                    showHiddenOutputs
-                      ? `${TOOLTIP_HIDDEN_OUTPUTS} (${hiddenOutputs?.length})`
-                      : `${TOOLTIP_OPEN_HIDDEN_OUTPUTS} (${hiddenOutputs?.length})`
-                  }
-                >
-                  <div
-                    className={cn(
-                      "absolute left-1/2 flex -translate-x-1/2 justify-center",
-                      (shownOutputs && shownOutputs.length > 0) ||
-                        showHiddenOutputs
-                        ? "bottom-[-0.8rem]"
-                        : "bottom-[-0.8rem]",
-                    )}
-                  >
-                    <HiddenOutputsButton
-                      showHiddenOutputs={showHiddenOutputs}
-                      onClick={() => setShowHiddenOutputs(!showHiddenOutputs)}
-                    />
-                  </div>
-                </ShadTooltip>
-              )}
-            </>
-          </div>
-        )}
+        {/* Minimal view - no output labels, only handles */}
         {/* Output handles at bottom of node for vertical layout */}
         {showNode && (
           <MemoizedNodeOutputHandles
