@@ -19,7 +19,7 @@ import { useTypesStore } from "../../stores/typesStore";
 import { VertexBuildTypeAPI } from "../../types/api";
 import { NodeDataType } from "../../types/flow";
 import { checkHasToolMode } from "../../utils/reactflowUtils";
-import { classNames, cn } from "../../utils/utils";
+import { cn } from "../../utils/utils";
 
 import { useAlternate } from "@/shared/hooks/use-alternate";
 import { useUtilityStore } from "@/stores/utilityStore";
@@ -535,18 +535,11 @@ function GenericNode({
           </div>
           {showNode && <div>{renderDescription()}</div>}
         </div>
+        {/* Output labels section - minimal view without input parameters */}
         {showNode && (
           <div className="nopan nodelete nodrag noflow relative cursor-auto">
             <>
-              {renderInputParameters()}
-              <div
-                className={classNames(
-                  Object.keys(data.node!.template).length < 1 ? "hidden" : "",
-                  "flex-max-width justify-center",
-                )}
-              >
-                {" "}
-              </div>
+              {/* Only show output labels, no input parameters */}
               {!showHiddenOutputs &&
                 shownOutputs &&
                 renderOutputs(shownOutputs, "shown")}
