@@ -30,7 +30,7 @@ const HeaderActionButtons = memo(function HeaderActionButtons() {
   const hasApiKey = useStoreStore((state) => state.hasApiKey);
 
   const location = useLocation();
-  const isFlowPage = location.pathname.includes("/flow/");
+  const isStudioPage = location.pathname.includes("/studio/");
 
   useEffect(() => {
     if (openPlayground) {
@@ -38,16 +38,24 @@ const HeaderActionButtons = memo(function HeaderActionButtons() {
     }
   }, [openPlayground]);
 
-  // Only show on flow pages
-  if (!isFlowPage || !currentFlow) {
+  // Only show on studio pages (canvas editor)
+  if (!isStudioPage || !currentFlow) {
     return null;
   }
 
   const shareDisabled = !hasApiKey || !validApiKey || !hasStore;
 
+  // Common button styles for consistency
+  const buttonBaseClass =
+    "gap-1.5 px-4 border border-zinc-300 dark:border-zinc-600 rounded-md font-medium";
+  const buttonEnabledClass =
+    "bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-700";
+  const buttonDisabledClass =
+    "bg-zinc-100 dark:bg-zinc-800 text-zinc-400 dark:text-zinc-500 cursor-not-allowed";
+
   return (
     <div className="flex items-center gap-2">
-      {/* Run Button - Green with play icon */}
+      {/* Run Button */}
       {hasIO ? (
         <IOModal
           open={openPlayground}
@@ -56,7 +64,7 @@ const HeaderActionButtons = memo(function HeaderActionButtons() {
           canvasOpen={true}
         >
           <Button
-            className="bg-emerald-500 hover:bg-emerald-600 text-white dark:text-black gap-1.5 px-4"
+            className={`${buttonBaseClass} ${buttonEnabledClass}`}
             data-testid="header-run-button"
           >
             <ForwardedIconComponent
@@ -70,7 +78,7 @@ const HeaderActionButtons = memo(function HeaderActionButtons() {
         <ShadTooltip content="Add a Chat Input or Chat Output to run">
           <div>
             <Button
-              className="bg-emerald-500/50 text-white/70 dark:text-black/50 gap-1.5 px-4 cursor-not-allowed"
+              className={`${buttonBaseClass} ${buttonDisabledClass}`}
               disabled
               data-testid="header-run-button-disabled"
             >
@@ -92,8 +100,7 @@ const HeaderActionButtons = memo(function HeaderActionButtons() {
           setOpen={setOpenApiModal}
         >
           <Button
-            variant="ghost"
-            className="gap-1.5"
+            className={`${buttonBaseClass} ${buttonEnabledClass}`}
             data-testid="header-api-button"
           >
             <ForwardedIconComponent name="Code2" className="h-4 w-4" />
@@ -117,8 +124,7 @@ const HeaderActionButtons = memo(function HeaderActionButtons() {
           >
             <div>
               <Button
-                variant="ghost"
-                className="gap-1.5"
+                className={`${buttonBaseClass} ${shareDisabled ? buttonDisabledClass : buttonEnabledClass}`}
                 disabled={shareDisabled}
                 data-testid="header-share-button"
               >

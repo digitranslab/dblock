@@ -1,5 +1,4 @@
 /// <reference types="vite-plugin-svgr/client" />
-import { useParams } from "react-router-dom";
 import BlogPost from "../../../../assets/undraw_blog_post_re_fy5x.svg?react";
 import ChatBot from "../../../../assets/undraw_chat_bot_re_e2gj.svg?react";
 import PromptChaining from "../../../../assets/undraw_cloud_docs_re_xjht.svg?react";
@@ -16,18 +15,12 @@ import {
   CardDescription,
   CardTitle,
 } from "../../../../components/ui/card";
-import { useFolderStore } from "../../../../stores/foldersStore";
 import { UndrawCardComponentProps } from "../../../../types/components";
-import { updateIds } from "../../../../utils/reactflowUtils";
 import { useFlowCardClick } from "../hooks/use-redirect-flow-card-click";
 
 export default function UndrawCardComponent({
   flow,
 }: UndrawCardComponentProps): JSX.Element {
-  const { folderId } = useParams();
-  const myCollectionId = useFolderStore((state) => state.myCollectionId);
-  const folderIdUrl = folderId ?? myCollectionId;
-
   const handleFlowCardClick = useFlowCardClick();
 
   function selectImage() {
@@ -137,7 +130,7 @@ export default function UndrawCardComponent({
 
   return (
     <Card
-      onClick={() => handleFlowCardClick(flow, folderIdUrl!)}
+      onClick={() => handleFlowCardClick(flow)}
       className="h-64 w-80 cursor-pointer bg-background pt-4"
     >
       <CardContent className="h-full w-full">

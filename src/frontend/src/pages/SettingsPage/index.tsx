@@ -12,6 +12,7 @@ import PageLayout from "../../components/common/pageLayout";
 
 export default function SettingsPage(): JSX.Element {
   const autoLogin = useAuthStore((state) => state.autoLogin);
+  const isAdmin = useAuthStore((state) => state.isAdmin);
   const hasStore = useStoreStore((state) => state.hasStore);
 
   // Hides the General settings if there is nothing to show
@@ -97,11 +98,25 @@ export default function SettingsPage(): JSX.Element {
     sidebarNavItems.splice(2, 0, ...kozmoaiItems);
   }
 
+  // Add Users management for admins only
+  if (isAdmin || !autoLogin) {
+    sidebarNavItems.push({
+      title: "Users",
+      href: "/settings/users",
+      icon: (
+        <ForwardedIconComponent
+          name="Users"
+          className="w-4 flex-shrink-0 justify-start stroke-[1.5]"
+        />
+      ),
+    });
+  }
+
   return (
     <PageLayout
       backTo={"/"}
       title="Settings"
-      description="Manage the general settings for Kozmoai."
+      description="Manage the general settings for DBlock."
     >
       <SidebarProvider width="15rem" defaultOpen={false}>
         <SideBarButtonsComponent items={sidebarNavItems} />

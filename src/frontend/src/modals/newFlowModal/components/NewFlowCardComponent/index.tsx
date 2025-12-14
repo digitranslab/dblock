@@ -14,7 +14,7 @@ export default function NewFlowCardComponent() {
 
   const handleClick = () => {
     addFlow({ new_blank: true }).then((id) => {
-      navigate(`/flow/${id}`);
+      navigate(`/studio/${id}`);
     });
     track("New Flow Created", { template: "Blank Flow" });
   };

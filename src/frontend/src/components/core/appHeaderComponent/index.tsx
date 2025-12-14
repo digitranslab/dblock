@@ -146,21 +146,6 @@ export default function AppHeader(): JSX.Element {
         {/* Theme Buttons - Dark/Light/System */}
         <ThemeButtons />
         
-        {/* Settings Button */}
-        <ShadTooltip content="Settings" side="bottom" styleClasses="z-10">
-          <Button
-            data-testid="header-settings-button"
-            variant="ghost"
-            className="flex"
-            onClick={() => navigate("/settings")}
-          >
-            <ForwardedIconComponent
-              name="Settings"
-              className="side-bar-button-size h-[18px] w-[18px]"
-            />
-          </Button>
-        </ShadTooltip>
-        
         {ENABLE_DATASTAX_KOZMOAI && (
           <>
             <ShadTooltip content="Docs" side="bottom" styleClasses="z-10">

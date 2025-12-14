@@ -36,7 +36,7 @@ const ListComponent = ({ flowData }: { flowData: FlowType }) => {
   );
   const { getIcon } = useGetTemplateStyle(flowData);
 
-  const editFlowLink = `/flow/${flowData.id}`;
+  const editFlowLink = `/studio/${flowData.id}`;
 
   const handleClick = async () => {
     if (!isComponent) {

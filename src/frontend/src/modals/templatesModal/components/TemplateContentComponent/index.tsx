@@ -51,7 +51,7 @@ export default function TemplateContentComponent({
   const handleCardClick = (example) => {
     updateIds(example.data);
     addFlow({ flow: example }).then((id) => {
-      navigate(`/flow/${id}`);
+      navigate(`/studio/${id}`);
     });
     track("New Flow Created", { template: `${example.name} Template` });
   };

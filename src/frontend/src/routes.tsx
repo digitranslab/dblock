@@ -34,7 +34,9 @@ import GlobalVariablesPage from "./pages/SettingsPage/pages/GlobalVariablesPage"
 import MessagesPage from "./pages/SettingsPage/pages/messagesPage";
 import ShortcutsPage from "./pages/SettingsPage/pages/ShortcutsPage";
 import StoreApiKeyPage from "./pages/SettingsPage/pages/StoreApiKeyPage";
+import UsersPage from "./pages/SettingsPage/pages/UsersPage";
 import StorePage from "./pages/StorePage";
+import StudioPage from "./pages/StudioPage";
 import ViewPage from "./pages/ViewPage";
 
 const AdminPage = lazy(() => import("./pages/AdminPage"));
@@ -131,6 +133,14 @@ const router = createBrowserRouter(
                   <Route path="shortcuts" element={<ShortcutsPage />} />
                   <Route path="messages" element={<MessagesPage />} />
                   <Route path="store" element={<StoreApiKeyPage />} />
+                  <Route
+                    path="users"
+                    element={
+                      <ProtectedAdminRoute>
+                        <UsersPage />
+                      </ProtectedAdminRoute>
+                    }
+                  />
                 </Route>
                 <Route
                   path="store"
@@ -160,6 +170,18 @@ const router = createBrowserRouter(
                   }
                 />
               </Route>
+              {/* Studio Landing Page */}
+              <Route path="studio" element={<DashboardWrapperPage />}>
+                <Route index element={<StudioPage />} />
+              </Route>
+              {/* Studio - Canvas editor for workflows */}
+              <Route path="studio/:id/">
+                <Route path="" element={<DashboardWrapperPage />}>
+                  <Route path="" element={<FlowPage />} />
+                </Route>
+                <Route path="view" element={<ViewPage />} />
+              </Route>
+              {/* Flow - Reserved for catalog/preview (to be implemented) */}
               <Route path="flow/:id/">
                 <Route path="" element={<DashboardWrapperPage />}>
                   <Route path="" element={<FlowPage />} />

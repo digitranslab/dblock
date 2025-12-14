@@ -85,7 +85,7 @@ export default function TemplatesModal({
                   <Button
                     onClick={() => {
                       addFlow().then((id) => {
-                        navigate(`/flow/${id}`);
+                        navigate(`/studio/${id}`);
                       });
                       track("New Flow Created", { template: "Blank Flow" });
                     }}

@@ -12,7 +12,7 @@ export function useFlowCardClick() {
     try {
       updateIds(flow.data!);
       const id = await addFlow({ flow });
-      navigate(`/flow/${id}`);
+      navigate(`/studio/${id}`);
       track("New Flow Created", { template: `${flow.name} Template` });
     } catch (error) {
       console.error("Error handling flow card click:", error);
