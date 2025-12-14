@@ -4,10 +4,8 @@ import useAddFlow from "@/hooks/flows/use-add-flow";
 import useFlowsManagerStore from "@/stores/flowsManagerStore";
 import Fuse from "fuse.js";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
 import { ForwardedIconComponent } from "../../../../components/common/genericIconComponent";
 import { Input } from "../../../../components/ui/input";
-import { useFolderStore } from "../../../../stores/foldersStore";
 import { TemplateContentProps } from "../../../../types/templates/types";
 import { updateIds } from "../../../../utils/reactflowUtils";
 import { TemplateCategoryComponent } from "../TemplateCategoryComponent";
@@ -25,11 +23,7 @@ export default function TemplateContentComponent({
   const [filteredExamples, setFilteredExamples] = useState(examples);
   const addFlow = useAddFlow();
   const navigate = useCustomNavigate();
-  const { folderId } = useParams();
-  const myCollectionId = useFolderStore((state) => state.myCollectionId);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-  const folderIdUrl = folderId ?? myCollectionId;
 
   const fuse = useMemo(
     () => new Fuse(examples, { keys: ["name", "description"] }),
@@ -57,7 +51,7 @@ export default function TemplateContentComponent({
   const handleCardClick = (example) => {
     updateIds(example.data);
     addFlow({ flow: example }).then((id) => {
-      navigate(`/flow/${id}/folder/${folderIdUrl}`);
+      navigate(`/flow/${id}`);
     });
     track("New Flow Created", { template: `${example.name} Template` });
   };

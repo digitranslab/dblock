@@ -85,18 +85,7 @@ const router = createBrowserRouter(
                         <MyCollectionComponent key="flows" type="flows" />
                       )
                     }
-                  >
-                    <Route
-                      path="folder/:folderId"
-                      element={
-                        ENABLE_HOMEPAGE ? (
-                          <HomePage key="flows" type="flows" />
-                        ) : (
-                          <MyCollectionComponent key="flows" type="flows" />
-                        )
-                      }
-                    />
-                  </Route>
+                  />
                   <Route
                     path="components/"
                     element={
@@ -109,21 +98,7 @@ const router = createBrowserRouter(
                         />
                       )
                     }
-                  >
-                    <Route
-                      path="folder/:folderId"
-                      element={
-                        ENABLE_HOMEPAGE ? (
-                          <HomePage key="components" type="components" />
-                        ) : (
-                          <MyCollectionComponent
-                            key="components"
-                            type="component"
-                          />
-                        )
-                      }
-                    />
-                  </Route>
+                  />
                   <Route
                     path="all/"
                     element={
@@ -133,18 +108,7 @@ const router = createBrowserRouter(
                         <MyCollectionComponent key="all" type="all" />
                       )
                     }
-                  >
-                    <Route
-                      path="folder/:folderId"
-                      element={
-                        ENABLE_HOMEPAGE ? (
-                          <HomePage key="flows" type="flows" />
-                        ) : (
-                          <MyCollectionComponent key="all" type="all" />
-                        )
-                      }
-                    />
-                  </Route>
+                  />
                 </Route>
                 <Route path="settings" element={<SettingsPage />}>
                   <Route
@@ -198,7 +162,6 @@ const router = createBrowserRouter(
               </Route>
               <Route path="flow/:id/">
                 <Route path="" element={<DashboardWrapperPage />}>
-                  <Route path="folder/:folderId/" element={<FlowPage />} />
                   <Route path="" element={<FlowPage />} />
                 </Route>
                 <Route path="view" element={<ViewPage />} />

@@ -2,15 +2,12 @@ import DBlockLogo from "@/assets/DBlockLogo.svg?react";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import { Button } from "@/components/ui/button";
 import { ENABLE_NEW_LOGO } from "@/customization/feature-flags";
-import { useFolderStore } from "@/stores/foldersStore";
 
 type EmptyPageProps = {
   setOpenModal: (open: boolean) => void;
 };
 
 export const EmptyPage = ({ setOpenModal }: EmptyPageProps) => {
-  const folders = useFolderStore((state) => state.folders);
-
   return (
     <div className="m-0 h-full w-full bg-secondary p-0">
       <div className="text-container">
@@ -24,7 +21,7 @@ export const EmptyPage = ({ setOpenModal }: EmptyPageProps) => {
             className="pt-5 font-chivo text-2xl font-semibold text-foreground"
             data-testid="mainpage_title"
           >
-            {folders?.length > 1 ? "Empty folder" : "Start building"}
+            Start building
           </h3>
           <p className="pb-5 text-sm text-secondary-foreground">
             Begin with a template, or start from scratch.

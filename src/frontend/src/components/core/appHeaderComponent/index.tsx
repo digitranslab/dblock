@@ -16,7 +16,6 @@ import useTheme from "@/customization/hooks/use-custom-theme";
 import { useResetDismissUpdateAll } from "@/hooks/use-reset-dismiss-update-all";
 import useAlertStore from "@/stores/alertStore";
 import { useEffect, useRef, useState } from "react";
-import { AccountMenu } from "./components/AccountMenu";
 import FlowMenu from "./components/FlowMenu";
 import HeaderActionButtons from "./components/HeaderActionButtons";
 import ThemeButtons from "./components/ThemeButtons";
@@ -184,15 +183,8 @@ export default function AppHeader(): JSX.Element {
                 </span>
               </Button>
             </ShadTooltip>
-            <Separator
-              orientation="vertical"
-              className="my-auto h-7 dark:border-zinc-700"
-            />
           </>
         )}
-        <div className="flex">
-          <AccountMenu />
-        </div>
       </div>
     </div>
   );

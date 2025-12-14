@@ -6,7 +6,6 @@ import { track } from "@/customization/utils/analytics";
 import useAddFlow from "@/hooks/flows/use-add-flow";
 import { Category } from "@/types/templates/types";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
 import { newFlowModalPropsType } from "../../types/components";
 import BaseModal from "../baseModal";
 import GetStartedComponent from "./components/GetStartedComponent";
@@ -20,7 +19,6 @@ export default function TemplatesModal({
   const [currentTab, setCurrentTab] = useState("get-started");
   const addFlow = useAddFlow();
   const navigate = useCustomNavigate();
-  const { folderId } = useParams();
 
   // Define categories and their items
   const categories: Category[] = [
@@ -87,9 +85,7 @@ export default function TemplatesModal({
                   <Button
                     onClick={() => {
                       addFlow().then((id) => {
-                        navigate(
-                          `/flow/${id}${folderId ? `/folder/${folderId}` : ""}`,
-                        );
+                        navigate(`/flow/${id}`);
                       });
                       track("New Flow Created", { template: "Blank Flow" });
                     }}
