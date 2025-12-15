@@ -50,33 +50,33 @@ export default function AppHeader(): JSX.Element {
 
   return (
     <div
-      className="flex h-[62px] w-full items-center justify-between gap-2 border-b px-5 py-2.5 dark:bg-background"
+      className="flex h-[62px] w-full items-center justify-between gap-2 border-b pl-0 pr-5 py-2.5 dark:bg-background"
       data-testid="app-header"
     >
-      {/* Left Section */}
+      {/* Left Section - Logo aligned with dock width (w-14 = 56px) */}
       <div
-        className={`flex items-center gap-2`}
+        className={`flex items-center`}
         data-testid="header_left_section_wrapper"
       >
         <Button
           unstyled
           onClick={() => navigate("/")}
-          className="mr-1 flex items-center gap-2"
+          className="flex w-14 items-center justify-center"
           data-testid="icon-ChevronLeft"
         >
           {ENABLE_DATASTAX_KOZMOAI ? (
             <DataStaxLogo className="fill-black dark:fill-[white]" />
           ) : ENABLE_NEW_LOGO ? (
-            <>
-              <DBlockLogo className="h-16 w-20" />
-              <span className="text-2xl font-bold" style={{ color: "#ffbd59" }}>
-                DBlock
-              </span>
-            </>
+            <DBlockLogo className="h-12 w-12" />
           ) : (
             <span className="fill-black text-2xl dark:fill-white">⛓️</span>
           )}
         </Button>
+        {ENABLE_NEW_LOGO && !ENABLE_DATASTAX_KOZMOAI && (
+          <span className="text-xl font-bold" style={{ color: "#ffbd59" }}>
+            DBlock
+          </span>
+        )}
         {ENABLE_DATASTAX_KOZMOAI && (
           <>
             <CustomOrgSelector />
