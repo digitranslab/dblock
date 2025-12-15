@@ -19,6 +19,8 @@ export const CategoryGroup = memo(function CategoryGroup({
   chatInputAdded,
   onDragStart,
   sensitiveSort,
+  hasBundleItems,
+  bundlesComponent,
 }: CategoryGroupProps) {
   return (
     <SidebarGroup className="p-3">
@@ -71,6 +73,7 @@ export const CategoryGroup = memo(function CategoryGroup({
                 />
               );
             })}
+          {hasBundleItems && bundlesComponent}
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>

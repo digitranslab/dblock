@@ -318,35 +318,36 @@ export function FlowSidebarComponent() {
       />
       <SidebarContent>
         {hasResults ? (
-          <>
-            <CategoryGroup
-              dataFilter={dataFilter}
-              sortedCategories={sortedCategories}
-              CATEGORIES={CATEGORIES}
-              openCategories={openCategories}
-              setOpenCategories={setOpenCategories}
-              search={search}
-              nodeColors={nodeColors}
-              chatInputAdded={chatInputAdded}
-              onDragStart={onDragStart}
-              sensitiveSort={sensitiveSort}
-            />
-            {hasBundleItems && (
-              <MemoizedSidebarGroup
-                BUNDLES={BUNDLES}
-                search={search}
-                sortedCategories={sortedCategories}
-                dataFilter={dataFilter}
-                nodeColors={nodeColors}
-                chatInputAdded={chatInputAdded}
-                onDragStart={onDragStart}
-                sensitiveSort={sensitiveSort}
-                openCategories={openCategories}
-                setOpenCategories={setOpenCategories}
-                handleKeyDownInput={handleKeyDownInput}
-              />
-            )}
-          </>
+          <CategoryGroup
+            dataFilter={dataFilter}
+            sortedCategories={sortedCategories}
+            CATEGORIES={CATEGORIES}
+            openCategories={openCategories}
+            setOpenCategories={setOpenCategories}
+            search={search}
+            nodeColors={nodeColors}
+            chatInputAdded={chatInputAdded}
+            onDragStart={onDragStart}
+            sensitiveSort={sensitiveSort}
+            hasBundleItems={hasBundleItems}
+            bundlesComponent={
+              hasBundleItems ? (
+                <MemoizedSidebarGroup
+                  BUNDLES={BUNDLES}
+                  search={search}
+                  sortedCategories={sortedCategories}
+                  dataFilter={dataFilter}
+                  nodeColors={nodeColors}
+                  chatInputAdded={chatInputAdded}
+                  onDragStart={onDragStart}
+                  sensitiveSort={sensitiveSort}
+                  openCategories={openCategories}
+                  setOpenCategories={setOpenCategories}
+                  handleKeyDownInput={handleKeyDownInput}
+                />
+              ) : null
+            }
+          />
         ) : (
           <NoResultsMessage onClearSearch={handleClearSearch} />
         )}
