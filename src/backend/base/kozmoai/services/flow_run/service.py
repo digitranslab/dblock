@@ -1,11 +1,10 @@
 """Service for managing flow run execution history."""
 
 from datetime import datetime, timezone
-from typing import Any
 from uuid import UUID
 
 from loguru import logger
-from sqlmodel import Session
+from sqlmodel.ext.asyncio.session import AsyncSession
 
 from kozmoai.services.database.models.flow_run import FlowRun, FlowRunStatus
 
@@ -14,8 +13,8 @@ class FlowRunService:
     """Service for creating and updating flow run records."""
 
     @staticmethod
-    def create_flow_run(
-        session: Session,
+    async def create_flow_run(
+        session: AsyncSession,
         flow_id: UUID | str,
         user_id: UUID | str | None = None,
         session_id: str | None = None,
@@ -35,14 +34,14 @@ class FlowRunService:
             started_at=datetime.now(timezone.utc),
         )
         session.add(flow_run)
-        session.commit()
-        session.refresh(flow_run)
+        await session.commit()
+        await session.refresh(flow_run)
         logger.debug(f"Created flow run {flow_run.id} for flow {flow_id}")
         return flow_run
 
     @staticmethod
-    def complete_flow_run(
-        session: Session,
+    async def complete_flow_run(
+        session: AsyncSession,
         flow_run: FlowRun,
         outputs: dict | None = None,
         components_executed: int = 0,
@@ -58,14 +57,14 @@ class FlowRunService:
         flow_run.components_executed = components_executed
         
         session.add(flow_run)
-        session.commit()
-        session.refresh(flow_run)
+        await session.commit()
+        await session.refresh(flow_run)
         logger.debug(f"Completed flow run {flow_run.id} in {duration_ms}ms")
         return flow_run
 
     @staticmethod
-    def fail_flow_run(
-        session: Session,
+    async def fail_flow_run(
+        session: AsyncSession,
         flow_run: FlowRun,
         error_message: str,
         error_type: str | None = None,
@@ -83,14 +82,14 @@ class FlowRunService:
         flow_run.components_executed = components_executed
         
         session.add(flow_run)
-        session.commit()
-        session.refresh(flow_run)
+        await session.commit()
+        await session.refresh(flow_run)
         logger.debug(f"Failed flow run {flow_run.id}: {error_message}")
         return flow_run
 
     @staticmethod
-    def cancel_flow_run(
-        session: Session,
+    async def cancel_flow_run(
+        session: AsyncSession,
         flow_run: FlowRun,
     ) -> FlowRun:
         """Mark a flow run as cancelled."""
@@ -102,7 +101,7 @@ class FlowRunService:
         flow_run.duration_ms = duration_ms
         
         session.add(flow_run)
-        session.commit()
-        session.refresh(flow_run)
+        await session.commit()
+        await session.refresh(flow_run)
         logger.debug(f"Cancelled flow run {flow_run.id}")
         return flow_run

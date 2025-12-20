@@ -44,7 +44,7 @@ from kozmoai.services.database.models.flow import Flow
 from kozmoai.services.database.models.flow.model import FlowRead
 from kozmoai.services.database.models.flow.utils import get_all_webhook_components_in_flow
 from kozmoai.services.database.models.user.model import User, UserRead
-from kozmoai.services.deps import get_session, get_session_service, get_settings_service, get_task_service, get_telemetry_service
+from kozmoai.services.deps import get_session_service, get_settings_service, get_task_service, get_telemetry_service, session_scope
 from kozmoai.services.flow_run import FlowRunService
 from kozmoai.services.database.models.flow_run import FlowRun as FlowRunModel
 from kozmoai.services.settings.feature_flags import FEATURE_FLAGS
@@ -112,26 +112,25 @@ async def simple_run_flow(
 ):
     validate_input_and_tweaks(input_request)
     flow_run: FlowRunModel | None = None
-    session = None
     
     try:
         # Create flow run record
         try:
-            session = await anext(get_session())
-            user_id = api_key_user.id if api_key_user else None
-            flow_run = FlowRunService.create_flow_run(
-                session=session,
-                flow_id=flow.id,
-                user_id=user_id,
-                session_id=input_request.session_id,
-                trigger_type=trigger_type,
-                inputs={
-                    "input_value": input_request.input_value,
-                    "input_type": input_request.input_type,
-                    "output_type": input_request.output_type,
-                    "tweaks": input_request.tweaks,
-                },
-            )
+            async with session_scope() as session:
+                user_id = api_key_user.id if api_key_user else None
+                flow_run = await FlowRunService.create_flow_run(
+                    session=session,
+                    flow_id=flow.id,
+                    user_id=user_id,
+                    session_id=input_request.session_id,
+                    trigger_type=trigger_type,
+                    inputs={
+                        "input_value": input_request.input_value,
+                        "input_type": input_request.input_type,
+                        "output_type": input_request.output_type,
+                        "tweaks": input_request.tweaks,
+                    },
+                )
         except Exception as e:
             logger.warning(f"Failed to create flow run record: {e}")
             flow_run = None
@@ -177,16 +176,17 @@ async def simple_run_flow(
         )
 
         # Mark flow run as successful
-        if flow_run and session:
+        if flow_run:
             try:
-                # Count executed components
-                components_executed = len([v for v in graph.vertices if v._built])
-                FlowRunService.complete_flow_run(
-                    session=session,
-                    flow_run=flow_run,
-                    outputs={"results": [r.model_dump() for r in task_result] if task_result else []},
-                    components_executed=components_executed,
-                )
+                async with session_scope() as session:
+                    # Count executed components
+                    components_executed = len([v for v in graph.vertices if v._built])
+                    await FlowRunService.complete_flow_run(
+                        session=session,
+                        flow_run=flow_run,
+                        outputs={"results": [r.model_dump() for r in task_result] if task_result else []},
+                        components_executed=components_executed,
+                    )
             except Exception as e:
                 logger.warning(f"Failed to update flow run record: {e}")
 
@@ -194,27 +194,29 @@ async def simple_run_flow(
 
     except sa.exc.StatementError as exc:
         # Mark flow run as failed
-        if flow_run and session:
+        if flow_run:
             try:
-                FlowRunService.fail_flow_run(
-                    session=session,
-                    flow_run=flow_run,
-                    error_message=str(exc),
-                    error_type="StatementError",
-                )
+                async with session_scope() as session:
+                    await FlowRunService.fail_flow_run(
+                        session=session,
+                        flow_run=flow_run,
+                        error_message=str(exc),
+                        error_type="StatementError",
+                    )
             except Exception as e:
                 logger.warning(f"Failed to update flow run record: {e}")
         raise ValueError(str(exc)) from exc
     except Exception as exc:
         # Mark flow run as failed
-        if flow_run and session:
+        if flow_run:
             try:
-                FlowRunService.fail_flow_run(
-                    session=session,
-                    flow_run=flow_run,
-                    error_message=str(exc),
-                    error_type=type(exc).__name__,
-                )
+                async with session_scope() as session:
+                    await FlowRunService.fail_flow_run(
+                        session=session,
+                        flow_run=flow_run,
+                        error_message=str(exc),
+                        error_type=type(exc).__name__,
+                    )
             except Exception as e:
                 logger.warning(f"Failed to update flow run record: {e}")
         raise

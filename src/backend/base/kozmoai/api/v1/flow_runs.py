@@ -5,19 +5,19 @@ from typing import Annotated
 from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException, Query, status
-from sqlmodel import Session, col, func, select
+from sqlmodel import col, select
+from sqlmodel.ext.asyncio.session import AsyncSession
 
+from kozmoai.api.utils import DbSession
 from kozmoai.services.database.models.flow import Flow
 from kozmoai.services.database.models.flow_run import FlowRun, FlowRunRead, FlowRunStatus
-from kozmoai.services.database.models.user import User
-from kozmoai.services.deps import get_session
 
 router = APIRouter(prefix="/flow-runs", tags=["Flow Runs"])
 
 
 @router.get("/", response_model=list[FlowRunRead])
 async def get_flow_runs(
-    session: Annotated[Session, Depends(get_session)],
+    session: DbSession,
     flow_id: UUID | None = Query(None, description="Filter by flow ID"),
     status_filter: str | None = Query(None, alias="status", description="Filter by status"),
     trigger_type: str | None = Query(None, description="Filter by trigger type"),
@@ -48,7 +48,7 @@ async def get_flow_runs(
     # Apply pagination
     query = query.offset(offset).limit(limit)
     
-    results = session.exec(query).all()
+    results = (await session.exec(query)).all()
     
     # Convert to response model
     flow_runs = []
@@ -62,23 +62,23 @@ async def get_flow_runs(
 
 @router.get("/stats")
 async def get_flow_run_stats(
-    session: Annotated[Session, Depends(get_session)],
+    session: DbSession,
     flow_id: UUID | None = Query(None, description="Filter by flow ID"),
     days: int = Query(7, ge=1, le=90, description="Number of days to include"),
 ) -> dict:
     """Get aggregated statistics for flow runs."""
+    from datetime import timedelta
     
     cutoff_date = datetime.now(timezone.utc).replace(
         hour=0, minute=0, second=0, microsecond=0
     )
-    from datetime import timedelta
     cutoff_date = cutoff_date - timedelta(days=days)
     
     base_query = select(FlowRun).where(FlowRun.started_at >= cutoff_date)
     if flow_id:
         base_query = base_query.where(FlowRun.flow_id == flow_id)
     
-    runs = session.exec(base_query).all()
+    runs = (await session.exec(base_query)).all()
     
     # Calculate statistics
     total_runs = len(runs)
@@ -119,7 +119,7 @@ async def get_flow_run_stats(
 @router.get("/{run_id}", response_model=FlowRunRead)
 async def get_flow_run(
     run_id: UUID,
-    session: Annotated[Session, Depends(get_session)],
+    session: DbSession,
 ) -> FlowRunRead:
     """Get a specific flow run by ID."""
     
@@ -127,7 +127,7 @@ async def get_flow_run(
         Flow, FlowRun.flow_id == Flow.id
     ).where(FlowRun.id == run_id)
     
-    result = session.exec(query).first()
+    result = (await session.exec(query)).first()
     
     if not result:
         raise HTTPException(
@@ -144,31 +144,30 @@ async def get_flow_run(
 @router.delete("/{run_id}")
 async def delete_flow_run(
     run_id: UUID,
-    session: Annotated[Session, Depends(get_session)],
+    session: DbSession,
 ) -> dict:
     """Delete a flow run record."""
     
-    run = session.get(FlowRun, run_id)
+    run = await session.get(FlowRun, run_id)
     if not run:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"Flow run {run_id} not found",
         )
     
-    session.delete(run)
-    session.commit()
+    await session.delete(run)
+    await session.commit()
     
     return {"message": "Flow run deleted successfully"}
 
 
 @router.delete("/")
 async def delete_flow_runs(
-    session: Annotated[Session, Depends(get_session)],
+    session: DbSession,
     flow_id: UUID | None = Query(None, description="Delete runs for specific flow"),
     older_than_days: int | None = Query(None, ge=1, description="Delete runs older than N days"),
 ) -> dict:
     """Delete multiple flow run records based on filters."""
-    
     from datetime import timedelta
     
     query = select(FlowRun)
@@ -180,12 +179,12 @@ async def delete_flow_runs(
         cutoff_date = datetime.now(timezone.utc) - timedelta(days=older_than_days)
         query = query.where(FlowRun.started_at < cutoff_date)
     
-    runs = session.exec(query).all()
+    runs = (await session.exec(query)).all()
     count = len(runs)
     
     for run in runs:
-        session.delete(run)
+        await session.delete(run)
     
-    session.commit()
+    await session.commit()
     
     return {"message": f"Deleted {count} flow run(s)"}

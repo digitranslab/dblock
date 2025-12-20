@@ -45,14 +45,7 @@ class FlowRunBase(SQLModel):
     # Duration in milliseconds
     duration_ms: int | None = Field(default=None, nullable=True)
     
-    # Input data (tweaks, input values, etc.)
-    inputs: dict | None = Field(default=None, sa_column=Column(JSON))
-    
-    # Output data (results from the flow)
-    outputs: dict | None = Field(default=None, sa_column=Column(JSON))
-    
-    # Error information for failed runs
-    error_message: str | None = Field(default=None, sa_column=Column(Text, nullable=True))
+    # Error type for failed runs
     error_type: str | None = Field(default=None, nullable=True)
     
     # Trigger type (manual, api, webhook, cron, etc.)
@@ -60,9 +53,6 @@ class FlowRunBase(SQLModel):
     
     # Number of components executed
     components_executed: int = Field(default=0)
-    
-    # Metadata for additional context
-    metadata: dict | None = Field(default=None, sa_column=Column(JSON))
 
     class Config:
         arbitrary_types_allowed = True
@@ -92,6 +82,12 @@ class FlowRun(FlowRunBase, table=True):  # type: ignore[call-arg]
     __tablename__ = "flow_run"
     
     id: UUID = Field(default_factory=uuid4, primary_key=True)
+    
+    # JSON fields - must be defined in table class with sa_column
+    inputs: dict | None = Field(default=None, sa_column=Column(JSON))
+    outputs: dict | None = Field(default=None, sa_column=Column(JSON))
+    error_message: str | None = Field(default=None, sa_column=Column(Text, nullable=True))
+    metadata: dict | None = Field(default=None, sa_column=Column(JSON))
     
     # Relationships
     flow: "Flow" = Relationship(back_populates="runs")
@@ -127,3 +123,7 @@ class FlowRunRead(FlowRunBase):
     
     id: UUID
     flow_name: str | None = None
+    inputs: dict | None = None
+    outputs: dict | None = None
+    error_message: str | None = None
+    metadata: dict | None = None
