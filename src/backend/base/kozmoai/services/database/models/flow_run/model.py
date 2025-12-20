@@ -10,10 +10,10 @@ This model tracks complete workflow executions including:
 
 from datetime import datetime, timezone
 from enum import Enum
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 from uuid import UUID, uuid4
 
-from pydantic import field_serializer, field_validator
+from pydantic import BaseModel, field_serializer, field_validator
 from sqlmodel import JSON, Column, Field, Relationship, SQLModel, Text
 
 if TYPE_CHECKING:
@@ -87,43 +87,56 @@ class FlowRun(FlowRunBase, table=True):  # type: ignore[call-arg]
     inputs: dict | None = Field(default=None, sa_column=Column(JSON))
     outputs: dict | None = Field(default=None, sa_column=Column(JSON))
     error_message: str | None = Field(default=None, sa_column=Column(Text, nullable=True))
-    metadata: dict | None = Field(default=None, sa_column=Column(JSON))
+    metadata_: dict | None = Field(default=None, sa_column=Column("metadata", JSON))
     
     # Relationships
     flow: "Flow" = Relationship(back_populates="runs")
     user: "User" = Relationship(back_populates="flow_runs")
 
 
-class FlowRunCreate(SQLModel):
+class FlowRunCreate(BaseModel):
     """Schema for creating a new flow run."""
     
     flow_id: UUID
     user_id: UUID | None = None
     session_id: str | None = None
     trigger_type: str = "manual"
-    inputs: dict | None = None
-    metadata: dict | None = None
+    inputs: dict[str, Any] | None = None
+    metadata: dict[str, Any] | None = None
 
 
-class FlowRunUpdate(SQLModel):
+class FlowRunUpdate(BaseModel):
     """Schema for updating a flow run."""
     
     status: str | None = None
     ended_at: datetime | None = None
     duration_ms: int | None = None
-    outputs: dict | None = None
+    outputs: dict[str, Any] | None = None
     error_message: str | None = None
     error_type: str | None = None
     components_executed: int | None = None
-    metadata: dict | None = None
+    metadata: dict[str, Any] | None = None
 
 
-class FlowRunRead(FlowRunBase):
+class FlowRunRead(BaseModel):
     """Schema for reading a flow run."""
     
     id: UUID
+    flow_id: UUID
+    user_id: UUID | None = None
+    session_id: str | None = None
+    status: str
+    started_at: datetime
+    ended_at: datetime | None = None
+    duration_ms: int | None = None
+    error_type: str | None = None
+    trigger_type: str
+    components_executed: int = 0
     flow_name: str | None = None
-    inputs: dict | None = None
-    outputs: dict | None = None
+    inputs: dict[str, Any] | None = None
+    outputs: dict[str, Any] | None = None
     error_message: str | None = None
-    metadata: dict | None = None
+    metadata: dict[str, Any] | None = None
+    
+    class Config:
+        from_attributes = True

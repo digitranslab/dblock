@@ -1,18 +1,38 @@
 """API endpoints for flow run execution history."""
 
 from datetime import datetime, timezone
-from typing import Annotated
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, HTTPException, Query, status
+from fastapi import APIRouter, HTTPException, Query, status
 from sqlmodel import col, select
-from sqlmodel.ext.asyncio.session import AsyncSession
 
 from kozmoai.api.utils import DbSession
 from kozmoai.services.database.models.flow import Flow
 from kozmoai.services.database.models.flow_run import FlowRun, FlowRunRead, FlowRunStatus
 
 router = APIRouter(prefix="/flow-runs", tags=["Flow Runs"])
+
+
+def _flow_run_to_read(run: FlowRun, flow_name: str | None = None) -> FlowRunRead:
+    """Convert a FlowRun model to FlowRunRead response."""
+    return FlowRunRead(
+        id=run.id,
+        flow_id=run.flow_id,
+        user_id=run.user_id,
+        session_id=run.session_id,
+        status=run.status,
+        started_at=run.started_at,
+        ended_at=run.ended_at,
+        duration_ms=run.duration_ms,
+        error_type=run.error_type,
+        trigger_type=run.trigger_type,
+        components_executed=run.components_executed,
+        flow_name=flow_name,
+        inputs=run.inputs,
+        outputs=run.outputs,
+        error_message=run.error_message,
+        metadata=run.metadata_,
+    )
 
 
 @router.get("/", response_model=list[FlowRunRead])
@@ -51,13 +71,7 @@ async def get_flow_runs(
     results = (await session.exec(query)).all()
     
     # Convert to response model
-    flow_runs = []
-    for run, flow_name in results:
-        run_dict = run.model_dump()
-        run_dict["flow_name"] = flow_name
-        flow_runs.append(FlowRunRead(**run_dict))
-    
-    return flow_runs
+    return [_flow_run_to_read(run, flow_name) for run, flow_name in results]
 
 
 @router.get("/stats")
@@ -94,12 +108,12 @@ async def get_flow_run_stats(
     )
     
     # Group by trigger type
-    trigger_counts = {}
+    trigger_counts: dict[str, int] = {}
     for run in runs:
         trigger_counts[run.trigger_type] = trigger_counts.get(run.trigger_type, 0) + 1
     
     # Group by status
-    status_counts = {}
+    status_counts: dict[str, int] = {}
     for run in runs:
         status_counts[run.status] = status_counts.get(run.status, 0) + 1
     
@@ -136,9 +150,7 @@ async def get_flow_run(
         )
     
     run, flow_name = result
-    run_dict = run.model_dump()
-    run_dict["flow_name"] = flow_name
-    return FlowRunRead(**run_dict)
+    return _flow_run_to_read(run, flow_name)
 
 
 @router.delete("/{run_id}")

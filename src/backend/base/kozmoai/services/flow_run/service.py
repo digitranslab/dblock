@@ -1,6 +1,7 @@
 """Service for managing flow run execution history."""
 
 from datetime import datetime, timezone
+from typing import Any
 from uuid import UUID
 
 from loguru import logger
@@ -19,8 +20,8 @@ class FlowRunService:
         user_id: UUID | str | None = None,
         session_id: str | None = None,
         trigger_type: str = "manual",
-        inputs: dict | None = None,
-        metadata: dict | None = None,
+        inputs: dict[str, Any] | None = None,
+        metadata: dict[str, Any] | None = None,
     ) -> FlowRun:
         """Create a new flow run record when execution starts."""
         flow_run = FlowRun(
@@ -30,7 +31,7 @@ class FlowRunService:
             status=FlowRunStatus.RUNNING.value,
             trigger_type=trigger_type,
             inputs=inputs,
-            metadata=metadata,
+            metadata_=metadata,
             started_at=datetime.now(timezone.utc),
         )
         session.add(flow_run)
@@ -43,7 +44,7 @@ class FlowRunService:
     async def complete_flow_run(
         session: AsyncSession,
         flow_run: FlowRun,
-        outputs: dict | None = None,
+        outputs: dict[str, Any] | None = None,
         components_executed: int = 0,
     ) -> FlowRun:
         """Mark a flow run as successfully completed."""
