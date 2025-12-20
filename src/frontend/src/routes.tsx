@@ -21,6 +21,7 @@ import { AppAuthenticatedPage } from "./pages/AppAuthenticatedPage";
 import { AppInitPage } from "./pages/AppInitPage";
 import { AppWrapperPage } from "./pages/AppWrapperPage";
 import { DashboardWrapperPage } from "./pages/DashboardWrapperPage";
+import ExecutionHistoryPage from "./pages/ExecutionHistoryPage";
 import FlowPage from "./pages/FlowPage";
 import LoginPage from "./pages/LoginPage";
 import MyCollectionComponent from "./pages/MainPage/oldComponents/myCollectionComponent";
@@ -173,6 +174,10 @@ const router = createBrowserRouter(
               {/* Studio Landing Page */}
               <Route path="studio" element={<DashboardWrapperPage />}>
                 <Route index element={<StudioPage />} />
+              </Route>
+              {/* Execution History Page */}
+              <Route path="history" element={<DashboardWrapperPage />}>
+                <Route index element={<ExecutionHistoryPage />} />
               </Route>
               {/* Studio - Canvas editor for workflows */}
               <Route path="studio/:id/">

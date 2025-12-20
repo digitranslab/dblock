@@ -22,6 +22,7 @@ from kozmoai.schema import Data
 
 if TYPE_CHECKING:
     from kozmoai.services.database.models import TransactionTable
+    from kozmoai.services.database.models.flow_run.model import FlowRun
     from kozmoai.services.database.models.folder import Folder
     from kozmoai.services.database.models.message import MessageTable
     from kozmoai.services.database.models.user import User
@@ -173,6 +174,7 @@ class Flow(FlowBase, table=True):  # type: ignore[call-arg]
     messages: list["MessageTable"] = Relationship(back_populates="flow")
     transactions: list["TransactionTable"] = Relationship(back_populates="flow")
     vertex_builds: list["VertexBuildTable"] = Relationship(back_populates="flow")
+    runs: list["FlowRun"] = Relationship(back_populates="flow")
 
     def to_data(self):
         serialized = self.model_dump()
