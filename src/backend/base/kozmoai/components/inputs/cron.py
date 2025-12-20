@@ -1,8 +1,6 @@
-from datetime import datetime, timezone
-
 from kozmoai.custom import Component
 from kozmoai.io import DropdownInput, MessageTextInput, Output
-from kozmoai.schema import Data
+from kozmoai.schema import Trigger
 
 
 class CronTriggerComponent(Component):
@@ -10,7 +8,7 @@ class CronTriggerComponent(Component):
     
     This component acts as a trigger input for workflows, similar to Chat Input,
     but designed for scheduled/cron-based executions. It has no upstream connections
-    and only provides downstream output.
+    and only provides downstream output via a Trigger signal.
     """
     
     display_name = "Cron Trigger"
@@ -18,16 +16,6 @@ class CronTriggerComponent(Component):
     icon = "Clock"
     name = "CronTrigger"
     minimized = True
-
-    # Predefined cron schedules
-    CRON_PRESETS = {
-        "@once": "Run once (manual trigger)",
-        "@hourly": "0 * * * * (every hour)",
-        "@daily": "0 0 * * * (every day at midnight)",
-        "@weekly": "0 0 * * 0 (every Sunday at midnight)",
-        "@monthly": "0 0 1 * * (first day of every month)",
-        "custom": "Custom cron expression",
-    }
 
     inputs = [
         DropdownInput(
@@ -62,10 +50,10 @@ class CronTriggerComponent(Component):
     ]
     
     outputs = [
-        Output(display_name="Trigger Data", name="trigger_data", method="trigger_response"),
+        Output(display_name="Trigger", name="trigger", method="fire_trigger"),
     ]
 
-    def get_cron_expression(self) -> str:
+    def get_cron_expression(self) -> str | None:
         """Get the effective cron expression based on schedule type."""
         schedule_map = {
             "@once": None,  # Manual trigger, no cron
@@ -79,12 +67,11 @@ class CronTriggerComponent(Component):
             return self.custom_cron or "* * * * *"
         return schedule_map.get(self.schedule_type)
 
-    def trigger_response(self) -> Data:
-        """Generate trigger data when the cron fires or is manually triggered."""
+    def fire_trigger(self) -> Trigger:
+        """Fire the trigger signal to start downstream component execution."""
         import json
         
         cron_expression = self.get_cron_expression()
-        trigger_time = datetime.now(timezone.utc).isoformat()
         
         # Parse the trigger payload
         try:
@@ -92,21 +79,18 @@ class CronTriggerComponent(Component):
         except json.JSONDecodeError:
             payload = {"raw": self.trigger_payload}
         
-        trigger_data = {
-            "trigger_type": "cron",
-            "schedule_type": self.schedule_type,
-            "cron_expression": cron_expression,
-            "timezone": self.timezone,
-            "trigger_time": trigger_time,
-            "payload": payload,
-        }
-        
-        data = Data(data=trigger_data)
+        # Create the trigger using the factory method
+        trigger = Trigger.from_cron(
+            schedule_type=self.schedule_type,
+            cron_expression=cron_expression,
+            timezone_str=self.timezone,
+            payload=payload,
+        )
         
         # Set status message
         if self.schedule_type == "@once":
-            self.status = f"Manual trigger at {trigger_time}"
+            self.status = f"Manual trigger fired at {trigger.timestamp}"
         else:
             self.status = f"Cron trigger ({self.schedule_type}): {cron_expression}"
         
-        return data
+        return trigger
