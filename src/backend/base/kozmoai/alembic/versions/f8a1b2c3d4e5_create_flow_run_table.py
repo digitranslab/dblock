@@ -21,9 +21,9 @@ depends_on: Union[str, Sequence[str], None] = None
 def upgrade() -> None:
     op.create_table(
         "flow_run",
-        sa.Column("id", sqlmodel.sql.sqltypes.GUID(), nullable=False),
-        sa.Column("flow_id", sqlmodel.sql.sqltypes.GUID(), nullable=False),
-        sa.Column("user_id", sqlmodel.sql.sqltypes.GUID(), nullable=True),
+        sa.Column("id", sqlmodel.sql.sqltypes.types.Uuid(), nullable=False),
+        sa.Column("flow_id", sqlmodel.sql.sqltypes.types.Uuid(), nullable=False),
+        sa.Column("user_id", sqlmodel.sql.sqltypes.types.Uuid(), nullable=True),
         sa.Column("session_id", sqlmodel.sql.sqltypes.AutoString(), nullable=True),
         sa.Column("status", sqlmodel.sql.sqltypes.AutoString(), nullable=False, server_default="pending"),
         sa.Column("started_at", sa.DateTime(timezone=True), nullable=False),
