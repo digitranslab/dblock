@@ -14,6 +14,7 @@ from typing import TYPE_CHECKING, Any
 from uuid import UUID, uuid4
 
 from pydantic import BaseModel, field_serializer, field_validator
+from sqlalchemy import DateTime, func
 from sqlmodel import JSON, Column, Field, Relationship, SQLModel, Text
 
 if TYPE_CHECKING:
@@ -39,9 +40,6 @@ class FlowRunBase(SQLModel):
     
     status: str = Field(default=FlowRunStatus.PENDING.value, index=True)
     
-    started_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
-    ended_at: datetime | None = Field(default=None, nullable=True)
-    
     # Duration in milliseconds
     duration_ms: int | None = Field(default=None, nullable=True)
     
@@ -66,15 +64,6 @@ class FlowRunBase(SQLModel):
             return UUID(value)
         return value
 
-    @field_serializer("started_at", "ended_at")
-    @classmethod
-    def serialize_datetime(cls, value):
-        if value is None:
-            return None
-        if value.tzinfo is None:
-            value = value.replace(tzinfo=timezone.utc)
-        return value.isoformat()
-
 
 class FlowRun(FlowRunBase, table=True):  # type: ignore[call-arg]
     """Flow Run table for tracking workflow execution history."""
@@ -82,6 +71,16 @@ class FlowRun(FlowRunBase, table=True):  # type: ignore[call-arg]
     __tablename__ = "flow_run"
     
     id: UUID = Field(default_factory=uuid4, primary_key=True)
+    
+    # Datetime fields with timezone - must use sa_column for proper timezone support
+    started_at: datetime | None = Field(
+        default=None,
+        sa_column=Column(DateTime(timezone=True), server_default=func.now(), nullable=False),
+    )
+    ended_at: datetime | None = Field(
+        default=None,
+        sa_column=Column(DateTime(timezone=True), nullable=True),
+    )
     
     # JSON fields - must be defined in table class with sa_column
     inputs: dict | None = Field(default=None, sa_column=Column(JSON))
@@ -92,6 +91,15 @@ class FlowRun(FlowRunBase, table=True):  # type: ignore[call-arg]
     # Relationships
     flow: "Flow" = Relationship(back_populates="runs")
     user: "User" = Relationship(back_populates="flow_runs")
+    
+    @field_serializer("started_at", "ended_at")
+    @classmethod
+    def serialize_datetime(cls, value):
+        if value is None:
+            return None
+        if value.tzinfo is None:
+            value = value.replace(tzinfo=timezone.utc)
+        return value.isoformat()
 
 
 class FlowRunCreate(BaseModel):
