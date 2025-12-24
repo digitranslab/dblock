@@ -79,7 +79,7 @@ export default function ExecutionHistoryPage(): JSX.Element {
       <div className="flex items-center justify-between">
         <div>
           <h2 className="flex items-center gap-2 text-lg font-semibold">
-            <ForwardedIconComponent name="History" className="h-5 w-5" />
+            <ForwardedIconComponent name="Home" className="h-5 w-5" />
             Execution History
           </h2>
           <p className="text-sm text-muted-foreground">
@@ -87,7 +87,7 @@ export default function ExecutionHistoryPage(): JSX.Element {
           </p>
         </div>
         <Button variant="outline" size="sm" onClick={() => refetch()}>
-          <ForwardedIconComponent name="RefreshCw" className="mr-2 h-4 w-4" />
+          <ForwardedIconComponent name="RotateCw" className="mr-2 h-4 w-4" />
           Refresh
         </Button>
       </div>

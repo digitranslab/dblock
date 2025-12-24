@@ -14,8 +14,8 @@ from typing import TYPE_CHECKING, Any
 from uuid import UUID, uuid4
 
 from pydantic import BaseModel, field_serializer, field_validator
-from sqlalchemy import DateTime, func
-from sqlmodel import JSON, Column, Field, Relationship, SQLModel, Text
+from sqlalchemy import DateTime, func, Text
+from sqlmodel import JSON, Column, Field, Relationship, SQLModel
 
 if TYPE_CHECKING:
     from kozmoai.services.database.models.flow.model import Flow
@@ -34,8 +34,6 @@ class FlowRunStatus(str, Enum):
 class FlowRunBase(SQLModel):
     """Base model for flow runs."""
     
-    flow_id: UUID = Field(foreign_key="flow.id", index=True)
-    user_id: UUID | None = Field(default=None, foreign_key="user.id", index=True, nullable=True)
     session_id: str | None = Field(default=None, index=True, nullable=True)
     
     status: str = Field(default=FlowRunStatus.PENDING.value, index=True)
@@ -55,15 +53,6 @@ class FlowRunBase(SQLModel):
     class Config:
         arbitrary_types_allowed = True
 
-    @field_validator("flow_id", "user_id", mode="before")
-    @classmethod
-    def validate_uuid(cls, value):
-        if value is None:
-            return value
-        if isinstance(value, str):
-            return UUID(value)
-        return value
-
 
 class FlowRun(FlowRunBase, table=True):  # type: ignore[call-arg]
     """Flow Run table for tracking workflow execution history."""
@@ -71,6 +60,10 @@ class FlowRun(FlowRunBase, table=True):  # type: ignore[call-arg]
     __tablename__ = "flow_run"
     
     id: UUID = Field(default_factory=uuid4, primary_key=True)
+    
+    # Foreign keys - using same pattern as Flow and Message models
+    flow_id: UUID = Field(index=True, foreign_key="flow.id")
+    user_id: UUID | None = Field(default=None, index=True, foreign_key="user.id", nullable=True)
     
     # Datetime fields with timezone - must use sa_column for proper timezone support
     started_at: datetime | None = Field(
@@ -92,6 +85,15 @@ class FlowRun(FlowRunBase, table=True):  # type: ignore[call-arg]
     flow: "Flow" = Relationship(back_populates="runs")
     user: "User" = Relationship(back_populates="flow_runs")
     
+    @field_validator("flow_id", "user_id", mode="before")
+    @classmethod
+    def validate_uuid(cls, value):
+        if value is None:
+            return value
+        if isinstance(value, str):
+            return UUID(value)
+        return value
+
     @field_serializer("started_at", "ended_at")
     @classmethod
     def serialize_datetime(cls, value):

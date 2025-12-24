@@ -170,10 +170,10 @@ class MessageTextInput(StrInput, MetadataTraceMixin, InputTraceMixin, ToolModeMi
 
     Attributes:
         input_types (list[str]): A list of input types that this component supports.
-            In this case, it supports the "Message" input type.
+            In this case, it supports the "Message" and "Text" input types.
     """
 
-    input_types: list[str] = ["Message"]
+    input_types: list[str] = ["Message", "Text"]
 
     @staticmethod
     def _validate_value(v: Any, info):
@@ -488,7 +488,7 @@ class SliderInput(BaseInputMixin, RangeMixin, SliderMixin, ToolModeMixin):
     field_type: SerializableFieldTypes = FieldTypes.SLIDER
 
 
-DEFAULT_PROMPT_INTUT_TYPES = ["Message"]
+DEFAULT_PROMPT_INTUT_TYPES = ["Message", "Text"]
 
 
 class DefaultPromptField(Input):

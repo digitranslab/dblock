@@ -77,7 +77,7 @@ const router = createBrowserRouter(
                 >
                   <Route
                     index
-                    element={<CustomNavigate replace to={"flows"} />}
+                    element={<CustomNavigate replace to={"history"} />}
                   />
                   <Route
                     path="flows/"

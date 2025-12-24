@@ -25,7 +25,7 @@ export default function LeftDockComponent({
 
   const isStudioActive = location.pathname.startsWith("/studio");
   const isCatalogActive = location.pathname.startsWith("/flow");
-  const isHistoryActive = location.pathname.startsWith("/history");
+  const isHistoryActive = location.pathname === "/history" || location.pathname === "/";
   const isSettingsActive = location.pathname.startsWith("/settings");
 
   const appVersion = "1.0.0";
@@ -40,6 +40,24 @@ export default function LeftDockComponent({
     >
       {/* Top buttons */}
       <div className="flex flex-col items-center gap-2">
+        {/* Home Button - Execution History */}
+        <ShadTooltip content="Home" side="right">
+          <Button
+            variant="ghost"
+            size="icon"
+            className={cn(
+              "h-10 w-10 rounded-lg",
+              isHistoryActive
+                ? "bg-accent text-accent-foreground"
+                : "text-muted-foreground hover:bg-accent hover:text-accent-foreground",
+            )}
+            onClick={() => navigate("/history")}
+            data-testid="dock-home-btn"
+          >
+            <ForwardedIconComponent name="Home" className="h-5 w-5" />
+          </Button>
+        </ShadTooltip>
+
         {/* Studio Button - Designer/Canvas */}
         <ShadTooltip content="Studio" side="right">
           <Button
@@ -73,24 +91,6 @@ export default function LeftDockComponent({
             data-testid="dock-catalog-btn"
           >
             <ForwardedIconComponent name="LayoutGrid" className="h-5 w-5" />
-          </Button>
-        </ShadTooltip>
-
-        {/* History Button - Execution History */}
-        <ShadTooltip content="Execution History" side="right">
-          <Button
-            variant="ghost"
-            size="icon"
-            className={cn(
-              "h-10 w-10 rounded-lg",
-              isHistoryActive
-                ? "bg-accent text-accent-foreground"
-                : "text-muted-foreground hover:bg-accent hover:text-accent-foreground",
-            )}
-            onClick={() => navigate("/history")}
-            data-testid="dock-history-btn"
-          >
-            <ForwardedIconComponent name="History" className="h-5 w-5" />
           </Button>
         </ShadTooltip>
       </div>
