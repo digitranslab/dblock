@@ -145,7 +145,7 @@ class StrInput(BaseInputMixin, ListableInputMixin, DatabaseLoadMixin, MetadataTr
 
 
 class MessageInput(StrInput, InputTraceMixin):
-    input_types: list[str] = ["Message"]
+    input_types: list[str] = ["Message", "Text"]
 
     @staticmethod
     def _validate_value(v: Any, _info):

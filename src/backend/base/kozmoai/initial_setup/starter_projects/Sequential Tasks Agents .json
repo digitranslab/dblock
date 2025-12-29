@@ -17,7 +17,8 @@
             "fieldName": "system_prompt",
             "id": "Agent-9YXRo",
             "inputTypes": [
-              "Message"
+              "Message",
+              "Text"
             ],
             "type": "str"
           }
@@ -26,7 +27,7 @@
         "source": "Prompt-xirI8",
         "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-xirI8œ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Agent-9YXRo",
-        "targetHandle": "{œfieldNameœ: œsystem_promptœ, œidœ: œAgent-9YXRoœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{œfieldNameœ: œsystem_promptœ, œidœ: œAgent-9YXRoœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -44,7 +45,8 @@
             "fieldName": "system_prompt",
             "id": "Agent-RmOB2",
             "inputTypes": [
-              "Message"
+              "Message",
+              "Text"
             ],
             "type": "str"
           }
@@ -53,7 +55,7 @@
         "source": "Prompt-f4paU",
         "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-f4paUœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Agent-RmOB2",
-        "targetHandle": "{œfieldNameœ: œsystem_promptœ, œidœ: œAgent-RmOB2œ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{œfieldNameœ: œsystem_promptœ, œidœ: œAgent-RmOB2œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -71,7 +73,8 @@
             "fieldName": "input_value",
             "id": "ChatOutput-DqyyQ",
             "inputTypes": [
-              "Message"
+              "Message",
+              "Text"
             ],
             "type": "str"
           }
@@ -80,7 +83,7 @@
         "source": "Agent-9YXRo",
         "sourceHandle": "{œdataTypeœ: œAgentœ, œidœ: œAgent-9YXRoœ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}",
         "target": "ChatOutput-DqyyQ",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-DqyyQœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-DqyyQœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -126,7 +129,8 @@
             "fieldName": "input_value",
             "id": "Agent-TmQ5O",
             "inputTypes": [
-              "Message"
+              "Message",
+              "Text"
             ],
             "type": "str"
           }
@@ -135,7 +139,7 @@
         "source": "ChatInput-TQ1li",
         "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-TQ1liœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Agent-TmQ5O",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAgent-TmQ5Oœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAgent-TmQ5Oœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -153,7 +157,8 @@
             "fieldName": "system_prompt",
             "id": "Agent-TmQ5O",
             "inputTypes": [
-              "Message"
+              "Message",
+              "Text"
             ],
             "type": "str"
           }
@@ -162,7 +167,7 @@
         "source": "Prompt-3fyqW",
         "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-3fyqWœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Agent-TmQ5O",
-        "targetHandle": "{œfieldNameœ: œsystem_promptœ, œidœ: œAgent-TmQ5Oœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{œfieldNameœ: œsystem_promptœ, œidœ: œAgent-TmQ5Oœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -180,7 +185,8 @@
             "fieldName": "input_value",
             "id": "Agent-RmOB2",
             "inputTypes": [
-              "Message"
+              "Message",
+              "Text"
             ],
             "type": "str"
           }
@@ -189,7 +195,7 @@
         "source": "Agent-TmQ5O",
         "sourceHandle": "{œdataTypeœ: œAgentœ, œidœ: œAgent-TmQ5Oœ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Agent-RmOB2",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAgent-RmOB2œ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAgent-RmOB2œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -357,7 +363,8 @@
                 "dynamic": false,
                 "info": "The background color of the icon.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -379,7 +386,8 @@
                 "dynamic": false,
                 "info": "The icon of the message.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -419,7 +427,8 @@
                 "dynamic": false,
                 "info": "Template to convert Data to Text. If left empty, it will be dynamically set to the Data's text key.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -441,7 +450,8 @@
                 "dynamic": false,
                 "info": "Message to be passed as output.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -483,7 +493,8 @@
                 "dynamic": false,
                 "info": "Name of the sender.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -505,7 +516,8 @@
                 "dynamic": false,
                 "info": "The session ID of the chat. If empty, the current session ID parameter will be used.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -543,7 +555,8 @@
                 "dynamic": false,
                 "info": "The text color of the name",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -673,7 +686,8 @@
                 "dynamic": false,
                 "info": "The description of the agent. This is only used when in Tool Mode. Defaults to 'A helpful assistant with access to the following tools:' and tools are added dynamically. This feature is deprecated and will be removed in future versions.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -779,7 +793,8 @@
                 "dynamic": false,
                 "info": "The input provided by the user for the agent to process.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1026,7 +1041,8 @@
                 "dynamic": false,
                 "info": "Filter by sender name.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1048,7 +1064,8 @@
                 "dynamic": false,
                 "info": "The session ID of the chat. If empty, the current session ID parameter will be used.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1070,7 +1087,8 @@
                 "dynamic": false,
                 "info": "System Prompt: Initial instructions and context provided to guide the agent's behavior.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1109,7 +1127,8 @@
                 "dynamic": false,
                 "info": "The template to use for formatting the data. It can contain the keys {text}, {sender} or any other key in the message data.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1293,7 +1312,8 @@
                 "dynamic": false,
                 "info": "The description of the agent. This is only used when in Tool Mode. Defaults to 'A helpful assistant with access to the following tools:' and tools are added dynamically. This feature is deprecated and will be removed in future versions.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1399,7 +1419,8 @@
                 "dynamic": false,
                 "info": "The input provided by the user for the agent to process.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1646,7 +1667,8 @@
                 "dynamic": false,
                 "info": "Filter by sender name.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1668,7 +1690,8 @@
                 "dynamic": false,
                 "info": "The session ID of the chat. If empty, the current session ID parameter will be used.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1690,7 +1713,8 @@
                 "dynamic": false,
                 "info": "System Prompt: Initial instructions and context provided to guide the agent's behavior.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1729,7 +1753,8 @@
                 "dynamic": false,
                 "info": "The template to use for formatting the data. It can contain the keys {text}, {sender} or any other key in the message data.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1916,7 +1941,8 @@
                 "dynamic": false,
                 "info": "A placeholder input for tool mode.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -2049,7 +2075,8 @@
                 "dynamic": false,
                 "info": "A placeholder input for tool mode.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -2231,7 +2258,8 @@
                 "dynamic": false,
                 "info": "A placeholder input for tool mode.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -2326,7 +2354,8 @@
                 "dynamic": false,
                 "info": "The background color of the icon.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -2348,7 +2377,8 @@
                 "dynamic": false,
                 "info": "The icon of the message.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -2472,7 +2502,8 @@
                 "dynamic": false,
                 "info": "Name of the sender.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -2494,7 +2525,8 @@
                 "dynamic": false,
                 "info": "The session ID of the chat. If empty, the current session ID parameter will be used.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -2532,7 +2564,8 @@
                 "dynamic": false,
                 "info": "The text color of the name",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -2734,7 +2767,8 @@
                 "dynamic": false,
                 "info": "The description of the agent. This is only used when in Tool Mode. Defaults to 'A helpful assistant with access to the following tools:' and tools are added dynamically. This feature is deprecated and will be removed in future versions.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -2840,7 +2874,8 @@
                 "dynamic": false,
                 "info": "The input provided by the user for the agent to process.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -3087,7 +3122,8 @@
                 "dynamic": false,
                 "info": "Filter by sender name.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -3109,7 +3145,8 @@
                 "dynamic": false,
                 "info": "The session ID of the chat. If empty, the current session ID parameter will be used.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -3131,7 +3168,8 @@
                 "dynamic": false,
                 "info": "System Prompt: Initial instructions and context provided to guide the agent's behavior.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -3170,7 +3208,8 @@
                 "dynamic": false,
                 "info": "The template to use for formatting the data. It can contain the keys {text}, {sender} or any other key in the message data.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,

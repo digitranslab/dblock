@@ -9,12 +9,17 @@
             "dataType": "ParseData",
             "id": "ParseData-4Sckw",
             "name": "text",
-            "output_types": ["Message"]
+            "output_types": [
+              "Message"
+            ]
           },
           "targetHandle": {
             "fieldName": "references",
             "id": "Prompt-65R68",
-            "inputTypes": ["Message", "Text"],
+            "inputTypes": [
+              "Message",
+              "Text"
+            ],
             "type": "str"
           }
         },
@@ -32,12 +37,17 @@
             "dataType": "TextInput",
             "id": "TextInput-t88FI",
             "name": "text",
-            "output_types": ["Message"]
+            "output_types": [
+              "Message"
+            ]
           },
           "targetHandle": {
             "fieldName": "instructions",
             "id": "Prompt-65R68",
-            "inputTypes": ["Message", "Text"],
+            "inputTypes": [
+              "Message",
+              "Text"
+            ],
             "type": "str"
           }
         },
@@ -54,12 +64,17 @@
             "dataType": "Prompt",
             "id": "Prompt-65R68",
             "name": "prompt",
-            "output_types": ["Message"]
+            "output_types": [
+              "Message"
+            ]
           },
           "targetHandle": {
             "fieldName": "input_value",
             "id": "OpenAIModel-MyAsQ",
-            "inputTypes": ["Message"],
+            "inputTypes": [
+              "Message",
+              "Text"
+            ],
             "type": "str"
           }
         },
@@ -67,7 +82,7 @@
         "source": "Prompt-65R68",
         "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-65R68œ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
         "target": "OpenAIModel-MyAsQ",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-MyAsQœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-MyAsQœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -76,12 +91,17 @@
             "dataType": "OpenAIModel",
             "id": "OpenAIModel-MyAsQ",
             "name": "text_output",
-            "output_types": ["Message"]
+            "output_types": [
+              "Message"
+            ]
           },
           "targetHandle": {
             "fieldName": "input_value",
             "id": "ChatOutput-BE4YI",
-            "inputTypes": ["Message"],
+            "inputTypes": [
+              "Message",
+              "Text"
+            ],
             "type": "str"
           }
         },
@@ -89,7 +109,7 @@
         "source": "OpenAIModel-MyAsQ",
         "sourceHandle": "{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-MyAsQœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
         "target": "ChatOutput-BE4YI",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-BE4YIœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-BE4YIœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -98,12 +118,16 @@
             "dataType": "URL",
             "id": "URL-EPEnt",
             "name": "data",
-            "output_types": ["Data"]
+            "output_types": [
+              "Data"
+            ]
           },
           "targetHandle": {
             "fieldName": "data",
             "id": "ParseData-4Sckw",
-            "inputTypes": ["Data"],
+            "inputTypes": [
+              "Data"
+            ],
             "type": "other"
           }
         },
@@ -121,7 +145,9 @@
           "display_name": "Parse Data",
           "id": "ParseData-4Sckw",
           "node": {
-            "base_classes": ["Message"],
+            "base_classes": [
+              "Message"
+            ],
             "beta": false,
             "conditional_paths": [],
             "custom_fields": {},
@@ -129,7 +155,11 @@
             "display_name": "Parse Data",
             "documentation": "",
             "edited": false,
-            "field_order": ["data", "template", "sep"],
+            "field_order": [
+              "data",
+              "template",
+              "sep"
+            ],
             "frozen": false,
             "icon": "message-square",
             "legacy": false,
@@ -190,7 +220,9 @@
                 "display_name": "Data",
                 "dynamic": false,
                 "info": "The data to convert to text.",
-                "input_types": ["Data"],
+                "input_types": [
+                  "Data"
+                ],
                 "list": true,
                 "name": "data",
                 "placeholder": "",
@@ -223,7 +255,10 @@
                 "display_name": "Template",
                 "dynamic": false,
                 "info": "The template to use for formatting the data. It can contain the keys {text}, {data} or any other key in the Data.",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "multiline": true,
@@ -266,17 +301,24 @@
           "display_name": "Prompt",
           "id": "Prompt-65R68",
           "node": {
-            "base_classes": ["Message"],
+            "base_classes": [
+              "Message"
+            ],
             "beta": false,
             "conditional_paths": [],
             "custom_fields": {
-              "template": ["references", "instructions"]
+              "template": [
+                "references",
+                "instructions"
+              ]
             },
             "description": "Create a prompt template with dynamic variables.",
             "display_name": "Prompt",
             "documentation": "",
             "edited": false,
-            "field_order": ["template"],
+            "field_order": [
+              "template"
+            ],
             "frozen": false,
             "icon": "prompts",
             "legacy": false,
@@ -327,7 +369,10 @@
                 "fileTypes": [],
                 "file_path": "",
                 "info": "",
-                "input_types": ["Message", "Text"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "multiline": true,
@@ -348,7 +393,10 @@
                 "fileTypes": [],
                 "file_path": "",
                 "info": "",
-                "input_types": ["Message", "Text"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "multiline": true,
@@ -383,7 +431,10 @@
                 "display_name": "Tool Placeholder",
                 "dynamic": false,
                 "info": "A placeholder input for tool mode.",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "name": "tool_placeholder",
@@ -426,7 +477,9 @@
           "display_name": "Instructions",
           "id": "TextInput-t88FI",
           "node": {
-            "base_classes": ["Message"],
+            "base_classes": [
+              "Message"
+            ],
             "beta": false,
             "conditional_paths": [],
             "custom_fields": {},
@@ -434,7 +487,9 @@
             "display_name": "Instructions",
             "documentation": "",
             "edited": false,
-            "field_order": ["input_value"],
+            "field_order": [
+              "input_value"
+            ],
             "frozen": false,
             "icon": "type",
             "legacy": false,
@@ -483,7 +538,10 @@
                 "display_name": "Text",
                 "dynamic": false,
                 "info": "Text to be passed as input.",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "multiline": true,
@@ -526,7 +584,9 @@
           "display_name": "Chat Output",
           "id": "ChatOutput-BE4YI",
           "node": {
-            "base_classes": ["Message"],
+            "base_classes": [
+              "Message"
+            ],
             "beta": false,
             "conditional_paths": [],
             "custom_fields": {},
@@ -572,7 +632,10 @@
                 "display_name": "Background Color",
                 "dynamic": false,
                 "info": "The background color of the icon.",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "name": "background_color",
@@ -591,7 +654,10 @@
                 "display_name": "Icon",
                 "dynamic": false,
                 "info": "The icon of the message.",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "name": "chat_icon",
@@ -627,7 +693,10 @@
                 "display_name": "Data Template",
                 "dynamic": false,
                 "info": "Template to convert Data to Text. If left empty, it will be dynamically set to the Data's text key.",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "name": "data_template",
@@ -645,7 +714,10 @@
                 "display_name": "Text",
                 "dynamic": false,
                 "info": "Message to be passed as output.",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "name": "input_value",
@@ -664,7 +736,10 @@
                 "dynamic": false,
                 "info": "Type of sender.",
                 "name": "sender",
-                "options": ["Machine", "User"],
+                "options": [
+                  "Machine",
+                  "User"
+                ],
                 "placeholder": "",
                 "required": false,
                 "show": true,
@@ -678,7 +753,10 @@
                 "display_name": "Sender Name",
                 "dynamic": false,
                 "info": "Name of the sender.",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "name": "sender_name",
@@ -696,7 +774,10 @@
                 "display_name": "Session ID",
                 "dynamic": false,
                 "info": "The session ID of the chat. If empty, the current session ID parameter will be used.",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "name": "session_id",
@@ -731,7 +812,10 @@
                 "display_name": "Text Color",
                 "dynamic": false,
                 "info": "The text color of the name",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "name": "text_color",
@@ -880,7 +964,10 @@
         "data": {
           "id": "OpenAIModel-MyAsQ",
           "node": {
-            "base_classes": ["LanguageModel", "Message"],
+            "base_classes": [
+              "LanguageModel",
+              "Message"
+            ],
             "beta": false,
             "category": "models",
             "conditional_paths": [],
@@ -930,7 +1017,9 @@
                 "display_name": "Language Model",
                 "method": "build_model",
                 "name": "model_output",
-                "required_inputs": ["api_key"],
+                "required_inputs": [
+                  "api_key"
+                ],
                 "selected": "LanguageModel",
                 "tool_mode": true,
                 "types": [
@@ -949,7 +1038,9 @@
                 "display_name": "OpenAI API Key",
                 "dynamic": false,
                 "info": "The OpenAI API Key to use for the OpenAI model.",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message"
+                ],
                 "load_from_db": true,
                 "name": "api_key",
                 "password": true,
@@ -984,7 +1075,10 @@
                 "display_name": "Input",
                 "dynamic": false,
                 "info": "",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "list_add_label": "Add More",
                 "load_from_db": false,
@@ -1166,7 +1260,10 @@
                 "display_name": "System Message",
                 "dynamic": false,
                 "info": "System message to pass to the model.",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "list_add_label": "Add More",
                 "load_from_db": false,
@@ -1251,7 +1348,11 @@
         "data": {
           "id": "URL-EPEnt",
           "node": {
-            "base_classes": ["Data", "DataFrame", "Message"],
+            "base_classes": [
+              "Data",
+              "DataFrame",
+              "Message"
+            ],
             "beta": false,
             "category": "data",
             "conditional_paths": [],
@@ -1260,7 +1361,10 @@
             "display_name": "URL",
             "documentation": "",
             "edited": false,
-            "field_order": ["urls", "format"],
+            "field_order": [
+              "urls",
+              "format"
+            ],
             "frozen": false,
             "icon": "layout-template",
             "key": "URL",
@@ -1340,7 +1444,10 @@
                 "dynamic": false,
                 "info": "Output Format. Use 'Text' to extract the text from the HTML or 'Raw HTML' for the raw HTML content.",
                 "name": "format",
-                "options": ["Text", "Raw HTML"],
+                "options": [
+                  "Text",
+                  "Raw HTML"
+                ],
                 "options_metadata": [],
                 "placeholder": "",
                 "required": false,
@@ -1357,7 +1464,10 @@
                 "display_name": "URLs",
                 "dynamic": false,
                 "info": "",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": true,
                 "list_add_label": "Add URL",
                 "load_from_db": false,
@@ -1370,7 +1480,10 @@
                 "trace_as_input": true,
                 "trace_as_metadata": true,
                 "type": "str",
-                "value": ["https://kozmoai.cloud/", "https://docs.kozmoai.cloud/"]
+                "value": [
+                  "https://kozmoai.cloud/",
+                  "https://docs.kozmoai.cloud/"
+                ]
               }
             },
             "tool_mode": false
@@ -1406,5 +1519,8 @@
   "is_component": false,
   "last_tested_version": "1.0.19.post2",
   "name": "Blog Writer",
-  "tags": ["chatbots", "content-generation"]
+  "tags": [
+    "chatbots",
+    "content-generation"
+  ]
 }

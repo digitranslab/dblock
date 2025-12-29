@@ -14,7 +14,7 @@ from typing import TYPE_CHECKING, Any
 from uuid import UUID, uuid4
 
 from pydantic import BaseModel, field_serializer, field_validator
-from sqlalchemy import DateTime, func, Text
+from sqlalchemy import DateTime, ForeignKey, func, Text
 from sqlmodel import JSON, Column, Field, Relationship, SQLModel
 
 if TYPE_CHECKING:
@@ -61,9 +61,24 @@ class FlowRun(FlowRunBase, table=True):  # type: ignore[call-arg]
     
     id: UUID = Field(default_factory=uuid4, primary_key=True)
     
-    # Foreign keys - using same pattern as Flow and Message models
-    flow_id: UUID = Field(index=True, foreign_key="flow.id")
-    user_id: UUID | None = Field(default=None, index=True, foreign_key="user.id", nullable=True)
+    # Foreign keys - using sa_column for proper ondelete behavior
+    flow_id: UUID = Field(
+        sa_column=Column(
+            "flow_id",
+            ForeignKey("flow.id", ondelete="CASCADE"),
+            index=True,
+            nullable=False,
+        )
+    )
+    user_id: UUID | None = Field(
+        default=None,
+        sa_column=Column(
+            "user_id",
+            ForeignKey("user.id", ondelete="SET NULL"),
+            index=True,
+            nullable=True,
+        )
+    )
     
     # Datetime fields with timezone - must use sa_column for proper timezone support
     started_at: datetime | None = Field(

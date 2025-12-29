@@ -16,6 +16,7 @@ services:
       - KOZMOAI_CONFIG_DIR=/app/data
       - KOZMOAI_HOST=0.0.0.0
       - KOZMOAI_PORT=7860
+      - KOZMOAI_AUTO_FIX_MIGRATION=true
     user: "0:0"
     volumes:
       - dblock-data:/app/data
