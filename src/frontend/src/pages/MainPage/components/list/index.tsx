@@ -17,7 +17,6 @@ import { FlowType } from "@/types/flow";
 import { swatchColors } from "@/utils/styleUtils";
 import { cn, getNumberFromString } from "@/utils/utils";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
 import useDescriptionModal from "../../hooks/use-description-modal";
 import { useGetTemplateStyle } from "../../utils/get-template-style";
 import { timeElapsed } from "../../utils/time-elapse";
@@ -30,7 +29,6 @@ const ListComponent = ({ flowData }: { flowData: FlowType }) => {
   const setSuccessData = useAlertStore((state) => state.setSuccessData);
   const { deleteFlow } = useDeleteFlow();
   const setErrorData = useAlertStore((state) => state.setErrorData);
-  const { folderId } = useParams();
   const [openSettings, setOpenSettings] = useState(false);
   const isComponent = flowData.is_component ?? false;
   const setFlowToCanvas = useFlowsManagerStore(
@@ -38,7 +36,7 @@ const ListComponent = ({ flowData }: { flowData: FlowType }) => {
   );
   const { getIcon } = useGetTemplateStyle(flowData);
 
-  const editFlowLink = `/flow/${flowData.id}${folderId ? `/folder/${folderId}` : ""}`;
+  const editFlowLink = `/studio/${flowData.id}`;
 
   const handleClick = async () => {
     if (!isComponent) {

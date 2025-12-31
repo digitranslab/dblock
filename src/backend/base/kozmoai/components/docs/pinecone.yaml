@@ -1,0 +1,58 @@
+component_name: Pinecone
+display_name: Pinecone
+category: vector_stores
+version: 1.0.0
+overview:
+  summary: Use Pinecone for AI and data tasks
+  description: 'The **Pinecone** component reads and writes to Pinecone vector stores using an instance of `PineconeVectorStore`.
+    :::tip For a tutorial using a vector database in a flow, see Create a vector RAG chatbot. :::'
+features:
+- High-performance vector storage and retrieval
+- Semantic search capabilities
+- Scalable architecture
+- Integration with embedding models
+inputs:
+  index_name:
+    display_name: index_name
+    type: String
+    description: Input parameter. The name of the Pinecone index.
+  namespace:
+    display_name: namespace
+    type: String
+    description: Input parameter. The namespace for the index.
+  distance_strategy:
+    display_name: distance_strategy
+    type: String
+    description: Input parameter. The strategy for calculating distance between vectors.
+  pinecone_api_key:
+    display_name: pinecone_api_key
+    type: SecretString
+    description: Input parameter. The API key for Pinecone.
+  text_key:
+    display_name: text_key
+    type: String
+    description: Input parameter. The key in the record to use as text.
+  search_query:
+    display_name: search_query
+    type: String
+    description: Input parameter. The query for similarity search.
+  ingest_data:
+    display_name: ingest_data
+    type: Data
+    description: Input parameter. The data to be ingested into the vector store.
+  embedding:
+    display_name: embedding
+    type: Embeddings
+    description: Input parameter. The embedding function to use.
+outputs:
+  vector_store:
+    display_name: Vector Store
+    type: VectorStore
+    description: Configured vector store instance
+examples:
+- title: Basic Pinecone Setup
+  description: Standard configuration for Pinecone
+  use_case: General purpose usage
+external_links:
+- title: Pinecone documentation
+  url: https://docs.pinecone.io/home

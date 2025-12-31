@@ -1,0 +1,19 @@
+component_name: ChatInput
+display_name: Chat Input
+category: inputs
+version: 1.0.0
+overview:
+  summary: Receive chat messages
+  description: Chat Input component for Kozmoai workflows. Receive chat messages.
+features:
+- Integration with Chat Input
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Chat Input Usage
+  description: Simple example using Chat Input
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

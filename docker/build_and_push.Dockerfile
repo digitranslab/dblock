@@ -79,11 +79,11 @@ COPY --from=builder --chown=1000 /app/.venv /app/.venv
 # Place executables in the environment at the front of the path
 ENV PATH="/app/.venv/bin:$PATH"
 
-LABEL org.opencontainers.image.title=kozmoai
-LABEL org.opencontainers.image.authors=['Kozmoai']
+LABEL org.opencontainers.image.title=dblock
+LABEL org.opencontainers.image.authors=['DBLock']
 LABEL org.opencontainers.image.licenses=MIT
-LABEL org.opencontainers.image.url=https://github.com/digitranslab/kozmoai
-LABEL org.opencontainers.image.source=https://github.com/digitranslab/kozmoai
+LABEL org.opencontainers.image.url=https://github.com/digitranslab/dblock
+LABEL org.opencontainers.image.source=https://github.com/digitranslab/dblock
 
 USER user
 WORKDIR /app

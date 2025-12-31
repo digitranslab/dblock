@@ -6,7 +6,6 @@ import { ENABLE_DATASTAX_KOZMOAI } from "@/customization/feature-flags";
 import useFlowsManagerStore from "@/stores/flowsManagerStore";
 import { useFolderStore } from "@/stores/foldersStore";
 import { useCallback, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import GridComponent from "../../components/grid";
 import GridSkeleton from "../../components/gridSkeleton";
 import HeaderComponent from "../../components/header";
@@ -22,35 +21,31 @@ const HomePage = ({ type }) => {
     return savedView === "grid" || savedView === "list" ? savedView : "list";
   });
   const [newProjectModal, setNewProjectModal] = useState(false);
-  const { folderId } = useParams();
   const [pageIndex, setPageIndex] = useState(1);
   const [pageSize, setPageSize] = useState(12);
   const [search, setSearch] = useState("");
   const handleFileDrop = useFileDrop("flows");
   const [flowType, setFlowType] = useState<"flows" | "components">(type);
   const myCollectionId = useFolderStore((state) => state.myCollectionId);
-  const folders = useFolderStore((state) => state.folders);
-  const folderName =
-    folders.find((folder) => folder.id === folderId)?.name ??
-    folders[0]?.name ??
-    "";
   const flows = useFlowsManagerStore((state) => state.flows);
 
-  const { data: folderData, isLoading } = useGetFolderQuery({
-    id: folderId ?? myCollectionId!,
-    page: pageIndex,
-    size: pageSize,
-    is_component: flowType === "components",
-    is_flow: flowType === "flows",
-    search,
-  });
+  // Always use myCollectionId - no folder navigation
+  const { data: folderData, isLoading } = useGetFolderQuery(
+    {
+      id: myCollectionId ?? "",
+      page: pageIndex,
+      size: pageSize,
+      is_component: flowType === "components",
+      is_flow: flowType === "flows",
+      search,
+    },
+    {
+      enabled: !!myCollectionId,
+    },
+  );
 
   const data = {
     flows: folderData?.flows?.items ?? [],
-    name: folderData?.folder?.name ?? "",
-    description: folderData?.folder?.description ?? "",
-    parent_id: folderData?.folder?.parent_id ?? "",
-    components: folderData?.folder?.components ?? [],
     pagination: {
       page: folderData?.flows?.page ?? 1,
       size: folderData?.flows?.size ?? 12,
@@ -73,14 +68,12 @@ const HomePage = ({ type }) => {
     setPageIndex(1);
   }, []);
 
-  const isEmptyFolder =
-    flows?.find((flow) => flow.folder_id === (folderId ?? myCollectionId)) ===
-    undefined;
+  const isEmpty = !flows || flows.length === 0;
 
   return (
     <CardsWrapComponent
       onFileDrop={handleFileDrop}
-      dragMessage={`Drag your ${folderName} here`}
+      dragMessage="Drag your workflow here"
     >
       <div
         className="flex h-full w-full flex-col overflow-y-auto"
@@ -89,20 +82,19 @@ const HomePage = ({ type }) => {
         <div className="flex h-full w-full flex-col xl:container">
           {ENABLE_DATASTAX_KOZMOAI && <CustomBanner />}
 
-          {/* mt-10 to mt-8 for Datastax LF */}
           <div className="flex flex-1 flex-col justify-start px-5 pt-10">
             <div className="flex h-full flex-col justify-start">
               <HeaderComponent
-                folderName={folderName}
+                folderName="My Workflows"
                 flowType={flowType}
                 setFlowType={setFlowType}
                 view={view}
                 setView={setView}
                 setNewProjectModal={setNewProjectModal}
                 setSearch={onSearch}
-                isEmptyFolder={isEmptyFolder}
+                isEmptyFolder={isEmpty}
               />
-              {isEmptyFolder ? (
+              {isEmpty ? (
                 <EmptyFolder setOpenModal={setNewProjectModal} />
               ) : (
                 <div className="mt-6">
@@ -134,14 +126,13 @@ const HomePage = ({ type }) => {
                     )
                   ) : flowType === "flows" ? (
                     <div className="pt-2 text-center text-sm text-secondary-foreground">
-                      No flows in this folder.{" "}
+                      No workflows yet.{" "}
                       <a
                         onClick={() => setNewProjectModal(true)}
                         className="cursor-pointer underline"
                       >
-                        Create a new flow
+                        Create a new workflow
                       </a>
-                      , or browse the store.
                     </div>
                   ) : (
                     <div className="pt-2 text-center text-sm text-secondary-foreground">
@@ -154,7 +145,6 @@ const HomePage = ({ type }) => {
                       >
                         creating custom components
                       </a>
-                      , or browse the store.
                     </div>
                   )}
                 </div>
@@ -162,7 +152,7 @@ const HomePage = ({ type }) => {
             </div>
           </div>
 
-          {!isLoading && !isEmptyFolder && data.pagination.total >= 10 && (
+          {!isLoading && !isEmpty && data.pagination.total >= 10 && (
             <div className="flex justify-end px-3 py-4">
               <PaginatorComponent
                 pageIndex={data.pagination.page}

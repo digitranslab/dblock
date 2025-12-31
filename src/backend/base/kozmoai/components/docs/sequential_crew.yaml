@@ -1,0 +1,19 @@
+component_name: SequentialCrew
+display_name: Sequential Crew
+category: crewai
+version: 1.0.0
+overview:
+  summary: Sequential task execution
+  description: Sequential Crew component for Kozmoai workflows. Sequential task execution.
+features:
+- Integration with Sequential Crew
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Sequential Crew Usage
+  description: Simple example using Sequential Crew
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

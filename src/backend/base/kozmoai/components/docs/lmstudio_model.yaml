@@ -1,0 +1,64 @@
+component_name: LMStudio
+display_name: LM Studio
+category: models
+version: 1.0.0
+overview:
+  summary: Use LM Studio for AI and data tasks
+  description: The **LM Studio** component generates text using LM Studio's local language models. It can output either a
+    **Model Response** (`Message`) or a **Language Model** (`LanguageModel`). Use the **Language Model** output when you want
+    to use an LM Studio model as the LLM for another LLM-driven component, such as an **Agent** or **Smart Function** component.
+    For more information, see Language model components.
+features:
+- Advanced language model capabilities
+- Flexible configuration options
+- Support for various use cases
+- High-quality text generation
+inputs:
+  base_url:
+    display_name: base_url
+    type: String
+    description: 'Input parameter. The URL where LM Studio is running. Default: `"http://localhost:1234"`.'
+  api_key:
+    display_name: api_key
+    type: LM Studio API Key
+    description: Input parameter. The API key for authentication with LM Studio, if required.
+  max_tokens:
+    display_name: max_tokens
+    type: Integer
+    description: 'Input parameter. Maximum number of tokens to generate in the response. Default: `512`.'
+  temperature:
+    display_name: temperature
+    type: Float
+    description: 'Input parameter. Controls randomness in the output. Range: `[0.0, 2.0]`. Default: `0.7`.'
+  top_p:
+    display_name: top_p
+    type: Float
+    description: 'Input parameter. Controls diversity with nucleus sampling. Range: `[0.0, 1.0]`. Default: `1.0`.'
+  stop:
+    display_name: stop
+    type: List[String]
+    description: Input parameter. List of strings that stop generation when encountered.
+  stream:
+    display_name: stream
+    type: Boolean
+    description: 'Input parameter. Whether to stream the response. Default: `false`.'
+  presence_penalty:
+    display_name: presence_penalty
+    type: Float
+    description: 'Input parameter. Penalizes repeated tokens. Range: `[-2.0, 2.0]`. Default: `0.0`.'
+  frequency_penalty:
+    display_name: frequency_penalty
+    type: Float
+    description: 'Input parameter. Penalizes frequent tokens. Range: `[-2.0, 2.0]`. Default: `0.0`.'
+outputs:
+  language_model:
+    display_name: Language Model
+    type: LanguageModel
+    description: Configured language model ready for use
+examples:
+- title: Basic LM Studio Setup
+  description: Standard configuration for LM Studio
+  use_case: General purpose usage
+external_links:
+- title: LM Studio documentation
+  url: https://lmstudio.ai/docs

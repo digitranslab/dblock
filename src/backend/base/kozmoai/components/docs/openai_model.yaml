@@ -1,0 +1,74 @@
+component_name: OpenAI
+display_name: OpenAI
+category: models
+version: 1.0.0
+overview:
+  summary: Use OpenAI for AI and data tasks
+  description: The **OpenAI** component generates text using OpenAI's language models. It provides access to the same OpenAI
+    models that are available in the core **Language Model** component, but the **OpenAI** component provides additional parameters
+    for customizing the request to the OpenAI API. It can output either a **Model Response** (`Message`) or a **Language Model**
+    (`LanguageModel`). Use the **Language Model** output when you want to use a specific OpenAI model configuration as the
+    LLM for another LLM-driven component, such as an **Agent** or **Smart Function** component. For more information, see
+    Language model components.
+features:
+- Advanced language model capabilities
+- Flexible configuration options
+- Support for various use cases
+- High-quality text generation
+inputs:
+  api_key:
+    display_name: api_key
+    type: SecretString
+    description: Input parameter. Your OpenAI API Key.
+  model:
+    display_name: model
+    type: String
+    description: Input parameter. The name of the OpenAI model to use. Options include "gpt-3.5-turbo" and "gpt-4".
+  max_tokens:
+    display_name: max_tokens
+    type: Integer
+    description: Input parameter. The maximum number of tokens to generate. Set to 0 for unlimited tokens.
+  temperature:
+    display_name: temperature
+    type: Float
+    description: 'Input parameter. Controls randomness in the output. Range: [0.0, 1.0]. Default: 0.7.'
+  top_p:
+    display_name: top_p
+    type: Float
+    description: 'Input parameter. Controls the nucleus sampling. Range: [0.0, 1.0]. Default: 1.0.'
+  frequency_penalty:
+    display_name: frequency_penalty
+    type: Float
+    description: 'Input parameter. Controls the frequency penalty. Range: [0.0, 2.0]. Default: 0.0.'
+  presence_penalty:
+    display_name: presence_penalty
+    type: Float
+    description: 'Input parameter. Controls the presence penalty. Range: [0.0, 2.0]. Default: 0.0.'
+  openai_api_key:
+    display_name: OpenAI API Key
+    type: String
+    description: Input parameter. The API key to use for accessing the OpenAI API.
+  default_headers:
+    display_name: Default Headers
+    type: Dict
+    description: Input parameter. The default headers for the HTTP requests.
+  default_query:
+    display_name: Default Query
+    type: NestedDict
+    description: Input parameter. The default query parameters for the HTTP requests.
+outputs:
+  language_model:
+    display_name: Language Model
+    type: LanguageModel
+    description: Configured language model ready for use
+examples:
+- title: Basic OpenAI Setup
+  description: Standard configuration for OpenAI
+  use_case: General purpose usage
+external_links:
+- title: OpenAI documentation
+  url: https://platform.openai.com/docs/overview
+- title: OpenAI's language models
+  url: https://platform.openai.com/docs/models
+- title: OpenAI embedding models
+  url: https://platform.openai.com/docs/guides/embeddings

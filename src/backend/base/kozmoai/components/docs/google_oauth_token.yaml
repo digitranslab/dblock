@@ -1,0 +1,19 @@
+component_name: GoogleOauthToken
+display_name: Google OAuth
+category: google
+version: 1.0.0
+overview:
+  summary: Google authentication
+  description: Google OAuth component for Kozmoai workflows. Google authentication.
+features:
+- Integration with Google OAuth
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Google OAuth Usage
+  description: Simple example using Google OAuth
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

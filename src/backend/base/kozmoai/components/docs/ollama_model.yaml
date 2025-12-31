@@ -1,0 +1,27 @@
+component_name: Ollama
+display_name: Ollama
+category: models
+version: 1.0.0
+overview:
+  summary: Use Ollama for AI and data tasks
+  description: 'This component generates text using Ollama''s language models. To use the **Ollama** component in a flow,
+    connect Langflow to your locally running Ollama server and select a model: 1. Add the **Ollama** component to your flow.
+    2. In the **Base URL** field, enter the address for your locally running Ollama server. This value is set as the `OLLAMA_HOST`
+    environment variable in Ollama.'
+features:
+- High-performance vector storage and retrieval
+- Semantic search capabilities
+- Scalable architecture
+- Integration with embedding models
+outputs:
+  language_model:
+    display_name: Language Model
+    type: LanguageModel
+    description: Configured language model ready for use
+examples:
+- title: Basic Ollama Setup
+  description: Standard configuration for Ollama
+  use_case: General purpose usage
+external_links:
+- title: Ollama documentation
+  url: https://ollama.com/

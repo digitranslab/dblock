@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1
 # Keep this syntax directive! It's used to enable Docker BuildKit
 
-ARG KOZMOAI_IMAGE
-FROM $KOZMOAI_IMAGE
+ARG DBLOCK_IMAGE
+FROM $DBLOCK_IMAGE
 
 RUN rm -rf /app/.venv/kozmoai/frontend
 

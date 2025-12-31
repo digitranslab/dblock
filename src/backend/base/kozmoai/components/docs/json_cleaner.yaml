@@ -1,0 +1,19 @@
+component_name: JsonCleaner
+display_name: JSON Cleaner
+category: processing
+version: 1.0.0
+overview:
+  summary: Clean and format JSON
+  description: JSON Cleaner component for Kozmoai workflows. Clean and format JSON.
+features:
+- Integration with JSON Cleaner
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic JSON Cleaner Usage
+  description: Simple example using JSON Cleaner
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

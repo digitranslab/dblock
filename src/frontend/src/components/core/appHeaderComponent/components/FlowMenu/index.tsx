@@ -234,35 +234,6 @@ export const MenuBar = ({}: {}): JSX.Element => {
       data-testid="menu_bar_wrapper"
     >
       <div
-        className="header-menu-bar hidden w-20 max-w-fit grow justify-end truncate md:flex"
-        data-testid="menu_flow_bar"
-        id="menu_flow_bar_navigation"
-      >
-        {currentFolder?.name && (
-          <div className="hidden truncate md:flex">
-            <div
-              className="cursor-pointer truncate pr-1 text-muted-foreground hover:text-primary"
-              onClick={() => {
-                navigate(
-                  currentFolder?.id
-                    ? "/all/folder/" + currentFolder.id
-                    : "/all",
-                );
-              }}
-            >
-              {currentFolder?.name}
-            </div>
-          </div>
-        )}
-      </div>
-      <div
-        className="hidden w-fit shrink-0 select-none font-normal text-muted-foreground md:flex"
-        data-testid="menu_bar_separator"
-      >
-        /
-      </div>
-
-      <div
         className="overflow-hidden truncate text-sm sm:whitespace-normal"
         data-testid="menu_bar_display"
       >

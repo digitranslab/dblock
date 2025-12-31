@@ -12,9 +12,10 @@ export const ProtectedAdminRoute = ({ children }) => {
 
   if (!isAuthenticated) {
     return <LoadingPage />;
-  } else if ((userData && !isAdmin) || autoLogin) {
-    return <CustomNavigate to="/" replace />;
-  } else {
+  } else if (isAdmin || !autoLogin) {
+    // Allow access if user is admin OR if autoLogin is disabled (manual login required)
     return children;
+  } else {
+    return <CustomNavigate to="/" replace />;
   }
 };

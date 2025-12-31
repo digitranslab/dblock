@@ -40,6 +40,9 @@ export function EditNodeComponent({
               tooltipShowDelay={0.5}
               columnDefs={columnDefs}
               rowData={rowData}
+              rowHeight={80}
+              suppressRowHoverHighlight={false}
+              suppressCellFocus={false}
             />
           )}
         </div>

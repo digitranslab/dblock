@@ -225,15 +225,6 @@ export default function NodeStatus({
               )}
             </div>
           </ShadTooltip>
-
-          {data.node?.beta && showNode && (
-            <Badge
-              size="sq"
-              className="pointer-events-none mr-1 flex h-[22px] w-10 justify-center rounded-[8px] bg-accent-pink text-accent-pink-foreground"
-            >
-              <span className="text-[11px]">Beta</span>
-            </Badge>
-          )}
         </div>
         <ShadTooltip content={getTooltipContent()}>
           <div

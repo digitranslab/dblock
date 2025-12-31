@@ -1,0 +1,19 @@
+component_name: ChatOutput
+display_name: Chat Output
+category: outputs
+version: 1.0.0
+overview:
+  summary: Send chat responses
+  description: Chat Output component for Kozmoai workflows. Send chat responses.
+features:
+- Integration with Chat Output
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Chat Output Usage
+  description: Simple example using Chat Output
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

@@ -1,0 +1,19 @@
+component_name: SelectData
+display_name: Select Data
+category: processing
+version: 1.0.0
+overview:
+  summary: Select specific data
+  description: Select Data component for Kozmoai workflows. Select specific data.
+features:
+- Integration with Select Data
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Select Data Usage
+  description: Simple example using Select Data
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

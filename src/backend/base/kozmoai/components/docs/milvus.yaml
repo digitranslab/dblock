@@ -1,0 +1,66 @@
+component_name: Milvus
+display_name: Milvus
+category: vector_stores
+version: 1.0.0
+overview:
+  summary: Use Milvus for AI and data tasks
+  description: 'The **Milvus** component reads and writes to Milvus vector stores using an instance of `Milvus` vector store.
+    :::tip For a tutorial using a vector database in a flow, see Create a vector RAG chatbot. :::'
+features:
+- High-performance vector storage and retrieval
+- Semantic search capabilities
+- Scalable architecture
+- Integration with embedding models
+inputs:
+  collection_name:
+    display_name: collection_name
+    type: String
+    description: Input parameter. Name of the Milvus collection.
+  collection_description:
+    display_name: collection_description
+    type: String
+    description: Input parameter. Description of the Milvus collection.
+  uri:
+    display_name: uri
+    type: String
+    description: Input parameter. Connection URI for Milvus.
+  password:
+    display_name: password
+    type: SecretString
+    description: Input parameter. Password for Milvus.
+  username:
+    display_name: username
+    type: SecretString
+    description: Input parameter. Username for Milvus.
+  batch_size:
+    display_name: batch_size
+    type: Integer
+    description: Input parameter. Number of data to process in a single batch.
+  search_query:
+    display_name: search_query
+    type: String
+    description: Input parameter. Query for similarity search.
+  ingest_data:
+    display_name: ingest_data
+    type: Data
+    description: Input parameter. Data to be ingested into the vector store.
+  embedding:
+    display_name: embedding
+    type: Embeddings
+    description: Input parameter. Embedding function to use.
+  number_of_results:
+    display_name: number_of_results
+    type: Integer
+    description: Input parameter. Number of results to return in search.
+outputs:
+  vector_store:
+    display_name: Vector Store
+    type: VectorStore
+    description: Configured vector store instance
+examples:
+- title: Basic Milvus Setup
+  description: Standard configuration for Milvus
+  use_case: General purpose usage
+external_links:
+- title: Milvus documentation
+  url: https://milvus.io/docs

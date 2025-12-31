@@ -1,0 +1,18 @@
+component_name: VertexaiEmbeddings
+display_name: Vertex AI Embeddings
+category: embeddings
+version: 1.0.0
+overview:
+  summary: Google Cloud embeddings
+  description: Vertex AI Embeddings component for Kozmoai workflows.
+features:
+- Integration with Vertex AI Embeddings
+inputs: {}
+outputs: {}
+examples: []
+troubleshooting:
+- issue: Configuration Error
+  symptoms:
+  - Component not working as expected
+  solution: Verify all required parameters are set correctly and check the component documentation for specific requirements.
+external_links: []

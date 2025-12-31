@@ -1,0 +1,27 @@
+component_name: BaiduQianfan
+display_name: Baidu Qianfan
+category: models
+version: 1.0.0
+overview:
+  summary: Use Baidu Qianfan for AI and data tasks
+  description: The **Qianfan** component generates text using Qianfan's language models. It can output either a **Model Response**
+    (`Message`) or a **Language Model** (`LanguageModel`). Use the **Language Model** output when you want to use a Qianfan
+    model as the LLM for another LLM-driven component, such as an **Agent** or **Smart Function** component. For more information,
+    see Language model components and the Qianfan documentation.
+features:
+- Advanced language model capabilities
+- Flexible configuration options
+- Support for various use cases
+- High-quality text generation
+outputs:
+  language_model:
+    display_name: Language Model
+    type: LanguageModel
+    description: Configured language model ready for use
+examples:
+- title: Basic Baidu Qianfan Setup
+  description: Standard configuration for Baidu Qianfan
+  use_case: General purpose usage
+external_links:
+- title: Qianfan documentation
+  url: https://github.com/baidubce/bce-qianfan-sdk

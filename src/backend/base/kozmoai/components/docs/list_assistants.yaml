@@ -1,0 +1,19 @@
+component_name: ListAssistants
+display_name: List Assistants
+category: astra_assistants
+version: 1.0.0
+overview:
+  summary: List all assistants
+  description: List Assistants component for Kozmoai workflows. List all assistants.
+features:
+- Integration with List Assistants
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic List Assistants Usage
+  description: Simple example using List Assistants
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

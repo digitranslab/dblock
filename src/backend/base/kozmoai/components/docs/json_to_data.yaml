@@ -1,0 +1,19 @@
+component_name: JsonToData
+display_name: JSON to Data
+category: data
+version: 1.0.0
+overview:
+  summary: Parse JSON data
+  description: JSON to Data component for Kozmoai workflows. Parse JSON data.
+features:
+- Integration with JSON to Data
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic JSON to Data Usage
+  description: Simple example using JSON to Data
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

@@ -1,0 +1,19 @@
+component_name: PythonReplCore
+display_name: Python REPL Core
+category: tools
+version: 1.0.0
+overview:
+  summary: Core Python REPL
+  description: Python REPL Core component for Kozmoai workflows. Core Python REPL.
+features:
+- Integration with Python REPL Core
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Python REPL Core Usage
+  description: Simple example using Python REPL Core
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

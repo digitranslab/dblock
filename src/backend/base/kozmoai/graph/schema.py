@@ -54,6 +54,7 @@ class InterfaceComponentTypes(str, Enum, metaclass=ContainsEnumMeta):
     TextOutput = "TextOutput"
     DataOutput = "DataOutput"
     WebhookInput = "Webhook"
+    CronTrigger = "CronTrigger"
 
 
 CHAT_COMPONENTS = [InterfaceComponentTypes.ChatInput, InterfaceComponentTypes.ChatOutput]
@@ -62,6 +63,7 @@ INPUT_COMPONENTS = [
     InterfaceComponentTypes.ChatInput,
     InterfaceComponentTypes.WebhookInput,
     InterfaceComponentTypes.TextInput,
+    InterfaceComponentTypes.CronTrigger,
 ]
 OUTPUT_COMPONENTS = [
     InterfaceComponentTypes.ChatOutput,

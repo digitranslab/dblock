@@ -1,0 +1,18 @@
+component_name: AstradbVectorstore
+display_name: Astra DB
+category: vectorstores
+version: 1.0.0
+overview:
+  summary: DataStax vector database
+  description: Astra DB component for Kozmoai workflows.
+features:
+- Integration with Astra DB
+inputs: {}
+outputs: {}
+examples: []
+troubleshooting:
+- issue: Configuration Error
+  symptoms:
+  - Component not working as expected
+  solution: Verify all required parameters are set correctly and check the component documentation for specific requirements.
+external_links: []

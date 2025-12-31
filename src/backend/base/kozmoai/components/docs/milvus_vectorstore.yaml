@@ -1,0 +1,18 @@
+component_name: MilvusVectorstore
+display_name: Milvus
+category: vectorstores
+version: 1.0.0
+overview:
+  summary: Scalable vector database
+  description: Milvus component for Kozmoai workflows.
+features:
+- Integration with Milvus
+inputs: {}
+outputs: {}
+examples: []
+troubleshooting:
+- issue: Configuration Error
+  symptoms:
+  - Component not working as expected
+  solution: Verify all required parameters are set correctly and check the component documentation for specific requirements.
+external_links: []

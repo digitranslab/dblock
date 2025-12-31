@@ -1,0 +1,19 @@
+component_name: PythonCodeStructuredTool
+display_name: Python Structured Tool
+category: tools
+version: 1.0.0
+overview:
+  summary: Structured Python execution
+  description: Python Structured Tool component for Kozmoai workflows. Structured Python execution.
+features:
+- Integration with Python Structured Tool
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Python Structured Tool Usage
+  description: Simple example using Python Structured Tool
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

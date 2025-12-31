@@ -1,0 +1,18 @@
+component_name: SearchTool
+display_name: Search
+category: tools
+version: 1.0.0
+overview:
+  summary: Web search capabilities
+  description: Search component for Kozmoai workflows.
+features:
+- Integration with Search
+inputs: {}
+outputs: {}
+examples: []
+troubleshooting:
+- issue: Configuration Error
+  symptoms:
+  - Component not working as expected
+  solution: Verify all required parameters are set correctly and check the component documentation for specific requirements.
+external_links: []

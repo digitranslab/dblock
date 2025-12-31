@@ -1,0 +1,18 @@
+component_name: WolframAlphaTool
+display_name: Wolfram Alpha
+category: tools
+version: 1.0.0
+overview:
+  summary: Computational knowledge
+  description: Wolfram Alpha component for Kozmoai workflows.
+features:
+- Integration with Wolfram Alpha
+inputs: {}
+outputs: {}
+examples: []
+troubleshooting:
+- issue: Configuration Error
+  symptoms:
+  - Component not working as expected
+  solution: Verify all required parameters are set correctly and check the component documentation for specific requirements.
+external_links: []

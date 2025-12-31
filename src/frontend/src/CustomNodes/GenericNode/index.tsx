@@ -1,15 +1,10 @@
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
-import ShadTooltip from "@/components/common/shadTooltipComponent";
 import { usePostValidateComponentCode } from "@/controllers/API/queries/nodes/use-post-validate-component-code";
 import { useUpdateNodeInternals } from "@xyflow/react";
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 import { Button } from "../../components/ui/button";
-import {
-  ICON_STROKE_WIDTH,
-  TOOLTIP_HIDDEN_OUTPUTS,
-  TOOLTIP_OPEN_HIDDEN_OUTPUTS,
-} from "../../constants/constants";
+import { ICON_STROKE_WIDTH } from "../../constants/constants";
 import NodeToolbarComponent from "../../pages/FlowPage/components/nodeToolbarComponent";
 import useAlertStore from "../../stores/alertStore";
 import useFlowStore from "../../stores/flowStore";
@@ -19,7 +14,7 @@ import { useTypesStore } from "../../stores/typesStore";
 import { VertexBuildTypeAPI } from "../../types/api";
 import { NodeDataType } from "../../types/flow";
 import { checkHasToolMode } from "../../utils/reactflowUtils";
-import { classNames, cn } from "../../utils/utils";
+import { cn } from "../../utils/utils";
 
 import { useAlternate } from "@/shared/hooks/use-alternate";
 import { useUtilityStore } from "@/stores/utilityStore";
@@ -28,8 +23,10 @@ import { processNodeAdvancedFields } from "../helpers/process-node-advanced-fiel
 import useCheckCodeValidity from "../hooks/use-check-code-validity";
 import useUpdateNodeCode from "../hooks/use-update-node-code";
 import NodeDescription from "./components/NodeDescription";
+import NodeInputHandles from "./components/NodeInputHandles";
 import NodeName from "./components/NodeName";
 import { OutputParameter } from "./components/NodeOutputParameter";
+import NodeOutputHandles from "./components/NodeOutputHandles";
 import NodeStatus from "./components/NodeStatus";
 import RenderInputParameters from "./components/RenderInputParameters";
 import { NodeIcon } from "./components/nodeIcon";
@@ -41,28 +38,10 @@ const MemoizedNodeIcon = memo(NodeIcon);
 const MemoizedNodeName = memo(NodeName);
 const MemoizedNodeStatus = memo(NodeStatus);
 const MemoizedNodeDescription = memo(NodeDescription);
+const MemoizedNodeInputHandles = memo(NodeInputHandles);
+const MemoizedNodeOutputHandles = memo(NodeOutputHandles);
 
-const HiddenOutputsButton = memo(
-  ({
-    showHiddenOutputs,
-    onClick,
-  }: {
-    showHiddenOutputs: boolean;
-    onClick: () => void;
-  }) => (
-    <Button
-      unstyled
-      className="group flex h-[1.75rem] w-[1.75rem] items-center justify-center rounded-full border bg-muted hover:text-foreground"
-      onClick={onClick}
-    >
-      <ForwardedIconComponent
-        name={showHiddenOutputs ? "ChevronsDownUp" : "ChevronsUpDown"}
-        strokeWidth={ICON_STROKE_WIDTH}
-        className="icon-size text-placeholder-foreground group-hover:text-foreground"
-      />
-    </Button>
-  ),
-);
+
 
 function GenericNode({
   data,
@@ -255,9 +234,10 @@ function GenericNode({
   const memoizedNodeToolbarComponent = useMemo(() => {
     return selected ? (
       <>
+        {/* Toolbar positioned on the right side of the node */}
         <div
           className={cn(
-            "absolute -top-12 left-1/2 z-50 -translate-x-1/2",
+            "absolute left-full top-0 z-50 ml-2",
             "transform transition-all duration-300 ease-out",
           )}
         >
@@ -279,46 +259,11 @@ function GenericNode({
             onCloseAdvancedModal={() => {}}
             updateNode={handleUpdateCode}
             isOutdated={isOutdated && isUserEdited}
-          />
-        </div>
-        <div className="-z-10">
-          <Button
-            unstyled
-            onClick={() => {
+            onRename={() => {
               toggleEditNameDescription();
               setHasChangedNodeDescription(false);
             }}
-            className={cn(
-              "nodrag absolute left-1/2 z-50 flex h-6 w-6 cursor-pointer items-center justify-center rounded-md",
-              "transform transition-all duration-300 ease-out",
-              showNode
-                ? "top-2 translate-x-[10.4rem]"
-                : "top-0 translate-x-[6.4rem]",
-              editNameDescription && hasChangedNodeDescription
-                ? "bg-accent-emerald"
-                : "bg-zinc-foreground",
-            )}
-            data-testid={
-              editNameDescription && hasChangedNodeDescription
-                ? "save-name-description-button"
-                : "edit-name-description-button"
-            }
-          >
-            <ForwardedIconComponent
-              name={
-                editNameDescription && hasChangedNodeDescription
-                  ? "Check"
-                  : "PencilLine"
-              }
-              strokeWidth={ICON_STROKE_WIDTH}
-              className={cn(
-                editNameDescription && hasChangedNodeDescription
-                  ? "text-accent-emerald-foreground"
-                  : "text-muted-foreground",
-                "icon-size",
-              )}
-            />
-          </Button>
+          />
         </div>
       </>
     ) : (
@@ -335,8 +280,8 @@ function GenericNode({
     isUserEdited,
     selected,
     shortcuts,
-    editNameDescription,
-    hasChangedNodeDescription,
+    shownOutputs.length,
+    handleUpdateCode,
     toggleEditNameDescription,
   ]);
 
@@ -459,13 +404,21 @@ function GenericNode({
         className={cn(
           borderColor,
           showNode ? "w-80" : `w-48`,
-          "generic-node-div group/node relative rounded-xl shadow-sm hover:shadow-md",
+          "generic-node-div group/node relative rounded-none shadow-sm hover:shadow-md",
           !hasOutputs && "pb-4",
         )}
       >
+        {/* Input handles at top of node for vertical layout */}
+        {showNode && (
+          <MemoizedNodeInputHandles
+            data={data}
+            isToolMode={isToolMode}
+            showNode={showNode}
+          />
+        )}
         {memoizedNodeToolbarComponent}
         {isOutdated && !isUserEdited && !dismissAll && (
-          <div className="flex h-10 w-full items-center gap-4 rounded-t-[0.69rem] bg-warning p-2 px-4 text-warning-foreground">
+          <div className="flex h-10 w-full items-center gap-4 bg-warning p-2 px-4 text-warning-foreground">
             <ForwardedIconComponent
               name="AlertTriangle"
               strokeWidth={ICON_STROKE_WIDTH}
@@ -489,17 +442,14 @@ function GenericNode({
         )}
         <div
           data-testid={`${data.id}-main-node`}
-          className={cn(
-            "grid gap-3 truncate text-wrap p-4 leading-5",
-            showNode && "border-b",
-          )}
+          className="grid gap-3 truncate text-wrap p-4 leading-5"
         >
           <div
             data-testid={"div-generic-node"}
             className={
               !showNode
                 ? ""
-                : "generic-node-div-title justify-between rounded-t-lg"
+                : "generic-node-div-title justify-between"
             }
           >
             <div
@@ -523,55 +473,15 @@ function GenericNode({
           </div>
           {showNode && <div>{renderDescription()}</div>}
         </div>
+        {/* Minimal view - no output labels, only handles */}
+        {/* Output handles at bottom of node for vertical layout */}
         {showNode && (
-          <div className="nopan nodelete nodrag noflow relative cursor-auto">
-            <>
-              {renderInputParameters()}
-              <div
-                className={classNames(
-                  Object.keys(data.node!.template).length < 1 ? "hidden" : "",
-                  "flex-max-width justify-center",
-                )}
-              >
-                {" "}
-              </div>
-              {!showHiddenOutputs &&
-                shownOutputs &&
-                renderOutputs(shownOutputs, "shown")}
-
-              <div
-                className={cn(showHiddenOutputs ? "" : "h-0 overflow-hidden")}
-              >
-                <div className="block">
-                  {renderOutputs(data.node!.outputs, "hidden")}
-                </div>
-              </div>
-              {hiddenOutputs && hiddenOutputs.length > 0 && (
-                <ShadTooltip
-                  content={
-                    showHiddenOutputs
-                      ? `${TOOLTIP_HIDDEN_OUTPUTS} (${hiddenOutputs?.length})`
-                      : `${TOOLTIP_OPEN_HIDDEN_OUTPUTS} (${hiddenOutputs?.length})`
-                  }
-                >
-                  <div
-                    className={cn(
-                      "absolute left-1/2 flex -translate-x-1/2 justify-center",
-                      (shownOutputs && shownOutputs.length > 0) ||
-                        showHiddenOutputs
-                        ? "bottom-[-0.8rem]"
-                        : "bottom-[-0.8rem]",
-                    )}
-                  >
-                    <HiddenOutputsButton
-                      showHiddenOutputs={showHiddenOutputs}
-                      onClick={() => setShowHiddenOutputs(!showHiddenOutputs)}
-                    />
-                  </div>
-                </ShadTooltip>
-              )}
-            </>
-          </div>
+          <MemoizedNodeOutputHandles
+            data={data}
+            showNode={showNode}
+            shownOutputs={shownOutputs}
+            showHiddenOutputs={showHiddenOutputs}
+          />
         )}
       </div>
     </div>

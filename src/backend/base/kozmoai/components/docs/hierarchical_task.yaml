@@ -1,0 +1,19 @@
+component_name: HierarchicalTask
+display_name: Hierarchical Task
+category: crewai
+version: 1.0.0
+overview:
+  summary: Define hierarchical task
+  description: Hierarchical Task component for Kozmoai workflows. Define hierarchical task.
+features:
+- Integration with Hierarchical Task
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Hierarchical Task Usage
+  description: Simple example using Hierarchical Task
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

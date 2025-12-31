@@ -1,0 +1,19 @@
+component_name: CreateData
+display_name: Create Data
+category: processing
+version: 1.0.0
+overview:
+  summary: Create data objects
+  description: Create Data component for Kozmoai workflows. Create data objects.
+features:
+- Integration with Create Data
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Create Data Usage
+  description: Simple example using Create Data
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

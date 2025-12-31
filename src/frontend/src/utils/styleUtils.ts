@@ -434,6 +434,7 @@ export const nodeColors: { [char: string]: string } = {
   Agent: "#903BBE",
   AgentExecutor: "#903BBE",
   Tool: "#00fbfc",
+  Trigger: "#22c55e",
 };
 
 export const nodeColorsName: { [char: string]: string } = {
@@ -487,6 +488,7 @@ export const nodeColorsName: { [char: string]: string } = {
   BaseChatMessageHistory: "orange",
   Memory: "orange",
   DataFrame: "pink",
+  Trigger: "green",
 };
 
 export const SIDEBAR_CATEGORIES = [

@@ -21,15 +21,11 @@ export interface CategoryGroupProps {
     data: { type: string; node?: APIClassType },
   ) => void;
   sensitiveSort: (a: string, b: string) => number;
+  hasBundleItems?: boolean;
+  bundlesComponent?: React.ReactNode;
 }
 
 export interface SidebarHeaderComponentProps {
-  showConfig: boolean;
-  setShowConfig: (show: boolean) => void;
-  showBeta: boolean;
-  setShowBeta: (show: boolean) => void;
-  showLegacy: boolean;
-  setShowLegacy: (show: boolean) => void;
   searchInputRef: React.RefObject<HTMLInputElement>;
   isInputFocused: boolean;
   search: string;

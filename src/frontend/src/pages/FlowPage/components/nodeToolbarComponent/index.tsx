@@ -53,6 +53,7 @@ const NodeToolbarComponent = memo(
     updateNode,
     isOutdated,
     setOpenShowMoreOptions,
+    onRename,
   }: nodeToolbarPropsType): JSX.Element => {
     const version = useDarkStore((state) => state.version);
     const [showModalAdvanced, setShowModalAdvanced] = useState(false);
@@ -82,6 +83,7 @@ const NodeToolbarComponent = memo(
     const setNodes = useFlowStore((state) => state.setNodes);
     const setEdges = useFlowStore((state) => state.setEdges);
     const getNodePosition = useFlowStore((state) => state.getNodePosition);
+    const setPropertiesPanelOpen = useFlowStore((state) => state.setPropertiesPanelOpen);
     const flows = useFlowsManagerStore((state) => state.flows);
     const takeSnapshot = useFlowsManagerStore((state) => state.takeSnapshot);
     const { mutate: FreezeAllVertices } = usePostRetrieveVertexOrder({
@@ -343,7 +345,7 @@ const NodeToolbarComponent = memo(
             setOpenModal(!openModal);
             break;
           case "advanced":
-            setShowModalAdvanced(true);
+            setPropertiesPanelOpen(true, data.id);
             break;
           case "show":
             takeSnapshot();
@@ -408,7 +410,7 @@ const NodeToolbarComponent = memo(
         freezeFunction,
         FreezeAllVertices,
         setOpenModal,
-        setShowModalAdvanced,
+        setPropertiesPanelOpen,
         handleMinimize,
         shareComponent,
         downloadNode,
@@ -422,6 +424,7 @@ const NodeToolbarComponent = memo(
         paste,
         handleActivateToolMode,
         toolMode,
+        data.id,
       ],
     );
 
@@ -448,6 +451,14 @@ const NodeToolbarComponent = memo(
     const renderToolbarButtons = useMemo(
       () => (
         <>
+          {onRename && (
+            <ToolbarButton
+              icon="PencilLine"
+              label="Rename"
+              onClick={onRename}
+              dataTestId="rename-button-modal"
+            />
+          )}
           {hasCode && (
             <ToolbarButton
               icon="Code"
@@ -463,92 +474,22 @@ const NodeToolbarComponent = memo(
             <ToolbarButton
               icon="SlidersHorizontal"
               label="Controls"
-              onClick={() => setShowModalAdvanced(true)}
+              onClick={() => setPropertiesPanelOpen(true, data.id)}
               shortcut={shortcuts.find((s) =>
                 s.name.toLowerCase().startsWith("advanced"),
               )}
               dataTestId="edit-button-modal"
             />
           )}
-          {!hasToolMode && (
-            <ToolbarButton
-              icon="FreezeAll"
-              label="Freeze Path"
-              onClick={() => {
-                takeSnapshot();
-                FreezeAllVertices({
-                  flowId: currentFlowId,
-                  stopNodeId: data.id,
-                });
-              }}
-              shortcut={shortcuts.find((s) =>
-                s.name.toLowerCase().startsWith("freeze path"),
-              )}
-              className={cn("node-toolbar-buttons", frozen && "text-blue-500")}
-            />
-          )}
-          {hasToolMode && (
-            <ShadTooltip
-              content={
-                <ShortcutDisplay
-                  {...shortcuts.find(
-                    ({ name }) => name.toLowerCase() === "tool mode",
-                  )!}
-                />
-              }
-              side="top"
-            >
-              <Button
-                className={cn(
-                  "node-toolbar-buttons h-[2rem]",
-                  toolMode && "text-primary",
-                )}
-                variant="ghost"
-                onClick={(event) => {
-                  event.preventDefault();
-                  takeSnapshot();
-                  handleSelectChange("toolMode");
-                }}
-                size="node-toolbar"
-                data-testid="tool-mode-button"
-              >
-                <IconComponent
-                  name="Hammer"
-                  className={cn(
-                    "h-4 w-4 transition-all",
-                    toolMode ? "text-primary" : "",
-                  )}
-                />
-                <span className="text-[13px] font-medium">Tool Mode</span>
-                <ToggleShadComponent
-                  value={toolMode}
-                  editNode={false}
-                  handleOnNewValue={() => {
-                    takeSnapshot();
-                    handleSelectChange("toolMode");
-                  }}
-                  disabled={false}
-                  size="medium"
-                  showToogle={false}
-                  id="tool-mode-toggle"
-                />
-              </Button>
-            </ShadTooltip>
-          )}
         </>
       ),
       [
+        onRename,
         hasCode,
         nodeLength,
-        hasToolMode,
-        toolMode,
         data.id,
-        takeSnapshot,
-        FreezeAllVertices,
-        currentFlowId,
         shortcuts,
-        frozen,
-        handleSelectChange,
+        setPropertiesPanelOpen,
       ],
     );
 
@@ -562,20 +503,23 @@ const NodeToolbarComponent = memo(
               value={selectedValue!}
               onOpenChange={handleOpenChange}
             >
-              <SelectTrigger className="w-62">
-                <ShadTooltip content="Show More" side="top">
+              <SelectTrigger className="w-full">
+                <ShadTooltip content="More options" side="right">
                   <div data-testid="more-options-modal">
                     <Button
-                      className="node-toolbar-buttons h-[2rem] w-[2rem]"
+                      className="node-toolbar-buttons h-[2rem] w-full justify-start gap-2"
                       variant="ghost"
                       onClick={handleButtonClick}
                       size="node-toolbar"
                       asChild
                     >
-                      <IconComponent
-                        name="MoreHorizontal"
-                        className="h-4 w-4"
-                      />
+                      <div className="flex items-center gap-2">
+                        <IconComponent
+                          name="MoreHorizontal"
+                          className="h-4 w-4"
+                        />
+                        <span className="text-[13px] font-medium">More</span>
+                      </div>
                     </Button>
                   </div>
                 </ShadTooltip>

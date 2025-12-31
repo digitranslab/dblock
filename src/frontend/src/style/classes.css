@@ -200,6 +200,19 @@ textarea[class^="ag-"]:focus {
   transform: translate(-50%, -50%) !important;
 }
 
+/* Vertical layout handle styles */
+.react-flow__handle-top {
+  top: 0 !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+.react-flow__handle-bottom {
+  bottom: 0 !important;
+  left: 50% !important;
+  transform: translate(-50%, 50%) !important;
+}
+
 .react-flow__node-noteNode:not(.selected) {
   z-index: -1 !important;
 }
@@ -280,4 +293,19 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 .react-flow__background pattern circle {
   fill: hsl(var(--canvas-dot)) !important;
+}
+
+/* Edge animation for selected nodes */
+@keyframes flowAnimation {
+  0% {
+    stroke-dashoffset: 24;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.react-flow__edge.selected path,
+.react-flow__edge-path-animated {
+  animation: flowAnimation 0.5s linear infinite;
 }

@@ -1,0 +1,18 @@
+component_name: AnthropicEmbeddings
+display_name: Anthropic Embeddings
+category: embeddings
+version: 1.0.0
+overview:
+  summary: Embeddings from Anthropic
+  description: Anthropic Embeddings component for Kozmoai workflows.
+features:
+- Integration with Anthropic Embeddings
+inputs: {}
+outputs: {}
+examples: []
+troubleshooting:
+- issue: Configuration Error
+  symptoms:
+  - Component not working as expected
+  solution: Verify all required parameters are set correctly and check the component documentation for specific requirements.
+external_links: []

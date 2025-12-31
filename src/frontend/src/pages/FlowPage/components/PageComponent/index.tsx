@@ -21,7 +21,6 @@ import { useAddComponent } from "@/hooks/useAddComponent";
 import { nodeColorsName } from "@/utils/styleUtils";
 import { cn, isSupportedNodeTypes } from "@/utils/utils";
 import {
-  Background,
   Connection,
   Edge,
   OnNodeDrag,
@@ -54,7 +53,12 @@ import useFlowsManagerStore from "../../../../stores/flowsManagerStore";
 import { useShortcutsStore } from "../../../../stores/shortcuts";
 import { useTypesStore } from "../../../../stores/typesStore";
 import { APIClassType } from "../../../../types/api";
-import { AllNodeType, EdgeType, NoteNodeType } from "../../../../types/flow";
+import {
+  AllNodeType,
+  EdgeType,
+  NodeDataType,
+  NoteNodeType,
+} from "../../../../types/flow";
 import {
   generateFlow,
   generateNodeFromFlow,
@@ -64,6 +68,7 @@ import {
   updateIds,
   validateSelection,
 } from "../../../../utils/reactflowUtils";
+import EditNodeModal from "../../../../modals/editNodeModal";
 import ConnectionLineComponent from "../ConnectionLineComponent";
 import SelectionMenu from "../SelectionMenuComponent";
 import UpdateAllComponents from "../UpdateAllComponents";
@@ -125,6 +130,17 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
   const currentFlowId = useFlowsManagerStore((state) => state.currentFlowId);
 
   const [isAddingNote, setIsAddingNote] = useState(false);
+
+  // Properties panel state
+  const propertiesPanelOpen = useFlowStore(
+    (state) => state.propertiesPanelOpen,
+  );
+  const propertiesPanelNodeId = useFlowStore(
+    (state) => state.propertiesPanelNodeId,
+  );
+  const selectedNodeData = nodes.find(
+    (n) => n.id === propertiesPanelNodeId,
+  )?.data as NodeDataType | undefined;
 
   const addComponent = useAddComponent();
 
@@ -458,9 +474,19 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
     }
   }, [selectionEnded, lastSelection]);
 
+  const setPropertiesPanelOpen = useFlowStore(
+    (state) => state.setPropertiesPanelOpen,
+  );
+
   const onSelectionChange = useCallback(
     (flow: OnSelectionChangeParams): void => {
       setLastSelection(flow);
+      // Update the selected node for the properties panel (but don't auto-open)
+      if (flow.nodes.length === 1 && flow.nodes[0].type === "genericNode") {
+        const selectedNode = flow.nodes[0];
+        // Store the selected node ID for when Controls button is clicked
+        useFlowStore.setState({ propertiesPanelNodeId: selectedNode.id });
+      }
     },
     [],
   );
@@ -501,7 +527,13 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
         setIsAddingNote(false);
       }
     },
-    [isAddingNote, setNodes, reactFlowInstance, getNodeId, setFilterEdge],
+    [
+      isAddingNote,
+      setNodes,
+      reactFlowInstance,
+      getNodeId,
+      setFilterEdge,
+    ],
   );
 
   const handleEdgeClick = (event, edge) => {
@@ -574,7 +606,6 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
             onPaneClick={onPaneClick}
             onEdgeClick={handleEdgeClick}
           >
-            <Background size={2} gap={20} className="" />
             {!view && (
               <>
                 <CanvasControls>
@@ -640,6 +671,14 @@ export default function Page({ view }: { view?: boolean }): JSX.Element {
         <div className="flex h-full w-full items-center justify-center">
           <CustomLoader remSize={30} />
         </div>
+      )}
+      {/* Properties Panel - Sliding from right */}
+      {selectedNodeData && (
+        <EditNodeModal
+          open={propertiesPanelOpen}
+          setOpen={(open) => setPropertiesPanelOpen(open)}
+          data={selectedNodeData}
+        />
       )}
     </div>
   );

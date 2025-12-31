@@ -5,14 +5,14 @@ import { cloneDeep } from "lodash";
 
 const layoutOptions = {
   "elk.algorithm": "layered",
-  "elk.direction": "RIGHT",
+  "elk.direction": "DOWN",
   "elk.components.direction": "DOWN",
-  "elk.layered.spacing.edgeNodeBetweenLayers": "40",
-  "elk.spacing.nodeNode": "40",
+  "elk.layered.spacing.edgeNodeBetweenLayers": "80",
+  "elk.spacing.nodeNode": "60",
   "elk.layered.nodePlacement.strategy": "NETWORK_SIMPLEX",
   "elk.separateConnectedComponents": "true",
   "elk.layered.crossingMinimization.strategy": "LAYER_SWEEP",
-  "elk.spacing.componentComponent": `${NODE_WIDTH}`,
+  "elk.spacing.componentComponent": `${NODE_HEIGHT + 100}`,
   "elk.layered.considerModelOrder.strategy": "NODES_AND_EDGES",
 };
 const elk = new ELK();
@@ -31,7 +31,7 @@ export const getLayoutedNodes = async (
         .map((e) => ({
           id: e.sourceHandle,
           properties: {
-            side: "EAST",
+            side: "SOUTH",
           },
         }));
 
@@ -40,7 +40,7 @@ export const getLayoutedNodes = async (
         .map((e) => ({
           id: e.targetHandle,
           properties: {
-            side: "WEST",
+            side: "NORTH",
           },
         }));
       return {

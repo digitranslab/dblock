@@ -1,0 +1,19 @@
+component_name: ComposioApi
+display_name: Composio
+category: composio
+version: 1.0.0
+overview:
+  summary: Composio integrations
+  description: Composio component for Kozmoai workflows. Composio integrations.
+features:
+- Integration with Composio
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Composio Usage
+  description: Simple example using Composio
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

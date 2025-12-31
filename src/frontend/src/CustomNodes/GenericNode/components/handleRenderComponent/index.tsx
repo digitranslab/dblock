@@ -11,15 +11,25 @@ import {
 import { cn, groupByFamily } from "../../../../utils/utils";
 import HandleTooltipComponent from "../HandleTooltipComponent";
 
-const BASE_HANDLE_STYLES = {
+// For vertical layout: input handles at top center, output handles at bottom center
+const getHandleStyles = (isInput: boolean) => ({
   width: "32px",
   height: "32px",
-  top: "50%",
   position: "absolute" as const,
   zIndex: 30,
   background: "transparent",
   border: "none",
-} as const;
+  // Position at node edges, not relative to parent container
+  ...(isInput ? {
+    top: "0px",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+  } : {
+    bottom: "0px",
+    left: "50%",
+    transform: "translate(-50%, 50%)",
+  }),
+});
 
 const HandleContent = memo(function HandleContent({
   isNullHandle,
@@ -411,11 +421,11 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
             left={left}
           />
         }
-        side={left ? "left" : "right"}
+        side={left ? "top" : "bottom"}
       >
         <Handle
           type={left ? "target" : "source"}
-          position={left ? Position.Left : Position.Right}
+          position={left ? Position.Top : Position.Bottom}
           id={myId}
           isValidConnection={(connection) =>
             isValidConnection(connection as Connection, nodes, edges)
@@ -424,7 +434,7 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
             `group/handle z-50 transition-all`,
             !showNode && "no-show",
           )}
-          style={BASE_HANDLE_STYLES}
+          style={getHandleStyles(left)}
           onClick={handleClick}
           onMouseUp={handleMouseUp}
           onContextMenu={handleContextMenu}

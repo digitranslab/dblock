@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import useDeleteFlow from "@/hooks/flows/use-delete-flow";
 import { useAddComponent } from "@/hooks/useAddComponent";
+import useFlowStore from "@/stores/flowStore";
 import { DragEventHandler, forwardRef, useRef, useState } from "react";
 import IconComponent, {
   ForwardedIconComponent,
@@ -61,6 +62,7 @@ export const SidebarDraggableComponent = forwardRef(
     const { deleteFlow } = useDeleteFlow();
     const flows = useFlowsManagerStore((state) => state.flows);
     const addComponent = useAddComponent();
+    const setDocsPanelOpen = useFlowStore((state) => state.setDocsPanelOpen);
 
     const version = useDarkStore((state) => state.version);
     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
@@ -159,42 +161,44 @@ export const SidebarDraggableComponent = forwardRef(
                     {display_name}
                   </span>
                 </ShadTooltip>
-                {beta && (
-                  <Badge
-                    variant="pinkStatic"
-                    size="xq"
-                    className="ml-1.5 shrink-0"
-                  >
-                    Beta
-                  </Badge>
-                )}
-                {legacy && (
-                  <Badge
-                    variant="secondaryStatic"
-                    size="xq"
-                    className="ml-1.5 shrink-0"
-                  >
-                    Legacy
-                  </Badge>
-                )}
               </div>
               <div className="flex shrink-0 items-center gap-1">
                 {!disabled && (
-                  <Button
-                    data-testid={`add-component-button-${convertTestName(
-                      display_name,
-                    )}`}
-                    variant="ghost"
-                    size="icon"
-                    tabIndex={-1}
-                    className="text-primary"
-                    onClick={() => addComponent(apiClass, itemName)}
-                  >
-                    <ForwardedIconComponent
-                      name="Plus"
-                      className="h-4 w-4 shrink-0 transition-all group-hover/draggable:opacity-100 group-focus/draggable:opacity-100 sm:opacity-0"
-                    />
-                  </Button>
+                  <>
+                    <ShadTooltip content="Documentation" styleClasses="z-50">
+                      <Button
+                        data-testid={`docs-button-${convertTestName(display_name)}`}
+                        variant="ghost"
+                        size="icon"
+                        tabIndex={-1}
+                        className="text-muted-foreground hover:text-primary"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setDocsPanelOpen(true, apiClass);
+                        }}
+                      >
+                        <ForwardedIconComponent
+                          name="FileText"
+                          className="h-4 w-4 shrink-0 transition-all group-hover/draggable:opacity-100 group-focus/draggable:opacity-100 sm:opacity-0"
+                        />
+                      </Button>
+                    </ShadTooltip>
+                    <Button
+                      data-testid={`add-component-button-${convertTestName(
+                        display_name,
+                      )}`}
+                      variant="ghost"
+                      size="icon"
+                      tabIndex={-1}
+                      className="text-primary"
+                      onClick={() => addComponent(apiClass, itemName)}
+                    >
+                      <ForwardedIconComponent
+                        name="Plus"
+                        className="h-4 w-4 shrink-0 transition-all group-hover/draggable:opacity-100 group-focus/draggable:opacity-100 sm:opacity-0"
+                      />
+                    </Button>
+                  </>
                 )}
                 <div ref={popoverRef}>
                   <ForwardedIconComponent

@@ -1,0 +1,19 @@
+component_name: FilterDataValues
+display_name: Filter Data Values
+category: processing
+version: 1.0.0
+overview:
+  summary: Filter by values
+  description: Filter Data Values component for Kozmoai workflows. Filter by values.
+features:
+- Integration with Filter Data Values
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Filter Data Values Usage
+  description: Simple example using Filter Data Values
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

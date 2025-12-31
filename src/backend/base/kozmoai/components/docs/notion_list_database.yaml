@@ -1,0 +1,19 @@
+component_name: NotionListDatabase
+display_name: List Database
+category: Notion
+version: 1.0.0
+overview:
+  summary: List database properties
+  description: List Database component for Kozmoai workflows. List database properties.
+features:
+- Integration with List Database
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic List Database Usage
+  description: Simple example using List Database
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

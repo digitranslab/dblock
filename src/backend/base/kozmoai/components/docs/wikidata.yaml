@@ -1,0 +1,19 @@
+component_name: Wikidata
+display_name: Wikidata
+category: tools
+version: 1.0.0
+overview:
+  summary: Query Wikidata
+  description: Wikidata component for Kozmoai workflows. Query Wikidata.
+features:
+- Integration with Wikidata
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Wikidata Usage
+  description: Simple example using Wikidata
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

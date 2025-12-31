@@ -319,6 +319,8 @@ function NodeOutputField({
     ],
   );
 
+  // For vertical layout: handles are rendered at node level via NodeOutputHandles
+  // Only render handles here when showNode is false (collapsed state)
   if (!showNode) return <>{Handle}</>;
 
   return (
@@ -330,6 +332,7 @@ function NodeOutputField({
         isToolMode && "bg-primary",
       )}
     >
+      {/* Loop handle still rendered inline for loop functionality */}
       {LoopHandle}
       <div className="flex w-full items-center justify-end truncate text-sm">
         <div className="flex flex-1">
@@ -409,7 +412,7 @@ function NodeOutputField({
           </ShadTooltip>
         </div>
       </div>
-      {Handle}
+      {/* Output handles are now rendered at node level for vertical layout */}
     </div>
   );
 }

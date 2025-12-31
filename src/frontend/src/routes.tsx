@@ -21,6 +21,7 @@ import { AppAuthenticatedPage } from "./pages/AppAuthenticatedPage";
 import { AppInitPage } from "./pages/AppInitPage";
 import { AppWrapperPage } from "./pages/AppWrapperPage";
 import { DashboardWrapperPage } from "./pages/DashboardWrapperPage";
+import ExecutionHistoryPage from "./pages/ExecutionHistoryPage";
 import FlowPage from "./pages/FlowPage";
 import LoginPage from "./pages/LoginPage";
 import MyCollectionComponent from "./pages/MainPage/oldComponents/myCollectionComponent";
@@ -34,7 +35,9 @@ import GlobalVariablesPage from "./pages/SettingsPage/pages/GlobalVariablesPage"
 import MessagesPage from "./pages/SettingsPage/pages/messagesPage";
 import ShortcutsPage from "./pages/SettingsPage/pages/ShortcutsPage";
 import StoreApiKeyPage from "./pages/SettingsPage/pages/StoreApiKeyPage";
+import UsersPage from "./pages/SettingsPage/pages/UsersPage";
 import StorePage from "./pages/StorePage";
+import StudioPage from "./pages/StudioPage";
 import ViewPage from "./pages/ViewPage";
 
 const AdminPage = lazy(() => import("./pages/AdminPage"));
@@ -74,7 +77,7 @@ const router = createBrowserRouter(
                 >
                   <Route
                     index
-                    element={<CustomNavigate replace to={"flows"} />}
+                    element={<CustomNavigate replace to={"history"} />}
                   />
                   <Route
                     path="flows/"
@@ -85,18 +88,7 @@ const router = createBrowserRouter(
                         <MyCollectionComponent key="flows" type="flows" />
                       )
                     }
-                  >
-                    <Route
-                      path="folder/:folderId"
-                      element={
-                        ENABLE_HOMEPAGE ? (
-                          <HomePage key="flows" type="flows" />
-                        ) : (
-                          <MyCollectionComponent key="flows" type="flows" />
-                        )
-                      }
-                    />
-                  </Route>
+                  />
                   <Route
                     path="components/"
                     element={
@@ -109,21 +101,7 @@ const router = createBrowserRouter(
                         />
                       )
                     }
-                  >
-                    <Route
-                      path="folder/:folderId"
-                      element={
-                        ENABLE_HOMEPAGE ? (
-                          <HomePage key="components" type="components" />
-                        ) : (
-                          <MyCollectionComponent
-                            key="components"
-                            type="component"
-                          />
-                        )
-                      }
-                    />
-                  </Route>
+                  />
                   <Route
                     path="all/"
                     element={
@@ -133,18 +111,7 @@ const router = createBrowserRouter(
                         <MyCollectionComponent key="all" type="all" />
                       )
                     }
-                  >
-                    <Route
-                      path="folder/:folderId"
-                      element={
-                        ENABLE_HOMEPAGE ? (
-                          <HomePage key="flows" type="flows" />
-                        ) : (
-                          <MyCollectionComponent key="all" type="all" />
-                        )
-                      }
-                    />
-                  </Route>
+                  />
                 </Route>
                 <Route path="settings" element={<SettingsPage />}>
                   <Route
@@ -167,6 +134,14 @@ const router = createBrowserRouter(
                   <Route path="shortcuts" element={<ShortcutsPage />} />
                   <Route path="messages" element={<MessagesPage />} />
                   <Route path="store" element={<StoreApiKeyPage />} />
+                  <Route
+                    path="users"
+                    element={
+                      <ProtectedAdminRoute>
+                        <UsersPage />
+                      </ProtectedAdminRoute>
+                    }
+                  />
                 </Route>
                 <Route
                   path="store"
@@ -196,9 +171,24 @@ const router = createBrowserRouter(
                   }
                 />
               </Route>
+              {/* Studio Landing Page */}
+              <Route path="studio" element={<DashboardWrapperPage />}>
+                <Route index element={<StudioPage />} />
+              </Route>
+              {/* Execution History Page */}
+              <Route path="history" element={<DashboardWrapperPage />}>
+                <Route index element={<ExecutionHistoryPage />} />
+              </Route>
+              {/* Studio - Canvas editor for workflows */}
+              <Route path="studio/:id/">
+                <Route path="" element={<DashboardWrapperPage />}>
+                  <Route path="" element={<FlowPage />} />
+                </Route>
+                <Route path="view" element={<ViewPage />} />
+              </Route>
+              {/* Flow - Reserved for catalog/preview (to be implemented) */}
               <Route path="flow/:id/">
                 <Route path="" element={<DashboardWrapperPage />}>
-                  <Route path="folder/:folderId/" element={<FlowPage />} />
                   <Route path="" element={<FlowPage />} />
                 </Route>
                 <Route path="view" element={<ViewPage />} />

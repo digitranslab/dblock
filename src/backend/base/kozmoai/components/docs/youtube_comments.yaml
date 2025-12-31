@@ -1,0 +1,19 @@
+component_name: YoutubeComments
+display_name: YouTube Comments
+category: youtube
+version: 1.0.0
+overview:
+  summary: Get video comments
+  description: YouTube Comments component for Kozmoai workflows. Get video comments.
+features:
+- Integration with YouTube Comments
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic YouTube Comments Usage
+  description: Simple example using YouTube Comments
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

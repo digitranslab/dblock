@@ -1,0 +1,19 @@
+component_name: DataConditionalRouter
+display_name: Data Router
+category: logic
+version: 1.0.0
+overview:
+  summary: Route data conditionally
+  description: Data Router component for Kozmoai workflows. Route data conditionally.
+features:
+- Integration with Data Router
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Data Router Usage
+  description: Simple example using Data Router
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

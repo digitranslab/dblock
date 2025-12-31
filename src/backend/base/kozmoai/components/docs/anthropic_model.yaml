@@ -1,0 +1,51 @@
+component_name: Anthropic
+display_name: Anthropic
+category: models
+version: 1.0.0
+overview:
+  summary: Use Anthropic for AI and data tasks
+  description: The **Anthropic** component generates text using Anthropic Chat and Language models like Claude. It can output
+    either a **Model Response** (`Message`) or a **Language Model** (`LanguageModel`). Specifically, the **Language Model**
+    output is an instance of `ChatAnthropic` configured according to the component's parameters. Use the **Language Model**
+    output when you want to use an Anthropic model as the LLM for another LLM-driven component, such as an **Agent** or **Smart
+    Function** component. For more information, see Language model components.
+features:
+- Advanced language model capabilities
+- Flexible configuration options
+- Support for various use cases
+- High-quality text generation
+inputs:
+  max_tokens:
+    display_name: max_tokens
+    type: Integer
+    description: 'Input parameter. The maximum number of tokens to generate. Set to 0 for unlimited tokens. Default: `4096`.'
+  model:
+    display_name: model
+    type: String
+    description: Input parameter. The name of the Anthropic model to use. Options include various Claude 3 models.
+  anthropic_api_key:
+    display_name: anthropic_api_key
+    type: SecretString
+    description: Input parameter. Your Anthropic API key for authentication.
+  temperature:
+    display_name: temperature
+    type: Float
+    description: 'Input parameter. Controls randomness in the output. Default: `0.1`.'
+  anthropic_api_url:
+    display_name: anthropic_api_url
+    type: String
+    description: Input parameter. Endpoint of the Anthropic API. Defaults to `https://api.anthropic.com` if not specified.
+outputs:
+  language_model:
+    display_name: Language Model
+    type: LanguageModel
+    description: Configured language model ready for use
+examples:
+- title: Basic Anthropic Setup
+  description: Standard configuration for Anthropic
+  use_case: General purpose usage
+external_links:
+- title: Anthropic documentation
+  url: https://docs.anthropic.com/en/docs/intro
+- title: '`ChatAnthropic`'
+  url: https://docs.langchain.com/oss/python/integrations/chat/anthropic

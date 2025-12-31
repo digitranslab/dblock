@@ -8,21 +8,26 @@
             "dataType": "Prompt",
             "id": "Prompt-a6SIY",
             "name": "prompt",
-            "output_types": ["Message"]
+            "output_types": [
+              "Message"
+            ]
           },
           "targetHandle": {
             "fieldName": "system_message",
             "id": "OpenAIModel-brPVM",
-            "inputTypes": ["Message"],
+            "inputTypes": [
+              "Message",
+              "Text"
+            ],
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-a6SIY{œdataTypeœ:œPromptœ,œidœ:œPrompt-a6SIYœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-OpenAIModel-brPVM{œfieldNameœ:œsystem_messageœ,œidœ:œOpenAIModel-brPVMœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-a6SIY{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-a6SIY\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-brPVM{\u0153fieldName\u0153:\u0153system_message\u0153,\u0153id\u0153:\u0153OpenAIModel-brPVM\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Prompt-a6SIY",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-a6SIYœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-a6SIY\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "OpenAIModel-brPVM",
-        "targetHandle": "{œfieldNameœ: œsystem_messageœ, œidœ: œOpenAIModel-brPVMœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153system_message\u0153, \u0153id\u0153: \u0153OpenAIModel-brPVM\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "className": "",
@@ -31,21 +36,26 @@
             "dataType": "Prompt",
             "id": "Prompt-jkCpO",
             "name": "prompt",
-            "output_types": ["Message"]
+            "output_types": [
+              "Message"
+            ]
           },
           "targetHandle": {
             "fieldName": "input_value",
             "id": "OpenAIModel-brPVM",
-            "inputTypes": ["Message"],
+            "inputTypes": [
+              "Message",
+              "Text"
+            ],
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-jkCpO{œdataTypeœ:œPromptœ,œidœ:œPrompt-jkCpOœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-OpenAIModel-brPVM{œfieldNameœ:œinput_valueœ,œidœ:œOpenAIModel-brPVMœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-jkCpO{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-jkCpO\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-brPVM{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153OpenAIModel-brPVM\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Prompt-jkCpO",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-jkCpOœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-jkCpO\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "OpenAIModel-brPVM",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-brPVMœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153OpenAIModel-brPVM\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "className": "",
@@ -54,21 +64,26 @@
             "dataType": "OpenAIModel",
             "id": "OpenAIModel-brPVM",
             "name": "text_output",
-            "output_types": ["Message"]
+            "output_types": [
+              "Message"
+            ]
           },
           "targetHandle": {
             "fieldName": "input_value",
             "id": "ChatOutput-oE2ic",
-            "inputTypes": ["Message"],
+            "inputTypes": [
+              "Message",
+              "Text"
+            ],
             "type": "str"
           }
         },
-        "id": "reactflow__edge-OpenAIModel-brPVM{œdataTypeœ:œOpenAIModelœ,œidœ:œOpenAIModel-brPVMœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-oE2ic{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-oE2icœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-OpenAIModel-brPVM{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-brPVM\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-oE2ic{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-oE2ic\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "OpenAIModel-brPVM",
-        "sourceHandle": "{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-brPVMœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIModel\u0153, \u0153id\u0153: \u0153OpenAIModel-brPVM\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-oE2ic",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-oE2icœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-oE2ic\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       }
     ],
     "nodes": [
@@ -78,7 +93,9 @@
           "display_name": "Prompt",
           "id": "Prompt-jkCpO",
           "node": {
-            "base_classes": ["Message"],
+            "base_classes": [
+              "Message"
+            ],
             "beta": false,
             "conditional_paths": [],
             "custom_fields": {
@@ -95,7 +112,9 @@
             "display_name": "Prompt",
             "documentation": "",
             "edited": false,
-            "field_order": ["template"],
+            "field_order": [
+              "template"
+            ],
             "frozen": false,
             "icon": "prompts",
             "legacy": false,
@@ -146,7 +165,10 @@
                 "fileTypes": [],
                 "file_path": "",
                 "info": "",
-                "input_types": ["Message", "Text"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "multiline": true,
@@ -166,7 +188,10 @@
                 "fileTypes": [],
                 "file_path": "",
                 "info": "",
-                "input_types": ["Message", "Text"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "multiline": true,
@@ -186,7 +211,10 @@
                 "fileTypes": [],
                 "file_path": "",
                 "info": "",
-                "input_types": ["Message", "Text"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "multiline": true,
@@ -206,7 +234,10 @@
                 "fileTypes": [],
                 "file_path": "",
                 "info": "",
-                "input_types": ["Message", "Text"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "multiline": true,
@@ -226,7 +257,10 @@
                 "fileTypes": [],
                 "file_path": "",
                 "info": "",
-                "input_types": ["Message", "Text"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "multiline": true,
@@ -246,7 +280,10 @@
                 "fileTypes": [],
                 "file_path": "",
                 "info": "",
-                "input_types": ["Message", "Text"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "multiline": true,
@@ -282,7 +319,10 @@
                 "display_name": "Tool Placeholder",
                 "dynamic": false,
                 "info": "A placeholder input for tool mode.",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "name": "tool_placeholder",
@@ -308,14 +348,6 @@
           "height": 779,
           "width": 320
         },
-        "position": {
-          "x": 816.9328565352126,
-          "y": 189.70442453076902
-        },
-        "positionAbsolute": {
-          "x": 816.9328565352126,
-          "y": 189.70442453076902
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -324,7 +356,7 @@
         "data": {
           "id": "note-nssRq",
           "node": {
-            "description": "# SEO Keyword Generator\nWelcome to the SEO Keywords Generator - an AI tool to create strategic keywords based on your product and audience profile!\n\n## Instructions\n\n1. **Fill Product Information**\n   - Enter your product name and description\n   - Keep it clear and specific\n   - Highlight unique features and benefits\n\n2. **Define Pain Points**\n   - List customer problems and challenges\n   - Be specific about what frustrations they face\n   - Include both practical and emotional pain points\n\n3. **Set Goals & Solutions**\n   - Specify customer objectives\n   - Detail how they currently solve problems\n   - Outline desired outcomes\n\n4. **Target Audience Details**\n   - Define demographics and characteristics\n   - Include expertise level\n   - Describe behavior patterns and preferences\n\n5. **Review Output**\n   - Examine generated keywords\n   - Check relevance and search intent\n   - Use insights for SEO strategy planning\n\nRemember: The more detailed your input, the more targeted and effective your keywords will be! 🎯🔍✨",
+            "description": "# SEO Keyword Generator\nWelcome to the SEO Keywords Generator - an AI tool to create strategic keywords based on your product and audience profile!\n\n## Instructions\n\n1. **Fill Product Information**\n   - Enter your product name and description\n   - Keep it clear and specific\n   - Highlight unique features and benefits\n\n2. **Define Pain Points**\n   - List customer problems and challenges\n   - Be specific about what frustrations they face\n   - Include both practical and emotional pain points\n\n3. **Set Goals & Solutions**\n   - Specify customer objectives\n   - Detail how they currently solve problems\n   - Outline desired outcomes\n\n4. **Target Audience Details**\n   - Define demographics and characteristics\n   - Include expertise level\n   - Describe behavior patterns and preferences\n\n5. **Review Output**\n   - Examine generated keywords\n   - Check relevance and search intent\n   - Use insights for SEO strategy planning\n\nRemember: The more detailed your input, the more targeted and effective your keywords will be! \ud83c\udfaf\ud83d\udd0d\u2728",
             "display_name": "",
             "documentation": "",
             "template": {}
@@ -337,14 +369,6 @@
         "measured": {
           "height": 608,
           "width": 324
-        },
-        "position": {
-          "x": 221.74248905040588,
-          "y": 363.5469410934121
-        },
-        "positionAbsolute": {
-          "x": 221.74248905040588,
-          "y": 363.5469410934121
         },
         "resizing": false,
         "selected": false,
@@ -361,7 +385,9 @@
           "display_name": "Prompt",
           "id": "Prompt-a6SIY",
           "node": {
-            "base_classes": ["Message"],
+            "base_classes": [
+              "Message"
+            ],
             "beta": false,
             "conditional_paths": [],
             "custom_fields": {
@@ -371,7 +397,9 @@
             "display_name": "Prompt",
             "documentation": "",
             "edited": false,
-            "field_order": ["template"],
+            "field_order": [
+              "template"
+            ],
             "frozen": false,
             "icon": "prompts",
             "legacy": false,
@@ -430,7 +458,7 @@
                 "tool_mode": false,
                 "trace_as_input": true,
                 "type": "prompt",
-                "value": "You are a digital marketing strategist specialized in generating highly relevant, optimized keywords for a product’s specific target audience. Your task is to create a list of keywords that are not only attractive and impactful but also resonate with the needs and desires of the customers, capturing the core motivations driving them to seek a solution.\n\nBelow are details about the product, including its target audience, the pain points faced by this audience, and the current solutions they consider or use. Use this information to generate precise keywords that connect directly with the unique value of the product and with the customers' goals. Consider factors like the customer’s level of expertise and major market trends to create a powerful and well-grounded keyword list.\n\n### Product Information:\n- **Product:** – A brief description of the product, including what sets it apart in the market.\n- **Customer Pain Points:** – Specific pain points that the audience faces and that the product aims to address.\n- **Customer Goals:** – The primary goals and aspirations of the target audience that the product helps to achieve.\n- **Current Solutions Used:** – How the audience currently tries to address these pain points, including competitor solutions or alternatives.\n- **Specific Target Audience:** – A detailed description of the target audience, including demographics, interests, lifestyle, and behavioral profile.\n- **Customer Expertise Level:**– The level of familiarity or experience the audience has with similar or related solutions.\n\n### Guidelines for Keyword Generation:\n1. **Focus on Pain Points and Solutions**: Generate keywords that accurately reflect the customers’ pain points, clearly conveying how the product offers an effective and unique solution.\n2. **Emphasize Goals and Benefits**: Highlight keywords aligned with customer goals, emphasizing the positive impact and achievable results of the product.\n3. **Consider Competition and Differentiators**: Think about existing solutions and how the product stands out. Create keywords that emphasize differentiators and help the product stand out in a competitive landscape.\n4. **Tailor to Target Audience**: Use terms and phrases that resonate directly with the target audience’s profile, utilizing language and themes most appealing to this segment.\n5. **Customize to Expertise Level**: Adjust the complexity of the keywords according to the audience’s experience level, ensuring they are appealing and accessible.\n6. **Incorporate Market Trends**: Where possible, include keywords that reflect the latest trends in the sector, increasing the content’s relevance and timeliness.\n\n### Example Keyword Suggestions:\n- **For customer pain points:**  – Use keywords that reinforce customer pain points, making it clear how the product can be a solution.\n- **For goals and aspirations:**  – Keywords that symbolize the outcomes and goals desired by customers, such as ‘stress relief,’ ‘productivity boost.’\n- **For product differentiators:** – Keywords that contrast the product with current solutions, highlighting its unique advantages.\n\nFor each keyword generated, provide a brief explanation of how it connects with the product details and the target audience, ensuring the final list is powerful, strategic, and well-founded for maximum market impact."
+                "value": "You are a digital marketing strategist specialized in generating highly relevant, optimized keywords for a product\u2019s specific target audience. Your task is to create a list of keywords that are not only attractive and impactful but also resonate with the needs and desires of the customers, capturing the core motivations driving them to seek a solution.\n\nBelow are details about the product, including its target audience, the pain points faced by this audience, and the current solutions they consider or use. Use this information to generate precise keywords that connect directly with the unique value of the product and with the customers' goals. Consider factors like the customer\u2019s level of expertise and major market trends to create a powerful and well-grounded keyword list.\n\n### Product Information:\n- **Product:** \u2013 A brief description of the product, including what sets it apart in the market.\n- **Customer Pain Points:** \u2013 Specific pain points that the audience faces and that the product aims to address.\n- **Customer Goals:** \u2013 The primary goals and aspirations of the target audience that the product helps to achieve.\n- **Current Solutions Used:** \u2013 How the audience currently tries to address these pain points, including competitor solutions or alternatives.\n- **Specific Target Audience:** \u2013 A detailed description of the target audience, including demographics, interests, lifestyle, and behavioral profile.\n- **Customer Expertise Level:**\u2013 The level of familiarity or experience the audience has with similar or related solutions.\n\n### Guidelines for Keyword Generation:\n1. **Focus on Pain Points and Solutions**: Generate keywords that accurately reflect the customers\u2019 pain points, clearly conveying how the product offers an effective and unique solution.\n2. **Emphasize Goals and Benefits**: Highlight keywords aligned with customer goals, emphasizing the positive impact and achievable results of the product.\n3. **Consider Competition and Differentiators**: Think about existing solutions and how the product stands out. Create keywords that emphasize differentiators and help the product stand out in a competitive landscape.\n4. **Tailor to Target Audience**: Use terms and phrases that resonate directly with the target audience\u2019s profile, utilizing language and themes most appealing to this segment.\n5. **Customize to Expertise Level**: Adjust the complexity of the keywords according to the audience\u2019s experience level, ensuring they are appealing and accessible.\n6. **Incorporate Market Trends**: Where possible, include keywords that reflect the latest trends in the sector, increasing the content\u2019s relevance and timeliness.\n\n### Example Keyword Suggestions:\n- **For customer pain points:**  \u2013 Use keywords that reinforce customer pain points, making it clear how the product can be a solution.\n- **For goals and aspirations:**  \u2013 Keywords that symbolize the outcomes and goals desired by customers, such as \u2018stress relief,\u2019 \u2018productivity boost.\u2019\n- **For product differentiators:** \u2013 Keywords that contrast the product with current solutions, highlighting its unique advantages.\n\nFor each keyword generated, provide a brief explanation of how it connects with the product details and the target audience, ensuring the final list is powerful, strategic, and well-founded for maximum market impact."
               },
               "tool_placeholder": {
                 "_input_type": "MessageTextInput",
@@ -438,7 +466,10 @@
                 "display_name": "Tool Placeholder",
                 "dynamic": false,
                 "info": "A placeholder input for tool mode.",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "name": "tool_placeholder",
@@ -464,14 +495,6 @@
           "height": 260,
           "width": 320
         },
-        "position": {
-          "x": 813.5727530934735,
-          "y": 991.0702563306074
-        },
-        "positionAbsolute": {
-          "x": 813.5727530934735,
-          "y": 991.0702563306074
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -482,7 +505,9 @@
           "display_name": "Chat Output",
           "id": "ChatOutput-oE2ic",
           "node": {
-            "base_classes": ["Message"],
+            "base_classes": [
+              "Message"
+            ],
             "beta": false,
             "conditional_paths": [],
             "custom_fields": {},
@@ -531,7 +556,10 @@
                 "display_name": "Background Color",
                 "dynamic": false,
                 "info": "The background color of the icon.",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "name": "background_color",
@@ -551,7 +579,10 @@
                 "display_name": "Icon",
                 "dynamic": false,
                 "info": "The icon of the message.",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "name": "chat_icon",
@@ -589,7 +620,10 @@
                 "display_name": "Data Template",
                 "dynamic": false,
                 "info": "Template to convert Data to Text. If left empty, it will be dynamically set to the Data's text key.",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "name": "data_template",
@@ -609,7 +643,10 @@
                 "display_name": "Text",
                 "dynamic": false,
                 "info": "Message to be passed as output.",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "name": "input_value",
@@ -630,7 +667,10 @@
                 "dynamic": false,
                 "info": "Type of sender.",
                 "name": "sender",
-                "options": ["Machine", "User"],
+                "options": [
+                  "Machine",
+                  "User"
+                ],
                 "placeholder": "",
                 "required": false,
                 "show": true,
@@ -646,7 +686,10 @@
                 "display_name": "Sender Name",
                 "dynamic": false,
                 "info": "Name of the sender.",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "name": "sender_name",
@@ -666,7 +709,10 @@
                 "display_name": "Session ID",
                 "dynamic": false,
                 "info": "The session ID of the chat. If empty, the current session ID parameter will be used.",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "name": "session_id",
@@ -702,7 +748,10 @@
                 "display_name": "Text Color",
                 "dynamic": false,
                 "info": "The text color of the name",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "load_from_db": false,
                 "name": "text_color",
@@ -728,14 +777,6 @@
           "height": 234,
           "width": 320
         },
-        "position": {
-          "x": 1598.2529634286327,
-          "y": 623.4799714496987
-        },
-        "positionAbsolute": {
-          "x": 1598.2529634286327,
-          "y": 623.4799714496987
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -758,14 +799,6 @@
           "height": 325,
           "width": 326
         },
-        "position": {
-          "x": 1207.1996899547116,
-          "y": 260.0148704431837
-        },
-        "positionAbsolute": {
-          "x": 1207.1996899547116,
-          "y": 260.0148704431837
-        },
         "selected": false,
         "type": "noteNode",
         "width": 325
@@ -774,7 +807,10 @@
         "data": {
           "id": "OpenAIModel-brPVM",
           "node": {
-            "base_classes": ["LanguageModel", "Message"],
+            "base_classes": [
+              "LanguageModel",
+              "Message"
+            ],
             "beta": false,
             "category": "models",
             "conditional_paths": [],
@@ -824,7 +860,9 @@
                 "display_name": "Language Model",
                 "method": "build_model",
                 "name": "model_output",
-                "required_inputs": ["api_key"],
+                "required_inputs": [
+                  "api_key"
+                ],
                 "selected": "LanguageModel",
                 "tool_mode": true,
                 "types": [
@@ -843,7 +881,9 @@
                 "display_name": "OpenAI API Key",
                 "dynamic": false,
                 "info": "The OpenAI API Key to use for the OpenAI model.",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message"
+                ],
                 "load_from_db": true,
                 "name": "api_key",
                 "password": true,
@@ -878,7 +918,10 @@
                 "display_name": "Input",
                 "dynamic": false,
                 "info": "",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "list_add_label": "Add More",
                 "load_from_db": false,
@@ -1060,7 +1103,10 @@
                 "display_name": "System Message",
                 "dynamic": false,
                 "info": "System message to pass to the model.",
-                "input_types": ["Message"],
+                "input_types": [
+                  "Message",
+                  "Text"
+                ],
                 "list": false,
                 "list_add_label": "Add More",
                 "load_from_db": false,
@@ -1134,10 +1180,6 @@
           "height": 653,
           "width": 320
         },
-        "position": {
-          "x": 1211.6745177781336,
-          "y": 389.1200512413449
-        },
         "selected": false,
         "type": "genericNode"
       }
@@ -1156,5 +1198,8 @@
   "is_component": false,
   "last_tested_version": "1.0.19.post2",
   "name": "SEO Keyword Generator",
-  "tags": ["chatbots", "assistants"]
+  "tags": [
+    "chatbots",
+    "assistants"
+  ]
 }

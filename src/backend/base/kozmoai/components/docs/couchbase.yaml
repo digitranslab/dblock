@@ -1,0 +1,67 @@
+component_name: Couchbase
+display_name: Couchbase
+category: vector_stores
+version: 1.0.0
+overview:
+  summary: Use Couchbase for AI and data tasks
+  description: 'The **Couchbase** component reads and writes to a Couchbase vector store using an instance of `CouchbaseSearchVectorStore`.
+    :::tip For a tutorial using a vector database in a flow, see Create a vector RAG chatbot. :::'
+features:
+- High-performance vector storage and retrieval
+- Semantic search capabilities
+- Scalable architecture
+- Integration with embedding models
+inputs:
+  couchbase_connection_string:
+    display_name: couchbase_connection_string
+    type: SecretString
+    description: Input parameter. Couchbase Cluster connection string. Required.
+  couchbase_username:
+    display_name: couchbase_username
+    type: String
+    description: Input parameter. Couchbase username for authentication. Required.
+  couchbase_password:
+    display_name: couchbase_password
+    type: SecretString
+    description: Input parameter. Couchbase password for authentication. Required.
+  bucket_name:
+    display_name: bucket_name
+    type: String
+    description: Input parameter. Name of the Couchbase bucket. Required.
+  scope_name:
+    display_name: scope_name
+    type: String
+    description: Input parameter. Name of the Couchbase scope. Required.
+  collection_name:
+    display_name: collection_name
+    type: String
+    description: Input parameter. Name of the Couchbase collection. Required.
+  index_name:
+    display_name: index_name
+    type: String
+    description: Input parameter. Name of the Couchbase index. Required.
+  ingest_data:
+    display_name: ingest_data
+    type: Data
+    description: Input parameter. The records to load into the vector store. Only relevant for writes.
+  search_query:
+    display_name: search_query
+    type: String
+    description: Input parameter. The query string for vector search. Only relevant for reads.
+  cache_vector_store:
+    display_name: cache_vector_store
+    type: Boolean
+    description: 'Input parameter. If `true`, the component caches the vector store in memory for faster reads. Default: Enabled
+      (`true`).'
+outputs:
+  vector_store:
+    display_name: Vector Store
+    type: VectorStore
+    description: Configured vector store instance
+examples:
+- title: Basic Couchbase Setup
+  description: Standard configuration for Couchbase
+  use_case: General purpose usage
+external_links:
+- title: Couchbase documentation
+  url: https://docs.couchbase.com/home/index.html

@@ -1,0 +1,57 @@
+component_name: Redis
+display_name: Redis
+category: vector_stores
+version: 1.0.0
+overview:
+  summary: Use Redis for AI and data tasks
+  description: The **Redis Chat Memory** component retrieves and stores chat messages using Redis memory storage. Chat memories
+    are passed between memory storage components as the `Memory` data type. For more information about using external chat
+    memory in flows, see the **Message History** component.
+features:
+- High-performance vector storage and retrieval
+- Semantic search capabilities
+- Scalable architecture
+- Integration with embedding models
+inputs:
+  redis_server_url:
+    display_name: redis_server_url
+    type: SecretString
+    description: Input parameter. The Redis server connection string.
+  redis_index_name:
+    display_name: redis_index_name
+    type: String
+    description: Input parameter. The name of the Redis index.
+  code:
+    display_name: code
+    type: String
+    description: Input parameter. Additional custom code for Redis, if supported.
+  schema:
+    display_name: schema
+    type: String
+    description: Input parameter. The schema for Redis index.
+  ingest_data:
+    display_name: ingest_data
+    type: Data
+    description: Input parameter. The data to be ingested into the vector store.
+  search_query:
+    display_name: search_query
+    type: String
+    description: Input parameter. The query for similarity search.
+  embedding:
+    display_name: embedding
+    type: Embeddings
+    description: Input parameter. The embedding function to use.
+outputs:
+  vector_store:
+    display_name: Vector Store
+    type: VectorStore
+    description: Configured vector store instance
+examples:
+- title: Basic Redis Setup
+  description: Standard configuration for Redis
+  use_case: General purpose usage
+external_links:
+- title: '`RedisVectorStore`'
+  url: https://python.langchain.com/docs/integrations/vectorstores/redis/
+- title: Redis documentation
+  url: https://redis.io/docs/latest/develop/interact/search-and-query/advanced-concepts/vectors/

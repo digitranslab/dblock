@@ -1,6 +1,6 @@
 import AlertDropdown from "@/alerts/alertDropDown";
 import DataStaxLogo from "@/assets/DataStaxLogo.svg?react";
-import KozmoaiLogo from "@/assets/KozmoaiLogo.svg?react";
+import DBlockLogo from "@/assets/DBlockLogo.svg?react";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import ShadTooltip from "@/components/common/shadTooltipComponent";
 import { Button } from "@/components/ui/button";
@@ -16,15 +16,14 @@ import useTheme from "@/customization/hooks/use-custom-theme";
 import { useResetDismissUpdateAll } from "@/hooks/use-reset-dismiss-update-all";
 import useAlertStore from "@/stores/alertStore";
 import { useEffect, useRef, useState } from "react";
-import { AccountMenu } from "./components/AccountMenu";
 import FlowMenu from "./components/FlowMenu";
-import GithubStarComponent from "./components/GithubStarButton";
+import HeaderActionButtons from "./components/HeaderActionButtons";
+import ThemeButtons from "./components/ThemeButtons";
 
 export default function AppHeader(): JSX.Element {
   const notificationCenter = useAlertStore((state) => state.notificationCenter);
   const navigate = useCustomNavigate();
   const [activeState, setActiveState] = useState<"notifications" | null>(null);
-  const lastPath = window.location.pathname.split("/").filter(Boolean).pop();
   const notificationRef = useRef<HTMLButtonElement | null>(null);
   const notificationContentRef = useRef<HTMLDivElement | null>(null);
   useTheme();
@@ -51,28 +50,33 @@ export default function AppHeader(): JSX.Element {
 
   return (
     <div
-      className="flex h-[62px] w-full items-center justify-between gap-2 border-b px-5 py-2.5 dark:bg-background"
+      className="flex h-[62px] w-full items-center justify-between gap-2 border-b pl-0 pr-5 py-2.5 dark:bg-background"
       data-testid="app-header"
     >
-      {/* Left Section */}
+      {/* Left Section - Logo aligned with dock width (w-14 = 56px) */}
       <div
-        className={`flex items-center gap-2`}
+        className={`flex items-center`}
         data-testid="header_left_section_wrapper"
       >
         <Button
           unstyled
           onClick={() => navigate("/")}
-          className="mr-1 flex h-8 w-8 items-center"
+          className="flex w-14 items-center justify-center"
           data-testid="icon-ChevronLeft"
         >
           {ENABLE_DATASTAX_KOZMOAI ? (
             <DataStaxLogo className="fill-black dark:fill-[white]" />
           ) : ENABLE_NEW_LOGO ? (
-            <KozmoaiLogo className="h-5 w-6" />
+            <DBlockLogo className="h-12 w-12" />
           ) : (
             <span className="fill-black text-2xl dark:fill-white">⛓️</span>
           )}
         </Button>
+        {ENABLE_NEW_LOGO && !ENABLE_DATASTAX_KOZMOAI && (
+          <span className="text-xl font-bold" style={{ color: "#ffbd59" }}>
+            DBlock
+          </span>
+        )}
         {ENABLE_DATASTAX_KOZMOAI && (
           <>
             <CustomOrgSelector />
@@ -91,19 +95,14 @@ export default function AppHeader(): JSX.Element {
         className={`flex items-center gap-2`}
         data-testid="header_right_section_wrapper"
       >
-        {!ENABLE_DATASTAX_KOZMOAI && (
-          <>
-            <Button
-              unstyled
-              className="hidden items-center whitespace-nowrap pr-2 2xl:inline"
-              onClick={() =>
-                window.open("https://github.com/digitranslab/kozmoai", "_blank")
-              }
-            >
-              <GithubStarComponent />
-            </Button>
-          </>
-        )}
+        {/* Run, API, Share buttons */}
+        <HeaderActionButtons />
+        
+        <Separator
+          orientation="vertical"
+          className="my-auto h-7 dark:border-zinc-700"
+        />
+        
         <AlertDropdown
           notificationRef={notificationContentRef}
           onClose={() => setActiveState(null)}
@@ -143,36 +142,10 @@ export default function AppHeader(): JSX.Element {
             </AlertDropdown>
           </ShadTooltip>
         </AlertDropdown>
-        {!ENABLE_DATASTAX_KOZMOAI && (
-          <>
-            <ShadTooltip
-              content="Go to KozmoaiStore"
-              side="bottom"
-              styleClasses="z-10"
-            >
-              <Button
-                variant="ghost"
-                className={` ${lastPath === "store" ? "bg-accent text-accent-foreground" : ""}`}
-                onClick={() => {
-                  navigate("/store");
-                }}
-                data-testid="button-store"
-              >
-                <ForwardedIconComponent
-                  name="Store"
-                  className="side-bar-button-size h-[18px] w-[18px]"
-                />
-                <span className="hidden whitespace-nowrap 2xl:inline">
-                  Store
-                </span>
-              </Button>
-            </ShadTooltip>
-            <Separator
-              orientation="vertical"
-              className="my-auto h-7 dark:border-zinc-700"
-            />
-          </>
-        )}
+        
+        {/* Theme Buttons - Dark/Light/System */}
+        <ThemeButtons />
+        
         {ENABLE_DATASTAX_KOZMOAI && (
           <>
             <ShadTooltip content="Docs" side="bottom" styleClasses="z-10">
@@ -195,31 +168,8 @@ export default function AppHeader(): JSX.Element {
                 </span>
               </Button>
             </ShadTooltip>
-            <ShadTooltip content="Settings" side="bottom" styleClasses="z-10">
-              <Button
-                data-testid="user-profile-settings"
-                variant="ghost"
-                className="flex text-sm font-medium"
-                onClick={() => navigate("/settings")}
-              >
-                <ForwardedIconComponent
-                  name="Settings"
-                  className="side-bar-button-size h-[18px] w-[18px]"
-                />
-                <span className="hidden whitespace-nowrap 2xl:inline">
-                  Settings
-                </span>
-              </Button>
-            </ShadTooltip>
-            <Separator
-              orientation="vertical"
-              className="my-auto h-7 dark:border-zinc-700"
-            />
           </>
         )}
-        <div className="flex">
-          <AccountMenu />
-        </div>
       </div>
     </div>
   );

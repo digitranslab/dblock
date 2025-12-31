@@ -1,0 +1,19 @@
+component_name: Notify
+display_name: Notify
+category: logic
+version: 1.0.0
+overview:
+  summary: Send notifications
+  description: Notify component for Kozmoai workflows. Send notifications.
+features:
+- Integration with Notify
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Notify Usage
+  description: Simple example using Notify
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

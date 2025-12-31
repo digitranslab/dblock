@@ -11,32 +11,6 @@ const SidebarMenuButtons = ({
 }) => {
   return (
     <>
-      {hasStore && (
-        <SidebarMenuButton asChild>
-          <CustomLink
-            to="/store"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group/discover"
-          >
-            <div className="flex w-full items-center gap-2">
-              <ForwardedIconComponent
-                name="Store"
-                className="h-4 w-4 text-muted-foreground"
-              />
-
-              <span className="flex-1 group-data-[state=open]/collapsible:font-semibold">
-                Discover more components
-              </span>
-
-              <ForwardedIconComponent
-                name="SquareArrowOutUpRight"
-                className="h-4 w-4 opacity-0 transition-all group-hover/discover:opacity-100"
-              />
-            </div>
-          </CustomLink>
-        </SidebarMenuButton>
-      )}
       <SidebarMenuButton asChild>
         <Button
           unstyled

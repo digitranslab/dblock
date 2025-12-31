@@ -1,0 +1,91 @@
+component_name: AstraDB
+display_name: Astra DB
+category: vector_stores
+version: 1.0.0
+overview:
+  summary: Use Astra DB for AI and data tasks
+  description: ':::warning It is recommended that you create any databases, keyspaces, and collections you need before configuring
+    the **Astra DB** component. You can create new databases and collections through this component, but this is only possible
+    in the Langflow visual editor (not at runtime), and you must wait while the database or collection initializes before
+    proceeding with flow configuration. Additionally, not all database and collection configuration options are available
+    through the **Astra DB** component, such as hybrid search options, PCU groups, vectorize integration management, and multi-region
+    deployments. :::'
+features:
+- High-performance vector storage and retrieval
+- Semantic search capabilities
+- Scalable architecture
+- Integration with embedding models
+inputs:
+  token:
+    display_name: token
+    type: Astra DB Application Token
+    description: Input parameter. An Astra application token with permission to access your vector database. Once the connection
+      is verified, additional fields are populated with your existing databases and collections. If you want to create a database
+      through this component, the application token must have Organization Administrator permissions.
+  environment:
+    display_name: environment
+    type: Environment
+    description: Input parameter. The environment for the Astra DB API endpoint. Typically always `prod`.
+  database_name:
+    display_name: database_name
+    type: Database
+    description: Input parameter. The name of the database that you want this component to connect to. Or, you can select
+      **New Database** to create a new database, and then wait for the database to initialize before setting the remaining
+      parameters.
+  endpoint:
+    display_name: endpoint
+    type: Astra DB API Endpoint
+    description: Input parameter. For multi-region databases, select the API endpoint for your nearest datacenter. To get
+      the list of regions for a multi-region database, see List database regions. This field is automatically populated when
+      you select a database, and it defaults to the primary region's endpoint.
+  keyspace:
+    display_name: keyspace
+    type: Keyspace
+    description: 'Input parameter. The keyspace in your database that contains the collection specified in `collection_name`.
+      Default: `default_keyspace`.'
+  collection_name:
+    display_name: collection_name
+    type: Collection
+    description: Input parameter. The name of the collection that you want to use with this flow. Or, select **New Collection**
+      to create a new collection with limited configuration options. To ensure your collection is configured with the correct
+      embedding provider and search capabilities, it is recommended to create the collection in the Astra Portal or with the
+      Data API *before* configuring this component. For more information, see Manage collections in Astra DB Serverless.
+  embedding_model:
+    display_name: embedding_model
+    type: Embedding Model
+    description: Input parameter. Attach an embedding model component to generate embeddings. Only available if the specified
+      collection doesn't have a vectorize integration. If a vectorize integration exists, the component automatically uses
+      the collection's integrated model.
+  ingest_data:
+    display_name: ingest_data
+    type: Ingest Data
+    description: Input parameter. The documents to load into the specified collection. Accepts `Data` or `DataFrame` input.
+  search_query:
+    display_name: search_query
+    type: Search Query
+    description: Input parameter. The query string for vector search.
+  cache_vector_store:
+    display_name: cache_vector_store
+    type: Cache Vector Store
+    description: 'Input parameter. Whether to cache the vector store in Langflow memory for faster reads. Default: Enabled
+      (`true`).'
+outputs:
+  vector_store:
+    display_name: Vector Store
+    type: VectorStore
+    description: Configured vector store instance
+examples:
+- title: Basic Astra DB Setup
+  description: Standard configuration for Astra DB
+  use_case: General purpose usage
+external_links:
+- title: Astra DB Serverless documentation
+  url: https://docs.datastax.com/en/astra-db-serverless/index.html
+- title: List database regions
+  url: https://docs.datastax.com/en/astra-db-serverless/databases/manage-regions.html#list-db-regions
+- title: Manage collections in Astra DB Serverless
+  url: https://docs.datastax.com/en/astra-db-serverless/databases/manage-collections.html
+- title: vectorize integration
+  url: https://docs.datastax.com/en/astra-db-serverless/databases/embedding-generation.html
+- title: Ways to find data in Astra DB Serverless
+  url: https://docs.datastax.com/en/astra-db-serverless/databases/about-search.html

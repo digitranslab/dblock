@@ -1,0 +1,19 @@
+component_name: MultiQuery
+display_name: Multi Query
+category: retrievers
+version: 1.0.0
+overview:
+  summary: Multiple query retrieval
+  description: Multi Query component for Kozmoai workflows. Multiple query retrieval.
+features:
+- Integration with Multi Query
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Multi Query Usage
+  description: Simple example using Multi Query
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

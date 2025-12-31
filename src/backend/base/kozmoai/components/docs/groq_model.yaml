@@ -1,0 +1,56 @@
+component_name: Groq
+display_name: Groq
+category: models
+version: 1.0.0
+overview:
+  summary: Use Groq for AI and data tasks
+  description: This component generates text using Groq's language models. It can output either a **Model Response** (`Message`)
+    or a **Language Model** (`LanguageModel`). Specifically, the **Language Model** output is an instance of `ChatGroq` configured
+    according to the component's parameters. Use the **Language Model** output when you want to use a Groq model as the LLM
+    for another LLM-driven component, such as an **Agent** or **Smart Function** component. For more information, see Language
+    model components.
+features:
+- Advanced language model capabilities
+- Flexible configuration options
+- Support for various use cases
+- High-quality text generation
+inputs:
+  groq_api_key:
+    display_name: groq_api_key
+    type: SecretString
+    description: Your Groq API key.
+  groq_api_base:
+    display_name: groq_api_base
+    type: String
+    description: 'Base URL path for API requests. Default: `https://api.groq.com`.'
+  max_tokens:
+    display_name: max_tokens
+    type: Integer
+    description: The maximum number of tokens to generate.
+  temperature:
+    display_name: temperature
+    type: Float
+    description: 'Controls randomness in the output. Range: `[0.0, 1.0]`. Default: `0.1`.'
+  n:
+    display_name: n
+    type: Integer
+    description: Number of chat completions to generate for each prompt.
+  model_name:
+    display_name: model_name
+    type: String
+    description: The name of the Groq model to use. Options are dynamically fetched from the Groq API after entering your
+      API key and URL. To refresh your list of models, click  **Refresh**.
+outputs:
+  language_model:
+    display_name: Language Model
+    type: LanguageModel
+    description: Configured language model ready for use
+examples:
+- title: Basic Groq Setup
+  description: Standard configuration for Groq
+  use_case: General purpose usage
+external_links:
+- title: Groq documentation
+  url: https://groq.com/
+- title: '`ChatGroq`'
+  url: https://docs.langchain.com/oss/python/integrations/chat/groq

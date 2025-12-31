@@ -27,6 +27,7 @@ from sqlmodel import select
 from sqlmodel.ext.asyncio.session import AsyncSession
 
 from kozmoai.base.constants import FIELD_FORMAT_ATTRIBUTES, NODE_FORMAT_ATTRIBUTES, ORJSON_OPTIONS
+from kozmoai.base.tools.constants import TOOL_OUTPUT_DISPLAY_NAME, TOOL_OUTPUT_NAME
 from kozmoai.initial_setup.constants import STARTER_FOLDER_DESCRIPTION, STARTER_FOLDER_NAME
 from kozmoai.services.auth.utils import create_super_user
 from kozmoai.services.database.models.flow.model import Flow, FlowCreate
@@ -56,8 +57,26 @@ def update_projects_components_with_latest_component_versions(project_data, all_
         node_data = node.get("data").get("node")
         node_type = node.get("data").get("type")
 
-        # Skip updating if tool_mode is True
+        # Handle tool_mode nodes - ensure they have the component_as_tool output
         if node_data.get("tool_mode", False):
+            # Check if component_as_tool output already exists
+            outputs = node_data.get("outputs", [])
+            has_tool_output = any(output.get("name") == TOOL_OUTPUT_NAME for output in outputs)
+            if not has_tool_output:
+                # Add the component_as_tool output for tool_mode nodes
+                tool_output = {
+                    "name": TOOL_OUTPUT_NAME,
+                    "display_name": TOOL_OUTPUT_DISPLAY_NAME,
+                    "method": "to_toolkit",
+                    "types": ["Tool"],
+                    "selected": "Tool",
+                }
+                node_data["outputs"] = [tool_output]
+                node_changes_log[node_type].append({
+                    "attr": "outputs",
+                    "old_value": outputs,
+                    "new_value": [tool_output],
+                })
             continue
 
         # Skip nodes with outputs of the specified format
@@ -148,6 +167,18 @@ def update_projects_components_with_latest_component_versions(project_data, all_
                 for field_name in list(node_data["template"].keys()):
                     if field_name not in latest_template:
                         node_data["template"].pop(field_name)
+            else:
+                # For Prompt components, update input_types for dynamic fields
+                for field_name in node_data["template"]:
+                    if field_name not in latest_template and isinstance(node_data["template"][field_name], dict):
+                        current_input_types = node_data["template"][field_name].get("input_types")
+                        if current_input_types != DEFAULT_PROMPT_INTUT_TYPES:
+                            node_changes_log[node_type].append({
+                                "attr": f"{field_name}.input_types",
+                                "old_value": current_input_types,
+                                "new_value": DEFAULT_PROMPT_INTUT_TYPES,
+                            })
+                            node_data["template"][field_name]["input_types"] = DEFAULT_PROMPT_INTUT_TYPES
     log_node_changes(node_changes_log)
     return project_data_copy
 
@@ -340,6 +371,23 @@ def update_edges_with_latest_component_versions(project_data):
                     }
                 )
                 edge["targetHandle"] = escaped_target_handle
+
+            # Also update the edge ID since it contains the handle data
+            new_edge_id = f"reactflow__edge-{edge['source']}{escaped_source_handle}-{edge['target']}{escaped_target_handle}"
+            if edge.get("id") != new_edge_id:
+                edge_changes_log[target_node_data["display_name"]].append(
+                    {
+                        "attr": "id",
+                        "old_value": edge.get("id", "")[:80] + "...",
+                        "new_value": new_edge_id[:80] + "...",
+                    }
+                )
+                edge["id"] = new_edge_id
+
+            # Update the data.sourceHandle and data.targetHandle as well
+            if edge.get("data"):
+                edge["data"]["sourceHandle"] = source_handle
+                edge["data"]["targetHandle"] = target_handle
 
         else:
             logger.error(f"Source or target node not found for edge: {edge}")

@@ -1,0 +1,19 @@
+component_name: ApiRequest
+display_name: API Request
+category: data
+version: 1.0.0
+overview:
+  summary: Make HTTP API requests
+  description: API Request component for Kozmoai workflows. Make HTTP API requests.
+features:
+- Integration with API Request
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic API Request Usage
+  description: Simple example using API Request
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

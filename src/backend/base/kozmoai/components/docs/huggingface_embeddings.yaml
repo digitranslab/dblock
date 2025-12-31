@@ -1,0 +1,18 @@
+component_name: HuggingfaceEmbeddings
+display_name: Hugging Face Embeddings
+category: embeddings
+version: 1.0.0
+overview:
+  summary: Open-source embeddings
+  description: Hugging Face Embeddings component for Kozmoai workflows.
+features:
+- Integration with Hugging Face Embeddings
+inputs: {}
+outputs: {}
+examples: []
+troubleshooting:
+- issue: Configuration Error
+  symptoms:
+  - Component not working as expected
+  solution: Verify all required parameters are set correctly and check the component documentation for specific requirements.
+external_links: []

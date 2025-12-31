@@ -1,0 +1,76 @@
+component_name: VertexAI
+display_name: Vertex AI
+category: models
+version: 1.0.0
+overview:
+  summary: Use Vertex AI for AI and data tasks
+  description: The **Vertex AI** component generates text using Google Vertex AI models. It can output either a **Model Response**
+    (`Message`) or a **Language Model** (`LanguageModel`). Use the **Language Model** output when you want to use a Vertex
+    AI model as the LLM for another LLM-driven component, such as an **Agent** or **Smart Function** component. For more information,
+    see Language model components.
+features:
+- Advanced language model capabilities
+- Flexible configuration options
+- Support for various use cases
+- High-quality text generation
+inputs:
+  credentials:
+    display_name: credentials
+    type: File
+    description: 'Input parameter. JSON credentials file. Leave empty to fall back to environment variables. File type: JSON.
+      For more information, see Create a service account for Vertex AI authentication.'
+  model_name:
+    display_name: model_name
+    type: String
+    description: 'Input parameter. The name of the Vertex AI model to use. Default: "gemini-1.5-pro".'
+  project:
+    display_name: project
+    type: String
+    description: Input parameter. The project ID.
+  location:
+    display_name: location
+    type: String
+    description: 'Input parameter. The location for the Vertex AI API. Default: "us-central1".'
+  max_output_tokens:
+    display_name: max_output_tokens
+    type: Integer
+    description: Input parameter. The maximum number of tokens to generate.
+  max_retries:
+    display_name: max_retries
+    type: Integer
+    description: 'Input parameter. Maximum number of retries for API calls. Default: 1.'
+  temperature:
+    display_name: temperature
+    type: Float
+    description: 'Input parameter. Controls randomness in the output. Default: 0.0.'
+  top_k:
+    display_name: top_k
+    type: Integer
+    description: Input parameter. The number of highest-probability vocabulary tokens to keep for top-k-filtering.
+  top_p:
+    display_name: top_p
+    type: Float
+    description: 'Input parameter. The cumulative probability of all highest-probability vocabulary tokens that are kept for
+      nucleus sampling. Default: 0.95.'
+  verbose:
+    display_name: verbose
+    type: Boolean
+    description: 'Input parameter. Whether to print verbose output. Default: `false`.'
+outputs:
+  language_model:
+    display_name: Language Model
+    type: LanguageModel
+    description: Configured language model ready for use
+examples:
+- title: Basic Vertex AI Setup
+  description: Standard configuration for Vertex AI
+  use_case: General purpose usage
+external_links:
+- title: Vertex AI documentation
+  url: https://cloud.google.com/vertex-ai
+- title: Vertex AI content generation parameters documentation
+  url: https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/content-generation-parameters#token-sampling-parameters
+- title: Google Vertex AI Embeddings API
+  url: https://cloud.google.com/vertex-ai/docs/generative-ai/embeddings/get-text-embeddings
+- title: '`GOOGLE_APPLICATION_CREDENTIALS` environment variable'
+  url: https://cloud.google.com/docs/authentication/application-default-credentials

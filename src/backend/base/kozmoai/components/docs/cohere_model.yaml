@@ -1,0 +1,70 @@
+component_name: Cohere
+display_name: Cohere
+category: models
+version: 1.0.0
+overview:
+  summary: Use Cohere for AI and data tasks
+  description: This component generates text using Cohere's language models. It can output either a **Model Response** (`Message`)
+    or a **Language Model** (`LanguageModel`). Use the **Language Model** output when you want to use a Cohere model as the
+    LLM for another LLM-driven component, such as an **Agent** or **Smart Function** component. For more information, see
+    Language model components.
+features:
+- High-performance vector storage and retrieval
+- Semantic search capabilities
+- Scalable architecture
+- Integration with embedding models
+inputs:
+  input:
+    display_name: Input
+    type: String
+    description: Input parameter. Specifies the input text for text generation.
+  system_message:
+    display_name: System Message
+    type: String
+    description: Input parameter. A system message to pass to the model.
+  stream:
+    display_name: Stream
+    type: Boolean
+    description: 'Input parameter. Whether to stream the response. Only works in chat. Default: `false`.'
+  cohere_api_key:
+    display_name: cohere_api_key
+    type: SecretString
+    description: Input parameter. The API key required to authenticate with the Cohere service.
+  temperature:
+    display_name: Temperature
+    type: Float
+    description: Input parameter. Specifies the randomness of sampling. Lower values (near 0) are more deterministic, and
+      higher values (near 1) are more creative. Defaults to `0.75`.
+  model:
+    display_name: model
+    type: String
+    description: 'Input parameter. The language model used for embedding text documents and performing queries. Default: `embed-english-v2.0`'
+  truncate:
+    display_name: truncate
+    type: Boolean
+    description: Input parameter. How to handle input that exceeds the model's token limit. One of `NONE`, `START`, or `END`
+      (default). For more information, see the Cohere `truncate` API reference.
+  max_retries:
+    display_name: max_retries
+    type: Integer
+    description: 'Input parameter. The maximum number of retry attempts for failed requests. Default: `3`'
+  user_agent:
+    display_name: user_agent
+    type: String
+    description: 'Input parameter. A user agent string to include in requests. Default: `langchain`'
+outputs:
+  language_model:
+    display_name: Language Model
+    type: LanguageModel
+    description: Configured language model ready for use
+examples:
+- title: Basic Cohere Setup
+  description: Standard configuration for Cohere
+  use_case: General purpose usage
+external_links:
+- title: Cohere documentation
+  url: https://cohere.ai/
+- title: system message
+  url: https://docs.cohere.com/docs/system-instructions
+- title: Cohere `truncate` API reference
+  url: https://docs.cohere.com/reference/embed#request.body.truncate

@@ -17,16 +17,17 @@
             "fieldName": "system_prompt",
             "id": "Agent-9YXRo",
             "inputTypes": [
-              "Message"
+              "Message",
+              "Text"
             ],
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-xirI8{œdataTypeœ:œPromptœ,œidœ:œPrompt-xirI8œ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-Agent-9YXRo{œfieldNameœ:œsystem_promptœ,œidœ:œAgent-9YXRoœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-xirI8{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-xirI8\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Agent-9YXRo{\u0153fieldName\u0153:\u0153system_prompt\u0153,\u0153id\u0153:\u0153Agent-9YXRo\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "Prompt-xirI8",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-xirI8œ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-xirI8\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Agent-9YXRo",
-        "targetHandle": "{œfieldNameœ: œsystem_promptœ, œidœ: œAgent-9YXRoœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153system_prompt\u0153, \u0153id\u0153: \u0153Agent-9YXRo\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -44,16 +45,17 @@
             "fieldName": "system_prompt",
             "id": "Agent-RmOB2",
             "inputTypes": [
-              "Message"
+              "Message",
+              "Text"
             ],
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-f4paU{œdataTypeœ:œPromptœ,œidœ:œPrompt-f4paUœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-Agent-RmOB2{œfieldNameœ:œsystem_promptœ,œidœ:œAgent-RmOB2œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-f4paU{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-f4paU\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Agent-RmOB2{\u0153fieldName\u0153:\u0153system_prompt\u0153,\u0153id\u0153:\u0153Agent-RmOB2\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "Prompt-f4paU",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-f4paUœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-f4paU\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Agent-RmOB2",
-        "targetHandle": "{œfieldNameœ: œsystem_promptœ, œidœ: œAgent-RmOB2œ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153system_prompt\u0153, \u0153id\u0153: \u0153Agent-RmOB2\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -71,16 +73,17 @@
             "fieldName": "input_value",
             "id": "ChatOutput-DqyyQ",
             "inputTypes": [
-              "Message"
+              "Message",
+              "Text"
             ],
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Agent-9YXRo{œdataTypeœ:œAgentœ,œidœ:œAgent-9YXRoœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-DqyyQ{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-DqyyQœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Agent-9YXRo{\u0153dataType\u0153:\u0153Agent\u0153,\u0153id\u0153:\u0153Agent-9YXRo\u0153,\u0153name\u0153:\u0153response\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-DqyyQ{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-DqyyQ\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "Agent-9YXRo",
-        "sourceHandle": "{œdataTypeœ: œAgentœ, œidœ: œAgent-9YXRoœ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Agent\u0153, \u0153id\u0153: \u0153Agent-9YXRo\u0153, \u0153name\u0153: \u0153response\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-DqyyQ",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-DqyyQœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-DqyyQ\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -104,11 +107,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Agent-RmOB2{œdataTypeœ:œAgentœ,œidœ:œAgent-RmOB2œ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-Prompt-xirI8{œfieldNameœ:œfinance_agent_outputœ,œidœ:œPrompt-xirI8œ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Agent-RmOB2{\u0153dataType\u0153:\u0153Agent\u0153,\u0153id\u0153:\u0153Agent-RmOB2\u0153,\u0153name\u0153:\u0153response\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-xirI8{\u0153fieldName\u0153:\u0153finance_agent_output\u0153,\u0153id\u0153:\u0153Prompt-xirI8\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "Agent-RmOB2",
-        "sourceHandle": "{œdataTypeœ: œAgentœ, œidœ: œAgent-RmOB2œ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Agent\u0153, \u0153id\u0153: \u0153Agent-RmOB2\u0153, \u0153name\u0153: \u0153response\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-xirI8",
-        "targetHandle": "{œfieldNameœ: œfinance_agent_outputœ, œidœ: œPrompt-xirI8œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153finance_agent_output\u0153, \u0153id\u0153: \u0153Prompt-xirI8\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -126,16 +129,17 @@
             "fieldName": "input_value",
             "id": "Agent-TmQ5O",
             "inputTypes": [
-              "Message"
+              "Message",
+              "Text"
             ],
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-TQ1li{œdataTypeœ:œChatInputœ,œidœ:œChatInput-TQ1liœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Agent-TmQ5O{œfieldNameœ:œinput_valueœ,œidœ:œAgent-TmQ5Oœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-TQ1li{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-TQ1li\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Agent-TmQ5O{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153Agent-TmQ5O\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "ChatInput-TQ1li",
-        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-TQ1liœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-TQ1li\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Agent-TmQ5O",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAgent-TmQ5Oœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153Agent-TmQ5O\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -153,16 +157,17 @@
             "fieldName": "system_prompt",
             "id": "Agent-TmQ5O",
             "inputTypes": [
-              "Message"
+              "Message",
+              "Text"
             ],
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-3fyqW{œdataTypeœ:œPromptœ,œidœ:œPrompt-3fyqWœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-Agent-TmQ5O{œfieldNameœ:œsystem_promptœ,œidœ:œAgent-TmQ5Oœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-3fyqW{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-3fyqW\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Agent-TmQ5O{\u0153fieldName\u0153:\u0153system_prompt\u0153,\u0153id\u0153:\u0153Agent-TmQ5O\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "Prompt-3fyqW",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-3fyqWœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-3fyqW\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Agent-TmQ5O",
-        "targetHandle": "{œfieldNameœ: œsystem_promptœ, œidœ: œAgent-TmQ5Oœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153system_prompt\u0153, \u0153id\u0153: \u0153Agent-TmQ5O\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -180,16 +185,17 @@
             "fieldName": "input_value",
             "id": "Agent-RmOB2",
             "inputTypes": [
-              "Message"
+              "Message",
+              "Text"
             ],
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Agent-TmQ5O{œdataTypeœ:œAgentœ,œidœ:œAgent-TmQ5Oœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-Agent-RmOB2{œfieldNameœ:œinput_valueœ,œidœ:œAgent-RmOB2œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Agent-TmQ5O{\u0153dataType\u0153:\u0153Agent\u0153,\u0153id\u0153:\u0153Agent-TmQ5O\u0153,\u0153name\u0153:\u0153response\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Agent-RmOB2{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153Agent-RmOB2\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "Agent-TmQ5O",
-        "sourceHandle": "{œdataTypeœ: œAgentœ, œidœ: œAgent-TmQ5Oœ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Agent\u0153, \u0153id\u0153: \u0153Agent-TmQ5O\u0153, \u0153name\u0153: \u0153response\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Agent-RmOB2",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAgent-RmOB2œ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153Agent-RmOB2\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -213,11 +219,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Agent-TmQ5O{œdataTypeœ:œAgentœ,œidœ:œAgent-TmQ5Oœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-Prompt-xirI8{œfieldNameœ:œresearch_agent_outputœ,œidœ:œPrompt-xirI8œ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Agent-TmQ5O{\u0153dataType\u0153:\u0153Agent\u0153,\u0153id\u0153:\u0153Agent-TmQ5O\u0153,\u0153name\u0153:\u0153response\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-xirI8{\u0153fieldName\u0153:\u0153research_agent_output\u0153,\u0153id\u0153:\u0153Prompt-xirI8\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "Agent-TmQ5O",
-        "sourceHandle": "{œdataTypeœ: œAgentœ, œidœ: œAgent-TmQ5Oœ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Agent\u0153, \u0153id\u0153: \u0153Agent-TmQ5O\u0153, \u0153name\u0153: \u0153response\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-xirI8",
-        "targetHandle": "{œfieldNameœ: œresearch_agent_outputœ, œidœ: œPrompt-xirI8œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153research_agent_output\u0153, \u0153id\u0153: \u0153Prompt-xirI8\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "className": "",
@@ -239,11 +245,11 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-CalculatorComponent-82dCo{œdataTypeœ:œCalculatorComponentœ,œidœ:œCalculatorComponent-82dCoœ,œnameœ:œcomponent_as_toolœ,œoutput_typesœ:[œToolœ]}-Agent-9YXRo{œfieldNameœ:œtoolsœ,œidœ:œAgent-9YXRoœ,œinputTypesœ:[œToolœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-CalculatorComponent-82dCo{\u0153dataType\u0153:\u0153CalculatorComponent\u0153,\u0153id\u0153:\u0153CalculatorComponent-82dCo\u0153,\u0153name\u0153:\u0153component_as_tool\u0153,\u0153output_types\u0153:[\u0153Tool\u0153]}-Agent-9YXRo{\u0153fieldName\u0153:\u0153tools\u0153,\u0153id\u0153:\u0153Agent-9YXRo\u0153,\u0153inputTypes\u0153:[\u0153Tool\u0153],\u0153type\u0153:\u0153other\u0153}",
         "source": "CalculatorComponent-82dCo",
-        "sourceHandle": "{œdataTypeœ: œCalculatorComponentœ, œidœ: œCalculatorComponent-82dCoœ, œnameœ: œcomponent_as_toolœ, œoutput_typesœ: [œToolœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153CalculatorComponent\u0153, \u0153id\u0153: \u0153CalculatorComponent-82dCo\u0153, \u0153name\u0153: \u0153component_as_tool\u0153, \u0153output_types\u0153: [\u0153Tool\u0153]}",
         "target": "Agent-9YXRo",
-        "targetHandle": "{œfieldNameœ: œtoolsœ, œidœ: œAgent-9YXRoœ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153tools\u0153, \u0153id\u0153: \u0153Agent-9YXRo\u0153, \u0153inputTypes\u0153: [\u0153Tool\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "className": "",
@@ -265,11 +271,11 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-YfinanceComponent-P0VBm{œdataTypeœ:œYfinanceComponentœ,œidœ:œYfinanceComponent-P0VBmœ,œnameœ:œcomponent_as_toolœ,œoutput_typesœ:[œToolœ]}-Agent-RmOB2{œfieldNameœ:œtoolsœ,œidœ:œAgent-RmOB2œ,œinputTypesœ:[œToolœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-YfinanceComponent-P0VBm{\u0153dataType\u0153:\u0153YfinanceComponent\u0153,\u0153id\u0153:\u0153YfinanceComponent-P0VBm\u0153,\u0153name\u0153:\u0153component_as_tool\u0153,\u0153output_types\u0153:[\u0153Tool\u0153]}-Agent-RmOB2{\u0153fieldName\u0153:\u0153tools\u0153,\u0153id\u0153:\u0153Agent-RmOB2\u0153,\u0153inputTypes\u0153:[\u0153Tool\u0153],\u0153type\u0153:\u0153other\u0153}",
         "source": "YfinanceComponent-P0VBm",
-        "sourceHandle": "{œdataTypeœ: œYfinanceComponentœ, œidœ: œYfinanceComponent-P0VBmœ, œnameœ: œcomponent_as_toolœ, œoutput_typesœ: [œToolœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153YfinanceComponent\u0153, \u0153id\u0153: \u0153YfinanceComponent-P0VBm\u0153, \u0153name\u0153: \u0153component_as_tool\u0153, \u0153output_types\u0153: [\u0153Tool\u0153]}",
         "target": "Agent-RmOB2",
-        "targetHandle": "{œfieldNameœ: œtoolsœ, œidœ: œAgent-RmOB2œ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153tools\u0153, \u0153id\u0153: \u0153Agent-RmOB2\u0153, \u0153inputTypes\u0153: [\u0153Tool\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "className": "",
@@ -291,11 +297,11 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-TavilySearchComponent-ZgS55{œdataTypeœ:œTavilySearchComponentœ,œidœ:œTavilySearchComponent-ZgS55œ,œnameœ:œcomponent_as_toolœ,œoutput_typesœ:[œToolœ]}-Agent-TmQ5O{œfieldNameœ:œtoolsœ,œidœ:œAgent-TmQ5Oœ,œinputTypesœ:[œToolœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-TavilySearchComponent-ZgS55{\u0153dataType\u0153:\u0153TavilySearchComponent\u0153,\u0153id\u0153:\u0153TavilySearchComponent-ZgS55\u0153,\u0153name\u0153:\u0153component_as_tool\u0153,\u0153output_types\u0153:[\u0153Tool\u0153]}-Agent-TmQ5O{\u0153fieldName\u0153:\u0153tools\u0153,\u0153id\u0153:\u0153Agent-TmQ5O\u0153,\u0153inputTypes\u0153:[\u0153Tool\u0153],\u0153type\u0153:\u0153other\u0153}",
         "source": "TavilySearchComponent-ZgS55",
-        "sourceHandle": "{œdataTypeœ: œTavilySearchComponentœ, œidœ: œTavilySearchComponent-ZgS55œ, œnameœ: œcomponent_as_toolœ, œoutput_typesœ: [œToolœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153TavilySearchComponent\u0153, \u0153id\u0153: \u0153TavilySearchComponent-ZgS55\u0153, \u0153name\u0153: \u0153component_as_tool\u0153, \u0153output_types\u0153: [\u0153Tool\u0153]}",
         "target": "Agent-TmQ5O",
-        "targetHandle": "{œfieldNameœ: œtoolsœ, œidœ: œAgent-TmQ5Oœ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153tools\u0153, \u0153id\u0153: \u0153Agent-TmQ5O\u0153, \u0153inputTypes\u0153: [\u0153Tool\u0153], \u0153type\u0153: \u0153other\u0153}"
       }
     ],
     "nodes": [
@@ -357,7 +363,8 @@
                 "dynamic": false,
                 "info": "The background color of the icon.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -379,7 +386,8 @@
                 "dynamic": false,
                 "info": "The icon of the message.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -419,7 +427,8 @@
                 "dynamic": false,
                 "info": "Template to convert Data to Text. If left empty, it will be dynamically set to the Data's text key.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -441,7 +450,8 @@
                 "dynamic": false,
                 "info": "Message to be passed as output.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -483,7 +493,8 @@
                 "dynamic": false,
                 "info": "Name of the sender.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -505,7 +516,8 @@
                 "dynamic": false,
                 "info": "The session ID of the chat. If empty, the current session ID parameter will be used.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -543,7 +555,8 @@
                 "dynamic": false,
                 "info": "The text color of the name",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -569,14 +582,6 @@
         "measured": {
           "height": 234,
           "width": 360
-        },
-        "position": {
-          "x": 1239.222567317785,
-          "y": -920.0283175735606
-        },
-        "positionAbsolute": {
-          "x": 1239.222567317785,
-          "y": -920.0283175735606
         },
         "selected": false,
         "type": "genericNode",
@@ -673,7 +678,8 @@
                 "dynamic": false,
                 "info": "The description of the agent. This is only used when in Tool Mode. Defaults to 'A helpful assistant with access to the following tools:' and tools are added dynamically. This feature is deprecated and will be removed in future versions.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -779,7 +785,8 @@
                 "dynamic": false,
                 "info": "The input provided by the user for the agent to process.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1026,7 +1033,8 @@
                 "dynamic": false,
                 "info": "Filter by sender name.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1048,7 +1056,8 @@
                 "dynamic": false,
                 "info": "The session ID of the chat. If empty, the current session ID parameter will be used.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1070,7 +1079,8 @@
                 "dynamic": false,
                 "info": "System Prompt: Initial instructions and context provided to guide the agent's behavior.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1109,7 +1119,8 @@
                 "dynamic": false,
                 "info": "The template to use for formatting the data. It can contain the keys {text}, {sender} or any other key in the message data.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1189,14 +1200,6 @@
         "measured": {
           "height": 650,
           "width": 360
-        },
-        "position": {
-          "x": 45.70736046026991,
-          "y": -1369.035463408626
-        },
-        "positionAbsolute": {
-          "x": 45.70736046026991,
-          "y": -1369.035463408626
         },
         "selected": false,
         "type": "genericNode",
@@ -1293,7 +1296,8 @@
                 "dynamic": false,
                 "info": "The description of the agent. This is only used when in Tool Mode. Defaults to 'A helpful assistant with access to the following tools:' and tools are added dynamically. This feature is deprecated and will be removed in future versions.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1399,7 +1403,8 @@
                 "dynamic": false,
                 "info": "The input provided by the user for the agent to process.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1646,7 +1651,8 @@
                 "dynamic": false,
                 "info": "Filter by sender name.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1668,7 +1674,8 @@
                 "dynamic": false,
                 "info": "The session ID of the chat. If empty, the current session ID parameter will be used.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1690,7 +1697,8 @@
                 "dynamic": false,
                 "info": "System Prompt: Initial instructions and context provided to guide the agent's behavior.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1729,7 +1737,8 @@
                 "dynamic": false,
                 "info": "The template to use for formatting the data. It can contain the keys {text}, {sender} or any other key in the message data.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1809,14 +1818,6 @@
         "measured": {
           "height": 650,
           "width": 360
-        },
-        "position": {
-          "x": 815.1900903820148,
-          "y": -1365.4053932711827
-        },
-        "positionAbsolute": {
-          "x": 815.1900903820148,
-          "y": -1365.4053932711827
         },
         "selected": false,
         "type": "genericNode",
@@ -1916,7 +1917,8 @@
                 "dynamic": false,
                 "info": "A placeholder input for tool mode.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -1942,14 +1944,6 @@
         "measured": {
           "height": 260,
           "width": 360
-        },
-        "position": {
-          "x": -1142.2312935529987,
-          "y": -1107.442614776065
-        },
-        "positionAbsolute": {
-          "x": -1142.2312935529987,
-          "y": -1107.442614776065
         },
         "selected": false,
         "type": "genericNode",
@@ -2040,7 +2034,7 @@
                 "tool_mode": false,
                 "trace_as_input": true,
                 "type": "prompt",
-                "value": "# Financial Analysis Expert Protocol\n\nYou are an elite financial analyst with access to Yahoo Finance tools. Your role is to perform comprehensive financial analysis based on the research provided and the data available through Yahoo Finance methods.\n\n## CRITICAL: Stock Symbol Usage\n- Always use correct stock ticker symbols in UPPERCASE format\n- Examples of valid symbols:\n  * AAPL (Apple Inc.)\n  * MSFT (Microsoft)\n  * NVDA (NVIDIA)\n  * GOOGL (Alphabet/Google)\n  * TSLA (Tesla)\n- Invalid formats to avoid:\n  * ❌ Apple (company name instead of symbol)\n  * ❌ aapl (lowercase)\n  * ❌ $AAPL (with dollar sign)\n  * ❌ AAPL.US (with extension)\n\n## Data Collection Strategy\n\n1. Initial Symbol Verification\n   - Confirm valid stock symbol format before any analysis\n   - Use get_info first to verify symbol validity\n   - Cross-reference with get_fast_info to ensure data availability\n   - If symbol is invalid, immediately report the error\n\n2. Core Company Analysis\n   - Get basic info (get_info): Full company details\n   - Fast metrics (get_fast_info): Quick market data\n   - Earnings data (get_earnings): Performance history\n   - Calendar events (get_calendar): Upcoming events\n\n3. Financial Statement Analysis\n   - Income statements (get_income_stmt)\n   - Balance sheets (get_balance_sheet)\n   - Cash flow statements (get_cashflow)\n\n4. Market Intelligence\n   - Latest recommendations (get_recommendations)\n   - Recommendation trends (get_recommendations_summary)\n   - Recent rating changes (get_upgrades_downgrades)\n   - Breaking news (get_news, specify number of articles needed)\n\n5. Ownership Structure\n   - Institutional holdings (get_institutional_holders)\n   - Major stakeholders (get_major_holders)\n   - Fund ownership (get_mutualfund_holders)\n   - Insider activity:\n     * Recent purchases (get_insider_purchases)\n     * Transaction history (get_insider_transactions)\n     * Insider roster (get_insider_roster_holders)\n\n6. Historical Patterns\n   - Corporate actions (get_actions)\n   - Dividend history (get_dividends)\n   - Split history (get_splits)\n   - Capital gains (get_capital_gains)\n   - Regulatory filings (get_sec_filings)\n   - ESG metrics (get_sustainability)\n\n## Analysis Framework\n\n1. Profitability Metrics\n   - Revenue trends\n   - Margin analysis\n   - Efficiency ratios\n   - Return metrics\n\n2. Financial Health\n   - Liquidity ratios\n   - Debt analysis\n   - Working capital\n   - Cash flow quality\n\n3. Growth Assessment\n   - Historical rates\n   - Future projections\n   - Market opportunity\n   - Expansion plans\n\n4. Risk Evaluation\n   - Financial risks\n   - Market position\n   - Operational challenges\n   - Competitive threats\n\n## Output Structure\n\n### Symbol Information\n[Confirm stock symbol and basic company information]\n\n### Financial Overview\n[Key metrics summary with actual numbers]\n\n### Profitability Analysis\n[Detailed profit metrics with comparisons]\n\n### Balance Sheet Review\n[Asset and liability analysis]\n\n### Cash Flow Assessment\n[Cash generation and usage patterns]\n\n### Market Sentiment\n[Analyst views and institutional activity]\n\n### Growth Analysis\n[Historical and projected growth]\n\n### Risk Factors\n[Comprehensive risk assessment]\n\nRemember to:\n- ALWAYS verify stock symbol validity first\n- Use exact numbers from the data\n- Compare with industry standards\n- Highlight significant trends\n- Flag data anomalies\n- Identify key risks\n- Provide metric context\n- Focus on material information\n\nPass your comprehensive financial analysis to the Analysis & Editor Agent for final synthesis and recommendations. Include any invalid symbol errors or data availability issues in your report."
+                "value": "# Financial Analysis Expert Protocol\n\nYou are an elite financial analyst with access to Yahoo Finance tools. Your role is to perform comprehensive financial analysis based on the research provided and the data available through Yahoo Finance methods.\n\n## CRITICAL: Stock Symbol Usage\n- Always use correct stock ticker symbols in UPPERCASE format\n- Examples of valid symbols:\n  * AAPL (Apple Inc.)\n  * MSFT (Microsoft)\n  * NVDA (NVIDIA)\n  * GOOGL (Alphabet/Google)\n  * TSLA (Tesla)\n- Invalid formats to avoid:\n  * \u274c Apple (company name instead of symbol)\n  * \u274c aapl (lowercase)\n  * \u274c $AAPL (with dollar sign)\n  * \u274c AAPL.US (with extension)\n\n## Data Collection Strategy\n\n1. Initial Symbol Verification\n   - Confirm valid stock symbol format before any analysis\n   - Use get_info first to verify symbol validity\n   - Cross-reference with get_fast_info to ensure data availability\n   - If symbol is invalid, immediately report the error\n\n2. Core Company Analysis\n   - Get basic info (get_info): Full company details\n   - Fast metrics (get_fast_info): Quick market data\n   - Earnings data (get_earnings): Performance history\n   - Calendar events (get_calendar): Upcoming events\n\n3. Financial Statement Analysis\n   - Income statements (get_income_stmt)\n   - Balance sheets (get_balance_sheet)\n   - Cash flow statements (get_cashflow)\n\n4. Market Intelligence\n   - Latest recommendations (get_recommendations)\n   - Recommendation trends (get_recommendations_summary)\n   - Recent rating changes (get_upgrades_downgrades)\n   - Breaking news (get_news, specify number of articles needed)\n\n5. Ownership Structure\n   - Institutional holdings (get_institutional_holders)\n   - Major stakeholders (get_major_holders)\n   - Fund ownership (get_mutualfund_holders)\n   - Insider activity:\n     * Recent purchases (get_insider_purchases)\n     * Transaction history (get_insider_transactions)\n     * Insider roster (get_insider_roster_holders)\n\n6. Historical Patterns\n   - Corporate actions (get_actions)\n   - Dividend history (get_dividends)\n   - Split history (get_splits)\n   - Capital gains (get_capital_gains)\n   - Regulatory filings (get_sec_filings)\n   - ESG metrics (get_sustainability)\n\n## Analysis Framework\n\n1. Profitability Metrics\n   - Revenue trends\n   - Margin analysis\n   - Efficiency ratios\n   - Return metrics\n\n2. Financial Health\n   - Liquidity ratios\n   - Debt analysis\n   - Working capital\n   - Cash flow quality\n\n3. Growth Assessment\n   - Historical rates\n   - Future projections\n   - Market opportunity\n   - Expansion plans\n\n4. Risk Evaluation\n   - Financial risks\n   - Market position\n   - Operational challenges\n   - Competitive threats\n\n## Output Structure\n\n### Symbol Information\n[Confirm stock symbol and basic company information]\n\n### Financial Overview\n[Key metrics summary with actual numbers]\n\n### Profitability Analysis\n[Detailed profit metrics with comparisons]\n\n### Balance Sheet Review\n[Asset and liability analysis]\n\n### Cash Flow Assessment\n[Cash generation and usage patterns]\n\n### Market Sentiment\n[Analyst views and institutional activity]\n\n### Growth Analysis\n[Historical and projected growth]\n\n### Risk Factors\n[Comprehensive risk assessment]\n\nRemember to:\n- ALWAYS verify stock symbol validity first\n- Use exact numbers from the data\n- Compare with industry standards\n- Highlight significant trends\n- Flag data anomalies\n- Identify key risks\n- Provide metric context\n- Focus on material information\n\nPass your comprehensive financial analysis to the Analysis & Editor Agent for final synthesis and recommendations. Include any invalid symbol errors or data availability issues in your report."
               },
               "tool_placeholder": {
                 "_input_type": "MessageTextInput",
@@ -2049,7 +2043,8 @@
                 "dynamic": false,
                 "info": "A placeholder input for tool mode.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -2075,14 +2070,6 @@
         "measured": {
           "height": 260,
           "width": 360
-        },
-        "position": {
-          "x": -344.9674638932195,
-          "y": -1280.1782190739505
-        },
-        "positionAbsolute": {
-          "x": -344.9674638932195,
-          "y": -1280.1782190739505
         },
         "selected": false,
         "type": "genericNode",
@@ -2222,7 +2209,7 @@
                 "tool_mode": false,
                 "trace_as_input": true,
                 "type": "prompt",
-                "value": "# Investment Analysis & Editorial Protocol\n\nYou are an elite financial analyst and editorial expert responsible for creating the final investment analysis report. Your role is to synthesize research and financial data into a visually appealing, data-rich investment analysis using proper markdown formatting.\n\n## Input Processing\n1. Research Agent Input (Visual + Market Research):\n   - Market research and news\n   - Industry trends\n   - Competitive analysis\n   - Images and charts\n   - News sentiment\n   - {research_agent_output}\n\n2. Finance Agent Input (Quantitative Data):\n   - Detailed financial metrics\n   - Stock statistics\n   - Analyst ratings\n   - Growth metrics\n   - Risk factors\n   - {finance_agent_output}\n\n## Output Format Requirements\n\n1. Header Format\n   Use single # for main title, increment for subsections\n   \n2. Image Placement\n   - Place images immediately after relevant sections\n   - Use proper markdown format: ![Alt Text](url)\n   - Always include source and context\n   - Use *italics* for image captions\n\n3. Table Formatting\n   - Use standard markdown tables\n   - Align numbers right, text left\n   - Include header separators\n   - Keep consistent column widths\n\n4. Data Presentation\n   - Use bold (**) for key metrics\n   - Include percentage changes\n   - Show comparisons\n   - Include trends (↑/↓)\n\n## Report Structure\n\n# Investment Analysis Report: [Company Name] ($SYMBOL)\n*Generated: [Date] | Type: Comprehensive Evaluation*\n\n[Executive Summary - 3 paragraphs max]\n\n## Quick Take\n- **Recommendation**: [BUY/HOLD/SELL]\n- **Target Price**: $XXX\n- **Risk Level**: [LOW/MEDIUM/HIGH]\n- **Investment Horizon**: [SHORT/MEDIUM/LONG]-term\n\n## Market Analysis\n[Insert most relevant market image here]\n*Source: [Name] - [Context]*\n\n### Industry Position\n- Market share data\n- Competitive analysis\n- Recent developments\n\n## Financial Health\n| Metric | Value | YoY Change | Industry Avg |\n|:-------|------:|-----------:|-------------:|\n| Revenue | $XXX | XX% | $XXX |\n[Additional metrics]\n\n### Key Performance Indicators\n- **Revenue Growth**: XX%\n- **Profit Margin**: XX%\n- **ROE**: XX%\n\n## Growth Drivers\n1. Short-term Catalysts\n2. Long-term Opportunities\n3. Innovation Pipeline\n\n## Risk Assessment\n| Risk Factor | Severity | Probability | Impact |\n|:------------|:---------|:------------|:-------|\n| [Risk 1] | HIGH/MED/LOW | H/M/L | Details |\n\n## Technical Analysis\n[Insert technical chart]\n*Source: [Name] - Analysis of key technical indicators*\n\n## Investment Strategy\n### Long-term (18+ months)\n- Entry points\n- Position sizing\n- Risk management\n\n### Medium-term (6-18 months)\n- Technical levels\n- Catalysts timeline\n\n### Short-term (0-6 months)\n- Support/Resistance\n- Trading parameters\n\n## Price Targets\n- **Bear Case**: $XXX (-XX%)\n- **Base Case**: $XXX\n- **Bull Case**: $XXX (+XX%)\n\n## Monitoring Checklist\n1. [Metric 1]\n2. [Metric 2]\n3. [Metric 3]\n\n## Visual Evidence\n[Insert additional relevant images]\n*Source: [Name] - [Specific context and analysis]*\n\n*Disclaimer: This analysis is for informational purposes only. Always conduct your own research before making investment decisions.*\n\n## Output Requirements\n\n1. Visual Excellence\n   - Strategic image placement\n   - Clear data visualization\n   - Consistent formatting\n   - Professional appearance\n\n2. Data Accuracy\n   - Cross-reference numbers\n   - Verify calculations\n   - Include trends\n   - Show comparisons\n\n3. Action Focus\n   - Clear recommendations\n   - Specific entry/exit points\n   - Risk management guidelines\n   - Monitoring triggers\n\n4. Professional Standards\n   - No spelling errors\n   - Consistent formatting\n   - Proper citations\n   - Clear attribution\n\nRemember:\n- Never use triple backticks\n- Include all images with proper markdown\n- Maintain consistent formatting\n- Provide specific, actionable insights\n- Use emojis sparingly and professionally\n- Cross-validate all data points"
+                "value": "# Investment Analysis & Editorial Protocol\n\nYou are an elite financial analyst and editorial expert responsible for creating the final investment analysis report. Your role is to synthesize research and financial data into a visually appealing, data-rich investment analysis using proper markdown formatting.\n\n## Input Processing\n1. Research Agent Input (Visual + Market Research):\n   - Market research and news\n   - Industry trends\n   - Competitive analysis\n   - Images and charts\n   - News sentiment\n   - {research_agent_output}\n\n2. Finance Agent Input (Quantitative Data):\n   - Detailed financial metrics\n   - Stock statistics\n   - Analyst ratings\n   - Growth metrics\n   - Risk factors\n   - {finance_agent_output}\n\n## Output Format Requirements\n\n1. Header Format\n   Use single # for main title, increment for subsections\n   \n2. Image Placement\n   - Place images immediately after relevant sections\n   - Use proper markdown format: ![Alt Text](url)\n   - Always include source and context\n   - Use *italics* for image captions\n\n3. Table Formatting\n   - Use standard markdown tables\n   - Align numbers right, text left\n   - Include header separators\n   - Keep consistent column widths\n\n4. Data Presentation\n   - Use bold (**) for key metrics\n   - Include percentage changes\n   - Show comparisons\n   - Include trends (\u2191/\u2193)\n\n## Report Structure\n\n# Investment Analysis Report: [Company Name] ($SYMBOL)\n*Generated: [Date] | Type: Comprehensive Evaluation*\n\n[Executive Summary - 3 paragraphs max]\n\n## Quick Take\n- **Recommendation**: [BUY/HOLD/SELL]\n- **Target Price**: $XXX\n- **Risk Level**: [LOW/MEDIUM/HIGH]\n- **Investment Horizon**: [SHORT/MEDIUM/LONG]-term\n\n## Market Analysis\n[Insert most relevant market image here]\n*Source: [Name] - [Context]*\n\n### Industry Position\n- Market share data\n- Competitive analysis\n- Recent developments\n\n## Financial Health\n| Metric | Value | YoY Change | Industry Avg |\n|:-------|------:|-----------:|-------------:|\n| Revenue | $XXX | XX% | $XXX |\n[Additional metrics]\n\n### Key Performance Indicators\n- **Revenue Growth**: XX%\n- **Profit Margin**: XX%\n- **ROE**: XX%\n\n## Growth Drivers\n1. Short-term Catalysts\n2. Long-term Opportunities\n3. Innovation Pipeline\n\n## Risk Assessment\n| Risk Factor | Severity | Probability | Impact |\n|:------------|:---------|:------------|:-------|\n| [Risk 1] | HIGH/MED/LOW | H/M/L | Details |\n\n## Technical Analysis\n[Insert technical chart]\n*Source: [Name] - Analysis of key technical indicators*\n\n## Investment Strategy\n### Long-term (18+ months)\n- Entry points\n- Position sizing\n- Risk management\n\n### Medium-term (6-18 months)\n- Technical levels\n- Catalysts timeline\n\n### Short-term (0-6 months)\n- Support/Resistance\n- Trading parameters\n\n## Price Targets\n- **Bear Case**: $XXX (-XX%)\n- **Base Case**: $XXX\n- **Bull Case**: $XXX (+XX%)\n\n## Monitoring Checklist\n1. [Metric 1]\n2. [Metric 2]\n3. [Metric 3]\n\n## Visual Evidence\n[Insert additional relevant images]\n*Source: [Name] - [Specific context and analysis]*\n\n*Disclaimer: This analysis is for informational purposes only. Always conduct your own research before making investment decisions.*\n\n## Output Requirements\n\n1. Visual Excellence\n   - Strategic image placement\n   - Clear data visualization\n   - Consistent formatting\n   - Professional appearance\n\n2. Data Accuracy\n   - Cross-reference numbers\n   - Verify calculations\n   - Include trends\n   - Show comparisons\n\n3. Action Focus\n   - Clear recommendations\n   - Specific entry/exit points\n   - Risk management guidelines\n   - Monitoring triggers\n\n4. Professional Standards\n   - No spelling errors\n   - Consistent formatting\n   - Proper citations\n   - Clear attribution\n\nRemember:\n- Never use triple backticks\n- Include all images with proper markdown\n- Maintain consistent formatting\n- Provide specific, actionable insights\n- Use emojis sparingly and professionally\n- Cross-validate all data points"
               },
               "tool_placeholder": {
                 "_input_type": "MessageTextInput",
@@ -2231,7 +2218,8 @@
                 "dynamic": false,
                 "info": "A placeholder input for tool mode.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -2257,14 +2245,6 @@
         "measured": {
           "height": 433,
           "width": 360
-        },
-        "position": {
-          "x": 416.02309796632085,
-          "y": -1081.5957453651372
-        },
-        "positionAbsolute": {
-          "x": 416.02309796632085,
-          "y": -1081.5957453651372
         },
         "selected": false,
         "type": "genericNode",
@@ -2326,7 +2306,8 @@
                 "dynamic": false,
                 "info": "The background color of the icon.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -2348,7 +2329,8 @@
                 "dynamic": false,
                 "info": "The icon of the message.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -2472,7 +2454,8 @@
                 "dynamic": false,
                 "info": "Name of the sender.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -2494,7 +2477,8 @@
                 "dynamic": false,
                 "info": "The session ID of the chat. If empty, the current session ID parameter will be used.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -2532,7 +2516,8 @@
                 "dynamic": false,
                 "info": "The text color of the name",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -2559,14 +2544,6 @@
           "height": 234,
           "width": 360
         },
-        "position": {
-          "x": -1510.6054210793818,
-          "y": -947.702056394023
-        },
-        "positionAbsolute": {
-          "x": -1510.6054210793818,
-          "y": -947.702056394023
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -2575,7 +2552,7 @@
         "data": {
           "id": "note-j0zav",
           "node": {
-            "description": "# Sequential Tasks Agents\n\n## Overview\nThis flow demonstrates how to chain multiple AI agents for comprehensive research and analysis. Each agent specializes in different aspects of the research process, building upon the previous agent's work.\n\n## How to Use the Flow\n\n1. **Input Your Query** 🎯\n   - Be specific and clear\n   - Include key aspects you want analyzed\n   - Examples:\n     ```\n     Good: \"Should I invest in Tesla (TSLA)? Focus on AI development impact\"\n     Bad: \"Tell me about Tesla\"\n     ```\n\n2. **Research Agent Process** 🔍\n   - Utilizes Tavily Search for comprehensive research\n\n\n3. **Specialized Analysis** 📊\n   - Each agent adds unique value:\n     ```\n     Research Agent → Deep Research & Context\n         ↓\n     Finance Agent → Data Analysis & Metrics\n         ↓\n     Editor Agent → Final Synthesis & Report\n     ```\n\n4. **Output Format** 📝\n   - Structured report\n   - Embedded images and charts\n   - Data-backed insights\n   - Clear recommendations\n\n## Pro Tips\n\n### Query Construction\n- Include specific points of interest\n- Mention required metrics or data points\n- Specify time frames if relevant\n\n### Flow Customization\n- Modify agent prompts for different use cases\n- Add or remove tools as needed\n\n## Common Applications\n- Investment Research\n- Market Analysis\n- Competitive Intelligence\n- Industry Reports\n- Technology Impact Studies\n\n⚡ **Best Practice**: Start with a test query to understand the flow's capabilities before running complex analyses.\n\n---\n*Note: This flow template uses financial analysis as an example but can be adapted for any research-intensive task requiring multiple perspectives and data sources.*",
+            "description": "# Sequential Tasks Agents\n\n## Overview\nThis flow demonstrates how to chain multiple AI agents for comprehensive research and analysis. Each agent specializes in different aspects of the research process, building upon the previous agent's work.\n\n## How to Use the Flow\n\n1. **Input Your Query** \ud83c\udfaf\n   - Be specific and clear\n   - Include key aspects you want analyzed\n   - Examples:\n     ```\n     Good: \"Should I invest in Tesla (TSLA)? Focus on AI development impact\"\n     Bad: \"Tell me about Tesla\"\n     ```\n\n2. **Research Agent Process** \ud83d\udd0d\n   - Utilizes Tavily Search for comprehensive research\n\n\n3. **Specialized Analysis** \ud83d\udcca\n   - Each agent adds unique value:\n     ```\n     Research Agent \u2192 Deep Research & Context\n         \u2193\n     Finance Agent \u2192 Data Analysis & Metrics\n         \u2193\n     Editor Agent \u2192 Final Synthesis & Report\n     ```\n\n4. **Output Format** \ud83d\udcdd\n   - Structured report\n   - Embedded images and charts\n   - Data-backed insights\n   - Clear recommendations\n\n## Pro Tips\n\n### Query Construction\n- Include specific points of interest\n- Mention required metrics or data points\n- Specify time frames if relevant\n\n### Flow Customization\n- Modify agent prompts for different use cases\n- Add or remove tools as needed\n\n## Common Applications\n- Investment Research\n- Market Analysis\n- Competitive Intelligence\n- Industry Reports\n- Technology Impact Studies\n\n\u26a1 **Best Practice**: Start with a test query to understand the flow's capabilities before running complex analyses.\n\n---\n*Note: This flow template uses financial analysis as an example but can be adapted for any research-intensive task requiring multiple perspectives and data sources.*",
             "display_name": "",
             "documentation": "",
             "template": {}
@@ -2588,14 +2565,6 @@
         "measured": {
           "height": 800,
           "width": 328
-        },
-        "position": {
-          "x": -2122.739127560837,
-          "y": -1302.6582482086806
-        },
-        "positionAbsolute": {
-          "x": -2122.739127560837,
-          "y": -1302.6582482086806
         },
         "resizing": false,
         "selected": false,
@@ -2610,7 +2579,7 @@
         "data": {
           "id": "note-pUC9D",
           "node": {
-            "description": "## What Are Sequential Task Agents?\nA system where multiple AI agents work in sequence, each specializing in specific tasks and passing their output to the next agent in the chain. Think of it as an assembly line where each agent adds value to the final result.\n\n## How It Works\n1. **First Agent** → **Second Agent** → **Third Agent** → **Final Output**\n   - Each agent receives input from the previous one\n   - Processes and enhances the information\n   - Passes refined output forward\n\n## Key Benefits\n- **Specialization**: Each agent focuses on specific tasks\n- **Progressive Refinement**: Information gets enhanced at each step\n- **Structured Output**: Final result combines multiple perspectives\n- **Quality Control**: Each agent validates and improves previous work\n\n## Building Your Own Sequence\n1. **Plan Your Chain**\n   - Identify distinct tasks\n   - Determine logical order\n   - Define input/output requirements\n\n2. **Configure Agents**\n   - Give each agent clear instructions\n   - Ensure compatible outputs/inputs\n   - Set appropriate tools for each agent\n\n3. **Connect the Flow**\n   - Link agents in proper order\n   - Test data flow between agents\n   - Verify final output format\n\n## Example Applications\n- Research → Analysis → Report Writing\n- Data Collection → Processing → Visualization\n- Content Research → Writing → Editing\n- Market Analysis → Financial Review → Investment Advice\n\n⭐ **Pro Tip**: The strength of sequential agents comes from how well they complement each other's capabilities.\n\nThis template uses financial analysis as an example, but you can adapt it for any multi-step process requiring different expertise at each stage.",
+            "description": "## What Are Sequential Task Agents?\nA system where multiple AI agents work in sequence, each specializing in specific tasks and passing their output to the next agent in the chain. Think of it as an assembly line where each agent adds value to the final result.\n\n## How It Works\n1. **First Agent** \u2192 **Second Agent** \u2192 **Third Agent** \u2192 **Final Output**\n   - Each agent receives input from the previous one\n   - Processes and enhances the information\n   - Passes refined output forward\n\n## Key Benefits\n- **Specialization**: Each agent focuses on specific tasks\n- **Progressive Refinement**: Information gets enhanced at each step\n- **Structured Output**: Final result combines multiple perspectives\n- **Quality Control**: Each agent validates and improves previous work\n\n## Building Your Own Sequence\n1. **Plan Your Chain**\n   - Identify distinct tasks\n   - Determine logical order\n   - Define input/output requirements\n\n2. **Configure Agents**\n   - Give each agent clear instructions\n   - Ensure compatible outputs/inputs\n   - Set appropriate tools for each agent\n\n3. **Connect the Flow**\n   - Link agents in proper order\n   - Test data flow between agents\n   - Verify final output format\n\n## Example Applications\n- Research \u2192 Analysis \u2192 Report Writing\n- Data Collection \u2192 Processing \u2192 Visualization\n- Content Research \u2192 Writing \u2192 Editing\n- Market Analysis \u2192 Financial Review \u2192 Investment Advice\n\n\u2b50 **Pro Tip**: The strength of sequential agents comes from how well they complement each other's capabilities.\n\nThis template uses financial analysis as an example, but you can adapt it for any multi-step process requiring different expertise at each stage.",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -2625,14 +2594,6 @@
         "measured": {
           "height": 800,
           "width": 328
-        },
-        "position": {
-          "x": -1456.0688717707517,
-          "y": -1916.6876704866322
-        },
-        "positionAbsolute": {
-          "x": -1456.0688717707517,
-          "y": -1916.6876704866322
         },
         "resizing": false,
         "selected": false,
@@ -2734,7 +2695,8 @@
                 "dynamic": false,
                 "info": "The description of the agent. This is only used when in Tool Mode. Defaults to 'A helpful assistant with access to the following tools:' and tools are added dynamically. This feature is deprecated and will be removed in future versions.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -2840,7 +2802,8 @@
                 "dynamic": false,
                 "info": "The input provided by the user for the agent to process.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -3087,7 +3050,8 @@
                 "dynamic": false,
                 "info": "Filter by sender name.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -3109,7 +3073,8 @@
                 "dynamic": false,
                 "info": "The session ID of the chat. If empty, the current session ID parameter will be used.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -3131,7 +3096,8 @@
                 "dynamic": false,
                 "info": "System Prompt: Initial instructions and context provided to guide the agent's behavior.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -3170,7 +3136,8 @@
                 "dynamic": false,
                 "info": "The template to use for formatting the data. It can contain the keys {text}, {sender} or any other key in the message data.",
                 "input_types": [
-                  "Message"
+                  "Message",
+                  "Text"
                 ],
                 "list": false,
                 "load_from_db": false,
@@ -3251,14 +3218,6 @@
           "height": 650,
           "width": 360
         },
-        "position": {
-          "x": -715.1798010873374,
-          "y": -1342.256094001045
-        },
-        "positionAbsolute": {
-          "x": -715.1798010873374,
-          "y": -1342.256094001045
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -3282,14 +3241,6 @@
         "measured": {
           "height": 324,
           "width": 328
-        },
-        "position": {
-          "x": -1144.3898055225054,
-          "y": -844.3506743985376
-        },
-        "positionAbsolute": {
-          "x": -1144.3898055225054,
-          "y": -844.3506743985376
         },
         "resizing": false,
         "selected": false,
@@ -3319,14 +3270,6 @@
         "measured": {
           "height": 324,
           "width": 328
-        },
-        "position": {
-          "x": -739.4383746675942,
-          "y": -1672.0874594411662
-        },
-        "positionAbsolute": {
-          "x": -739.4383746675942,
-          "y": -1672.0874594411662
         },
         "resizing": false,
         "selected": false,
@@ -3591,10 +3534,6 @@
           "height": 581,
           "width": 360
         },
-        "position": {
-          "x": -347.05382068428014,
-          "y": -950.8279673971418
-        },
         "selected": false,
         "type": "genericNode"
       },
@@ -3779,10 +3718,6 @@
         "measured": {
           "height": 374,
           "width": 360
-        },
-        "position": {
-          "x": 418.5430081507146,
-          "y": -618.940894040711
         },
         "selected": false,
         "type": "genericNode"
@@ -4098,10 +4033,6 @@
         "measured": {
           "height": 489,
           "width": 360
-        },
-        "position": {
-          "x": -1138.848513020278,
-          "y": -764.5604109436156
         },
         "selected": false,
         "type": "genericNode"

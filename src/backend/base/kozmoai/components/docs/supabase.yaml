@@ -1,0 +1,54 @@
+component_name: Supabase
+display_name: Supabase
+category: vector_stores
+version: 1.0.0
+overview:
+  summary: Use Supabase for AI and data tasks
+  description: 'The **Supabase** component reads and writes to Supabase vector stores using an instance of `SupabaseVectorStore`.
+    :::tip For a tutorial using a vector database in a flow, see Create a vector RAG chatbot. :::'
+features:
+- High-performance vector storage and retrieval
+- Semantic search capabilities
+- Scalable architecture
+- Integration with embedding models
+inputs:
+  supabase_url:
+    display_name: supabase_url
+    type: String
+    description: Input parameter. The URL of the Supabase instance.
+  supabase_service_key:
+    display_name: supabase_service_key
+    type: SecretString
+    description: Input parameter. The service key for Supabase authentication.
+  table_name:
+    display_name: table_name
+    type: String
+    description: Input parameter. The name of the table in Supabase.
+  query_name:
+    display_name: query_name
+    type: String
+    description: Input parameter. The name of the query to use.
+  search_query:
+    display_name: search_query
+    type: String
+    description: Input parameter. The query for similarity search.
+  ingest_data:
+    display_name: ingest_data
+    type: Data
+    description: Input parameter. The data to be ingested into the vector store.
+  embedding:
+    display_name: embedding
+    type: Embeddings
+    description: Input parameter. The embedding function to use.
+outputs:
+  vector_store:
+    display_name: Vector Store
+    type: VectorStore
+    description: Configured vector store instance
+examples:
+- title: Basic Supabase Setup
+  description: Standard configuration for Supabase
+  use_case: General purpose usage
+external_links:
+- title: Supabase documentation
+  url: https://supabase.com/docs/guides/ai

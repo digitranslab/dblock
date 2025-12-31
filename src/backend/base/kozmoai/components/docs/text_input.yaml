@@ -1,0 +1,19 @@
+component_name: TextInput
+display_name: Text Input
+category: inputs
+version: 1.0.0
+overview:
+  summary: Receive text input
+  description: Text Input component for Kozmoai workflows. Receive text input.
+features:
+- Integration with Text Input
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Text Input Usage
+  description: Simple example using Text Input
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

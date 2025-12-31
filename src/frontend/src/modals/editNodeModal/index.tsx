@@ -1,11 +1,17 @@
 import { APIClassType } from "@/types/api";
-import { customStringify } from "@/utils/reactflowUtils";
 import { useEffect, useState } from "react";
 import { Badge } from "../../components/ui/badge";
 import { Button } from "../../components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+} from "../../components/ui/sheet";
 import { useDarkStore } from "../../stores/darkStore";
 import { NodeDataType } from "../../types/flow";
-import BaseModal from "../baseModal";
 import { EditNodeComponent } from "./components/editNodeComponent";
 
 const EditNodeModal = ({
@@ -21,39 +27,45 @@ const EditNodeModal = ({
 
   const [nodeClass, setNodeClass] = useState<APIClassType>(data.node!);
 
+  // Update nodeClass when data.id changes (different node selected) or when template changes
   useEffect(() => {
-    if (
-      customStringify(Object.keys(data?.node?.template ?? {})) ===
-      customStringify(Object.keys(nodeClass?.template ?? {}))
-    )
-      return;
-    setNodeClass(data.node!);
-  }, [data.node]);
+    if (data.node) {
+      setNodeClass(data.node);
+    }
+  }, [data.id, data.node]);
 
   return (
-    <BaseModal key={data.id} open={open} setOpen={setOpen} size="x-large">
-      <BaseModal.Trigger>
-        <></>
-      </BaseModal.Trigger>
-      <BaseModal.Header description={data.node?.description!}>
-        <span data-testid="node-modal-title" className="pr-2">
-          {data.node?.display_name ?? data.type}
-        </span>
-        <div>
-          <Badge size="sm" variant={isDark ? "gray" : "secondary"}>
-            ID: {data.id}
-          </Badge>
+    <Sheet key={data.id} open={open} onOpenChange={setOpen}>
+      <SheetContent
+        side="right"
+        className="flex h-full w-[1000px] flex-col overflow-hidden sm:max-w-[1000px]"
+      >
+        <SheetHeader className="flex-shrink-0 pb-4">
+          <SheetTitle className="flex items-center gap-2">
+            <span data-testid="node-modal-title">
+              {data.node?.display_name ?? data.type}
+            </span>
+            <Badge size="sm" variant={isDark ? "gray" : "secondary"}>
+              ID: {data.id}
+            </Badge>
+          </SheetTitle>
+          <SheetDescription>{data.node?.description}</SheetDescription>
+        </SheetHeader>
+        <div className="min-h-0 flex-1 overflow-y-auto">
+          {nodeClass && (
+            <EditNodeComponent
+              open={open}
+              nodeClass={nodeClass}
+              nodeId={data.id}
+              autoHeight={true}
+            />
+          )}
         </div>
-      </BaseModal.Header>
-      <BaseModal.Content>
-        <EditNodeComponent open={open} nodeClass={nodeClass} nodeId={data.id} />
-      </BaseModal.Content>
-      <BaseModal.Footer>
-        <div className="flex w-full justify-end gap-2 pt-2">
+        <SheetFooter className="flex-shrink-0 pt-4">
           <Button onClick={() => setOpen(false)}>Close</Button>
-        </div>
-      </BaseModal.Footer>
-    </BaseModal>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>
   );
 };
 

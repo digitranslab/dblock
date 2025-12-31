@@ -4,8 +4,10 @@ from fastapi import APIRouter
 from kozmoai.api.v1 import (
     api_key_router,
     chat_router,
+    docs_router,
     endpoints_router,
     files_router,
+    flow_runs_router,
     flows_router,
     folders_router,
     login_router,
@@ -27,10 +29,12 @@ router_v2 = APIRouter(
 )
 
 router.include_router(chat_router)
+router.include_router(docs_router)
 router.include_router(endpoints_router)
 router.include_router(validate_router)
 router.include_router(store_router)
 router.include_router(flows_router)
+router.include_router(flow_runs_router)
 router.include_router(users_router)
 router.include_router(api_key_router)
 router.include_router(login_router)

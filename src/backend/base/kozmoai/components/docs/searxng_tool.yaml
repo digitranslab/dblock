@@ -1,0 +1,18 @@
+component_name: SearxngTool
+display_name: SearXNG
+category: tools
+version: 1.0.0
+overview:
+  summary: Meta search engine
+  description: SearXNG component for Kozmoai workflows.
+features:
+- Integration with SearXNG
+inputs: {}
+outputs: {}
+examples: []
+troubleshooting:
+- issue: Configuration Error
+  symptoms:
+  - Component not working as expected
+  solution: Verify all required parameters are set correctly and check the component documentation for specific requirements.
+external_links: []

@@ -1,0 +1,18 @@
+component_name: GoogleSearchTool
+display_name: Google Search
+category: tools
+version: 1.0.0
+overview:
+  summary: Google search API
+  description: Google Search component for Kozmoai workflows.
+features:
+- Integration with Google Search
+inputs: {}
+outputs: {}
+examples: []
+troubleshooting:
+- issue: Configuration Error
+  symptoms:
+  - Component not working as expected
+  solution: Verify all required parameters are set correctly and check the component documentation for specific requirements.
+external_links: []

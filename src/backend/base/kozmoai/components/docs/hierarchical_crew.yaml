@@ -1,0 +1,19 @@
+component_name: HierarchicalCrew
+display_name: Hierarchical Crew
+category: crewai
+version: 1.0.0
+overview:
+  summary: Hierarchical agents
+  description: Hierarchical Crew component for Kozmoai workflows. Hierarchical agents.
+features:
+- Integration with Hierarchical Crew
+- Easy to configure
+- Works with other components
+inputs: {}
+outputs: {}
+examples:
+- title: Basic Hierarchical Crew Usage
+  description: Simple example using Hierarchical Crew
+  use_case: General purpose usage
+troubleshooting: []
+external_links: []

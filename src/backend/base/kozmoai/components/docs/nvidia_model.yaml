@@ -1,0 +1,58 @@
+component_name: NVIDIA
+display_name: NVIDIA
+category: models
+version: 1.0.0
+overview:
+  summary: Use NVIDIA for AI and data tasks
+  description: This component generates text using NVIDIA LLMs. For more information about NVIDIA LLMs, see the NVIDIA AI
+    documentation.
+features:
+- High-performance vector storage and retrieval
+- Semantic search capabilities
+- Scalable architecture
+- Integration with embedding models
+inputs:
+  max_tokens:
+    display_name: max_tokens
+    type: Integer
+    description: Input parameter. The maximum number of tokens to generate. Set to `0` for unlimited tokens.
+  model_name:
+    display_name: model_name
+    type: String
+    description: 'Input parameter. The name of the NVIDIA model to use. Default: `mistralai/mixtral-8x7b-instruct-v0.1`.'
+  base_url:
+    display_name: base_url
+    type: String
+    description: 'Input parameter. The base URL for the NVIDIA API. Default: `https://integrate.api.nvidia.com/v1`.'
+  nvidia_api_key:
+    display_name: nvidia_api_key
+    type: SecretString
+    description: Input parameter. The API key for authenticating with NVIDIA's service.
+  temperature:
+    display_name: temperature
+    type: Float
+    description: 'Input parameter. Controls randomness in the output. Default: `0.1`.'
+  seed:
+    display_name: seed
+    type: Integer
+    description: 'Input parameter. The seed controls the reproducibility of the job. Default: `1`.'
+  model:
+    display_name: model
+    type: String
+    description: Input parameter. The NVIDIA model to use for embeddings, such as `nvidia/nv-embed-v1`.
+outputs:
+  language_model:
+    display_name: Language Model
+    type: LanguageModel
+    description: Configured language model ready for use
+examples:
+- title: Basic NVIDIA Setup
+  description: Standard configuration for NVIDIA
+  use_case: General purpose usage
+external_links:
+- title: NVIDIA AI documentation
+  url: https://developer.nvidia.com/generative-ai
+- title: NVIDIA NIM (NVIDIA Inference Microservices)
+  url: https://docs.nvidia.com/nim/index.html
+- title: NVIDIA NIM WSL2 installed
+  url: https://docs.nvidia.com/nim/wsl2/latest/getting-started.html

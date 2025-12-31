@@ -1,0 +1,56 @@
+component_name: DeepSeek
+display_name: DeepSeek
+category: models
+version: 1.0.0
+overview:
+  summary: Use DeepSeek for AI and data tasks
+  description: The **DeepSeek** component generates text using DeepSeek's language models. It can output either a **Model
+    Response** (`Message`) or a **Language Model** (`LanguageModel`). Use the **Language Model** output when you want to use
+    a DeepSeek model as the LLM for another LLM-driven component, such as an **Agent** or **Smart Function** component. For
+    more information, see Language model components.
+features:
+- Advanced language model capabilities
+- Flexible configuration options
+- Support for various use cases
+- High-quality text generation
+inputs:
+  max_tokens:
+    display_name: max_tokens
+    type: Integer
+    description: 'Input parameter. Maximum number of tokens to generate. Set to `0` for unlimited. Range: `0-128000`.'
+  model_kwargs:
+    display_name: model_kwargs
+    type: Dictionary
+    description: Input parameter. Additional keyword arguments for the model.
+  json_mode:
+    display_name: json_mode
+    type: Boolean
+    description: Input parameter. If `true`, outputs JSON regardless of passing a schema.
+  model_name:
+    display_name: model_name
+    type: String
+    description: 'Input parameter. The DeepSeek model to use. Default: `deepseek-chat`.'
+  api_base:
+    display_name: api_base
+    type: String
+    description: 'Input parameter. Base URL for API requests. Default: `https://api.deepseek.com`.'
+  api_key:
+    display_name: api_key
+    type: SecretString
+    description: Input parameter. Your DeepSeek API key for authentication.
+  temperature:
+    display_name: temperature
+    type: Float
+    description: 'Input parameter. Controls randomness in responses. Range: `[0.0, 2.0]`. Default: `1.0`.'
+outputs:
+  language_model:
+    display_name: Language Model
+    type: LanguageModel
+    description: Configured language model ready for use
+examples:
+- title: Basic DeepSeek Setup
+  description: Standard configuration for DeepSeek
+  use_case: General purpose usage
+external_links:
+- title: DeepSeek documentation
+  url: https://api-docs.deepseek.com/

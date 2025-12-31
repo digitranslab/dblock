@@ -1,0 +1,71 @@
+component_name: Chroma
+display_name: Chroma
+category: vector_stores
+version: 1.0.0
+overview:
+  summary: Use Chroma for AI and data tasks
+  description: You can use the **Chroma DB** component to read and write to a Chroma database using an instance of `Chroma`
+    vector store. Includes support for remote or in-memory instances with or without persistence. When writing, the component
+    can create a new database or collection at the specified location. :::tip An ephemeral (non-persistent) local Chroma vector
+    store is helpful for testing vector search flows where you don't need to retain the database.
+features:
+- High-performance vector storage and retrieval
+- Semantic search capabilities
+- Scalable architecture
+- Integration with embedding models
+inputs:
+  '**collection_name**_(`collection_name`)':
+    display_name: '**Collection Name** (`collection_name`)'
+    type: String
+    description: 'Input parameter.  The name of your Chroma vector store collection. Default: `langflow`.'
+  '**persist_directory**_(`persist_directory`)':
+    display_name: '**Persist Directory** (`persist_directory`)'
+    type: String
+    description: Input parameter. To persist the Chroma database, enter a relative or absolute path to a directory to store
+      the `chroma.sqlite3` file. Leave empty for an ephemeral database. When reading or writing to an existing persistent
+      database, specify the path to the persistent directory.
+  '**ingest_data**_(`ingest_data`)':
+    display_name: '**Ingest Data** (`ingest_data`)'
+    type: Data or DataFrame
+    description: Input parameter. `Data` or `DataFrame` input containing the records to write to the vector store. Only relevant
+      for writes.
+  '**search_query**_(`search_query`)':
+    display_name: '**Search Query** (`search_query`)'
+    type: String
+    description: Input parameter. The query to use for vector search. Only relevant for reads.
+  '**cache_vector_store**_(`cache_vector_store`)':
+    display_name: '**Cache Vector Store** (`cache_vector_store`)'
+    type: Boolean
+    description: 'Input parameter. If `true`, the component caches the vector store in memory for faster reads. Default: Enabled
+      (`true`).'
+  '**embedding**_(`embedding`)':
+    display_name: '**Embedding** (`embedding`)'
+    type: Embeddings
+    description: Input parameter. The embedding function to use for the vector store. By default, Chroma DB uses its built-in
+      embeddings model, or you can attach an **Embedding Model** component to use a different provider or model.
+  '**cors_allow_origins**_(`chroma_server_cors_allow_origins`)':
+    display_name: '**CORS Allow Origins** (`chroma_server_cors_allow_origins`)'
+    type: String
+    description: Input parameter. The allowed CORS origins for the Chroma server.
+  '**chroma_server_host**_(`chroma_server_host`)':
+    display_name: '**Chroma Server Host** (`chroma_server_host`)'
+    type: String
+    description: Input parameter. The host for the Chroma server.
+  '**chroma_server_http_port**_(`chroma_server_http_port`)':
+    display_name: '**Chroma Server HTTP Port** (`chroma_server_http_port`)'
+    type: Integer
+    description: Input parameter. The HTTP port for the Chroma server.
+  '**chroma_server_grpc_port**_(`chroma_server_grpc_port`)':
+    display_name: '**Chroma Server gRPC Port** (`chroma_server_grpc_port`)'
+    type: Integer
+    description: Input parameter. The gRPC port for the Chroma server.
+outputs:
+  vector_store:
+    display_name: Vector Store
+    type: VectorStore
+    description: Configured vector store instance
+examples:
+- title: Basic Chroma Setup
+  description: Standard configuration for Chroma
+  use_case: General purpose usage
+external_links: []

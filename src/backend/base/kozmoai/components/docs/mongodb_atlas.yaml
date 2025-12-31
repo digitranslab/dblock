@@ -1,0 +1,69 @@
+component_name: MongoDBAtlas
+display_name: MongoDB Atlas
+category: vector_stores
+version: 1.0.0
+overview:
+  summary: Use MongoDB Atlas for AI and data tasks
+  description: The **MongoDB Atlas** component reads and writes to MongoDB Atlas vector stores using an instance of `MongoDBAtlasVectorSearch`.
+features:
+- High-performance vector storage and retrieval
+- Semantic search capabilities
+- Scalable architecture
+- Integration with embedding models
+inputs:
+  mongodb_atlas_cluster_uri:
+    display_name: mongodb_atlas_cluster_uri
+    type: SecretString
+    description: Input parameter. The connection URI for your MongoDB Atlas cluster. Required.
+  enable_mtls:
+    display_name: enable_mtls
+    type: Boolean
+    description: 'Input parameter. Enable mutual TLS authentication. Default: `false`.'
+  mongodb_atlas_client_cert:
+    display_name: mongodb_atlas_client_cert
+    type: SecretString
+    description: Input parameter. Client certificate combined with private key for mTLS authentication. Required if mTLS is
+      enabled.
+  db_name:
+    display_name: db_name
+    type: String
+    description: Input parameter. The name of the database to use. Required.
+  collection_name:
+    display_name: collection_name
+    type: String
+    description: Input parameter. The name of the collection to use. Required.
+  index_name:
+    display_name: index_name
+    type: String
+    description: Input parameter. The name of the Atlas Search index, it should be a Vector Search. Required.
+  insert_mode:
+    display_name: insert_mode
+    type: String
+    description: 'Input parameter. How to insert new documents into the collection. The options are "append" or "overwrite".
+      Default: "append".'
+  embedding:
+    display_name: embedding
+    type: Embeddings
+    description: Input parameter. The embedding model to use.
+  number_of_results:
+    display_name: number_of_results
+    type: Integer
+    description: 'Input parameter. Number of results to return in similarity search. Default: 4.'
+  index_field:
+    display_name: index_field
+    type: String
+    description: 'Input parameter. The field to index. Default: "embedding".'
+outputs:
+  vector_store:
+    display_name: Vector Store
+    type: VectorStore
+    description: Configured vector store instance
+examples:
+- title: Basic MongoDB Atlas Setup
+  description: Standard configuration for MongoDB Atlas
+  use_case: General purpose usage
+external_links:
+- title: '`MongoDBAtlasVectorSearch`'
+  url: https://docs.langchain.com/oss/python/integrations/vectorstores/mongodb_atlas
+- title: MongoDB Atlas documentation
+  url: https://www.mongodb.com/docs/atlas/atlas-vector-search/tutorials/vector-search-quick-start/
