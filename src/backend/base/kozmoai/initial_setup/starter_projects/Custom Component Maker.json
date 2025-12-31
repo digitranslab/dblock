@@ -23,12 +23,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Memory-v5bRq{œdataTypeœ:œMemoryœ,œidœ:œMemory-v5bRqœ,œnameœ:œmessages_textœ,œoutput_typesœ:[œMessageœ]}-Prompt-QIyYT{œfieldNameœ:œCHAT_HISTORYœ,œidœ:œPrompt-QIyYTœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Memory-v5bRq{\u0153dataType\u0153:\u0153Memory\u0153,\u0153id\u0153:\u0153Memory-v5bRq\u0153,\u0153name\u0153:\u0153messages_text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-QIyYT{\u0153fieldName\u0153:\u0153CHAT_HISTORY\u0153,\u0153id\u0153:\u0153Prompt-QIyYT\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Memory-v5bRq",
-        "sourceHandle": "{œdataTypeœ: œMemoryœ, œidœ: œMemory-v5bRqœ, œnameœ: œmessages_textœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Memory\u0153, \u0153id\u0153: \u0153Memory-v5bRq\u0153, \u0153name\u0153: \u0153messages_text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-QIyYT",
-        "targetHandle": "{œfieldNameœ: œCHAT_HISTORYœ, œidœ: œPrompt-QIyYTœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153CHAT_HISTORY\u0153, \u0153id\u0153: \u0153Prompt-QIyYT\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -52,12 +52,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-Z88lk{œdataTypeœ:œChatInputœ,œidœ:œChatInput-Z88lkœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Prompt-QIyYT{œfieldNameœ:œUSER_INPUTœ,œidœ:œPrompt-QIyYTœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-Z88lk{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-Z88lk\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-QIyYT{\u0153fieldName\u0153:\u0153USER_INPUT\u0153,\u0153id\u0153:\u0153Prompt-QIyYT\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ChatInput-Z88lk",
-        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-Z88lkœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-Z88lk\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-QIyYT",
-        "targetHandle": "{œfieldNameœ: œUSER_INPUTœ, œidœ: œPrompt-QIyYTœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153USER_INPUT\u0153, \u0153id\u0153: \u0153Prompt-QIyYT\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -81,11 +81,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-URL-wNOPd{œdataTypeœ:œURLœ,œidœ:œURL-wNOPdœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-Prompt-QIyYT{œfieldNameœ:œEXAMPLE_COMPONENTSœ,œidœ:œPrompt-QIyYTœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-URL-wNOPd{\u0153dataType\u0153:\u0153URL\u0153,\u0153id\u0153:\u0153URL-wNOPd\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-QIyYT{\u0153fieldName\u0153:\u0153EXAMPLE_COMPONENTS\u0153,\u0153id\u0153:\u0153Prompt-QIyYT\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "URL-wNOPd",
-        "sourceHandle": "{œdataTypeœ: œURLœ, œidœ: œURL-wNOPdœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153URL\u0153, \u0153id\u0153: \u0153URL-wNOPd\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-QIyYT",
-        "targetHandle": "{œfieldNameœ: œEXAMPLE_COMPONENTSœ, œidœ: œPrompt-QIyYTœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153EXAMPLE_COMPONENTS\u0153, \u0153id\u0153: \u0153Prompt-QIyYT\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -109,11 +109,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-URL-pFAuR{œdataTypeœ:œURLœ,œidœ:œURL-pFAuRœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-Prompt-QIyYT{œfieldNameœ:œBASE_COMPONENT_CODEœ,œidœ:œPrompt-QIyYTœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-URL-pFAuR{\u0153dataType\u0153:\u0153URL\u0153,\u0153id\u0153:\u0153URL-pFAuR\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-QIyYT{\u0153fieldName\u0153:\u0153BASE_COMPONENT_CODE\u0153,\u0153id\u0153:\u0153Prompt-QIyYT\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "URL-pFAuR",
-        "sourceHandle": "{œdataTypeœ: œURLœ, œidœ: œURL-pFAuRœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153URL\u0153, \u0153id\u0153: \u0153URL-pFAuR\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-QIyYT",
-        "targetHandle": "{œfieldNameœ: œBASE_COMPONENT_CODEœ, œidœ: œPrompt-QIyYTœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153BASE_COMPONENT_CODE\u0153, \u0153id\u0153: \u0153Prompt-QIyYT\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -137,11 +137,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-URL-KARv3{œdataTypeœ:œURLœ,œidœ:œURL-KARv3œ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-Prompt-QIyYT{œfieldNameœ:œCUSTOM_COMPONENT_CODEœ,œidœ:œPrompt-QIyYTœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-URL-KARv3{\u0153dataType\u0153:\u0153URL\u0153,\u0153id\u0153:\u0153URL-KARv3\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-QIyYT{\u0153fieldName\u0153:\u0153CUSTOM_COMPONENT_CODE\u0153,\u0153id\u0153:\u0153Prompt-QIyYT\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "URL-KARv3",
-        "sourceHandle": "{œdataTypeœ: œURLœ, œidœ: œURL-KARv3œ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153URL\u0153, \u0153id\u0153: \u0153URL-KARv3\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-QIyYT",
-        "targetHandle": "{œfieldNameœ: œCUSTOM_COMPONENT_CODEœ, œidœ: œPrompt-QIyYTœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153CUSTOM_COMPONENT_CODE\u0153, \u0153id\u0153: \u0153Prompt-QIyYT\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "className": "",
@@ -164,11 +164,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-QIyYT{œdataTypeœ:œPromptœ,œidœ:œPrompt-QIyYTœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-AnthropicModel-RQQCm{œfieldNameœ:œinput_valueœ,œidœ:œAnthropicModel-RQQCmœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-QIyYT{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-QIyYT\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-AnthropicModel-RQQCm{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153AnthropicModel-RQQCm\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "Prompt-QIyYT",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-QIyYTœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-QIyYT\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "AnthropicModel-RQQCm",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAnthropicModel-RQQCmœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153AnthropicModel-RQQCm\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "className": "",
@@ -191,11 +191,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-AnthropicModel-RQQCm{œdataTypeœ:œAnthropicModelœ,œidœ:œAnthropicModel-RQQCmœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-Jj8M6{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-Jj8M6œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-AnthropicModel-RQQCm{\u0153dataType\u0153:\u0153AnthropicModel\u0153,\u0153id\u0153:\u0153AnthropicModel-RQQCm\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-Jj8M6{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-Jj8M6\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "AnthropicModel-RQQCm",
-        "sourceHandle": "{œdataTypeœ: œAnthropicModelœ, œidœ: œAnthropicModel-RQQCmœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153AnthropicModel\u0153, \u0153id\u0153: \u0153AnthropicModel-RQQCm\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-Jj8M6",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-Jj8M6œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-Jj8M6\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       }
     ],
     "nodes": [
@@ -495,14 +495,6 @@
           "height": 231,
           "width": 320
         },
-        "position": {
-          "x": 1436.7228707197569,
-          "y": 1045.2749109595
-        },
-        "positionAbsolute": {
-          "x": 1436.7228707197569,
-          "y": 1045.2749109595
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -748,14 +740,6 @@
           "height": 262,
           "width": 320
         },
-        "position": {
-          "x": 1830.6888981898887,
-          "y": 946.1205963195098
-        },
-        "positionAbsolute": {
-          "x": 1830.6888981898887,
-          "y": 946.1205963195098
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -996,14 +980,6 @@
         "measured": {
           "height": 685,
           "width": 320
-        },
-        "position": {
-          "x": 2219.5265974825707,
-          "y": 521.6320563271215
-        },
-        "positionAbsolute": {
-          "x": 2219.5265974825707,
-          "y": 521.6320563271215
         },
         "selected": false,
         "type": "genericNode",
@@ -1286,14 +1262,6 @@
           "height": 232,
           "width": 320
         },
-        "position": {
-          "x": 2947.267779013826,
-          "y": 891.8123698756774
-        },
-        "positionAbsolute": {
-          "x": 2947.267779013826,
-          "y": 891.8123698756774
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -1316,14 +1284,6 @@
           "height": 324,
           "width": 325
         },
-        "position": {
-          "x": 1430.2014058924922,
-          "y": -19.30392196909918
-        },
-        "positionAbsolute": {
-          "x": 1430.2014058924922,
-          "y": -19.30392196909918
-        },
         "selected": false,
         "type": "noteNode",
         "width": 324
@@ -1332,7 +1292,7 @@
         "data": {
           "id": "note-nxR1T",
           "node": {
-            "description": "# 🛠️ Custom Component Generator 🚀\n\nHi! I'm here to help you create custom components for Kozmoai. Think of me as your technical partner who can help turn your ideas into working components! \n\n## 🎯 How to Work With Me\n\n### 1. 💭 Tell Me What You Want to Build\nSimply describe what you want your component to do in plain English. For example:\n- \"I need a component that sends Slack messages\"\n- \"I want to create a tool that can process CSV files\"\n- \"I need something that can translate text\"\n\n### 2. 📚 Share Any Relevant Information\nIf you're working with a specific:\n- 🔑 API or service (just share the documentation link or main endpoints)\n- 📄 File format\n- 🔄 Data structure\n- 🔧 Existing component you want to modify\n\n### 3. 🎨 Let Me Help Design It\nI'll help by:\n- 📊 Breaking down complex requirements into manageable pieces\n- 💡 Suggesting the best way to structure inputs and outputs\n- ⚙️ Creating the component code\n- 📝 Explaining how to use it\n\n### 4. 🔄 Iterative Refinement\nWe can then:\n- ✅ Test and refine the component\n- ⭐ Add features\n- 🔧 Modify behavior\n- 🛡️ Improve error handling\n- 📖 Add documentation\n\n## 🚀 What I Can Help With\n\nI can help create components that:\n- 📊 Process different file types (CSV, JSON, Excel, etc.)\n- 🔌 Integrate with external APIs\n- 🔄 Transform data\n- 🔀 Route messages\n- 🌐 Handle web requests\n- 🎯 Parse structured data\n- ✨ And much more!\n\n## 💡 Tips for Best Results\n\n1. **Be Specific** 🎯: The more details you provide about what you want to accomplish, the better I can help.\n\n2. **Share Examples** 📋: If you have example data or specific use cases, share them.\n\n3. **Ask Questions** ❓: Don't hesitate to ask for clarification or modifications.\n\nJust start by telling me what kind of component you'd like to create, and I'll guide you through the process! \n\nReady to build something awesome? 🚀 Let's get started!",
+            "description": "# \ud83d\udee0\ufe0f Custom Component Generator \ud83d\ude80\n\nHi! I'm here to help you create custom components for Kozmoai. Think of me as your technical partner who can help turn your ideas into working components! \n\n## \ud83c\udfaf How to Work With Me\n\n### 1. \ud83d\udcad Tell Me What You Want to Build\nSimply describe what you want your component to do in plain English. For example:\n- \"I need a component that sends Slack messages\"\n- \"I want to create a tool that can process CSV files\"\n- \"I need something that can translate text\"\n\n### 2. \ud83d\udcda Share Any Relevant Information\nIf you're working with a specific:\n- \ud83d\udd11 API or service (just share the documentation link or main endpoints)\n- \ud83d\udcc4 File format\n- \ud83d\udd04 Data structure\n- \ud83d\udd27 Existing component you want to modify\n\n### 3. \ud83c\udfa8 Let Me Help Design It\nI'll help by:\n- \ud83d\udcca Breaking down complex requirements into manageable pieces\n- \ud83d\udca1 Suggesting the best way to structure inputs and outputs\n- \u2699\ufe0f Creating the component code\n- \ud83d\udcdd Explaining how to use it\n\n### 4. \ud83d\udd04 Iterative Refinement\nWe can then:\n- \u2705 Test and refine the component\n- \u2b50 Add features\n- \ud83d\udd27 Modify behavior\n- \ud83d\udee1\ufe0f Improve error handling\n- \ud83d\udcd6 Add documentation\n\n## \ud83d\ude80 What I Can Help With\n\nI can help create components that:\n- \ud83d\udcca Process different file types (CSV, JSON, Excel, etc.)\n- \ud83d\udd0c Integrate with external APIs\n- \ud83d\udd04 Transform data\n- \ud83d\udd00 Route messages\n- \ud83c\udf10 Handle web requests\n- \ud83c\udfaf Parse structured data\n- \u2728 And much more!\n\n## \ud83d\udca1 Tips for Best Results\n\n1. **Be Specific** \ud83c\udfaf: The more details you provide about what you want to accomplish, the better I can help.\n\n2. **Share Examples** \ud83d\udccb: If you have example data or specific use cases, share them.\n\n3. **Ask Questions** \u2753: Don't hesitate to ask for clarification or modifications.\n\nJust start by telling me what kind of component you'd like to create, and I'll guide you through the process! \n\nReady to build something awesome? \ud83d\ude80 Let's get started!",
             "display_name": "",
             "documentation": "",
             "template": {}
@@ -1345,14 +1305,6 @@
         "measured": {
           "height": 573,
           "width": 324
-        },
-        "position": {
-          "x": 807.6293964045135,
-          "y": 605.6504562080672
-        },
-        "positionAbsolute": {
-          "x": 807.6293964045135,
-          "y": 605.6504562080672
         },
         "resizing": false,
         "selected": true,
@@ -1507,14 +1459,6 @@
         "measured": {
           "height": 365,
           "width": 320
-        },
-        "position": {
-          "x": 1436.3617127766433,
-          "y": 264.218898085405
-        },
-        "positionAbsolute": {
-          "x": 1436.3617127766433,
-          "y": 264.218898085405
         },
         "selected": false,
         "type": "genericNode",
@@ -1671,14 +1615,6 @@
           "height": 661,
           "width": 320
         },
-        "position": {
-          "x": 1831.5895760156684,
-          "y": 245.62940316018893
-        },
-        "positionAbsolute": {
-          "x": 1831.5895760156684,
-          "y": 245.62940316018893
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -1827,14 +1763,6 @@
         "measured": {
           "height": 365,
           "width": 320
-        },
-        "position": {
-          "x": 1436.982480021523,
-          "y": 651.1409296825055
-        },
-        "positionAbsolute": {
-          "x": 1436.982480021523,
-          "y": 651.1409296825055
         },
         "selected": false,
         "type": "genericNode",
@@ -2171,10 +2099,6 @@
         "measured": {
           "height": 797,
           "width": 320
-        },
-        "position": {
-          "x": 2585.5577736139826,
-          "y": 454.98013556663204
         },
         "selected": false,
         "type": "genericNode"

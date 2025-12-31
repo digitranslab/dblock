@@ -22,11 +22,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-gyoWG{œdataTypeœ:œChatInputœ,œidœ:œChatInput-gyoWGœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-OpenAIModel-kVbrq{œfieldNameœ:œinput_valueœ,œidœ:œOpenAIModel-kVbrqœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-gyoWG{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-gyoWG\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-kVbrq{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153OpenAIModel-kVbrq\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "ChatInput-gyoWG",
-        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-gyoWGœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-gyoWG\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "OpenAIModel-kVbrq",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-kVbrqœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153OpenAIModel-kVbrq\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "className": "",
@@ -49,11 +49,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-U0xoC{œdataTypeœ:œPromptœ,œidœ:œPrompt-U0xoCœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-OpenAIModel-kVbrq{œfieldNameœ:œsystem_messageœ,œidœ:œOpenAIModel-kVbrqœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-U0xoC{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-U0xoC\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-kVbrq{\u0153fieldName\u0153:\u0153system_message\u0153,\u0153id\u0153:\u0153OpenAIModel-kVbrq\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "Prompt-U0xoC",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-U0xoCœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-U0xoC\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "OpenAIModel-kVbrq",
-        "targetHandle": "{œfieldNameœ: œsystem_messageœ, œidœ: œOpenAIModel-kVbrqœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153system_message\u0153, \u0153id\u0153: \u0153OpenAIModel-kVbrq\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "className": "",
@@ -76,11 +76,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-OpenAIModel-kVbrq{œdataTypeœ:œOpenAIModelœ,œidœ:œOpenAIModel-kVbrqœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-qv4Kg{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-qv4Kgœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-OpenAIModel-kVbrq{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-kVbrq\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-qv4Kg{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-qv4Kg\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "OpenAIModel-kVbrq",
-        "sourceHandle": "{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-kVbrqœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIModel\u0153, \u0153id\u0153: \u0153OpenAIModel-kVbrq\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-qv4Kg",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-qv4Kgœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-qv4Kg\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       }
     ],
     "nodes": [
@@ -363,14 +363,6 @@
           "height": 234,
           "width": 320
         },
-        "position": {
-          "x": 689.5720422421635,
-          "y": 765.155834131403
-        },
-        "positionAbsolute": {
-          "x": 689.5720422421635,
-          "y": 765.155834131403
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -490,14 +482,6 @@
           "height": 260,
           "width": 320
         },
-        "position": {
-          "x": 690.2015147036818,
-          "y": 1040.6625705470924
-        },
-        "positionAbsolute": {
-          "x": 690.2015147036818,
-          "y": 1018.5443911764344
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -506,7 +490,7 @@
         "data": {
           "id": "undefined-9fug3",
           "node": {
-            "description": "## 📖 README\n\nPerform basic prompting with an OpenAI model.\n\n#### Quick Start\n- Add your **OpenAI API key** to the **OpenAI Model**\n- Open the **Playground** to chat with your bot.\n\n#### Next steps:\n Experiment by changing the prompt and the OpenAI model temperature to see how the bot's responses change.",
+            "description": "## \ud83d\udcd6 README\n\nPerform basic prompting with an OpenAI model.\n\n#### Quick Start\n- Add your **OpenAI API key** to the **OpenAI Model**\n- Open the **Playground** to chat with your bot.\n\n#### Next steps:\n Experiment by changing the prompt and the OpenAI model temperature to see how the bot's responses change.",
             "display_name": "Read Me",
             "documentation": "",
             "template": {
@@ -521,14 +505,6 @@
           "height": 332,
           "width": 324
         },
-        "position": {
-          "x": 133.95771636602308,
-          "y": 753.6499167055161
-        },
-        "positionAbsolute": {
-          "x": 66.38770028934243,
-          "y": 749.744424427066
-        },
         "resizing": false,
         "selected": true,
         "style": {
@@ -542,7 +518,7 @@
         "data": {
           "id": "note-fR64x",
           "node": {
-            "description": "### 💡 Add your OpenAI API key here 👇",
+            "description": "### \ud83d\udca1 Add your OpenAI API key here \ud83d\udc47",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -557,14 +533,6 @@
         "measured": {
           "height": 324,
           "width": 324
-        },
-        "position": {
-          "x": 1075.829573520873,
-          "y": 657.2057655038416
-        },
-        "positionAbsolute": {
-          "x": 1075.829573520873,
-          "y": 657.2057655038416
         },
         "resizing": false,
         "selected": false,
@@ -849,14 +817,6 @@
         "measured": {
           "height": 234,
           "width": 320
-        },
-        "position": {
-          "x": 1460.070372772908,
-          "y": 872.7273956769025
-        },
-        "positionAbsolute": {
-          "x": 1444.936881624563,
-          "y": 872.7273956769025
         },
         "selected": false,
         "type": "genericNode",
@@ -1238,10 +1198,6 @@
         "measured": {
           "height": 653,
           "width": 320
-        },
-        "position": {
-          "x": 1071.3015591664102,
-          "y": 724.6650363109242
         },
         "selected": false,
         "type": "genericNode"

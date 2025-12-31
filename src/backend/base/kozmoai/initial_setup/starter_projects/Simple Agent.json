@@ -23,12 +23,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-vSKY8{œdataTypeœ:œChatInputœ,œidœ:œChatInput-vSKY8œ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Agent-EPjLx{œfieldNameœ:œinput_valueœ,œidœ:œAgent-EPjLxœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-vSKY8{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-vSKY8\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Agent-EPjLx{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153Agent-EPjLx\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ChatInput-vSKY8",
-        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-vSKY8œ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-vSKY8\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Agent-EPjLx",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAgent-EPjLxœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153Agent-EPjLx\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -52,12 +52,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Agent-EPjLx{œdataTypeœ:œAgentœ,œidœ:œAgent-EPjLxœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-x6tZi{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-x6tZiœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Agent-EPjLx{\u0153dataType\u0153:\u0153Agent\u0153,\u0153id\u0153:\u0153Agent-EPjLx\u0153,\u0153name\u0153:\u0153response\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-x6tZi{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-x6tZi\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Agent-EPjLx",
-        "sourceHandle": "{œdataTypeœ: œAgentœ, œidœ: œAgent-EPjLxœ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Agent\u0153, \u0153id\u0153: \u0153Agent-EPjLx\u0153, \u0153name\u0153: \u0153response\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-x6tZi",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-x6tZiœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-x6tZi\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "className": "",
@@ -79,11 +79,11 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-CalculatorComponent-zxpIu{œdataTypeœ:œCalculatorComponentœ,œidœ:œCalculatorComponent-zxpIuœ,œnameœ:œcomponent_as_toolœ,œoutput_typesœ:[œToolœ]}-Agent-EPjLx{œfieldNameœ:œtoolsœ,œidœ:œAgent-EPjLxœ,œinputTypesœ:[œToolœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-CalculatorComponent-zxpIu{\u0153dataType\u0153:\u0153CalculatorComponent\u0153,\u0153id\u0153:\u0153CalculatorComponent-zxpIu\u0153,\u0153name\u0153:\u0153component_as_tool\u0153,\u0153output_types\u0153:[\u0153Tool\u0153]}-Agent-EPjLx{\u0153fieldName\u0153:\u0153tools\u0153,\u0153id\u0153:\u0153Agent-EPjLx\u0153,\u0153inputTypes\u0153:[\u0153Tool\u0153],\u0153type\u0153:\u0153other\u0153}",
         "source": "CalculatorComponent-zxpIu",
-        "sourceHandle": "{œdataTypeœ: œCalculatorComponentœ, œidœ: œCalculatorComponent-zxpIuœ, œnameœ: œcomponent_as_toolœ, œoutput_typesœ: [œToolœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153CalculatorComponent\u0153, \u0153id\u0153: \u0153CalculatorComponent-zxpIu\u0153, \u0153name\u0153: \u0153component_as_tool\u0153, \u0153output_types\u0153: [\u0153Tool\u0153]}",
         "target": "Agent-EPjLx",
-        "targetHandle": "{œfieldNameœ: œtoolsœ, œidœ: œAgent-EPjLxœ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153tools\u0153, \u0153id\u0153: \u0153Agent-EPjLx\u0153, \u0153inputTypes\u0153: [\u0153Tool\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "className": "",
@@ -105,11 +105,11 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-URL-yM3pY{œdataTypeœ:œURLœ,œidœ:œURL-yM3pYœ,œnameœ:œcomponent_as_toolœ,œoutput_typesœ:[œToolœ]}-Agent-EPjLx{œfieldNameœ:œtoolsœ,œidœ:œAgent-EPjLxœ,œinputTypesœ:[œToolœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-URL-yM3pY{\u0153dataType\u0153:\u0153URL\u0153,\u0153id\u0153:\u0153URL-yM3pY\u0153,\u0153name\u0153:\u0153component_as_tool\u0153,\u0153output_types\u0153:[\u0153Tool\u0153]}-Agent-EPjLx{\u0153fieldName\u0153:\u0153tools\u0153,\u0153id\u0153:\u0153Agent-EPjLx\u0153,\u0153inputTypes\u0153:[\u0153Tool\u0153],\u0153type\u0153:\u0153other\u0153}",
         "source": "URL-yM3pY",
-        "sourceHandle": "{œdataTypeœ: œURLœ, œidœ: œURL-yM3pYœ, œnameœ: œcomponent_as_toolœ, œoutput_typesœ: [œToolœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153URL\u0153, \u0153id\u0153: \u0153URL-yM3pY\u0153, \u0153name\u0153: \u0153component_as_tool\u0153, \u0153output_types\u0153: [\u0153Tool\u0153]}",
         "target": "Agent-EPjLx",
-        "targetHandle": "{œfieldNameœ: œtoolsœ, œidœ: œAgent-EPjLxœ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153tools\u0153, \u0153id\u0153: \u0153Agent-EPjLx\u0153, \u0153inputTypes\u0153: [\u0153Tool\u0153], \u0153type\u0153: \u0153other\u0153}"
       }
     ],
     "nodes": [
@@ -726,10 +726,6 @@
           "height": 621,
           "width": 320
         },
-        "position": {
-          "x": 1652.2479633316434,
-          "y": 297.9085084144251
-        },
         "selected": false,
         "type": "genericNode"
       },
@@ -1026,10 +1022,6 @@
           "height": 229,
           "width": 320
         },
-        "position": {
-          "x": 1241.9566260691947,
-          "y": 930.7462715570136
-        },
         "selected": false,
         "type": "genericNode"
       },
@@ -1309,10 +1301,6 @@
           "height": 229,
           "width": 320
         },
-        "position": {
-          "x": 2029.726227044409,
-          "y": 521.9624030396819
-        },
         "selected": false,
         "type": "genericNode"
       },
@@ -1534,10 +1522,6 @@
           "height": 403,
           "width": 320
         },
-        "position": {
-          "x": 1225.8773509111968,
-          "y": 27.333577318641687
-        },
         "selected": false,
         "type": "genericNode"
       },
@@ -1545,7 +1529,7 @@
         "data": {
           "id": "note-Zo71g",
           "node": {
-            "description": "# 📖 README\nRun an Agent with URL and Calculator tools available for its use. \nThe Agent decides which tool to use to solve a problem.\n## Quick start\n\n1. Add your OpenAI API key to the Agent.\n2. Open the Playground and chat with the Agent. Request some information about a recipe, and then ask to add two numbers together. In the responses, the Agent will use different tools to solve different problems.\n\n## Next steps\nConnect more tools to the Agent to create your perfect assistant.\n\nFor more, see the [Kozmoai docs](https://docs.kozmoai.cloud/agents-tool-calling-agent-component).",
+            "description": "# \ud83d\udcd6 README\nRun an Agent with URL and Calculator tools available for its use. \nThe Agent decides which tool to use to solve a problem.\n## Quick start\n\n1. Add your OpenAI API key to the Agent.\n2. Open the Playground and chat with the Agent. Request some information about a recipe, and then ask to add two numbers together. In the responses, the Agent will use different tools to solve different problems.\n\n## Next steps\nConnect more tools to the Agent to create your perfect assistant.\n\nFor more, see the [Kozmoai docs](https://docs.kozmoai.cloud/agents-tool-calling-agent-component).",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -1560,10 +1544,6 @@
           "height": 324,
           "width": 324
         },
-        "position": {
-          "x": 775.5268622081468,
-          "y": 27.927425537464444
-        },
         "selected": true,
         "type": "noteNode"
       },
@@ -1571,7 +1551,7 @@
         "data": {
           "id": "note-enlN0",
           "node": {
-            "description": "### 💡 Add your OpenAI API key here👇",
+            "description": "### \ud83d\udca1 Add your OpenAI API key here\ud83d\udc47",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -1584,10 +1564,6 @@
         "measured": {
           "height": 698,
           "width": 324
-        },
-        "position": {
-          "x": 1648.6876745095624,
-          "y": 253.8646618156497
         },
         "selected": false,
         "type": "noteNode"
@@ -1775,10 +1751,6 @@
         "measured": {
           "height": 333,
           "width": 320
-        },
-        "position": {
-          "x": 1233.166256931297,
-          "y": 514.7544001650839
         },
         "selected": false,
         "type": "genericNode"

@@ -23,11 +23,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ParseData-4Sckw{œdataTypeœ:œParseDataœ,œidœ:œParseData-4Sckwœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-Prompt-65R68{œfieldNameœ:œreferencesœ,œidœ:œPrompt-65R68œ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ParseData-4Sckw{\u0153dataType\u0153:\u0153ParseData\u0153,\u0153id\u0153:\u0153ParseData-4Sckw\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-65R68{\u0153fieldName\u0153:\u0153references\u0153,\u0153id\u0153:\u0153Prompt-65R68\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "ParseData-4Sckw",
-        "sourceHandle": "{œdataTypeœ: œParseDataœ, œidœ: œParseData-4Sckwœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ParseData\u0153, \u0153id\u0153: \u0153ParseData-4Sckw\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-65R68",
-        "targetHandle": "{œfieldNameœ: œreferencesœ, œidœ: œPrompt-65R68œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153references\u0153, \u0153id\u0153: \u0153Prompt-65R68\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -51,11 +51,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-TextInput-t88FI{œdataTypeœ:œTextInputœ,œidœ:œTextInput-t88FIœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-Prompt-65R68{œfieldNameœ:œinstructionsœ,œidœ:œPrompt-65R68œ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-TextInput-t88FI{\u0153dataType\u0153:\u0153TextInput\u0153,\u0153id\u0153:\u0153TextInput-t88FI\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-65R68{\u0153fieldName\u0153:\u0153instructions\u0153,\u0153id\u0153:\u0153Prompt-65R68\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "TextInput-t88FI",
-        "sourceHandle": "{œdataTypeœ: œTextInputœ, œidœ: œTextInput-t88FIœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153TextInput\u0153, \u0153id\u0153: \u0153TextInput-t88FI\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-65R68",
-        "targetHandle": "{œfieldNameœ: œinstructionsœ, œidœ: œPrompt-65R68œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153instructions\u0153, \u0153id\u0153: \u0153Prompt-65R68\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "className": "",
@@ -78,11 +78,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-65R68{œdataTypeœ:œPromptœ,œidœ:œPrompt-65R68œ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-OpenAIModel-MyAsQ{œfieldNameœ:œinput_valueœ,œidœ:œOpenAIModel-MyAsQœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-65R68{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-65R68\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-MyAsQ{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153OpenAIModel-MyAsQ\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "Prompt-65R68",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-65R68œ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-65R68\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "OpenAIModel-MyAsQ",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-MyAsQœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153OpenAIModel-MyAsQ\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "className": "",
@@ -105,11 +105,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-OpenAIModel-MyAsQ{œdataTypeœ:œOpenAIModelœ,œidœ:œOpenAIModel-MyAsQœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-BE4YI{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-BE4YIœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-OpenAIModel-MyAsQ{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-MyAsQ\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-BE4YI{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-BE4YI\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "OpenAIModel-MyAsQ",
-        "sourceHandle": "{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-MyAsQœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIModel\u0153, \u0153id\u0153: \u0153OpenAIModel-MyAsQ\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-BE4YI",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-BE4YIœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-BE4YI\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "className": "",
@@ -131,11 +131,11 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-URL-EPEnt{œdataTypeœ:œURLœ,œidœ:œURL-EPEntœ,œnameœ:œdataœ,œoutput_typesœ:[œDataœ]}-ParseData-4Sckw{œfieldNameœ:œdataœ,œidœ:œParseData-4Sckwœ,œinputTypesœ:[œDataœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-URL-EPEnt{\u0153dataType\u0153:\u0153URL\u0153,\u0153id\u0153:\u0153URL-EPEnt\u0153,\u0153name\u0153:\u0153data\u0153,\u0153output_types\u0153:[\u0153Data\u0153]}-ParseData-4Sckw{\u0153fieldName\u0153:\u0153data\u0153,\u0153id\u0153:\u0153ParseData-4Sckw\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153],\u0153type\u0153:\u0153other\u0153}",
         "source": "URL-EPEnt",
-        "sourceHandle": "{œdataTypeœ: œURLœ, œidœ: œURL-EPEntœ, œnameœ: œdataœ, œoutput_typesœ: [œDataœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153URL\u0153, \u0153id\u0153: \u0153URL-EPEnt\u0153, \u0153name\u0153: \u0153data\u0153, \u0153output_types\u0153: [\u0153Data\u0153]}",
         "target": "ParseData-4Sckw",
-        "targetHandle": "{œfieldNameœ: œdataœ, œidœ: œParseData-4Sckwœ, œinputTypesœ: [œDataœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153data\u0153, \u0153id\u0153: \u0153ParseData-4Sckw\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153], \u0153type\u0153: \u0153other\u0153}"
       }
     ],
     "nodes": [
@@ -282,14 +282,6 @@
         "measured": {
           "height": 302,
           "width": 320
-        },
-        "position": {
-          "x": 955.6736985046297,
-          "y": 702.7003891105396
-        },
-        "positionAbsolute": {
-          "x": 955.6736985046297,
-          "y": 702.7003891105396
         },
         "selected": false,
         "type": "genericNode",
@@ -459,14 +451,6 @@
           "height": 433,
           "width": 320
         },
-        "position": {
-          "x": 1341.1018009526915,
-          "y": 456.4098573354365
-        },
-        "positionAbsolute": {
-          "x": 1341.1018009526915,
-          "y": 456.4098573354365
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -565,14 +549,6 @@
         "measured": {
           "height": 234,
           "width": 320
-        },
-        "position": {
-          "x": 955.8314364398983,
-          "y": 402.24423846638155
-        },
-        "positionAbsolute": {
-          "x": 955.8314364398983,
-          "y": 402.24423846638155
         },
         "selected": false,
         "type": "genericNode",
@@ -839,14 +815,6 @@
           "height": 234,
           "width": 320
         },
-        "position": {
-          "x": 2097.489047349972,
-          "y": 603.355618581002
-        },
-        "positionAbsolute": {
-          "x": 2113.228183852361,
-          "y": 594.6116538574528
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -870,14 +838,6 @@
         "measured": {
           "height": 324,
           "width": 325
-        },
-        "position": {
-          "x": 484.73635938598477,
-          "y": 153.29803159918163
-        },
-        "positionAbsolute": {
-          "x": 484.73635938598477,
-          "y": 153.29803159918163
         },
         "resizing": false,
         "selected": false,
@@ -905,14 +865,6 @@
         "measured": {
           "height": 486,
           "width": 325
-        },
-        "position": {
-          "x": -78.41970365609802,
-          "y": 405.04114164010207
-        },
-        "positionAbsolute": {
-          "x": -78.41970365609802,
-          "y": 405.04114164010207
         },
         "resizing": false,
         "selected": false,
@@ -942,14 +894,6 @@
         "measured": {
           "height": 324,
           "width": 325
-        },
-        "position": {
-          "x": 1702.078126574358,
-          "y": 121.36154223045867
-        },
-        "positionAbsolute": {
-          "x": 1703.974189852056,
-          "y": 125.15366878585462
         },
         "resizing": false,
         "selected": false,
@@ -1337,10 +1281,6 @@
           "height": 653,
           "width": 320
         },
-        "position": {
-          "x": 1715.4141756503298,
-          "y": 434.13478201304184
-        },
         "selected": false,
         "type": "genericNode"
       },
@@ -1496,10 +1436,6 @@
         "measured": {
           "height": 465,
           "width": 320
-        },
-        "position": {
-          "x": 498.72695054312635,
-          "y": 554.4485732587549
         },
         "selected": false,
         "type": "genericNode"

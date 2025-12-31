@@ -23,12 +23,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-TextInput-eClq5{œdataTypeœ:œTextInputœ,œidœ:œTextInput-eClq5œ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-Prompt-AWZtN{œfieldNameœ:œCONTENT_GUIDELINESœ,œidœ:œPrompt-AWZtNœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-TextInput-eClq5{\u0153dataType\u0153:\u0153TextInput\u0153,\u0153id\u0153:\u0153TextInput-eClq5\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-AWZtN{\u0153fieldName\u0153:\u0153CONTENT_GUIDELINES\u0153,\u0153id\u0153:\u0153Prompt-AWZtN\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "TextInput-eClq5",
-        "sourceHandle": "{œdataTypeœ: œTextInputœ, œidœ: œTextInput-eClq5œ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153TextInput\u0153, \u0153id\u0153: \u0153TextInput-eClq5\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-AWZtN",
-        "targetHandle": "{œfieldNameœ: œCONTENT_GUIDELINESœ, œidœ: œPrompt-AWZtNœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153CONTENT_GUIDELINES\u0153, \u0153id\u0153: \u0153Prompt-AWZtN\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -52,12 +52,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-TextInput-IpoG7{œdataTypeœ:œTextInputœ,œidœ:œTextInput-IpoG7œ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-Prompt-AWZtN{œfieldNameœ:œOUTPUT_FORMATœ,œidœ:œPrompt-AWZtNœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-TextInput-IpoG7{\u0153dataType\u0153:\u0153TextInput\u0153,\u0153id\u0153:\u0153TextInput-IpoG7\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-AWZtN{\u0153fieldName\u0153:\u0153OUTPUT_FORMAT\u0153,\u0153id\u0153:\u0153Prompt-AWZtN\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "TextInput-IpoG7",
-        "sourceHandle": "{œdataTypeœ: œTextInputœ, œidœ: œTextInput-IpoG7œ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153TextInput\u0153, \u0153id\u0153: \u0153TextInput-IpoG7\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-AWZtN",
-        "targetHandle": "{œfieldNameœ: œOUTPUT_FORMATœ, œidœ: œPrompt-AWZtNœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153OUTPUT_FORMAT\u0153, \u0153id\u0153: \u0153Prompt-AWZtN\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -81,12 +81,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-TextInput-npraC{œdataTypeœ:œTextInputœ,œidœ:œTextInput-npraCœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-Prompt-AWZtN{œfieldNameœ:œOUTPUT_LANGUAGEœ,œidœ:œPrompt-AWZtNœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-TextInput-npraC{\u0153dataType\u0153:\u0153TextInput\u0153,\u0153id\u0153:\u0153TextInput-npraC\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-AWZtN{\u0153fieldName\u0153:\u0153OUTPUT_LANGUAGE\u0153,\u0153id\u0153:\u0153Prompt-AWZtN\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "TextInput-npraC",
-        "sourceHandle": "{œdataTypeœ: œTextInputœ, œidœ: œTextInput-npraCœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153TextInput\u0153, \u0153id\u0153: \u0153TextInput-npraC\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-AWZtN",
-        "targetHandle": "{œfieldNameœ: œOUTPUT_LANGUAGEœ, œidœ: œPrompt-AWZtNœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153OUTPUT_LANGUAGE\u0153, \u0153id\u0153: \u0153Prompt-AWZtN\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -110,12 +110,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-TextInput-EZaR7{œdataTypeœ:œTextInputœ,œidœ:œTextInput-EZaR7œ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-Prompt-AWZtN{œfieldNameœ:œPROFILE_DETAILSœ,œidœ:œPrompt-AWZtNœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-TextInput-EZaR7{\u0153dataType\u0153:\u0153TextInput\u0153,\u0153id\u0153:\u0153TextInput-EZaR7\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-AWZtN{\u0153fieldName\u0153:\u0153PROFILE_DETAILS\u0153,\u0153id\u0153:\u0153Prompt-AWZtN\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "TextInput-EZaR7",
-        "sourceHandle": "{œdataTypeœ: œTextInputœ, œidœ: œTextInput-EZaR7œ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153TextInput\u0153, \u0153id\u0153: \u0153TextInput-EZaR7\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-AWZtN",
-        "targetHandle": "{œfieldNameœ: œPROFILE_DETAILSœ, œidœ: œPrompt-AWZtNœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153PROFILE_DETAILS\u0153, \u0153id\u0153: \u0153Prompt-AWZtN\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -139,12 +139,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-TextInput-fKGcs{œdataTypeœ:œTextInputœ,œidœ:œTextInput-fKGcsœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-Prompt-AWZtN{œfieldNameœ:œPROFILE_TYPEœ,œidœ:œPrompt-AWZtNœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-TextInput-fKGcs{\u0153dataType\u0153:\u0153TextInput\u0153,\u0153id\u0153:\u0153TextInput-fKGcs\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-AWZtN{\u0153fieldName\u0153:\u0153PROFILE_TYPE\u0153,\u0153id\u0153:\u0153Prompt-AWZtN\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "TextInput-fKGcs",
-        "sourceHandle": "{œdataTypeœ: œTextInputœ, œidœ: œTextInput-fKGcsœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153TextInput\u0153, \u0153id\u0153: \u0153TextInput-fKGcs\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-AWZtN",
-        "targetHandle": "{œfieldNameœ: œPROFILE_TYPEœ, œidœ: œPrompt-AWZtNœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153PROFILE_TYPE\u0153, \u0153id\u0153: \u0153Prompt-AWZtN\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -168,12 +168,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-TextInput-92vEK{œdataTypeœ:œTextInputœ,œidœ:œTextInput-92vEKœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-Prompt-AWZtN{œfieldNameœ:œTONE_AND_STYLEœ,œidœ:œPrompt-AWZtNœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-TextInput-92vEK{\u0153dataType\u0153:\u0153TextInput\u0153,\u0153id\u0153:\u0153TextInput-92vEK\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-AWZtN{\u0153fieldName\u0153:\u0153TONE_AND_STYLE\u0153,\u0153id\u0153:\u0153Prompt-AWZtN\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "TextInput-92vEK",
-        "sourceHandle": "{œdataTypeœ: œTextInputœ, œidœ: œTextInput-92vEKœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153TextInput\u0153, \u0153id\u0153: \u0153TextInput-92vEK\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-AWZtN",
-        "targetHandle": "{œfieldNameœ: œTONE_AND_STYLEœ, œidœ: œPrompt-AWZtNœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153TONE_AND_STYLE\u0153, \u0153id\u0153: \u0153Prompt-AWZtN\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "className": "",
@@ -196,12 +196,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-ECcN8{œdataTypeœ:œChatInputœ,œidœ:œChatInput-ECcN8œ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-OpenAIModel-p0R9m{œfieldNameœ:œinput_valueœ,œidœ:œOpenAIModel-p0R9mœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-ECcN8{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-ECcN8\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-p0R9m{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153OpenAIModel-p0R9m\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ChatInput-ECcN8",
-        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-ECcN8œ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-ECcN8\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "OpenAIModel-p0R9m",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-p0R9mœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153OpenAIModel-p0R9m\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "className": "",
@@ -224,12 +224,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-AWZtN{œdataTypeœ:œPromptœ,œidœ:œPrompt-AWZtNœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-OpenAIModel-p0R9m{œfieldNameœ:œsystem_messageœ,œidœ:œOpenAIModel-p0R9mœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-AWZtN{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-AWZtN\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-p0R9m{\u0153fieldName\u0153:\u0153system_message\u0153,\u0153id\u0153:\u0153OpenAIModel-p0R9m\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Prompt-AWZtN",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-AWZtNœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-AWZtN\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "OpenAIModel-p0R9m",
-        "targetHandle": "{œfieldNameœ: œsystem_messageœ, œidœ: œOpenAIModel-p0R9mœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153system_message\u0153, \u0153id\u0153: \u0153OpenAIModel-p0R9m\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "className": "",
@@ -252,12 +252,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-OpenAIModel-p0R9m{œdataTypeœ:œOpenAIModelœ,œidœ:œOpenAIModel-p0R9mœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-0jDYx{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-0jDYxœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-OpenAIModel-p0R9m{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-p0R9m\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-0jDYx{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-0jDYx\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "OpenAIModel-p0R9m",
-        "sourceHandle": "{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-p0R9mœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIModel\u0153, \u0153id\u0153: \u0153OpenAIModel-p0R9m\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-0jDYx",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-0jDYxœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-0jDYx\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       }
     ],
     "nodes": [
@@ -547,14 +547,6 @@
           "height": 234,
           "width": 320
         },
-        "position": {
-          "x": 863.3241377184722,
-          "y": 1053.9324095084933
-        },
-        "positionAbsolute": {
-          "x": 863.3241377184722,
-          "y": 1053.9324095084933
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -651,14 +643,6 @@
         "measured": {
           "height": 234,
           "width": 320
-        },
-        "position": {
-          "x": 1300.291760633212,
-          "y": 417.7819626108867
-        },
-        "positionAbsolute": {
-          "x": 1300.291760633212,
-          "y": 417.7819626108867
         },
         "selected": false,
         "type": "genericNode",
@@ -942,14 +926,6 @@
           "height": 234,
           "width": 320
         },
-        "position": {
-          "x": 2451.4525968502526,
-          "y": 1049.1470151171268
-        },
-        "positionAbsolute": {
-          "x": 2470.223353127597,
-          "y": 1055.4039338762416
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -1046,14 +1022,6 @@
         "measured": {
           "height": 234,
           "width": 320
-        },
-        "position": {
-          "x": 1300.639277084099,
-          "y": 665.0274048594538
-        },
-        "positionAbsolute": {
-          "x": 1300.639277084099,
-          "y": 665.0274048594538
         },
         "selected": false,
         "type": "genericNode",
@@ -1152,14 +1120,6 @@
           "height": 234,
           "width": 320
         },
-        "position": {
-          "x": 1302.1321888373375,
-          "y": 910.3592488005739
-        },
-        "positionAbsolute": {
-          "x": 1302.1321888373375,
-          "y": 910.3592488005739
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -1256,14 +1216,6 @@
         "measured": {
           "height": 234,
           "width": 320
-        },
-        "position": {
-          "x": 1302.0774628387737,
-          "y": 1167.3244357663511
-        },
-        "positionAbsolute": {
-          "x": 1302.0774628387737,
-          "y": 1167.3244357663511
         },
         "selected": false,
         "type": "genericNode",
@@ -1362,14 +1314,6 @@
           "height": 234,
           "width": 320
         },
-        "position": {
-          "x": 1301.68182643676,
-          "y": 1699.978793221378
-        },
-        "positionAbsolute": {
-          "x": 1301.68182643676,
-          "y": 1699.978793221378
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -1467,14 +1411,6 @@
           "height": 234,
           "width": 320
         },
-        "position": {
-          "x": 1301.4778537945892,
-          "y": 1428.1749742780207
-        },
-        "positionAbsolute": {
-          "x": 1301.4778537945892,
-          "y": 1428.1749742780207
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -1483,7 +1419,7 @@
         "data": {
           "id": "note-OjsTI",
           "node": {
-            "description": "# Twitter Thread Generator\n\nWelcome to the Twitter Thread Generator! This flow helps you create compelling Twitter threads by transforming your structured inputs into engaging content.\n\n## Instructions\n\n1. Prepare Your Inputs\n   - Fill in the \"Context\" with your main message or story\n   - Define \"Content Guidelines\" for thread structure and style\n   - Specify \"Profile Type\" and \"Profile Details\" to reflect your brand identity\n   - Set \"Tone and Style\" to guide the communication approach\n   - Choose \"Output Format\" (thread) and desired language\n\n2. Configure the Prompt\n   - The flow uses a specialized prompt template to generate content\n   - Ensure all input fields are connected to the prompt node\n\n3. Run the Generation\n   - Execute the flow to process your inputs\n   - The OpenAI model will create the thread based on your specifications\n\n4. Review and Refine\n   - Examine the output in the Chat Output node\n   - If needed, adjust your inputs and re-run for better results\n\n5. Finalize and Post\n   - Once satisfied, copy the generated thread\n   - Post to Twitter, maintaining the structure and flow\n\nRemember: Be specific in your context and guidelines for the best results! 🚀\n",
+            "description": "# Twitter Thread Generator\n\nWelcome to the Twitter Thread Generator! This flow helps you create compelling Twitter threads by transforming your structured inputs into engaging content.\n\n## Instructions\n\n1. Prepare Your Inputs\n   - Fill in the \"Context\" with your main message or story\n   - Define \"Content Guidelines\" for thread structure and style\n   - Specify \"Profile Type\" and \"Profile Details\" to reflect your brand identity\n   - Set \"Tone and Style\" to guide the communication approach\n   - Choose \"Output Format\" (thread) and desired language\n\n2. Configure the Prompt\n   - The flow uses a specialized prompt template to generate content\n   - Ensure all input fields are connected to the prompt node\n\n3. Run the Generation\n   - Execute the flow to process your inputs\n   - The OpenAI model will create the thread based on your specifications\n\n4. Review and Refine\n   - Examine the output in the Chat Output node\n   - If needed, adjust your inputs and re-run for better results\n\n5. Finalize and Post\n   - Once satisfied, copy the generated thread\n   - Post to Twitter, maintaining the structure and flow\n\nRemember: Be specific in your context and guidelines for the best results! \ud83d\ude80\n",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -1498,14 +1434,6 @@
         "measured": {
           "height": 784,
           "width": 324
-        },
-        "position": {
-          "x": 675.0099418843004,
-          "y": 233.23451233469402
-        },
-        "positionAbsolute": {
-          "x": 675.0099418843004,
-          "y": 233.23451233469402
         },
         "resizing": false,
         "selected": false,
@@ -1776,14 +1704,6 @@
         "measured": {
           "height": 779,
           "width": 320
-        },
-        "position": {
-          "x": 1697.1682096049744,
-          "y": 675.4022940880462
-        },
-        "positionAbsolute": {
-          "x": 1697.1682096049744,
-          "y": 675.4022940880462
         },
         "selected": false,
         "type": "genericNode",
@@ -2165,10 +2085,6 @@
         "measured": {
           "height": 653,
           "width": 320
-        },
-        "position": {
-          "x": 2077.6929601219513,
-          "y": 749.5994771046013
         },
         "selected": false,
         "type": "genericNode"

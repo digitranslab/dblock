@@ -22,12 +22,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-OpenAIEmbeddings-jyvkr{œdataTypeœ:œOpenAIEmbeddingsœ,œidœ:œOpenAIEmbeddings-jyvkrœ,œnameœ:œembeddingsœ,œoutput_typesœ:[œEmbeddingsœ]}-AstraDBGraph-jr8pY{œfieldNameœ:œembedding_modelœ,œidœ:œAstraDBGraph-jr8pYœ,œinputTypesœ:[œEmbeddingsœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-OpenAIEmbeddings-jyvkr{\u0153dataType\u0153:\u0153OpenAIEmbeddings\u0153,\u0153id\u0153:\u0153OpenAIEmbeddings-jyvkr\u0153,\u0153name\u0153:\u0153embeddings\u0153,\u0153output_types\u0153:[\u0153Embeddings\u0153]}-AstraDBGraph-jr8pY{\u0153fieldName\u0153:\u0153embedding_model\u0153,\u0153id\u0153:\u0153AstraDBGraph-jr8pY\u0153,\u0153inputTypes\u0153:[\u0153Embeddings\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "OpenAIEmbeddings-jyvkr",
-        "sourceHandle": "{œdataTypeœ: œOpenAIEmbeddingsœ, œidœ: œOpenAIEmbeddings-jyvkrœ, œnameœ: œembeddingsœ, œoutput_typesœ: [œEmbeddingsœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIEmbeddings\u0153, \u0153id\u0153: \u0153OpenAIEmbeddings-jyvkr\u0153, \u0153name\u0153: \u0153embeddings\u0153, \u0153output_types\u0153: [\u0153Embeddings\u0153]}",
         "target": "AstraDBGraph-jr8pY",
-        "targetHandle": "{œfieldNameœ: œembedding_modelœ, œidœ: œAstraDBGraph-jr8pYœ, œinputTypesœ: [œEmbeddingsœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153embedding_model\u0153, \u0153id\u0153: \u0153AstraDBGraph-jr8pY\u0153, \u0153inputTypes\u0153: [\u0153Embeddings\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "animated": false,
@@ -51,12 +51,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-ZCSfi{œdataTypeœ:œChatInputœ,œidœ:œChatInput-ZCSfiœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-AstraDBGraph-jr8pY{œfieldNameœ:œsearch_queryœ,œidœ:œAstraDBGraph-jr8pYœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-ZCSfi{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-ZCSfi\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-AstraDBGraph-jr8pY{\u0153fieldName\u0153:\u0153search_query\u0153,\u0153id\u0153:\u0153AstraDBGraph-jr8pY\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ChatInput-ZCSfi",
-        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-ZCSfiœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-ZCSfi\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "AstraDBGraph-jr8pY",
-        "targetHandle": "{œfieldNameœ: œsearch_queryœ, œidœ: œAstraDBGraph-jr8pYœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153search_query\u0153, \u0153id\u0153: \u0153AstraDBGraph-jr8pY\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -79,12 +79,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-AstraDBGraph-jr8pY{œdataTypeœ:œAstraDBGraphœ,œidœ:œAstraDBGraph-jr8pYœ,œnameœ:œsearch_resultsœ,œoutput_typesœ:[œDataœ]}-ParseData-T6FGT{œfieldNameœ:œdataœ,œidœ:œParseData-T6FGTœ,œinputTypesœ:[œDataœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-AstraDBGraph-jr8pY{\u0153dataType\u0153:\u0153AstraDBGraph\u0153,\u0153id\u0153:\u0153AstraDBGraph-jr8pY\u0153,\u0153name\u0153:\u0153search_results\u0153,\u0153output_types\u0153:[\u0153Data\u0153]}-ParseData-T6FGT{\u0153fieldName\u0153:\u0153data\u0153,\u0153id\u0153:\u0153ParseData-T6FGT\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "AstraDBGraph-jr8pY",
-        "sourceHandle": "{œdataTypeœ: œAstraDBGraphœ, œidœ: œAstraDBGraph-jr8pYœ, œnameœ: œsearch_resultsœ, œoutput_typesœ: [œDataœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153AstraDBGraph\u0153, \u0153id\u0153: \u0153AstraDBGraph-jr8pY\u0153, \u0153name\u0153: \u0153search_results\u0153, \u0153output_types\u0153: [\u0153Data\u0153]}",
         "target": "ParseData-T6FGT",
-        "targetHandle": "{œfieldNameœ: œdataœ, œidœ: œParseData-T6FGTœ, œinputTypesœ: [œDataœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153data\u0153, \u0153id\u0153: \u0153ParseData-T6FGT\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "animated": false,
@@ -108,12 +108,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ParseData-T6FGT{œdataTypeœ:œParseDataœ,œidœ:œParseData-T6FGTœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-Prompt-2M2d5{œfieldNameœ:œcontextœ,œidœ:œPrompt-2M2d5œ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ParseData-T6FGT{\u0153dataType\u0153:\u0153ParseData\u0153,\u0153id\u0153:\u0153ParseData-T6FGT\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-2M2d5{\u0153fieldName\u0153:\u0153context\u0153,\u0153id\u0153:\u0153Prompt-2M2d5\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ParseData-T6FGT",
-        "sourceHandle": "{œdataTypeœ: œParseDataœ, œidœ: œParseData-T6FGTœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ParseData\u0153, \u0153id\u0153: \u0153ParseData-T6FGT\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-2M2d5",
-        "targetHandle": "{œfieldNameœ: œcontextœ, œidœ: œPrompt-2M2d5œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153context\u0153, \u0153id\u0153: \u0153Prompt-2M2d5\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -137,12 +137,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-ZCSfi{œdataTypeœ:œChatInputœ,œidœ:œChatInput-ZCSfiœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Prompt-2M2d5{œfieldNameœ:œquestionœ,œidœ:œPrompt-2M2d5œ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-ZCSfi{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-ZCSfi\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-2M2d5{\u0153fieldName\u0153:\u0153question\u0153,\u0153id\u0153:\u0153Prompt-2M2d5\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ChatInput-ZCSfi",
-        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-ZCSfiœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-ZCSfi\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-2M2d5",
-        "targetHandle": "{œfieldNameœ: œquestionœ, œidœ: œPrompt-2M2d5œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153question\u0153, \u0153id\u0153: \u0153Prompt-2M2d5\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -166,12 +166,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-2M2d5{œdataTypeœ:œPromptœ,œidœ:œPrompt-2M2d5œ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-OpenAIModel-a26gL{œfieldNameœ:œinput_valueœ,œidœ:œOpenAIModel-a26gLœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-2M2d5{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-2M2d5\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-a26gL{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153OpenAIModel-a26gL\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Prompt-2M2d5",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-2M2d5œ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-2M2d5\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "OpenAIModel-a26gL",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-a26gLœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153OpenAIModel-a26gL\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -195,12 +195,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-OpenAIModel-a26gL{œdataTypeœ:œOpenAIModelœ,œidœ:œOpenAIModel-a26gLœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-XL9ho{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-XL9hoœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-OpenAIModel-a26gL{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-a26gL\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-XL9ho{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-XL9ho\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "OpenAIModel-a26gL",
-        "sourceHandle": "{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-a26gLœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIModel\u0153, \u0153id\u0153: \u0153OpenAIModel-a26gL\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-XL9ho",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-XL9hoœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-XL9ho\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -224,12 +224,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-URL-fyWIL{œdataTypeœ:œURLœ,œidœ:œURL-fyWILœ,œnameœ:œdataœ,œoutput_typesœ:[œDataœ]}-LanguageRecursiveTextSplitter-jefpx{œfieldNameœ:œdata_inputœ,œidœ:œLanguageRecursiveTextSplitter-jefpxœ,œinputTypesœ:[œDocumentœ,œDataœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-URL-fyWIL{\u0153dataType\u0153:\u0153URL\u0153,\u0153id\u0153:\u0153URL-fyWIL\u0153,\u0153name\u0153:\u0153data\u0153,\u0153output_types\u0153:[\u0153Data\u0153]}-LanguageRecursiveTextSplitter-jefpx{\u0153fieldName\u0153:\u0153data_input\u0153,\u0153id\u0153:\u0153LanguageRecursiveTextSplitter-jefpx\u0153,\u0153inputTypes\u0153:[\u0153Document\u0153,\u0153Data\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "URL-fyWIL",
-        "sourceHandle": "{œdataTypeœ: œURLœ, œidœ: œURL-fyWILœ, œnameœ: œdataœ, œoutput_typesœ: [œDataœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153URL\u0153, \u0153id\u0153: \u0153URL-fyWIL\u0153, \u0153name\u0153: \u0153data\u0153, \u0153output_types\u0153: [\u0153Data\u0153]}",
         "target": "LanguageRecursiveTextSplitter-jefpx",
-        "targetHandle": "{œfieldNameœ: œdata_inputœ, œidœ: œLanguageRecursiveTextSplitter-jefpxœ, œinputTypesœ: [œDocumentœ, œDataœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153data_input\u0153, \u0153id\u0153: \u0153LanguageRecursiveTextSplitter-jefpx\u0153, \u0153inputTypes\u0153: [\u0153Document\u0153, \u0153Data\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "animated": false,
@@ -253,12 +253,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-LanguageRecursiveTextSplitter-jefpx{œdataTypeœ:œLanguageRecursiveTextSplitterœ,œidœ:œLanguageRecursiveTextSplitter-jefpxœ,œnameœ:œdataœ,œoutput_typesœ:[œDataœ]}-HtmlLinkExtractor-exHgk{œfieldNameœ:œdata_inputœ,œidœ:œHtmlLinkExtractor-exHgkœ,œinputTypesœ:[œDocumentœ,œDataœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-LanguageRecursiveTextSplitter-jefpx{\u0153dataType\u0153:\u0153LanguageRecursiveTextSplitter\u0153,\u0153id\u0153:\u0153LanguageRecursiveTextSplitter-jefpx\u0153,\u0153name\u0153:\u0153data\u0153,\u0153output_types\u0153:[\u0153Data\u0153]}-HtmlLinkExtractor-exHgk{\u0153fieldName\u0153:\u0153data_input\u0153,\u0153id\u0153:\u0153HtmlLinkExtractor-exHgk\u0153,\u0153inputTypes\u0153:[\u0153Document\u0153,\u0153Data\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "LanguageRecursiveTextSplitter-jefpx",
-        "sourceHandle": "{œdataTypeœ: œLanguageRecursiveTextSplitterœ, œidœ: œLanguageRecursiveTextSplitter-jefpxœ, œnameœ: œdataœ, œoutput_typesœ: [œDataœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153LanguageRecursiveTextSplitter\u0153, \u0153id\u0153: \u0153LanguageRecursiveTextSplitter-jefpx\u0153, \u0153name\u0153: \u0153data\u0153, \u0153output_types\u0153: [\u0153Data\u0153]}",
         "target": "HtmlLinkExtractor-exHgk",
-        "targetHandle": "{œfieldNameœ: œdata_inputœ, œidœ: œHtmlLinkExtractor-exHgkœ, œinputTypesœ: [œDocumentœ, œDataœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153data_input\u0153, \u0153id\u0153: \u0153HtmlLinkExtractor-exHgk\u0153, \u0153inputTypes\u0153: [\u0153Document\u0153, \u0153Data\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "animated": false,
@@ -281,12 +281,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-HtmlLinkExtractor-exHgk{œdataTypeœ:œHtmlLinkExtractorœ,œidœ:œHtmlLinkExtractor-exHgkœ,œnameœ:œdataœ,œoutput_typesœ:[œDataœ]}-AstraDBGraph-FX0tA{œfieldNameœ:œingest_dataœ,œidœ:œAstraDBGraph-FX0tAœ,œinputTypesœ:[œDataœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-HtmlLinkExtractor-exHgk{\u0153dataType\u0153:\u0153HtmlLinkExtractor\u0153,\u0153id\u0153:\u0153HtmlLinkExtractor-exHgk\u0153,\u0153name\u0153:\u0153data\u0153,\u0153output_types\u0153:[\u0153Data\u0153]}-AstraDBGraph-FX0tA{\u0153fieldName\u0153:\u0153ingest_data\u0153,\u0153id\u0153:\u0153AstraDBGraph-FX0tA\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "HtmlLinkExtractor-exHgk",
-        "sourceHandle": "{œdataTypeœ: œHtmlLinkExtractorœ, œidœ: œHtmlLinkExtractor-exHgkœ, œnameœ: œdataœ, œoutput_typesœ: [œDataœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153HtmlLinkExtractor\u0153, \u0153id\u0153: \u0153HtmlLinkExtractor-exHgk\u0153, \u0153name\u0153: \u0153data\u0153, \u0153output_types\u0153: [\u0153Data\u0153]}",
         "target": "AstraDBGraph-FX0tA",
-        "targetHandle": "{œfieldNameœ: œingest_dataœ, œidœ: œAstraDBGraph-FX0tAœ, œinputTypesœ: [œDataœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153ingest_data\u0153, \u0153id\u0153: \u0153AstraDBGraph-FX0tA\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "animated": false,
@@ -309,12 +309,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-OpenAIEmbeddings-83wEc{œdataTypeœ:œOpenAIEmbeddingsœ,œidœ:œOpenAIEmbeddings-83wEcœ,œnameœ:œembeddingsœ,œoutput_typesœ:[œEmbeddingsœ]}-AstraDBGraph-FX0tA{œfieldNameœ:œembedding_modelœ,œidœ:œAstraDBGraph-FX0tAœ,œinputTypesœ:[œEmbeddingsœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-OpenAIEmbeddings-83wEc{\u0153dataType\u0153:\u0153OpenAIEmbeddings\u0153,\u0153id\u0153:\u0153OpenAIEmbeddings-83wEc\u0153,\u0153name\u0153:\u0153embeddings\u0153,\u0153output_types\u0153:[\u0153Embeddings\u0153]}-AstraDBGraph-FX0tA{\u0153fieldName\u0153:\u0153embedding_model\u0153,\u0153id\u0153:\u0153AstraDBGraph-FX0tA\u0153,\u0153inputTypes\u0153:[\u0153Embeddings\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "OpenAIEmbeddings-83wEc",
-        "sourceHandle": "{œdataTypeœ: œOpenAIEmbeddingsœ, œidœ: œOpenAIEmbeddings-83wEcœ, œnameœ: œembeddingsœ, œoutput_typesœ: [œEmbeddingsœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIEmbeddings\u0153, \u0153id\u0153: \u0153OpenAIEmbeddings-83wEc\u0153, \u0153name\u0153: \u0153embeddings\u0153, \u0153output_types\u0153: [\u0153Embeddings\u0153]}",
         "target": "AstraDBGraph-FX0tA",
-        "targetHandle": "{œfieldNameœ: œembedding_modelœ, œidœ: œAstraDBGraph-FX0tAœ, œinputTypesœ: [œEmbeddingsœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153embedding_model\u0153, \u0153id\u0153: \u0153AstraDBGraph-FX0tA\u0153, \u0153inputTypes\u0153: [\u0153Embeddings\u0153], \u0153type\u0153: \u0153other\u0153}"
       }
     ],
     "nodes": [
@@ -612,14 +612,6 @@
           "height": 233,
           "width": 320
         },
-        "position": {
-          "x": -1800.3752844686821,
-          "y": 7028.578266524353
-        },
-        "positionAbsolute": {
-          "x": -1516.4270244619845,
-          "y": 6211.967942125529
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -688,7 +680,7 @@
               }
             ],
             "pinned": false,
-            "score": 0.000052003277518821525,
+            "score": 5.2003277518821525e-05,
             "template": {
               "_type": "Component",
               "chunk_size": {
@@ -1121,14 +1113,6 @@
         "measured": {
           "height": 320,
           "width": 320
-        },
-        "position": {
-          "x": -1794.2005649575194,
-          "y": 7363.047766731913
-        },
-        "positionAbsolute": {
-          "x": -1530.978455316274,
-          "y": 6600.325433283265
         },
         "selected": false,
         "type": "genericNode",
@@ -1664,10 +1648,6 @@
           "height": 631,
           "width": 320
         },
-        "position": {
-          "x": -1277.8700822899038,
-          "y": 7080.542929356194
-        },
         "selected": false,
         "type": "genericNode"
       },
@@ -1822,10 +1802,6 @@
         "measured": {
           "height": 341,
           "width": 320
-        },
-        "position": {
-          "x": -711.6072978271402,
-          "y": 7008.616446963303
         },
         "selected": false,
         "type": "genericNode"
@@ -1992,10 +1968,6 @@
         "measured": {
           "height": 419,
           "width": 320
-        },
-        "position": {
-          "x": -241.95389238895368,
-          "y": 7132.715577428476
         },
         "selected": false,
         "type": "genericNode"
@@ -2354,10 +2326,6 @@
           "height": 653,
           "width": 320
         },
-        "position": {
-          "x": 317.8221390146513,
-          "y": 7078.366528905622
-        },
         "selected": false,
         "type": "genericNode"
       },
@@ -2636,10 +2604,6 @@
           "height": 229,
           "width": 320
         },
-        "position": {
-          "x": 804.9181649370599,
-          "y": 7243.316205548675
-        },
         "selected": false,
         "type": "genericNode"
       },
@@ -2804,10 +2768,6 @@
         "measured": {
           "height": 1065,
           "width": 320
-        },
-        "position": {
-          "x": -1742.8952423980936,
-          "y": 5868.349789218463
         },
         "selected": false,
         "type": "genericNode"
@@ -3340,10 +3300,6 @@
           "height": 631,
           "width": 320
         },
-        "position": {
-          "x": 16.3856689286402,
-          "y": 5909.200823867262
-        },
         "selected": false,
         "type": "genericNode"
       },
@@ -3527,10 +3483,6 @@
           "height": 457,
           "width": 320
         },
-        "position": {
-          "x": -1312.6794416503267,
-          "y": 5995.335519138236
-        },
         "selected": false,
         "type": "genericNode"
       },
@@ -3669,10 +3621,6 @@
           "height": 315,
           "width": 320
         },
-        "position": {
-          "x": -819.2825457919793,
-          "y": 6116.365935466731
-        },
         "selected": false,
         "type": "genericNode"
       },
@@ -3741,7 +3689,7 @@
               }
             ],
             "pinned": false,
-            "score": 0.000052003277518821525,
+            "score": 5.2003277518821525e-05,
             "template": {
               "_type": "Component",
               "chunk_size": {
@@ -4186,10 +4134,6 @@
           "height": 311,
           "width": 320
         },
-        "position": {
-          "x": -826.5880014143661,
-          "y": 6515.86676043142
-        },
         "selected": false,
         "type": "genericNode"
       },
@@ -4197,7 +4141,7 @@
         "data": {
           "id": "note-apIHZ",
           "node": {
-            "description": "## 📖 README\n\nLoad your data into a vector database with the 📚 **Load Data** flow, and then use your data as chat context with the 🐕 **Retriever** flow.\n\n**🚨 Add your OpenAI API key as a global variable to easily add it to all of the OpenAI components in this flow.** \n\n**Quick start**\n1. Run the 📚 **Load Data** flow.\n2. Run the 🐕 **Retriever** flow.\n\n**Next steps** \n\n- Experiment by changing the prompt and the loaded data to see how the bot's responses change. ",
+            "description": "## \ud83d\udcd6 README\n\nLoad your data into a vector database with the \ud83d\udcda **Load Data** flow, and then use your data as chat context with the \ud83d\udc15 **Retriever** flow.\n\n**\ud83d\udea8 Add your OpenAI API key as a global variable to easily add it to all of the OpenAI components in this flow.** \n\n**Quick start**\n1. Run the \ud83d\udcda **Load Data** flow.\n2. Run the \ud83d\udc15 **Retriever** flow.\n\n**Next steps** \n\n- Experiment by changing the prompt and the loaded data to see how the bot's responses change. ",
             "display_name": "",
             "documentation": "",
             "template": {}
@@ -4211,10 +4155,6 @@
           "height": 692,
           "width": 325
         },
-        "position": {
-          "x": -2651.9749287591367,
-          "y": 6278.741596879104
-        },
         "resizing": false,
         "selected": false,
         "type": "noteNode",
@@ -4224,7 +4164,7 @@
         "data": {
           "id": "note-iCo8f",
           "node": {
-            "description": "## 📚 1. Load Data Flow\n\nRun this first! Load data multiple urls, and embed it into the vector database in a graph based format.\n\nClick ▶️ **Run component** on the **Astra DB Graph** component to load your data.\n\n* If you're using OSS Kozmoai, add your Astra DB Application Token to the Astra DB component.\n\n#### Next steps:\n Experiment by changing the prompt and the contextual data to see how the retrieval flow's responses change.",
+            "description": "## \ud83d\udcda 1. Load Data Flow\n\nRun this first! Load data multiple urls, and embed it into the vector database in a graph based format.\n\nClick \u25b6\ufe0f **Run component** on the **Astra DB Graph** component to load your data.\n\n* If you're using OSS Kozmoai, add your Astra DB Application Token to the Astra DB component.\n\n#### Next steps:\n Experiment by changing the prompt and the contextual data to see how the retrieval flow's responses change.",
             "display_name": "",
             "documentation": "",
             "template": {}
@@ -4238,10 +4178,6 @@
           "height": 499,
           "width": 326
         },
-        "position": {
-          "x": -2156.877891666127,
-          "y": 5887.194729165318
-        },
         "resizing": false,
         "selected": false,
         "type": "noteNode",
@@ -4251,7 +4187,7 @@
         "data": {
           "id": "note-d8rkI",
           "node": {
-            "description": "## 🐕 2. Retriever Flow\n\nThis flow answers your questions with contextual data retrieved from your vector database. using graph RAG.\n\nOpen the **Playground** and ask, \n\n```\nhow to create a function in Haskell ?\n```\n",
+            "description": "## \ud83d\udc15 2. Retriever Flow\n\nThis flow answers your questions with contextual data retrieved from your vector database. using graph RAG.\n\nOpen the **Playground** and ask, \n\n```\nhow to create a function in Haskell ?\n```\n",
             "display_name": "",
             "documentation": "",
             "template": {}
@@ -4263,10 +4199,6 @@
         "measured": {
           "height": 324,
           "width": 324
-        },
-        "position": {
-          "x": -2255.4854518934735,
-          "y": 7190.4854518934735
         },
         "selected": false,
         "type": "noteNode"

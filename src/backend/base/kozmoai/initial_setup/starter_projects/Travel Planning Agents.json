@@ -23,11 +23,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Agent-8PETJ{œdataTypeœ:œAgentœ,œidœ:œAgent-8PETJœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-1fycm{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-1fycmœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Agent-8PETJ{\u0153dataType\u0153:\u0153Agent\u0153,\u0153id\u0153:\u0153Agent-8PETJ\u0153,\u0153name\u0153:\u0153response\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-1fycm{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-1fycm\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "Agent-8PETJ",
-        "sourceHandle": "{œdataTypeœ: œAgentœ, œidœ: œAgent-8PETJœ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Agent\u0153, \u0153id\u0153: \u0153Agent-8PETJ\u0153, \u0153name\u0153: \u0153response\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-1fycm",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-1fycmœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-1fycm\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -51,11 +51,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Agent-Mb2Ep{œdataTypeœ:œAgentœ,œidœ:œAgent-Mb2Epœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-Agent-8PETJ{œfieldNameœ:œinput_valueœ,œidœ:œAgent-8PETJœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Agent-Mb2Ep{\u0153dataType\u0153:\u0153Agent\u0153,\u0153id\u0153:\u0153Agent-Mb2Ep\u0153,\u0153name\u0153:\u0153response\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Agent-8PETJ{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153Agent-8PETJ\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "Agent-Mb2Ep",
-        "sourceHandle": "{œdataTypeœ: œAgentœ, œidœ: œAgent-Mb2Epœ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Agent\u0153, \u0153id\u0153: \u0153Agent-Mb2Ep\u0153, \u0153name\u0153: \u0153response\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Agent-8PETJ",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAgent-8PETJœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153Agent-8PETJ\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -79,11 +79,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Agent-VEG7r{œdataTypeœ:œAgentœ,œidœ:œAgent-VEG7rœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-Agent-Mb2Ep{œfieldNameœ:œinput_valueœ,œidœ:œAgent-Mb2Epœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Agent-VEG7r{\u0153dataType\u0153:\u0153Agent\u0153,\u0153id\u0153:\u0153Agent-VEG7r\u0153,\u0153name\u0153:\u0153response\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Agent-Mb2Ep{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153Agent-Mb2Ep\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "Agent-VEG7r",
-        "sourceHandle": "{œdataTypeœ: œAgentœ, œidœ: œAgent-VEG7rœ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Agent\u0153, \u0153id\u0153: \u0153Agent-VEG7r\u0153, \u0153name\u0153: \u0153response\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Agent-Mb2Ep",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAgent-Mb2Epœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153Agent-Mb2Ep\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -107,11 +107,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-Nbu0b{œdataTypeœ:œChatInputœ,œidœ:œChatInput-Nbu0bœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Agent-VEG7r{œfieldNameœ:œinput_valueœ,œidœ:œAgent-VEG7rœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-Nbu0b{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-Nbu0b\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Agent-VEG7r{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153Agent-VEG7r\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "source": "ChatInput-Nbu0b",
-        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-Nbu0bœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-Nbu0b\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Agent-VEG7r",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAgent-VEG7rœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153Agent-VEG7r\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "animated": false,
@@ -134,11 +134,11 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-URL-hJKTA{œdataTypeœ:œURLœ,œidœ:œURL-hJKTAœ,œnameœ:œcomponent_as_toolœ,œoutput_typesœ:[œToolœ]}-Agent-Mb2Ep{œfieldNameœ:œtoolsœ,œidœ:œAgent-Mb2Epœ,œinputTypesœ:[œToolœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-URL-hJKTA{\u0153dataType\u0153:\u0153URL\u0153,\u0153id\u0153:\u0153URL-hJKTA\u0153,\u0153name\u0153:\u0153component_as_tool\u0153,\u0153output_types\u0153:[\u0153Tool\u0153]}-Agent-Mb2Ep{\u0153fieldName\u0153:\u0153tools\u0153,\u0153id\u0153:\u0153Agent-Mb2Ep\u0153,\u0153inputTypes\u0153:[\u0153Tool\u0153],\u0153type\u0153:\u0153other\u0153}",
         "source": "URL-hJKTA",
-        "sourceHandle": "{œdataTypeœ: œURLœ, œidœ: œURL-hJKTAœ, œnameœ: œcomponent_as_toolœ, œoutput_typesœ: [œToolœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153URL\u0153, \u0153id\u0153: \u0153URL-hJKTA\u0153, \u0153name\u0153: \u0153component_as_tool\u0153, \u0153output_types\u0153: [\u0153Tool\u0153]}",
         "target": "Agent-Mb2Ep",
-        "targetHandle": "{œfieldNameœ: œtoolsœ, œidœ: œAgent-Mb2Epœ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153tools\u0153, \u0153id\u0153: \u0153Agent-Mb2Ep\u0153, \u0153inputTypes\u0153: [\u0153Tool\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "animated": false,
@@ -161,11 +161,11 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-CalculatorComponent-T0153{œdataTypeœ:œCalculatorComponentœ,œidœ:œCalculatorComponent-T0153œ,œnameœ:œcomponent_as_toolœ,œoutput_typesœ:[œToolœ]}-Agent-8PETJ{œfieldNameœ:œtoolsœ,œidœ:œAgent-8PETJœ,œinputTypesœ:[œToolœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-CalculatorComponent-T0153{\u0153dataType\u0153:\u0153CalculatorComponent\u0153,\u0153id\u0153:\u0153CalculatorComponent-T0153\u0153,\u0153name\u0153:\u0153component_as_tool\u0153,\u0153output_types\u0153:[\u0153Tool\u0153]}-Agent-8PETJ{\u0153fieldName\u0153:\u0153tools\u0153,\u0153id\u0153:\u0153Agent-8PETJ\u0153,\u0153inputTypes\u0153:[\u0153Tool\u0153],\u0153type\u0153:\u0153other\u0153}",
         "source": "CalculatorComponent-T0153",
-        "sourceHandle": "{œdataTypeœ: œCalculatorComponentœ, œidœ: œCalculatorComponent-T0153œ, œnameœ: œcomponent_as_toolœ, œoutput_typesœ: [œToolœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153CalculatorComponent\u0153, \u0153id\u0153: \u0153CalculatorComponent-T0153\u0153, \u0153name\u0153: \u0153component_as_tool\u0153, \u0153output_types\u0153: [\u0153Tool\u0153]}",
         "target": "Agent-8PETJ",
-        "targetHandle": "{œfieldNameœ: œtoolsœ, œidœ: œAgent-8PETJœ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153tools\u0153, \u0153id\u0153: \u0153Agent-8PETJ\u0153, \u0153inputTypes\u0153: [\u0153Tool\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "animated": false,
@@ -188,11 +188,11 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-SearchComponent-a9OCR{œdataTypeœ:œSearchComponentœ,œidœ:œSearchComponent-a9OCRœ,œnameœ:œcomponent_as_toolœ,œoutput_typesœ:[œToolœ]}-Agent-VEG7r{œfieldNameœ:œtoolsœ,œidœ:œAgent-VEG7rœ,œinputTypesœ:[œToolœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-SearchComponent-a9OCR{\u0153dataType\u0153:\u0153SearchComponent\u0153,\u0153id\u0153:\u0153SearchComponent-a9OCR\u0153,\u0153name\u0153:\u0153component_as_tool\u0153,\u0153output_types\u0153:[\u0153Tool\u0153]}-Agent-VEG7r{\u0153fieldName\u0153:\u0153tools\u0153,\u0153id\u0153:\u0153Agent-VEG7r\u0153,\u0153inputTypes\u0153:[\u0153Tool\u0153],\u0153type\u0153:\u0153other\u0153}",
         "source": "SearchComponent-a9OCR",
-        "sourceHandle": "{œdataTypeœ: œSearchComponentœ, œidœ: œSearchComponent-a9OCRœ, œnameœ: œcomponent_as_toolœ, œoutput_typesœ: [œToolœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153SearchComponent\u0153, \u0153id\u0153: \u0153SearchComponent-a9OCR\u0153, \u0153name\u0153: \u0153component_as_tool\u0153, \u0153output_types\u0153: [\u0153Tool\u0153]}",
         "target": "Agent-VEG7r",
-        "targetHandle": "{œfieldNameœ: œtoolsœ, œidœ: œAgent-VEG7rœ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153tools\u0153, \u0153id\u0153: \u0153Agent-VEG7r\u0153, \u0153inputTypes\u0153: [\u0153Tool\u0153], \u0153type\u0153: \u0153other\u0153}"
       }
     ],
     "nodes": [
@@ -364,7 +364,7 @@
                 "trace_as_input": true,
                 "trace_as_metadata": true,
                 "type": "str",
-                "value": "Create a travel itinerary for a trip from São Paulo to Uberlândia, MG on August 23, 2024. The traveler enjoys drinking beer, eating pão de queijo, and drinking special coffee."
+                "value": "Create a travel itinerary for a trip from S\u00e3o Paulo to Uberl\u00e2ndia, MG on August 23, 2024. The traveler enjoys drinking beer, eating p\u00e3o de queijo, and drinking special coffee."
               },
               "sender": {
                 "_input_type": "DropdownInput",
@@ -478,14 +478,6 @@
         "measured": {
           "height": 262,
           "width": 320
-        },
-        "position": {
-          "x": 1756.77096149088,
-          "y": 292.73476765276695
-        },
-        "positionAbsolute": {
-          "x": 1756.77096149088,
-          "y": 292.73476765276695
         },
         "selected": false,
         "type": "genericNode",
@@ -768,14 +760,6 @@
         "measured": {
           "height": 262,
           "width": 320
-        },
-        "position": {
-          "x": 4349.229697347143,
-          "y": 620.5490494265098
-        },
-        "positionAbsolute": {
-          "x": 4349.229697347143,
-          "y": 620.5490494265098
         },
         "selected": false,
         "type": "genericNode",
@@ -1395,14 +1379,6 @@
           "height": 725,
           "width": 320
         },
-        "position": {
-          "x": 2472.7748760933105,
-          "y": 335.66187210240537
-        },
-        "positionAbsolute": {
-          "x": 2472.7748760933105,
-          "y": 335.66187210240537
-        },
         "selected": false,
         "type": "genericNode",
         "width": 360
@@ -2020,14 +1996,6 @@
         "measured": {
           "height": 725,
           "width": 320
-        },
-        "position": {
-          "x": 3185.66991544494,
-          "y": 355.95841004876377
-        },
-        "positionAbsolute": {
-          "x": 3185.66991544494,
-          "y": 355.95841004876377
         },
         "selected": false,
         "type": "genericNode",
@@ -2647,14 +2615,6 @@
           "height": 725,
           "width": 320
         },
-        "position": {
-          "x": 3889.695953842898,
-          "y": 370.3161168611889
-        },
-        "positionAbsolute": {
-          "x": 3889.695953842898,
-          "y": 370.3161168611889
-        },
         "selected": false,
         "type": "genericNode",
         "width": 360
@@ -2663,7 +2623,7 @@
         "data": {
           "id": "note-qGsTQ",
           "node": {
-            "description": "# Travel Planning Agents \n\nThe travel planning system is a smart setup that uses several specialized \"agents\" to help plan incredible trips. Imagine each agent as a travel expert focusing on a part of your journey. Here's how it works:\n\n- **User-Friendly Start:** You start by telling the system about your travel needs—where you want to go and what you love to do.\n\n- **Data Collection:** The agents uses its tools to gather current info about various destinations, like the best travel times, weather, and costs.\n\n- **Three Key Agents:**\n  - **City Selection Agent:** Picks the best places to visit based on your likes and current data.\n  - **Local Expert Agent:** Gathers interesting details about what to do and see in the chosen city.\n  - **Travel Concierge Agent:** Builds a day-by-day plan that includes where to stay, eat, and explore!\n\n- **Tools and Data:** Each agent uses tools to find and organize the latest information so you get recommendations that are both accurate and exciting.\n\n- **Final Plan:** Once everything is put together, you receive a complete, easy-to-follow travel itinerary, perfect for your adventure!\n",
+            "description": "# Travel Planning Agents \n\nThe travel planning system is a smart setup that uses several specialized \"agents\" to help plan incredible trips. Imagine each agent as a travel expert focusing on a part of your journey. Here's how it works:\n\n- **User-Friendly Start:** You start by telling the system about your travel needs\u2014where you want to go and what you love to do.\n\n- **Data Collection:** The agents uses its tools to gather current info about various destinations, like the best travel times, weather, and costs.\n\n- **Three Key Agents:**\n  - **City Selection Agent:** Picks the best places to visit based on your likes and current data.\n  - **Local Expert Agent:** Gathers interesting details about what to do and see in the chosen city.\n  - **Travel Concierge Agent:** Builds a day-by-day plan that includes where to stay, eat, and explore!\n\n- **Tools and Data:** Each agent uses tools to find and organize the latest information so you get recommendations that are both accurate and exciting.\n\n- **Final Plan:** Once everything is put together, you receive a complete, easy-to-follow travel itinerary, perfect for your adventure!\n",
             "display_name": "",
             "documentation": "",
             "template": {}
@@ -2676,14 +2636,6 @@
         "measured": {
           "height": 603,
           "width": 325
-        },
-        "position": {
-          "x": 1319.2860379588103,
-          "y": 326.7874015110789
-        },
-        "positionAbsolute": {
-          "x": 1076.3710803600266,
-          "y": 92.06058855045646
         },
         "resizing": false,
         "selected": true,
@@ -2714,14 +2666,6 @@
           "height": 334,
           "width": 325
         },
-        "position": {
-          "x": 2122.4146132377227,
-          "y": 485.2212661145467
-        },
-        "positionAbsolute": {
-          "x": 2122.4146132377227,
-          "y": 485.2212661145467
-        },
         "resizing": false,
         "selected": false,
         "style": {
@@ -2750,14 +2694,6 @@
         "measured": {
           "height": 342,
           "width": 325
-        },
-        "position": {
-          "x": 2827.660803823376,
-          "y": 488.6092281195304
-        },
-        "positionAbsolute": {
-          "x": 2827.660803823376,
-          "y": 488.6092281195304
         },
         "resizing": false,
         "selected": false,
@@ -2788,14 +2724,6 @@
           "height": 336,
           "width": 325
         },
-        "position": {
-          "x": 3536.084279543714,
-          "y": 496.3155992003396
-        },
-        "positionAbsolute": {
-          "x": 3536.084279543714,
-          "y": 496.3155992003396
-        },
         "resizing": false,
         "selected": false,
         "style": {
@@ -2824,14 +2752,6 @@
         "measured": {
           "height": 324,
           "width": 325
-        },
-        "position": {
-          "x": 2463.3881993480218,
-          "y": 42.83594355441298
-        },
-        "positionAbsolute": {
-          "x": 2463.3881993480218,
-          "y": 42.83594355441298
         },
         "resizing": false,
         "selected": false,
@@ -3062,10 +2982,6 @@
           "height": 403,
           "width": 320
         },
-        "position": {
-          "x": 2829.4526852839367,
-          "y": 956.7694697088367
-        },
         "selected": false,
         "type": "genericNode"
       },
@@ -3252,10 +3168,6 @@
         "measured": {
           "height": 333,
           "width": 320
-        },
-        "position": {
-          "x": 3540.356346381247,
-          "y": 989.3563951826354
         },
         "selected": false,
         "type": "genericNode"
@@ -3554,10 +3466,6 @@
         "measured": {
           "height": 477,
           "width": 320
-        },
-        "position": {
-          "x": 2089.0393126914205,
-          "y": 864.3967489854795
         },
         "selected": false,
         "type": "genericNode"

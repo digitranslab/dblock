@@ -21,12 +21,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-File-GwJQZ{œdataTypeœ:œFileœ,œidœ:œFile-GwJQZœ,œnameœ:œdataœ,œoutput_typesœ:[œDataœ]}-ParseData-BbvKb{œfieldNameœ:œdataœ,œidœ:œParseData-BbvKbœ,œinputTypesœ:[œDataœ],œtypeœ:œotherœ}",
+        "id": "reactflow__edge-File-GwJQZ{\u0153dataType\u0153:\u0153File\u0153,\u0153id\u0153:\u0153File-GwJQZ\u0153,\u0153name\u0153:\u0153data\u0153,\u0153output_types\u0153:[\u0153Data\u0153]}-ParseData-BbvKb{\u0153fieldName\u0153:\u0153data\u0153,\u0153id\u0153:\u0153ParseData-BbvKb\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153],\u0153type\u0153:\u0153other\u0153}",
         "selected": false,
         "source": "File-GwJQZ",
-        "sourceHandle": "{œdataTypeœ: œFileœ, œidœ: œFile-GwJQZœ, œnameœ: œdataœ, œoutput_typesœ: [œDataœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153File\u0153, \u0153id\u0153: \u0153File-GwJQZ\u0153, \u0153name\u0153: \u0153data\u0153, \u0153output_types\u0153: [\u0153Data\u0153]}",
         "target": "ParseData-BbvKb",
-        "targetHandle": "{œfieldNameœ: œdataœ, œidœ: œParseData-BbvKbœ, œinputTypesœ: [œDataœ], œtypeœ: œotherœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153data\u0153, \u0153id\u0153: \u0153ParseData-BbvKb\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153], \u0153type\u0153: \u0153other\u0153}"
       },
       {
         "className": "",
@@ -49,12 +49,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ParseData-BbvKb{œdataTypeœ:œParseDataœ,œidœ:œParseData-BbvKbœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-Prompt-yvZHT{œfieldNameœ:œDocumentœ,œidœ:œPrompt-yvZHTœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ParseData-BbvKb{\u0153dataType\u0153:\u0153ParseData\u0153,\u0153id\u0153:\u0153ParseData-BbvKb\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-yvZHT{\u0153fieldName\u0153:\u0153Document\u0153,\u0153id\u0153:\u0153Prompt-yvZHT\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ParseData-BbvKb",
-        "sourceHandle": "{œdataTypeœ: œParseDataœ, œidœ: œParseData-BbvKbœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ParseData\u0153, \u0153id\u0153: \u0153ParseData-BbvKb\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "Prompt-yvZHT",
-        "targetHandle": "{œfieldNameœ: œDocumentœ, œidœ: œPrompt-yvZHTœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153Document\u0153, \u0153id\u0153: \u0153Prompt-yvZHT\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "className": "",
@@ -77,12 +77,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-li477{œdataTypeœ:œChatInputœ,œidœ:œChatInput-li477œ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-OpenAIModel-atkmo{œfieldNameœ:œinput_valueœ,œidœ:œOpenAIModel-atkmoœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-ChatInput-li477{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-li477\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-atkmo{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153OpenAIModel-atkmo\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "ChatInput-li477",
-        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-li477œ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-li477\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "OpenAIModel-atkmo",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-atkmoœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153OpenAIModel-atkmo\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "className": "",
@@ -105,12 +105,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-yvZHT{œdataTypeœ:œPromptœ,œidœ:œPrompt-yvZHTœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-OpenAIModel-atkmo{œfieldNameœ:œsystem_messageœ,œidœ:œOpenAIModel-atkmoœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-Prompt-yvZHT{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-yvZHT\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-atkmo{\u0153fieldName\u0153:\u0153system_message\u0153,\u0153id\u0153:\u0153OpenAIModel-atkmo\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "Prompt-yvZHT",
-        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-yvZHTœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-yvZHT\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "OpenAIModel-atkmo",
-        "targetHandle": "{œfieldNameœ: œsystem_messageœ, œidœ: œOpenAIModel-atkmoœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153system_message\u0153, \u0153id\u0153: \u0153OpenAIModel-atkmo\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       },
       {
         "className": "",
@@ -133,12 +133,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-OpenAIModel-atkmo{œdataTypeœ:œOpenAIModelœ,œidœ:œOpenAIModel-atkmoœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-8pgwS{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-8pgwSœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "reactflow__edge-OpenAIModel-atkmo{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-atkmo\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-8pgwS{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-8pgwS\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
         "selected": false,
         "source": "OpenAIModel-atkmo",
-        "sourceHandle": "{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-atkmoœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
+        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIModel\u0153, \u0153id\u0153: \u0153OpenAIModel-atkmo\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
         "target": "ChatOutput-8pgwS",
-        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-8pgwSœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
+        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-8pgwS\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
       }
     ],
     "nodes": [
@@ -420,14 +420,6 @@
         "measured": {
           "height": 234,
           "width": 320
-        },
-        "position": {
-          "x": 516.7529480335185,
-          "y": 237.04967879541528
-        },
-        "positionAbsolute": {
-          "x": 516.7529480335185,
-          "y": 237.04967879541528
         },
         "selected": false,
         "type": "genericNode",
@@ -711,14 +703,6 @@
           "height": 234,
           "width": 320
         },
-        "position": {
-          "x": 1631.3766926569258,
-          "y": 136.66509468115308
-        },
-        "positionAbsolute": {
-          "x": 1631.3766926569258,
-          "y": 136.66509468115308
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -867,14 +851,6 @@
           "height": 302,
           "width": 320
         },
-        "position": {
-          "x": 514.8054600415829,
-          "y": -117.1921617826383
-        },
-        "positionAbsolute": {
-          "x": 514.8054600415829,
-          "y": -117.1921617826383
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -899,14 +875,6 @@
           "height": 324,
           "width": 325
         },
-        "position": {
-          "x": 1253.2038187140245,
-          "y": -421.5721019678553
-        },
-        "positionAbsolute": {
-          "x": 1253.2038187140245,
-          "y": -421.5721019678553
-        },
         "selected": false,
         "type": "noteNode",
         "width": 325
@@ -928,14 +896,6 @@
         "measured": {
           "height": 408,
           "width": 325
-        },
-        "position": {
-          "x": -338.7070086205371,
-          "y": -177.11912020709357
-        },
-        "positionAbsolute": {
-          "x": -338.7070086205371,
-          "y": -177.11912020709357
         },
         "resizing": false,
         "selected": false,
@@ -1178,14 +1138,6 @@
           "height": 232,
           "width": 320
         },
-        "position": {
-          "x": 150.6029945346864,
-          "y": -88.71582365936283
-        },
-        "positionAbsolute": {
-          "x": 155.39382083637838,
-          "y": -82.32805525710685
-        },
         "selected": false,
         "type": "genericNode",
         "width": 320
@@ -1334,14 +1286,6 @@
         "measured": {
           "height": 347,
           "width": 320
-        },
-        "position": {
-          "x": 882.4192413332464,
-          "y": -63.08797684105531
-        },
-        "positionAbsolute": {
-          "x": 895.1947781377585,
-          "y": -59.89409263992732
         },
         "selected": false,
         "type": "genericNode",
@@ -1723,10 +1667,6 @@
         "measured": {
           "height": 653,
           "width": 320
-        },
-        "position": {
-          "x": 1257.1422612381514,
-          "y": -99.92567023810267
         },
         "selected": false,
         "type": "genericNode"
