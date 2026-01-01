@@ -1,47 +1,50 @@
 AWS_MODEL_IDs = [
-    # Amazon Titan Models
-    "amazon.titan-text-express-v1",
-    "amazon.titan-text-lite-v1",
-    "amazon.titan-text-premier-v1:0",
-    # Anthropic Models
-    "anthropic.claude-v2",
-    "anthropic.claude-v2:1",
-    "anthropic.claude-3-sonnet-20240229-v1:0",
-    "anthropic.claude-3-5-sonnet-20240620-v1:0",
+    # Anthropic Claude 4 Models (Latest)
+    "anthropic.claude-sonnet-4-20250514-v1:0",
+    "anthropic.claude-opus-4-20250514-v1:0",
+    # Anthropic Claude 3.5 Models
     "anthropic.claude-3-5-sonnet-20241022-v2:0",
-    "anthropic.claude-3-haiku-20240307-v1:0",
+    "anthropic.claude-3-5-sonnet-20240620-v1:0",
     "anthropic.claude-3-5-haiku-20241022-v1:0",
+    # Anthropic Claude 3 Models
     "anthropic.claude-3-opus-20240229-v1:0",
-    "anthropic.claude-instant-v1",
-    # AI21 Labs Models
-    "ai21.jamba-instruct-v1:0",
-    "ai21.j2-mid-v1",
-    "ai21.j2-ultra-v1",
-    "ai21.jamba-1-5-large-v1:0",
-    "ai21.jamba-1-5-mini-v1:0",
-    # Cohere Models
-    "cohere.command-text-v14",
-    "cohere.command-light-text-v14",
-    "cohere.command-r-v1:0",
-    "cohere.command-r-plus-v1:0",
-    # Meta Models
-    "meta.llama2-13b-chat-v1",
-    "meta.llama2-70b-chat-v1",
-    "meta.llama3-8b-instruct-v1:0",
-    "meta.llama3-70b-instruct-v1:0",
-    "meta.llama3-1-8b-instruct-v1:0",
-    "meta.llama3-1-70b-instruct-v1:0",
-    "meta.llama3-1-405b-instruct-v1:0",
+    "anthropic.claude-3-sonnet-20240229-v1:0",
+    "anthropic.claude-3-haiku-20240307-v1:0",
+    # Meta Llama 4 Models
+    "meta.llama4-maverick-17b-instruct-v1:0",
+    "meta.llama4-scout-17b-instruct-v1:0",
+    # Meta Llama 3.3 Models
+    "meta.llama3-3-70b-instruct-v1:0",
+    # Meta Llama 3.2 Models
     "meta.llama3-2-1b-instruct-v1:0",
     "meta.llama3-2-3b-instruct-v1:0",
     "meta.llama3-2-11b-instruct-v1:0",
     "meta.llama3-2-90b-instruct-v1:0",
-    # Mistral AI Models
-    "mistral.mistral-7b-instruct-v0:2",
-    "mistral.mixtral-8x7b-instruct-v0:1",
-    "mistral.mistral-large-2402-v1:0",
+    # Meta Llama 3.1 Models
+    "meta.llama3-1-8b-instruct-v1:0",
+    "meta.llama3-1-70b-instruct-v1:0",
+    "meta.llama3-1-405b-instruct-v1:0",
+    # Mistral AI Models (Latest)
+    "mistral.mistral-large-2411-v1:0",
+    "mistral.mistral-small-2503-v1:0",
+    "mistral.pixtral-large-2411-v1:0",
     "mistral.mistral-large-2407-v1:0",
-    "mistral.mistral-small-2402-v1:0",
+    "mistral.mistral-large-2402-v1:0",
+    "mistral.mixtral-8x7b-instruct-v0:1",
+    "mistral.mistral-7b-instruct-v0:2",
+    # Amazon Titan Models
+    "amazon.titan-text-premier-v1:0",
+    "amazon.titan-text-express-v1",
+    "amazon.titan-text-lite-v1",
+    # AI21 Labs Models
+    "ai21.jamba-1-5-large-v1:0",
+    "ai21.jamba-1-5-mini-v1:0",
+    "ai21.jamba-instruct-v1:0",
+    # Cohere Models
+    "cohere.command-r-plus-v1:0",
+    "cohere.command-r-v1:0",
+    "cohere.command-text-v14",
+    "cohere.command-light-text-v14",
 ]
 
 AWS_EMBEDDING_MODEL_IDS = [

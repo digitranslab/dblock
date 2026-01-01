@@ -15,13 +15,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { AuthContext } from "@/contexts/authContext";
 import {
   FlowRun,
   useDeleteFlowRun,
   useGetFlowRuns,
   useGetFlowRunStats,
 } from "@/controllers/API/queries/flow-runs";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 function formatDuration(ms: number | undefined): string {
   if (!ms) return "-";
@@ -53,8 +54,11 @@ function getStatusColor(status: string): string {
 }
 
 export default function ExecutionHistoryPage(): JSX.Element {
+  const { userData } = useContext(AuthContext);
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [triggerFilter, setTriggerFilter] = useState<string>("all");
+
+  const username = userData?.username || "User";
 
   const { data: flowRuns, isLoading, refetch } = useGetFlowRuns({
     status: statusFilter !== "all" ? statusFilter : undefined,
@@ -80,14 +84,14 @@ export default function ExecutionHistoryPage(): JSX.Element {
         <div>
           <h2 className="flex items-center gap-2 text-lg font-semibold">
             <ForwardedIconComponent name="Home" className="h-5 w-5" />
-            Execution History
+            Homepage
           </h2>
           <p className="text-sm text-muted-foreground">
-            Track workflow executions, success rates, and performance
+            Welcome, {username}
           </p>
         </div>
         <Button variant="outline" size="sm" onClick={() => refetch()}>
-          <ForwardedIconComponent name="RotateCw" className="mr-2 h-4 w-4" />
+          <ForwardedIconComponent name="RefreshCcw" className="mr-2 h-4 w-4" />
           Refresh
         </Button>
       </div>
