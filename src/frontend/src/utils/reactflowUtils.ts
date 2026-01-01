@@ -112,6 +112,9 @@ export function cleanEdges(nodes: AllNodeType[], edges: EdgeType[]) {
       const parsedSourceHandle = scapeJSONParse(sourceHandle);
       const name = parsedSourceHandle.name;
       if (sourceNode.type == "genericNode") {
+        // Check for dynamic Success/Else outputs first
+        const isDynamicOutput = name === "success_output" || name === "else_output";
+        
         const output = sourceNode.data.node!.outputs?.find(
           (output) => output.name === name,
         );
@@ -126,6 +129,18 @@ export function cleanEdges(nodes: AllNodeType[], edges: EdgeType[]) {
             dataType: sourceNode.data.type,
           };
           if (scapedJSONStringfy(id) !== sourceHandle) {
+            newEdges = newEdges.filter((e) => e.id !== edge.id);
+          }
+        } else if (isDynamicOutput) {
+          // For dynamic Success/Else outputs, validate using the parsed handle data
+          // These outputs are generated dynamically and not stored in node.outputs
+          const expectedId: sourceHandleType = {
+            id: sourceNode.data.id,
+            name: name,
+            output_types: parsedSourceHandle.output_types || ["Message"],
+            dataType: sourceNode.data.type,
+          };
+          if (scapedJSONStringfy(expectedId) !== sourceHandle) {
             newEdges = newEdges.filter((e) => e.id !== edge.id);
           }
         } else {
@@ -175,11 +190,17 @@ export function detectBrokenEdgesEdges(nodes: AllNodeType[], edges: Edge[]) {
     const output = sourceNode.data.node!.outputs?.find(
       (output) => output.name === name,
     );
+    
+    // Handle dynamic Success/Else outputs
+    let outputDisplayName = output?.display_name;
+    if (!outputDisplayName && (name === "success_output" || name === "else_output")) {
+      outputDisplayName = name === "success_output" ? "Success" : "Else";
+    }
 
     return {
       source: {
         nodeDisplayName: sourceNode.data.node!.display_name,
-        outputDisplayName: output?.display_name,
+        outputDisplayName: outputDisplayName,
       },
       target: {
         displayName: targetNode.data.node!.display_name,
@@ -277,8 +298,24 @@ export function detectBrokenEdgesEdges(nodes: AllNodeType[], edges: Edge[]) {
             BrokenEdges.push(generateAlertObject(sourceNode, targetNode, edge));
           }
         } else {
-          newEdges = newEdges.filter((e) => e.id !== edge.id);
-          BrokenEdges.push(generateAlertObject(sourceNode, targetNode, edge));
+          // Check for dynamic Success/Else outputs
+          const isDynamicOutput = name === "success_output" || name === "else_output";
+          if (isDynamicOutput) {
+            // For dynamic Success/Else outputs, validate using the parsed handle data
+            const expectedId: sourceHandleType = {
+              id: sourceNode.data.id,
+              name: name,
+              output_types: parsedSourceHandle.output_types || ["Message"],
+              dataType: sourceNode.data.type,
+            };
+            if (scapedJSONStringfy(expectedId) !== sourceHandle) {
+              newEdges = newEdges.filter((e) => e.id !== edge.id);
+              BrokenEdges.push(generateAlertObject(sourceNode, targetNode, edge));
+            }
+          } else {
+            newEdges = newEdges.filter((e) => e.id !== edge.id);
+            BrokenEdges.push(generateAlertObject(sourceNode, targetNode, edge));
+          }
         }
       }
     }
@@ -333,12 +370,52 @@ export function isValidConnection(
     ) {
       return true;
     } else if (
-      !targetHandleObject.output_types &&
-      ((!targetNode.template[targetHandleObject.fieldName].list &&
-        !edges.find((e) => e.targetHandle === targetHandle)) ||
-        targetNode.template[targetHandleObject.fieldName].list)
+      !targetHandleObject.output_types
     ) {
-      return true;
+      // For unified input handles, check if there's an available field to route to
+      const sourceOutputTypes = sourceHandleObject.output_types || [];
+      const template = targetNode.template || {};
+      
+      // Find any compatible field that doesn't have a connection yet (or accepts list)
+      for (const [fieldName, fieldData] of Object.entries(template)) {
+        if (fieldName.startsWith("_")) continue;
+        const field = fieldData as any;
+        if (!field.show || field.advanced) continue;
+        
+        const fieldInputTypes = field.input_types || [];
+        const isCompatible = sourceOutputTypes.some(
+          (outputType: string) => fieldInputTypes.includes(outputType) || outputType === field.type
+        );
+        
+        if (isCompatible) {
+          // Check if this field already has a connection
+          const existingConnection = edges.find(
+            (edge) => {
+              const edgeTargetHandle = scapeJSONParse(edge.targetHandle!);
+              return edge.target === target && edgeTargetHandle.fieldName === fieldName;
+            }
+          );
+          if (!existingConnection || field.list) {
+            return true;
+          }
+        }
+      }
+      
+      // Fallback: check the specific field in the handle
+      const fieldTemplate = targetNode.template[targetHandleObject.fieldName];
+      if (!fieldTemplate) {
+        // Field doesn't exist - this might be a unified handle
+        // Allow connection if no other edge is connected to this handle
+        if (!edges.find((e) => e.targetHandle === targetHandle)) {
+          return true;
+        }
+      } else if (
+        (!fieldTemplate.list &&
+          !edges.find((e) => e.targetHandle === targetHandle)) ||
+        fieldTemplate.list
+      ) {
+        return true;
+      }
     }
   }
   return false;

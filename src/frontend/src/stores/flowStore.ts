@@ -538,29 +538,84 @@ const useFlowStore = create<FlowStoreType>((set, get) => ({
   getFilterEdge: [],
   onConnect: (connection) => {
     const dark = useDarkStore.getState().dark;
-    // const commonMarkerProps = {
-    //   type: MarkerType.ArrowClosed,
-    //   width: 20,
-    //   height: 20,
-    //   color: dark ? "#555555" : "#000000",
-    // };
-
-    // const inputTypes = INPUT_TYPES;
-    // const outputTypes = OUTPUT_TYPES;
-
-    // const findNode = useFlowStore
-    //   .getState()
-    //   .nodes.find(
-    //     (node) => node.id === connection.source || node.id === connection.target
-    //   );
-
-    // const sourceType = findNode?.data?.type;
-    // let isIoIn = false;
-    // let isIoOut = false;
-    // if (sourceType) {
-    //   isIoIn = inputTypes.has(sourceType);
-    //   isIoOut = outputTypes.has(sourceType);
-    // }
+    
+    // For unified input handles, we need to route the connection to the appropriate field
+    // based on type compatibility and whether the field already has a connection
+    const targetHandleObject: targetHandleType = scapeJSONParse(connection.targetHandle!);
+    const sourceHandleObject: sourceHandleType = scapeJSONParse(connection.sourceHandle!);
+    
+    // Find the target node to get its template
+    const targetNode = get().nodes.find((node) => node.id === connection.target);
+    if (targetNode && targetNode.data?.node?.template) {
+      const template = targetNode.data.node.template;
+      const sourceOutputTypes = sourceHandleObject.output_types || [];
+      
+      // Find the best matching field for this connection
+      let bestField = targetHandleObject.fieldName;
+      let foundMatch = false;
+      
+      // Check if the current field exists and is compatible
+      const currentField = template[targetHandleObject.fieldName];
+      if (currentField && currentField.show && !currentField.advanced) {
+        const fieldInputTypes = currentField.input_types || [];
+        const isCompatible = sourceOutputTypes.some(
+          (outputType: string) => fieldInputTypes.includes(outputType) || outputType === currentField.type
+        );
+        if (isCompatible) {
+          // Check if this field already has a connection
+          const existingConnection = get().edges.find(
+            (edge) => {
+              const edgeTargetHandle = scapeJSONParse(edge.targetHandle!);
+              return edge.target === connection.target && edgeTargetHandle.fieldName === targetHandleObject.fieldName;
+            }
+          );
+          if (!existingConnection || currentField.list) {
+            foundMatch = true;
+          }
+        }
+      }
+      
+      // If current field doesn't work, find another compatible field
+      if (!foundMatch) {
+        for (const [fieldName, fieldData] of Object.entries(template)) {
+          if (fieldName.startsWith("_")) continue;
+          const field = fieldData as any;
+          if (!field.show || field.advanced) continue;
+          
+          const fieldInputTypes = field.input_types || [];
+          const isCompatible = sourceOutputTypes.some(
+            (outputType: string) => fieldInputTypes.includes(outputType) || outputType === field.type
+          );
+          
+          if (isCompatible) {
+            // Check if this field already has a connection
+            const existingConnection = get().edges.find(
+              (edge) => {
+                const edgeTargetHandle = scapeJSONParse(edge.targetHandle!);
+                return edge.target === connection.target && edgeTargetHandle.fieldName === fieldName;
+              }
+            );
+            if (!existingConnection || field.list) {
+              bestField = fieldName;
+              // Update the target handle with the new field info
+              targetHandleObject.fieldName = fieldName;
+              targetHandleObject.inputTypes = fieldInputTypes.length > 0 ? fieldInputTypes : [field.type];
+              targetHandleObject.type = field.type;
+              foundMatch = true;
+              break;
+            }
+          }
+        }
+      }
+      
+      // Update the connection with the routed target handle
+      if (foundMatch && bestField !== scapeJSONParse(connection.targetHandle!).fieldName) {
+        connection = {
+          ...connection,
+          targetHandle: scapedJSONStringfy(targetHandleObject),
+        };
+      }
+    }
 
     let newEdges: EdgeType[] = [];
     get().setEdges((oldEdges) => {
