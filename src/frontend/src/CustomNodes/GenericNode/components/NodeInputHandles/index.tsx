@@ -118,31 +118,32 @@ const NodeInputHandles = memo(function NodeInputHandles({
   );
 
   return (
-    <div className="absolute left-0 right-0 top-0 z-50 flex justify-center" style={{ transform: "translateY(-50%)" }}>
+    <div 
+      className="absolute left-0 right-0 top-0 z-50 flex justify-center" 
+      style={{ transform: "translateY(-4px)" }}
+    >
       <div className="flex items-center justify-center">
-        <div className="relative">
-          <HandleRenderComponent
-            left={true}
-            nodes={nodes}
-            tooltipTitle={unifiedInputData.inputTypes.join("\n")}
-            proxy={undefined}
-            id={{
-              inputTypes: unifiedInputData.inputTypes,
-              type: unifiedInputData.primaryType,
-              id: data.id,
-              fieldName: unifiedInputData.primaryFieldName,
-            }}
-            title="Input"
-            edges={edges}
-            myData={myData}
-            colors={colors}
-            setFilterEdge={setFilterEdge}
-            showNode={showNode}
-            testIdComplement={`${data?.type?.toLowerCase()}-${showNode ? "shownode" : "noshownode"}`}
-            nodeId={data.id}
-            colorName={colorName}
-          />
-        </div>
+        <HandleRenderComponent
+          left={true}
+          nodes={nodes}
+          tooltipTitle={unifiedInputData.inputTypes.join("\n")}
+          proxy={undefined}
+          id={{
+            inputTypes: unifiedInputData.inputTypes,
+            type: unifiedInputData.primaryType,
+            id: data.id,
+            fieldName: unifiedInputData.primaryFieldName,
+          }}
+          title="Input"
+          edges={edges}
+          myData={myData}
+          colors={colors}
+          setFilterEdge={setFilterEdge}
+          showNode={showNode}
+          testIdComplement={`${data?.type?.toLowerCase()}-${showNode ? "shownode" : "noshownode"}`}
+          nodeId={data.id}
+          colorName={colorName}
+        />
       </div>
     </div>
   );

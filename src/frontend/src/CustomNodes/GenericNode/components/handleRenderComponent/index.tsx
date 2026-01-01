@@ -2,7 +2,7 @@ import { useDarkStore } from "@/stores/darkStore";
 import useFlowStore from "@/stores/flowStore";
 import { nodeColorsName } from "@/utils/styleUtils";
 import { Connection, Handle, Position } from "@xyflow/react";
-import { memo, useCallback, useEffect, useMemo, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import ShadTooltip from "../../../../components/common/shadTooltipComponent";
 import {
   isValidConnection,
@@ -11,14 +11,32 @@ import {
 import { cn, groupByFamily } from "../../../../utils/utils";
 import HandleTooltipComponent from "../HandleTooltipComponent";
 
-// Colors for success/else output categories
-const SUCCESS_COLOR = "#10B981"; // Tailwind emerald-500
-const ELSE_COLOR = "#FF9500"; // Light orange matching DBLOCK logo
+// GitHub Actions-style handle constants
+const HANDLE_STYLES = {
+  width: 16,           // px
+  height: 8,           // px
+  borderRadius: 4,     // px (pill shape)
+  defaultOpacity: 0.8,
+  hoverOpacity: 1.0,
+  hoverScale: 1.1,
+  disabledOpacity: 0.4,  // 40% opacity for disabled/incompatible state per Req 3.4
+  incompatibleOpacity: 0.3, // 30% opacity for incompatible handles during drag per Req 4.2
+  transitionDuration: 150, // ms
+  flashDuration: 200, // ms for connection flash animation per Req 4.3
+};
 
-// For vertical layout: input handles at top center, output handles at bottom center
-const getHandleStyles = (isInput: boolean) => ({
-  width: "32px",
-  height: "32px",
+// Color constants for handle types
+const HANDLE_COLORS = {
+  input: "#9CA3AF",      // Gray
+  success: "#10B981",    // Green
+  else: "#FF9500",       // Orange
+  disabled: "#6B7280",   // Muted gray
+};
+
+// Handle container styles for React Flow
+const getHandleContainerStyles = () => ({
+  width: `${HANDLE_STYLES.width + 8}px`,
+  height: `${HANDLE_STYLES.height + 8}px`,
   position: "relative" as const,
   zIndex: 30,
   background: "transparent",
@@ -28,127 +46,98 @@ const getHandleStyles = (isInput: boolean) => ({
 const HandleContent = memo(function HandleContent({
   isNullHandle,
   handleColor,
-  accentForegroundColorName,
   isHovered,
   openHandle,
   testIdComplement,
   title,
   showNode,
   left,
-  nodeId,
+  outputCategory,
+  isFlashing,
 }: {
   isNullHandle: boolean;
   handleColor: string;
-  accentForegroundColorName: string;
   isHovered: boolean;
   openHandle: boolean;
   testIdComplement?: string;
   title: string;
   showNode: boolean;
   left: boolean;
-  nodeId: string;
+  outputCategory?: "success" | "else" | null;
+  isFlashing?: boolean;
 }) {
-  // Restore animation effect
-  useEffect(() => {
-    if ((isHovered || openHandle) && !isNullHandle) {
-      const styleSheet = document.createElement("style");
-      styleSheet.id = `pulse-${nodeId}`;
-      styleSheet.textContent = `
-        @keyframes pulseNeon-${nodeId} {
-          0% {
-            box-shadow: 0 0 0 2px hsl(var(--node-ring)),
-                        0 0 2px ${handleColor},
-                        0 0 4px ${handleColor},
-                        0 0 6px ${handleColor},
-                        0 0 8px ${handleColor},
-                        0 0 10px ${handleColor},
-                        0 0 15px ${handleColor},
-                        0 0 20px ${handleColor};
-          }
-          50% {
-            box-shadow: 0 0 0 2px hsl(var(--node-ring)),
-                        0 0 4px ${handleColor},
-                        0 0 8px ${handleColor},
-                        0 0 12px ${handleColor},
-                        0 0 16px ${handleColor},
-                        0 0 20px ${handleColor},
-                        0 0 25px ${handleColor},
-                        0 0 30px ${handleColor};
-          }
-          100% {
-            box-shadow: 0 0 0 2px hsl(var(--node-ring)),
-                        0 0 2px ${handleColor},
-                        0 0 4px ${handleColor},
-                        0 0 6px ${handleColor},
-                        0 0 8px ${handleColor},
-                        0 0 10px ${handleColor},
-                        0 0 15px ${handleColor},
-                        0 0 20px ${handleColor};
-          }
-        }
-      `;
-      document.head.appendChild(styleSheet);
+  // Compute the pill-shaped handle style based on state
+  const contentStyle = useMemo(() => {
+    const baseStyle = {
+      width: `${HANDLE_STYLES.width}px`,
+      height: `${HANDLE_STYLES.height}px`,
+      borderRadius: `${HANDLE_STYLES.borderRadius}px`,
+      backgroundColor: handleColor,
+      border: `1px solid ${handleColor}80`, // 50% opacity border
+      transition: `all ${HANDLE_STYLES.transitionDuration}ms ease`,
+      opacity: HANDLE_STYLES.defaultOpacity,
+      transform: "scale(1)",
+      boxShadow: "none",
+    };
 
-      return () => {
-        const existingStyle = document.getElementById(`pulse-${nodeId}`);
-        if (existingStyle) {
-          existingStyle.remove();
-        }
+    // Flash animation on successful connection (Req 4.3)
+    if (isFlashing) {
+      return {
+        ...baseStyle,
+        opacity: 1,
+        boxShadow: `0 0 8px ${handleColor}, 0 0 12px ${handleColor}`,
+        transform: `scale(${HANDLE_STYLES.hoverScale})`,
       };
     }
-  }, [isHovered, openHandle, isNullHandle, nodeId, handleColor]);
 
-  const getNeonShadow = useCallback(
-    (color: string, isActive: boolean) => {
-      if (isNullHandle) return "none";
-      if (!isActive) return `0 0 0 3px ${color}`;
-      return [
-        "0 0 0 1px hsl(var(--border))",
-        `0 0 2px ${color}`,
-        `0 0 4px ${color}`,
-        `0 0 6px ${color}`,
-        `0 0 8px ${color}`,
-        `0 0 10px ${color}`,
-        `0 0 15px ${color}`,
-        `0 0 20px ${color}`,
-      ].join(", ");
-    },
-    [isNullHandle],
-  );
+    // Incompatible/disabled state
+    if (isNullHandle) {
+      return {
+        ...baseStyle,
+        opacity: HANDLE_STYLES.incompatibleOpacity,
+        backgroundColor: HANDLE_COLORS.disabled,
+        border: `1px solid ${HANDLE_COLORS.disabled}80`,
+      };
+    }
 
-  const contentStyle = useMemo(
-    () => ({
-      background: isNullHandle ? "hsl(var(--border))" : handleColor,
-      width: "10px",
-      height: "10px",
-      transition: "all 0.2s",
-      boxShadow: getNeonShadow(
-        accentForegroundColorName,
-        isHovered || openHandle,
-      ),
-      animation:
-        (isHovered || openHandle) && !isNullHandle
-          ? `pulseNeon-${nodeId} 1.1s ease-in-out infinite`
-          : "none",
-      border: isNullHandle ? "2px solid hsl(var(--muted))" : "none",
-    }),
-    [
-      isNullHandle,
-      handleColor,
-      getNeonShadow,
-      accentForegroundColorName,
-      isHovered,
-      openHandle,
-    ],
-  );
+    // Compatible handle during drag - subtle glow
+    if (openHandle) {
+      return {
+        ...baseStyle,
+        opacity: HANDLE_STYLES.hoverOpacity,
+        boxShadow: `0 0 4px ${handleColor}`,
+        transform: `scale(${HANDLE_STYLES.hoverScale})`,
+      };
+    }
+
+    // Hover state
+    if (isHovered) {
+      return {
+        ...baseStyle,
+        opacity: HANDLE_STYLES.hoverOpacity,
+        transform: `scale(${HANDLE_STYLES.hoverScale})`,
+      };
+    }
+
+    return baseStyle;
+  }, [isNullHandle, handleColor, isHovered, openHandle, isFlashing]);
+
+  // Generate aria-label for accessibility
+  const ariaLabel = useMemo(() => {
+    const handleType = left ? "Input" : outputCategory === "success" ? "Success Output" : outputCategory === "else" ? "Else Output" : "Output";
+    const status = isNullHandle ? "incompatible" : openHandle ? "compatible" : "available";
+    return `${handleType} handle - ${status}`;
+  }, [left, outputCategory, isNullHandle, openHandle]);
 
   return (
     <div
       data-testid={`div-handle-${testIdComplement}-${title.toLowerCase()}-${
         !showNode ? (left ? "target" : "source") : left ? "left" : "right"
       }`}
-      className="noflow nowheel nopan noselect pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-crosshair rounded-full"
+      className="noflow nowheel nopan noselect pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-crosshair"
       style={contentStyle}
+      aria-label={ariaLabel}
+      role="button"
     />
   );
 });
@@ -188,6 +177,8 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
 }) {
   const [isHovered, setIsHovered] = useState(false);
   const [openTooltip, setOpenTooltip] = useState(false);
+  const [isFlashing, setIsFlashing] = useState(false);
+  const prevEdgeCountRef = useRef(0);
 
   const {
     setHandleDragging,
@@ -209,6 +200,26 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
   );
 
   const dark = useDarkStore((state) => state.dark);
+
+  // Detect new connections to this handle and trigger flash animation (Req 4.3)
+  const connectedEdgesCount = useMemo(() => {
+    return edges.filter((edge: any) => 
+      (left && edge.target === nodeId && edge.targetHandle?.includes(nodeId)) ||
+      (!left && edge.source === nodeId && edge.sourceHandle?.includes(nodeId))
+    ).length;
+  }, [edges, nodeId, left]);
+
+  useEffect(() => {
+    if (connectedEdgesCount > prevEdgeCountRef.current) {
+      // New connection made - trigger flash
+      setIsFlashing(true);
+      const timer = setTimeout(() => {
+        setIsFlashing(false);
+      }, HANDLE_STYLES.flashDuration);
+      return () => clearTimeout(timer);
+    }
+    prevEdgeCountRef.current = connectedEdgesCount;
+  }, [connectedEdgesCount]);
 
   const myId = useMemo(
     () => scapedJSONStringfy(proxy ? { ...id, proxy } : id),
@@ -239,7 +250,6 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
     currentFilter,
     isNullHandle,
     handleColor,
-    accentForegroundColorName,
   } = useMemo(() => {
     const sameDraggingNode =
       (!left ? handleDragging?.target : handleDragging?.source) === nodeId;
@@ -275,7 +285,7 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
     const filterPresent = handleDragging || filterType;
 
     const connectedEdge = edges.find(
-      (edge) => edge.target === nodeId && edge.targetHandle === myId,
+      (edge: any) => edge.target === nodeId && edge.targetHandle === myId,
     );
     const connectedColor =
       nodeColorsName[connectedEdge?.data?.sourceHandle?.output_types[0]] ||
@@ -284,44 +294,37 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
     const isNullHandle =
       filterPresent && !(openHandle || ownDraggingHandle || ownFilterHandle);
 
-    // Check for output category colors first (for success/else outputs)
-    let categoryColor: string | null = null;
-    let categoryAccentColor: string | null = null;
-    if (!left && outputCategory) {
-      if (outputCategory === "success") {
-        categoryColor = SUCCESS_COLOR;
-        categoryAccentColor = "#059669"; // Darker green for accent
-      } else if (outputCategory === "else") {
-        categoryColor = ELSE_COLOR;
-        categoryAccentColor = "#E68600"; // Darker orange for accent
-      }
+    // Determine handle color based on type and category
+    let handleColor: string;
+    
+    if (isNullHandle) {
+      // Incompatible state - muted gray
+      handleColor = HANDLE_COLORS.disabled;
+    } else if (left) {
+      // Input handles are always gray
+      handleColor = HANDLE_COLORS.input;
+    } else if (outputCategory === "success") {
+      // Success output - green
+      handleColor = HANDLE_COLORS.success;
+    } else if (outputCategory === "else") {
+      // Else output - orange
+      handleColor = HANDLE_COLORS.else;
+    } else {
+      // Default output color based on connected edge or type
+      handleColor = connectedEdge
+        ? `hsl(var(--datatype-${connectedColor}))`
+        : colorName && colorName.length > 0
+          ? `hsl(var(--datatype-${colorName[0]}))`
+          : HANDLE_COLORS.input;
     }
 
     const handleColorName = connectedEdge
       ? connectedColor
-      : colorName!.length > 1
+      : colorName && colorName.length > 1
         ? "secondary-foreground"
-        : "datatype-" + colorName![0];
-
-    const handleColor = isNullHandle
-      ? dark
-        ? "hsl(var(--accent-gray))"
-        : "hsl(var(--accent-gray-foreground)"
-      : categoryColor
-        ? categoryColor
-        : connectedEdge
-          ? "hsl(var(--datatype-" + connectedColor + "))"
-          : colorName!.length > 1
-            ? "hsl(var(--secondary-foreground))"
-            : "hsl(var(--datatype-" + colorName![0] + "))";
-
-    const accentForegroundColorName = categoryAccentColor
-      ? categoryAccentColor
-      : connectedEdge
-        ? "hsl(var(--datatype-" + connectedColor + "-foreground))"
-        : colorName!.length > 1
-          ? "hsl(var(--input))"
-          : "hsl(var(--datatype-" + colorName![0] + "-foreground))";
+        : colorName && colorName.length > 0
+          ? "datatype-" + colorName[0]
+          : "gray";
 
     const currentFilter = left
       ? {
@@ -344,7 +347,6 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
     return {
       sameNode: sameDraggingNode || sameFilterNode,
       ownHandle: ownDraggingHandle || ownFilterHandle,
-      accentForegroundColorName,
       openHandle,
       filterOpenHandle,
       filterPresent,
@@ -365,6 +367,7 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
     colors,
     colorName,
     tooltipTitle,
+    outputCategory,
   ]);
 
   const handleMouseDown = useCallback(
@@ -411,11 +414,11 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
     [],
   );
 
-  // Memoize the validation function
-  const validateConnection = useCallback(
-    (connection: any) => isValidConnection(connection, nodes, edges),
-    [nodes, edges],
-  );
+  // Generate aria-label for the handle
+  const handleAriaLabel = useMemo(() => {
+    const handleType = left ? "Input" : outputCategory === "success" ? "Success Output" : outputCategory === "else" ? "Else Output" : "Output";
+    return `${handleType} connection point for ${title}`;
+  }, [left, outputCategory, title]);
 
   return (
     <div>
@@ -423,7 +426,7 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
         open={openTooltip}
         setOpen={setOpenTooltip}
         styleClasses={cn("tooltip-fixed-width custom-scroll nowheel bottom-2")}
-        delayDuration={1000}
+        delayDuration={500}
         content={
           <HandleTooltipComponent
             isInput={left}
@@ -448,7 +451,7 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
             `group/handle z-50 transition-all`,
             !showNode && "no-show",
           )}
-          style={getHandleStyles(left)}
+          style={getHandleContainerStyles()}
           onClick={handleClick}
           onMouseUp={handleMouseUp}
           onContextMenu={handleContextMenu}
@@ -458,18 +461,20 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
           data-testid={`handle-${testIdComplement}-${title.toLowerCase()}-${
             !showNode ? (left ? "target" : "source") : left ? "left" : "right"
           }`}
+          aria-label={handleAriaLabel}
+          tabIndex={0}
         >
           <HandleContent
             isNullHandle={isNullHandle ?? false}
             handleColor={handleColor}
-            accentForegroundColorName={accentForegroundColorName}
             isHovered={isHovered}
             openHandle={openHandle}
             testIdComplement={testIdComplement}
             title={title}
             showNode={showNode}
             left={left}
-            nodeId={nodeId}
+            outputCategory={outputCategory}
+            isFlashing={isFlashing}
           />
         </Handle>
       </ShadTooltip>
