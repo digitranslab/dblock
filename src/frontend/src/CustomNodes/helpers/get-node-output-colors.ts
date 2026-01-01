@@ -2,11 +2,23 @@ import { OutputFieldType } from "../../types/api";
 import { NodeDataType } from "../../types/flow";
 import { nodeColors } from "../../utils/styleUtils";
 
+// Colors for success/else output categories
+const SUCCESS_COLOR = "#10B981"; // Tailwind emerald-500
+const ELSE_COLOR = "#F97316"; // Tailwind orange-500
+
 export function getNodeOutputColors(
   output: OutputFieldType,
   data: NodeDataType,
   types: { [char: string]: string },
 ): string[] {
+  // Check for output_category first - this takes precedence
+  if (output.output_category === "success") {
+    return [SUCCESS_COLOR];
+  }
+  if (output.output_category === "else") {
+    return [ELSE_COLOR];
+  }
+
   // Helper function to get the color based on type
   const getColorByType = (type) => nodeColors[type] ?? nodeColors.unknown;
 

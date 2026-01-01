@@ -157,6 +157,7 @@ function NodeOutputField({
   lastOutput,
   colorName,
   isToolMode = false,
+  outputCategory,
 }: NodeOutputFieldComponentType): JSX.Element {
   const ref = useRef<HTMLDivElement>(null);
   const updateNodeInternals = useUpdateNodeInternals();
@@ -301,6 +302,7 @@ function NodeOutputField({
         showNode={showNode}
         testIdComplement={`${data?.type?.toLowerCase()}-${showNode ? "shownode" : "noshownode"}`}
         colorName={colorName}
+        outputCategory={outputCategory}
       />
     ),
     [
@@ -316,6 +318,7 @@ function NodeOutputField({
       showNode,
       data?.type,
       colorName,
+      outputCategory,
     ],
   );
 
@@ -357,6 +360,30 @@ function NodeOutputField({
         )}
 
         <div className="flex items-center gap-2">
+          {/* Output category badge */}
+          {outputCategory === "success" && (
+            <Badge
+              variant="outline"
+              size="xq"
+              className="border-emerald-500 bg-emerald-500/10 px-1.5 text-emerald-600"
+            >
+              <ForwardedIconComponent name="Check" className="mr-0.5 h-3 w-3" />
+              Success
+            </Badge>
+          )}
+          {outputCategory === "else" && (
+            <Badge
+              variant="outline"
+              size="xq"
+              className="border-orange-500 bg-orange-500/10 px-1.5 text-orange-600"
+            >
+              <ForwardedIconComponent
+                name="AlertCircle"
+                className="mr-0.5 h-3 w-3"
+              />
+              Else
+            </Badge>
+          )}
           <span className={data.node?.frozen ? "text-ice" : ""}>
             <MemoizedOutputComponent
               proxy={outputProxy}

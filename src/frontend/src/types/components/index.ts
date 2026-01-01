@@ -100,6 +100,7 @@ export type NodeOutputFieldComponentType = {
   lastOutput?: boolean;
   colorName?: string[];
   isToolMode?: boolean;
+  outputCategory?: "success" | "else" | null;
 };
 
 export type NodeInputFieldComponentType = {

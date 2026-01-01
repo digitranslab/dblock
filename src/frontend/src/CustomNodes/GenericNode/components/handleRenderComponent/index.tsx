@@ -11,24 +11,18 @@ import {
 import { cn, groupByFamily } from "../../../../utils/utils";
 import HandleTooltipComponent from "../HandleTooltipComponent";
 
+// Colors for success/else output categories
+const SUCCESS_COLOR = "#10B981"; // Tailwind emerald-500
+const ELSE_COLOR = "#FF9500"; // Light orange matching DBLOCK logo
+
 // For vertical layout: input handles at top center, output handles at bottom center
 const getHandleStyles = (isInput: boolean) => ({
   width: "32px",
   height: "32px",
-  position: "absolute" as const,
+  position: "relative" as const,
   zIndex: 30,
   background: "transparent",
   border: "none",
-  // Position at node edges, not relative to parent container
-  ...(isInput ? {
-    top: "0px",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-  } : {
-    bottom: "0px",
-    left: "50%",
-    transform: "translate(-50%, 50%)",
-  }),
 });
 
 const HandleContent = memo(function HandleContent({
@@ -174,6 +168,7 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
   testIdComplement,
   nodeId,
   colorName,
+  outputCategory,
 }: {
   left: boolean;
   nodes: any;
@@ -189,6 +184,7 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
   testIdComplement?: string;
   nodeId: string;
   colorName?: string[];
+  outputCategory?: "success" | "else" | null;
 }) {
   const [isHovered, setIsHovered] = useState(false);
   const [openTooltip, setOpenTooltip] = useState(false);
@@ -288,6 +284,19 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
     const isNullHandle =
       filterPresent && !(openHandle || ownDraggingHandle || ownFilterHandle);
 
+    // Check for output category colors first (for success/else outputs)
+    let categoryColor: string | null = null;
+    let categoryAccentColor: string | null = null;
+    if (!left && outputCategory) {
+      if (outputCategory === "success") {
+        categoryColor = SUCCESS_COLOR;
+        categoryAccentColor = "#059669"; // Darker green for accent
+      } else if (outputCategory === "else") {
+        categoryColor = ELSE_COLOR;
+        categoryAccentColor = "#E68600"; // Darker orange for accent
+      }
+    }
+
     const handleColorName = connectedEdge
       ? connectedColor
       : colorName!.length > 1
@@ -298,17 +307,21 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
       ? dark
         ? "hsl(var(--accent-gray))"
         : "hsl(var(--accent-gray-foreground)"
-      : connectedEdge
-        ? "hsl(var(--datatype-" + connectedColor + "))"
-        : colorName!.length > 1
-          ? "hsl(var(--secondary-foreground))"
-          : "hsl(var(--datatype-" + colorName![0] + "))";
+      : categoryColor
+        ? categoryColor
+        : connectedEdge
+          ? "hsl(var(--datatype-" + connectedColor + "))"
+          : colorName!.length > 1
+            ? "hsl(var(--secondary-foreground))"
+            : "hsl(var(--datatype-" + colorName![0] + "))";
 
-    const accentForegroundColorName = connectedEdge
-      ? "hsl(var(--datatype-" + connectedColor + "-foreground))"
-      : colorName!.length > 1
-        ? "hsl(var(--input))"
-        : "hsl(var(--datatype-" + colorName![0] + "-foreground))";
+    const accentForegroundColorName = categoryAccentColor
+      ? categoryAccentColor
+      : connectedEdge
+        ? "hsl(var(--datatype-" + connectedColor + "-foreground))"
+        : colorName!.length > 1
+          ? "hsl(var(--input))"
+          : "hsl(var(--datatype-" + colorName![0] + "-foreground))";
 
     const currentFilter = left
       ? {
@@ -419,6 +432,7 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
             isCompatible={openHandle}
             isSameNode={sameNode && !ownHandle}
             left={left}
+            outputCategory={outputCategory}
           />
         }
         side={left ? "top" : "bottom"}

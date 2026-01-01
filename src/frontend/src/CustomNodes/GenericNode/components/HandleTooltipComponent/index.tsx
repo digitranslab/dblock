@@ -2,6 +2,10 @@ import { convertTestName } from "@/components/common/storeCardComponent/utils/co
 import { Badge } from "@/components/ui/badge";
 import { nodeColorsName } from "@/utils/styleUtils";
 
+// Colors for success/else output categories
+const SUCCESS_COLOR = "#10B981"; // Tailwind emerald-500
+const ELSE_COLOR = "#FF9500"; // Light orange matching DBLOCK logo
+
 export default function HandleTooltipComponent({
   isInput,
   tooltipTitle,
@@ -9,6 +13,7 @@ export default function HandleTooltipComponent({
   isCompatible,
   isSameNode,
   left,
+  outputCategory,
 }: {
   isInput: boolean;
   tooltipTitle: string;
@@ -16,9 +21,21 @@ export default function HandleTooltipComponent({
   isCompatible: boolean;
   isSameNode: boolean;
   left: boolean;
+  outputCategory?: "success" | "else" | null;
 }) {
   const tooltips = tooltipTitle.split("\n");
   const plural = tooltips.length > 1 ? "s" : "";
+
+  // Determine display title based on output category
+  const displayTitle = outputCategory 
+    ? outputCategory === "success" ? "Success" : "Else"
+    : null;
+  
+  const categoryColor = outputCategory === "success" 
+    ? SUCCESS_COLOR 
+    : outputCategory === "else" 
+      ? ELSE_COLOR 
+      : null;
 
   return (
     <div className="font-medium">
@@ -38,27 +55,43 @@ export default function HandleTooltipComponent({
             <span className="text-xs">
               {isInput
                 ? `Input${plural} type${plural}`
-                : `Output${plural} type${plural}`}
+                : displayTitle 
+                  ? `Output`
+                  : `Output${plural} type${plural}`}
               :{" "}
             </span>
           )}
-          {tooltips.map((word, index) => (
+          {/* Show category badge for success/else outputs */}
+          {displayTitle && categoryColor ? (
             <Badge
               className="h-6 rounded-md p-1"
-              key={`${index}-${word.toLowerCase()}`}
               style={{
-                backgroundColor: left
-                  ? `hsl(var(--datatype-${nodeColorsName[word]}))`
-                  : `hsl(var(--datatype-${nodeColorsName[word]}-foreground))`,
-                color: left
-                  ? `hsl(var(--datatype-${nodeColorsName[word]}-foreground))`
-                  : `hsl(var(--datatype-${nodeColorsName[word]}))`,
+                backgroundColor: categoryColor,
+                color: "#FFFFFF",
               }}
-              data-testid={`${isInput ? "input" : "output"}-tooltip-${convertTestName(word)}`}
+              data-testid={`output-tooltip-${displayTitle.toLowerCase()}`}
             >
-              {word}
+              {displayTitle}
             </Badge>
-          ))}
+          ) : (
+            tooltips.map((word, index) => (
+              <Badge
+                className="h-6 rounded-md p-1"
+                key={`${index}-${word.toLowerCase()}`}
+                style={{
+                  backgroundColor: left
+                    ? `hsl(var(--datatype-${nodeColorsName[word]}))`
+                    : `hsl(var(--datatype-${nodeColorsName[word]}-foreground))`,
+                  color: left
+                    ? `hsl(var(--datatype-${nodeColorsName[word]}-foreground))`
+                    : `hsl(var(--datatype-${nodeColorsName[word]}))`,
+                }}
+                data-testid={`${isInput ? "input" : "output"}-tooltip-${convertTestName(word)}`}
+              >
+                {word}
+              </Badge>
+            ))
+          )}
           {isConnecting && <span>{isInput ? `input` : `output`}</span>}
         </div>
       )}

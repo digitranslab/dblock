@@ -39,8 +39,8 @@ class DataConditionalRouterComponent(Component):
     ]
 
     outputs = [
-        Output(display_name="True Output", name="true_output", method="process_data"),
-        Output(display_name="False Output", name="false_output", method="process_data"),
+        Output(display_name="True Output", name="true_output", method="process_data", output_category="success"),
+        Output(display_name="False Output", name="false_output", method="process_data", output_category="else"),
     ]
 
     def compare_values(self, item_value: str, compare_value: str, operator: str) -> bool:

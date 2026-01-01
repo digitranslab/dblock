@@ -13,15 +13,29 @@ interface NodeOutputHandlesProps {
   showHiddenOutputs: boolean;
 }
 
+// Known input component types that should only have Success output
+const INPUT_COMPONENT_TYPES = [
+  "ChatInput",
+  "TextInput", 
+  "Prompt",
+  "CronTrigger",
+];
+
+// Known output component types that should have no output handles
+const OUTPUT_COMPONENT_TYPES = [
+  "ChatOutput",
+  "TextOutput",
+];
+
 /**
  * Renders all output handles at the bottom of the node for vertical layout.
- * Handles are distributed horizontally across the bottom edge.
+ * - Output components (ChatOutput, TextOutput): no output handles
+ * - Input components (ChatInput, TextInput, Prompt, CronTrigger): only Success (green) handle
+ * - All other components: Success (green) and Else (orange) handles
  */
 const NodeOutputHandles = memo(function NodeOutputHandles({
   data,
   showNode,
-  shownOutputs,
-  showHiddenOutputs,
 }: NodeOutputHandlesProps) {
   const nodes = useFlowStore((state) => state.nodes);
   const edges = useFlowStore((state) => state.edges);
@@ -29,13 +43,59 @@ const NodeOutputHandles = memo(function NodeOutputHandles({
   const types = useTypesStore((state) => state.types);
   const setFilterEdge = useFlowStore((state) => state.setFilterEdge);
 
-  // Get outputs to display
-  const outputsToRender = useMemo(() => {
-    if (showHiddenOutputs) {
-      return data.node?.outputs ?? [];
+  // Get the primary output type from the component's outputs
+  const primaryOutputType = useMemo(() => {
+    const outputs = data.node?.outputs ?? [];
+    if (outputs.length > 0) {
+      return outputs[0].selected ?? outputs[0].types?.[0] ?? "Message";
     }
-    return shownOutputs;
-  }, [data.node?.outputs, shownOutputs, showHiddenOutputs]);
+    return "Message";
+  }, [data.node?.outputs]);
+
+  // Determine component category and generate appropriate outputs
+  const outputsToRender = useMemo(() => {
+    const componentType = data.type;
+    
+    // Check if output component (no handles) - use both hardcoded list and dynamic check
+    const isOutputComponent = OUTPUT_COMPONENT_TYPES.includes(componentType) ||
+      (myData?.outputs && Object.keys(myData.outputs).includes(componentType));
+    if (isOutputComponent) {
+      return [];
+    }
+    
+    // Check if input component (only Success handle) - use both hardcoded list and dynamic check
+    const isInputComponent = INPUT_COMPONENT_TYPES.includes(componentType) ||
+      (myData?.inputs && Object.keys(myData.inputs).includes(componentType));
+    if (isInputComponent) {
+      return [
+        {
+          name: "success_output",
+          display_name: "Success",
+          types: [primaryOutputType],
+          selected: primaryOutputType,
+          output_category: "success" as const,
+        },
+      ];
+    }
+    
+    // All other components get Success and Else handles
+    return [
+      {
+        name: "success_output",
+        display_name: "Success",
+        types: [primaryOutputType],
+        selected: primaryOutputType,
+        output_category: "success" as const,
+      },
+      {
+        name: "else_output",
+        display_name: "Else",
+        types: [primaryOutputType],
+        selected: primaryOutputType,
+        output_category: "else" as const,
+      },
+    ];
+  }, [data.type, myData?.outputs, myData?.inputs, primaryOutputType]);
 
   const handleCount = outputsToRender.length;
   
@@ -46,13 +106,11 @@ const NodeOutputHandles = memo(function NodeOutputHandles({
       <div 
         className="flex items-center justify-center"
         style={{ 
-          gap: "24px", // Increased spacing between handles
+          gap: "24px",
           minWidth: handleCount > 1 ? `${handleCount * 56}px` : "auto",
         }}
       >
         {outputsToRender.map((output, idx) => {
-          if (!output) return null;
-
           const id = {
             output_types: [output.selected ?? output.types[0]],
             id: data.id,
@@ -79,6 +137,7 @@ const NodeOutputHandles = memo(function NodeOutputHandles({
                 testIdComplement={`${data?.type?.toLowerCase()}-${showNode ? "shownode" : "noshownode"}`}
                 nodeId={data.id}
                 colorName={colorNames}
+                outputCategory={output.output_category}
               />
             </div>
           );

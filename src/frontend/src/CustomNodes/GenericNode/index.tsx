@@ -62,6 +62,7 @@ function GenericNode({
 
   const types = useTypesStore((state) => state.types);
   const templates = useTypesStore((state) => state.templates);
+  const typesData = useTypesStore((state) => state.data);
   const deleteNode = useFlowStore((state) => state.deleteNode);
   const setNode = useFlowStore((state) => state.setNode);
   const updateNodeInternals = useUpdateNodeInternals();
@@ -183,6 +184,12 @@ function GenericNode({
     () => data.node?.outputs && data.node.outputs.length > 0,
     [data.node?.outputs],
   );
+
+  // Check if this component is an output component (in "outputs" category)
+  const isOutputComponent = useMemo(() => {
+    const outputsCategory = typesData?.outputs ?? {};
+    return Object.keys(outputsCategory).includes(data.type);
+  }, [typesData?.outputs, data.type]);
 
   const nodeRef = useRef<HTMLDivElement>(null);
 
@@ -409,13 +416,12 @@ function GenericNode({
         )}
       >
         {/* Input handles at top of node for vertical layout */}
-        {showNode && (
-          <MemoizedNodeInputHandles
-            data={data}
-            isToolMode={isToolMode}
-            showNode={showNode}
-          />
-        )}
+        {/* Always render input handles, even when node is minimized */}
+        <MemoizedNodeInputHandles
+          data={data}
+          isToolMode={isToolMode}
+          showNode={showNode}
+        />
         {memoizedNodeToolbarComponent}
         {isOutdated && !isUserEdited && !dismissAll && (
           <div className="flex h-10 w-full items-center gap-4 bg-warning p-2 px-4 text-warning-foreground">
@@ -463,7 +469,8 @@ function GenericNode({
               {!showNode && (
                 <>
                   {renderInputParameters()}
-                  {shownOutputs &&
+                  {/* Only render original outputs for output components in collapsed view */}
+                  {isOutputComponent && shownOutputs &&
                     shownOutputs.length > 0 &&
                     renderOutputs(shownOutputs, "render-outputs")}
                 </>
@@ -473,16 +480,14 @@ function GenericNode({
           </div>
           {showNode && <div>{renderDescription()}</div>}
         </div>
-        {/* Minimal view - no output labels, only handles */}
         {/* Output handles at bottom of node for vertical layout */}
-        {showNode && (
-          <MemoizedNodeOutputHandles
-            data={data}
-            showNode={showNode}
-            shownOutputs={shownOutputs}
-            showHiddenOutputs={showHiddenOutputs}
-          />
-        )}
+        {/* Always render output handles, even when node is minimized */}
+        <MemoizedNodeOutputHandles
+          data={data}
+          showNode={showNode}
+          shownOutputs={shownOutputs}
+          showHiddenOutputs={showHiddenOutputs}
+        />
       </div>
     </div>
   );
