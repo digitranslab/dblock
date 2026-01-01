@@ -25,7 +25,7 @@ export default function LeftDockComponent({
 
   const isStudioActive = location.pathname.startsWith("/studio");
   const isCatalogActive = location.pathname.startsWith("/flow");
-  const isHistoryActive = location.pathname === "/history" || location.pathname === "/";
+  const isHistoryActive = location.pathname === "/home" || location.pathname === "/";
   const isSettingsActive = location.pathname.startsWith("/settings");
 
   const appVersion = "1.0.0";
@@ -51,7 +51,7 @@ export default function LeftDockComponent({
                 ? "bg-accent text-accent-foreground"
                 : "text-muted-foreground hover:bg-accent hover:text-accent-foreground",
             )}
-            onClick={() => navigate("/history")}
+            onClick={() => navigate("/home")}
             data-testid="dock-home-btn"
           >
             <ForwardedIconComponent name="Home" className="h-5 w-5" />

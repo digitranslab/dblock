@@ -57,7 +57,7 @@ export default function StudioPage(): JSX.Element {
                   onClick={() => handleOpenFlow(flow.id)}
                 >
                   <ForwardedIconComponent
-                    name="FileText"
+                    name="Workflow"
                     className="h-4 w-4"
                   />
                   <span className="truncate">{flow.name}</span>

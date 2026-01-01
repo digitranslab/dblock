@@ -91,7 +91,7 @@ export default function ExecutionHistoryPage(): JSX.Element {
           </p>
         </div>
         <Button variant="outline" size="sm" onClick={() => refetch()}>
-          <ForwardedIconComponent name="RotateCw" className="mr-2 h-4 w-4" />
+          <ForwardedIconComponent name="RefreshCcw" className="mr-2 h-4 w-4" />
           Refresh
         </Button>
       </div>

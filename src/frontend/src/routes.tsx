@@ -77,7 +77,7 @@ const router = createBrowserRouter(
                 >
                   <Route
                     index
-                    element={<CustomNavigate replace to={"history"} />}
+                    element={<CustomNavigate replace to={"home"} />}
                   />
                   <Route
                     path="flows/"
@@ -175,8 +175,8 @@ const router = createBrowserRouter(
               <Route path="studio" element={<DashboardWrapperPage />}>
                 <Route index element={<StudioPage />} />
               </Route>
-              {/* Execution History Page */}
-              <Route path="history" element={<DashboardWrapperPage />}>
+              {/* Homepage */}
+              <Route path="home" element={<DashboardWrapperPage />}>
                 <Route index element={<ExecutionHistoryPage />} />
               </Route>
               {/* Studio - Canvas editor for workflows */}
