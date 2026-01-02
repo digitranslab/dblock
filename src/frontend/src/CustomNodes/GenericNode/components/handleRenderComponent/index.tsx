@@ -13,12 +13,10 @@ import HandleTooltipComponent from "../HandleTooltipComponent";
 
 // GitHub Actions-style handle constants
 const HANDLE_STYLES = {
-  width: 16,           // px
-  height: 8,           // px
-  borderRadius: 4,     // px (pill shape)
-  defaultOpacity: 0.8,
+  size: 10,            // px - circular handles (diameter)
+  defaultOpacity: 1.0,
   hoverOpacity: 1.0,
-  hoverScale: 1.1,
+  hoverScale: 1.2,
   disabledOpacity: 0.4,  // 40% opacity for disabled/incompatible state per Req 3.4
   incompatibleOpacity: 0.3, // 30% opacity for incompatible handles during drag per Req 4.2
   transitionDuration: 150, // ms
@@ -32,115 +30,6 @@ const HANDLE_COLORS = {
   else: "#FF9500",       // Orange
   disabled: "#6B7280",   // Muted gray
 };
-
-// Handle container styles for React Flow
-const getHandleContainerStyles = () => ({
-  width: `${HANDLE_STYLES.width + 8}px`,
-  height: `${HANDLE_STYLES.height + 8}px`,
-  position: "relative" as const,
-  zIndex: 30,
-  background: "transparent",
-  border: "none",
-});
-
-const HandleContent = memo(function HandleContent({
-  isNullHandle,
-  handleColor,
-  isHovered,
-  openHandle,
-  testIdComplement,
-  title,
-  showNode,
-  left,
-  outputCategory,
-  isFlashing,
-}: {
-  isNullHandle: boolean;
-  handleColor: string;
-  isHovered: boolean;
-  openHandle: boolean;
-  testIdComplement?: string;
-  title: string;
-  showNode: boolean;
-  left: boolean;
-  outputCategory?: "success" | "else" | null;
-  isFlashing?: boolean;
-}) {
-  // Compute the pill-shaped handle style based on state
-  const contentStyle = useMemo(() => {
-    const baseStyle = {
-      width: `${HANDLE_STYLES.width}px`,
-      height: `${HANDLE_STYLES.height}px`,
-      borderRadius: `${HANDLE_STYLES.borderRadius}px`,
-      backgroundColor: handleColor,
-      border: `1px solid ${handleColor}80`, // 50% opacity border
-      transition: `all ${HANDLE_STYLES.transitionDuration}ms ease`,
-      opacity: HANDLE_STYLES.defaultOpacity,
-      transform: "scale(1)",
-      boxShadow: "none",
-    };
-
-    // Flash animation on successful connection (Req 4.3)
-    if (isFlashing) {
-      return {
-        ...baseStyle,
-        opacity: 1,
-        boxShadow: `0 0 8px ${handleColor}, 0 0 12px ${handleColor}`,
-        transform: `scale(${HANDLE_STYLES.hoverScale})`,
-      };
-    }
-
-    // Incompatible/disabled state
-    if (isNullHandle) {
-      return {
-        ...baseStyle,
-        opacity: HANDLE_STYLES.incompatibleOpacity,
-        backgroundColor: HANDLE_COLORS.disabled,
-        border: `1px solid ${HANDLE_COLORS.disabled}80`,
-      };
-    }
-
-    // Compatible handle during drag - subtle glow
-    if (openHandle) {
-      return {
-        ...baseStyle,
-        opacity: HANDLE_STYLES.hoverOpacity,
-        boxShadow: `0 0 4px ${handleColor}`,
-        transform: `scale(${HANDLE_STYLES.hoverScale})`,
-      };
-    }
-
-    // Hover state
-    if (isHovered) {
-      return {
-        ...baseStyle,
-        opacity: HANDLE_STYLES.hoverOpacity,
-        transform: `scale(${HANDLE_STYLES.hoverScale})`,
-      };
-    }
-
-    return baseStyle;
-  }, [isNullHandle, handleColor, isHovered, openHandle, isFlashing]);
-
-  // Generate aria-label for accessibility
-  const ariaLabel = useMemo(() => {
-    const handleType = left ? "Input" : outputCategory === "success" ? "Success Output" : outputCategory === "else" ? "Else Output" : "Output";
-    const status = isNullHandle ? "incompatible" : openHandle ? "compatible" : "available";
-    return `${handleType} handle - ${status}`;
-  }, [left, outputCategory, isNullHandle, openHandle]);
-
-  return (
-    <div
-      data-testid={`div-handle-${testIdComplement}-${title.toLowerCase()}-${
-        !showNode ? (left ? "target" : "source") : left ? "left" : "right"
-      }`}
-      className="noflow nowheel nopan noselect pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-crosshair"
-      style={contentStyle}
-      aria-label={ariaLabel}
-      role="button"
-    />
-  );
-});
 
 const HandleRenderComponent = memo(function HandleRenderComponent({
   left,
@@ -420,6 +309,67 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
     return `${handleType} connection point for ${title}`;
   }, [left, outputCategory, title]);
 
+  // Compute the handle style directly on the Handle element
+  const handleStyle = useMemo(() => {
+    const baseStyle: React.CSSProperties = {
+      position: "relative" as const, // Override React Flow's absolute positioning
+      top: "auto",
+      left: "auto",
+      right: "auto",
+      bottom: "auto",
+      transform: "none",
+      width: `${HANDLE_STYLES.size}px`,
+      height: `${HANDLE_STYLES.size}px`,
+      borderRadius: "50%", // Perfect circle
+      backgroundColor: handleColor,
+      border: "none",
+      transition: `all ${HANDLE_STYLES.transitionDuration}ms ease`,
+      opacity: HANDLE_STYLES.defaultOpacity,
+      boxShadow: "none",
+      cursor: "crosshair",
+    };
+
+    // Flash animation on successful connection
+    if (isFlashing) {
+      return {
+        ...baseStyle,
+        opacity: 1,
+        boxShadow: `0 0 6px ${handleColor}`,
+        transform: `scale(${HANDLE_STYLES.hoverScale})`,
+      };
+    }
+
+    // Incompatible/disabled state
+    if (isNullHandle) {
+      return {
+        ...baseStyle,
+        opacity: HANDLE_STYLES.incompatibleOpacity,
+        backgroundColor: HANDLE_COLORS.disabled,
+      };
+    }
+
+    // Compatible handle during drag - subtle glow
+    if (openHandle) {
+      return {
+        ...baseStyle,
+        opacity: HANDLE_STYLES.hoverOpacity,
+        boxShadow: `0 0 4px ${handleColor}`,
+        transform: `scale(${HANDLE_STYLES.hoverScale})`,
+      };
+    }
+
+    // Hover state
+    if (isHovered) {
+      return {
+        ...baseStyle,
+        opacity: HANDLE_STYLES.hoverOpacity,
+        transform: `scale(${HANDLE_STYLES.hoverScale})`,
+      };
+    }
+
+    return baseStyle;
+  }, [handleColor, isFlashing, isNullHandle, openHandle, isHovered]);
+
   return (
     <div>
       <ShadTooltip
@@ -448,10 +398,10 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
             isValidConnection(connection as Connection, nodes, edges)
           }
           className={cn(
-            `group/handle z-50 transition-all`,
+            `group/handle z-50`,
             !showNode && "no-show",
           )}
-          style={getHandleContainerStyles()}
+          style={handleStyle}
           onClick={handleClick}
           onMouseUp={handleMouseUp}
           onContextMenu={handleContextMenu}
@@ -463,20 +413,7 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
           }`}
           aria-label={handleAriaLabel}
           tabIndex={0}
-        >
-          <HandleContent
-            isNullHandle={isNullHandle ?? false}
-            handleColor={handleColor}
-            isHovered={isHovered}
-            openHandle={openHandle}
-            testIdComplement={testIdComplement}
-            title={title}
-            showNode={showNode}
-            left={left}
-            outputCategory={outputCategory}
-            isFlashing={isFlashing}
-          />
-        </Handle>
+        />
       </ShadTooltip>
     </div>
   );

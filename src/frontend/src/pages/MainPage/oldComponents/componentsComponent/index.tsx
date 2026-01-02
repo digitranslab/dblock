@@ -106,6 +106,7 @@ export default function ComponentsComponent({
   );
 
   const handleDuplicate = () => {};
+  const handleEdit = () => {};
 
   const { mutate: mutateDownloadMultipleFlows } =
     usePostDownloadMultipleFlows();
@@ -167,6 +168,7 @@ export default function ComponentsComponent({
     setOpenDelete,
     handleDuplicate,
     handleExport,
+    handleEdit,
   );
 
   const handleDeleteMultiple = () => {

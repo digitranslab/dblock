@@ -5,10 +5,10 @@ import {
 import * as Form from "@radix-ui/react-form";
 import { cloneDeep } from "lodash";
 import { useContext, useState } from "react";
-import IconComponent from "../../components/common/genericIconComponent";
-import Header from "../../components/headerComponent";
-import InputComponent from "../../components/inputComponent";
-import { Button } from "../../components/ui/button";
+import IconComponent from "@/components/common/genericIconComponent";
+import AppHeader from "@/components/core/appHeaderComponent";
+import InputComponent from "@/components/core/parameterRenderComponent/components/inputComponent";
+import { Button } from "@/components/ui/button";
 import {
   EDIT_PASSWORD_ALERT_LIST,
   EDIT_PASSWORD_ERROR_ALERT,
@@ -23,7 +23,7 @@ import {
   patchUserInputStateType,
 } from "../../types/components";
 import { gradients } from "../../utils/styleUtils";
-import GradientChooserComponent from "../SettingsPage/pages/GeneralPage/components/ProfilePictureForm/components/profilePictureChooserComponent";
+import GradientChooserComponent from "@/components/common/gradientChooserComponent";
 export default function ProfileSettingsPage(): JSX.Element {
   const [inputState, setInputState] = useState<patchUserInputStateType>(
     CONTROL_PATCH_USER_STATE,
@@ -90,7 +90,7 @@ export default function ProfileSettingsPage(): JSX.Element {
 
   return (
     <>
-      <Header />
+      <AppHeader />
 
       <div className="community-page-arrangement">
         <div className="community-page-nav-arrangement">

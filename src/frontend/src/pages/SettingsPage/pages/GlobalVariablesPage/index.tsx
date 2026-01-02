@@ -3,7 +3,6 @@ import IconComponent, {
 } from "../../../../components/common/genericIconComponent";
 import { Button } from "../../../../components/ui/button";
 
-import Dropdown from "@/components/core/dropdownComponent";
 import GlobalVariableModal from "@/components/core/GlobalVariableModal/GlobalVariableModal";
 import TableComponent from "@/components/core/parameterRenderComponent/components/tableComponent";
 import {
@@ -18,6 +17,13 @@ import {
 } from "ag-grid-community";
 import { useRef, useState } from "react";
 import { Badge } from "../../../../components/ui/badge";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../../../../components/ui/select";
 import useAlertStore from "../../../../stores/alertStore";
 
 export default function GlobalVariablesPage() {
@@ -36,11 +42,20 @@ export default function GlobalVariablesPage() {
     );
   };
 
-  const DropdownEditor = ({ options, value, onValueChange }) => {
+  const DropdownEditor = ({ options, value, onValueChange }: { options: string[]; value: string; onValueChange: (value: string) => void }) => {
     return (
-      <Dropdown options={options} value={value} onSelect={onValueChange}>
-        <div className="-mt-1.5 w-full"></div>
-      </Dropdown>
+      <Select value={value} onValueChange={onValueChange}>
+        <SelectTrigger className="-mt-1.5 w-full">
+          <SelectValue placeholder="Select type" />
+        </SelectTrigger>
+        <SelectContent>
+          {options.map((option) => (
+            <SelectItem key={option} value={option}>
+              {option}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
     );
   };
   // Column Definitions: Defines the columns to be displayed.

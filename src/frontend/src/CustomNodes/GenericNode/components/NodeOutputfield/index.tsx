@@ -286,45 +286,11 @@ function NodeOutputField({
     colorName,
   ]);
 
-  const Handle = useMemo(
-    () => (
-      <HandleRenderComponent
-        left={false}
-        nodes={nodes}
-        tooltipTitle={tooltipTitle}
-        id={id}
-        title={title}
-        edges={edges}
-        nodeId={data.id}
-        myData={myData}
-        colors={colors}
-        setFilterEdge={setFilterEdge}
-        showNode={showNode}
-        testIdComplement={`${data?.type?.toLowerCase()}-${showNode ? "shownode" : "noshownode"}`}
-        colorName={colorName}
-        outputCategory={outputCategory}
-      />
-    ),
-    [
-      nodes,
-      tooltipTitle,
-      id,
-      title,
-      edges,
-      data.id,
-      myData,
-      colors,
-      setFilterEdge,
-      showNode,
-      data?.type,
-      colorName,
-      outputCategory,
-    ],
-  );
-
   // For vertical layout: handles are rendered at node level via NodeOutputHandles
-  // Only render handles here when showNode is false (collapsed state)
-  if (!showNode) return <>{Handle}</>;
+  // Don't render handles here - they're handled by NodeOutputHandles component
+  if (!showNode) {
+    return <></>;
+  }
 
   return (
     <div

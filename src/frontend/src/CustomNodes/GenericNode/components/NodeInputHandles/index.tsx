@@ -120,9 +120,12 @@ const NodeInputHandles = memo(function NodeInputHandles({
   return (
     <div 
       className="absolute left-0 right-0 top-0 z-50 flex justify-center" 
-      style={{ transform: "translateY(-4px)" }}
+      style={{ transform: "translateY(-5px)" }}
     >
-      <div className="flex items-center justify-center">
+      <div 
+        className="relative"
+        style={{ width: "10px", height: "10px" }}
+      >
         <HandleRenderComponent
           left={true}
           nodes={nodes}

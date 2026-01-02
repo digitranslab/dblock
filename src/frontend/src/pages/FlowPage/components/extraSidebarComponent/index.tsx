@@ -224,6 +224,7 @@ export default function ExtraSidebar(): JSX.Element {
               <SidebarFilterComponent
                 isInput={!!filterType.source}
                 type={filterType.type}
+                color={filterType.color || "gray"}
                 resetFilters={() => {
                   setFilterEdge([]);
                   setFilterData(data);

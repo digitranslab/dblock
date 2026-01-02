@@ -1,9 +1,17 @@
 import ShadTooltip from "@/components/common/shadTooltipComponent";
-import { nodeColors, nodeIconsLucide, nodeNames } from "@/utils/styleUtils";
+import { nodeColors, nodeIconsLucide, SIDEBAR_CATEGORIES, SIDEBAR_BUNDLES } from "@/utils/styleUtils";
 import { removeCountFromString } from "@/utils/utils";
 import DisclosureComponent from "../../DisclosureComponent";
 import SidebarDraggableComponent from "../sideBarDraggableComponent";
 import sensitiveSort from "../utils/sensitive-sort";
+
+// Create nodeNames mapping from SIDEBAR_CATEGORIES and SIDEBAR_BUNDLES
+const nodeNames: { [key: string]: string } = {
+  unknown: "Unknown",
+  ...Object.fromEntries(
+    [...SIDEBAR_CATEGORIES, ...SIDEBAR_BUNDLES].map((cat) => [cat.name, cat.display_name])
+  ),
+};
 
 export function SidebarCategoryComponent({
   search,

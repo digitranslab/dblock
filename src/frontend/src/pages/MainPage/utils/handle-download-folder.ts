@@ -1,5 +1,13 @@
+import { api } from "@/controllers/API/api";
+import { getURL } from "@/controllers/API/helpers/constants";
 import { useFolderStore } from "../../../stores/foldersStore";
-import { downloadFlowsFromFolders } from "../services";
+
+async function downloadFlowsFromFolders(folderId: string): Promise<any> {
+  const response = await api.get<any>(
+    `${getURL("FOLDERS")}/download/${folderId}`,
+  );
+  return response.data;
+}
 
 export function handleDownloadFolderFn(folderId: string) {
   downloadFlowsFromFolders(folderId).then((data) => {

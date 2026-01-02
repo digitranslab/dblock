@@ -13,23 +13,20 @@ import {
   DEFAULT_TOOLSET_PLACEHOLDER,
   FLEX_VIEW_TYPES,
   ICON_STROKE_WIDTH,
-  KOZMOAI_SUPPORTED_TYPES,
 } from "../../../../constants/constants";
 import useFlowStore from "../../../../stores/flowStore";
-import { useTypesStore } from "../../../../stores/typesStore";
 import { NodeInputFieldComponentType } from "../../../../types/components";
 import { scapedJSONStringfy } from "../../../../utils/reactflowUtils";
 import useFetchDataOnMount from "../../../hooks/use-fetch-data-on-mount";
 import useHandleOnNewValue from "../../../hooks/use-handle-new-value";
 import NodeInputInfo from "../NodeInputInfo";
-import HandleRenderComponent from "../handleRenderComponent";
 
 export default function NodeInputField({
   id,
   data,
-  tooltipTitle,
+  tooltipTitle: _tooltipTitle,
   title,
-  colors,
+  colors: _colors,
   type,
   name = "",
   required = false,
@@ -38,19 +35,16 @@ export default function NodeInputField({
   info = "",
   proxy,
   showNode,
-  colorName,
+  colorName: _colorName,
   isToolMode = false,
 }: NodeInputFieldComponentType): JSX.Element {
   const ref = useRef<HTMLDivElement>(null);
-  const nodes = useFlowStore((state) => state.nodes);
   const edges = useFlowStore((state) => state.edges);
-  const myData = useTypesStore((state) => state.data);
   const postTemplateValue = usePostTemplateValue({
     node: data.node!,
     nodeId: data.id,
     parameterId: name,
   });
-  const setFilterEdge = useFlowStore((state) => state.setFilterEdge);
   const { handleNodeClass } = useHandleNodeClass(data.id);
   let disabled =
     edges.some(
@@ -72,41 +66,15 @@ export default function NodeInputField({
     }
   }, [optionalHandle]);
 
-  const displayHandle =
-    (!KOZMOAI_SUPPORTED_TYPES.has(type ?? "") ||
-      (optionalHandle && optionalHandle.length > 0)) &&
-    !isToolMode;
-
   const isFlexView = FLEX_VIEW_TYPES.includes(type ?? "");
 
-  const Handle = (
-    <HandleRenderComponent
-      left={true}
-      nodes={nodes}
-      tooltipTitle={tooltipTitle}
-      proxy={proxy}
-      id={id}
-      title={title}
-      edges={edges}
-      myData={myData}
-      colors={colors}
-      setFilterEdge={setFilterEdge}
-      showNode={showNode}
-      testIdComplement={`${data?.type?.toLowerCase()}-${showNode ? "shownode" : "noshownode"}`}
-      nodeId={data.id}
-      colorName={colorName}
-    />
-  );
-
   // For vertical layout: handles are rendered at node level via NodeInputHandles
-  // Only render handles here when showNode is false (collapsed state)
-  return !showNode ? (
-    displayHandle ? (
-      Handle
-    ) : (
-      <></>
-    )
-  ) : (
+  // Don't render handles here - they're handled by NodeInputHandles component
+  if (!showNode) {
+    return <></>;
+  }
+  
+  return (
     <div
       ref={ref}
       className={cn(

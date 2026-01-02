@@ -104,12 +104,12 @@ const NodeOutputHandles = memo(function NodeOutputHandles({
   return (
     <div 
       className="absolute bottom-0 left-0 right-0 z-50 flex justify-center" 
-      style={{ transform: "translateY(4px)" }}
+      style={{ transform: "translateY(5px)" }}
     >
       <div 
         className="flex items-center justify-center"
         style={{ 
-          gap: "16px", // 16px gap between handles per spec
+          gap: "16px", // Gap between handles
         }}
       >
         {outputsToRender.map((output, idx) => {
@@ -124,23 +124,28 @@ const NodeOutputHandles = memo(function NodeOutputHandles({
           const colorNames = getNodeOutputColorsName(output, data, types);
 
           return (
-            <HandleRenderComponent
-              key={`output-handle-${output.name}-${idx}`}
-              left={false}
-              nodes={nodes}
-              tooltipTitle={output.selected ?? output.types[0]}
-              id={id}
-              title={output.display_name ?? output.name}
-              edges={edges}
-              myData={myData}
-              colors={colors}
-              setFilterEdge={setFilterEdge}
-              showNode={showNode}
-              testIdComplement={`${data?.type?.toLowerCase()}-${showNode ? "shownode" : "noshownode"}`}
-              nodeId={data.id}
-              colorName={colorNames}
-              outputCategory={output.output_category}
-            />
+            <div 
+              key={`output-handle-wrapper-${output.name}-${idx}`}
+              className="relative"
+              style={{ width: "10px", height: "10px" }}
+            >
+              <HandleRenderComponent
+                left={false}
+                nodes={nodes}
+                tooltipTitle={output.selected ?? output.types[0]}
+                id={id}
+                title={output.display_name ?? output.name}
+                edges={edges}
+                myData={myData}
+                colors={colors}
+                setFilterEdge={setFilterEdge}
+                showNode={showNode}
+                testIdComplement={`${data?.type?.toLowerCase()}-${showNode ? "shownode" : "noshownode"}`}
+                nodeId={data.id}
+                colorName={colorNames}
+                outputCategory={output.output_category}
+              />
+            </div>
           );
         })}
       </div>
