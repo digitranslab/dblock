@@ -5,17 +5,17 @@ from kozmoai.base.tools.component_tool import ComponentToolkit
 from kozmoai.components.langchain_utilities import ToolCallingAgentComponent
 from kozmoai.components.models import OpenAIModelComponent
 from kozmoai.components.outputs import ChatOutput
-from kozmoai.components.tools.calculator import CalculatorToolComponent
+from kozmoai.components.tools.calculator_core import CalculatorComponent
 from kozmoai.graph import Graph
 from kozmoai.schema.data import Data
 from pydantic import BaseModel
 
 
 def test_component_tool():
-    calculator_component = CalculatorToolComponent()
+    calculator_component = CalculatorComponent()
     component_toolkit = ComponentToolkit(component=calculator_component)
     component_tool = component_toolkit.get_tools()[0]
-    assert component_tool.name == "CalculatorTool-run_model"
+    assert component_tool.name == "Calculator-evaluate_expression"
     assert issubclass(component_tool.args_schema, BaseModel)
     # TODO: fix this
     # assert component_tool.args_schema.model_json_schema()["properties"] == {
@@ -29,9 +29,9 @@ def test_component_tool():
     assert component_toolkit.component == calculator_component
 
     result = component_tool.invoke(input={"expression": "1+1"})
-    assert isinstance(result[0], Data)
-    assert "result" in result[0].data
-    assert result[0].result == "2"
+    assert isinstance(result, Data)
+    assert "result" in result.data
+    assert result.data["result"] == "2"
 
 
 @pytest.mark.api_key_required

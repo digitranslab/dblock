@@ -5,7 +5,7 @@ import pytest
 from kozmoai.components.inputs import ChatInput
 from kozmoai.components.langchain_utilities import ToolCallingAgentComponent
 from kozmoai.components.outputs import ChatOutput, TextOutputComponent
-from kozmoai.components.tools import YfinanceToolComponent
+from kozmoai.components.tools import YfinanceComponent
 from kozmoai.graph import Graph
 from kozmoai.graph.graph.constants import Finish
 
@@ -133,6 +133,6 @@ def test_graph_functional_start_end():
 
 @pytest.mark.skip(reason="Temporarily disabled")
 def test_graph_set_with_valid_component():
-    tool = YfinanceToolComponent()
+    tool = YfinanceComponent()
     tool_calling_agent = ToolCallingAgentComponent()
     tool_calling_agent.set(tools=[tool])

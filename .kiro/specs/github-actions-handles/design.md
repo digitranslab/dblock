@@ -270,6 +270,64 @@ const SELECTED_EDGE_STYLE: Partial<EdgeStyleConfig> = {
 - Handle edge cases where source/target nodes are deleted during drag
 - Gracefully handle rapid connect/disconnect sequences
 
+### Type Compatibility System
+
+The `isValidConnection` function uses a type compatibility map to determine if connections are valid:
+
+```typescript
+// Type compatibility map: defines which types can be implicitly converted to other types
+const TYPE_COMPATIBILITY_MAP: Record<string, string[]> = {
+  // Message can be converted to string-like types
+  "Message": ["str", "Text", "string", "Message", "Data"],
+  // Text is compatible with string types
+  "Text": ["str", "string", "Text", "Message"],
+  // Data can be converted to various types
+  "Data": ["str", "Text", "string", "Data", "Message", "dict"],
+  // String types are interchangeable
+  "str": ["str", "string", "Text"],
+  "string": ["str", "string", "Text"],
+  // Embeddings type compatibility
+  "Embeddings": ["Embeddings"],
+  // LanguageModel compatibility
+  "LanguageModel": ["LanguageModel"],
+  // Retriever compatibility
+  "Retriever": ["Retriever"],
+  // Document compatibility
+  "Document": ["Document", "Data"],
+  // BaseMemory compatibility
+  "BaseMemory": ["BaseMemory"],
+  // Tool compatibility
+  "Tool": ["Tool"],
+  // Agent compatibility
+  "Agent": ["Agent"],
+  // Chain compatibility
+  "Chain": ["Chain"],
+  // VectorStore compatibility
+  "VectorStore": ["VectorStore"],
+};
+
+// Check if sourceType is compatible with targetType
+function isTypeCompatible(sourceType: string, targetType: string): boolean {
+  // Exact match
+  if (sourceType === targetType) return true;
+  
+  // Check compatibility map
+  const compatibleTypes = TYPE_COMPATIBILITY_MAP[sourceType];
+  if (compatibleTypes && compatibleTypes.includes(targetType)) return true;
+  
+  // Reverse check - if target accepts source type
+  const reverseCompatible = TYPE_COMPATIBILITY_MAP[targetType];
+  if (reverseCompatible && reverseCompatible.includes(sourceType)) return true;
+  
+  return false;
+}
+```
+
+This allows:
+- Prompt components (outputting `Message`) to connect to components accepting `str` inputs
+- Data components to connect to components accepting `Message` or `str` inputs
+- Flexible type conversions while maintaining type safety for specialized types like `Embeddings`, `LanguageModel`, etc.
+
 ## Testing Strategy
 
 ### Unit Tests

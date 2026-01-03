@@ -375,7 +375,10 @@ const HandleRenderComponent = memo(function HandleRenderComponent({
       <ShadTooltip
         open={openTooltip}
         setOpen={setOpenTooltip}
-        styleClasses={cn("tooltip-fixed-width custom-scroll nowheel bottom-2")}
+        styleClasses={cn(
+          "tooltip-fixed-width custom-scroll nowheel bottom-2",
+          "dblock-tooltip-wrapper"
+        )}
         delayDuration={500}
         content={
           <HandleTooltipComponent
