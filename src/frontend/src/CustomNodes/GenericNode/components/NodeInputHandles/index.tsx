@@ -14,10 +14,11 @@ interface NodeInputHandlesProps {
   showNode: boolean;
 }
 
-// Known output component types that should have no input handles
-const OUTPUT_COMPONENT_TYPES = [
-  "ChatOutput",
-  "TextOutput",
+// Known INPUT component types that should have no input handles (they are data sources)
+const INPUT_COMPONENT_TYPES = [
+  "ChatInput",
+  "TextInput",
+  "CronTrigger",
 ];
 
 /**
@@ -99,11 +100,13 @@ const NodeInputHandles = memo(function NodeInputHandles({
     };
   }, [data.node?.template, data.node?.field_order, isToolMode]);
 
-  // Check if this is an output component (no input handles)
-  const isOutputComponent = OUTPUT_COMPONENT_TYPES.includes(data.type);
+  // Check if this is an INPUT component (no input handles - they are data sources)
+  // Use both hardcoded list and dynamic check from backend data
+  const isInputComponent = INPUT_COMPONENT_TYPES.includes(data.type) ||
+    (myData?.inputs && Object.keys(myData.inputs).includes(data.type));
   
-  // Don't render input handle for output components or if no inputs
-  if (isOutputComponent || !unifiedInputData.hasInputs) return null;
+  // Don't render input handle for input components or if no inputs
+  if (isInputComponent || !unifiedInputData.hasInputs) return null;
 
   // All input handles are grey
   const colors = getNodeInputColors(
