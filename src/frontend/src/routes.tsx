@@ -22,6 +22,7 @@ import { AppInitPage } from "./pages/AppInitPage";
 import { AppWrapperPage } from "./pages/AppWrapperPage";
 import { DashboardWrapperPage } from "./pages/DashboardWrapperPage";
 import ExecutionHistoryPage from "./pages/ExecutionHistoryPage";
+import SecretsPage from "./pages/SecretsPage";
 import FlowPage from "./pages/FlowPage";
 import LoginPage from "./pages/LoginPage";
 import MyCollectionComponent from "./pages/MainPage/oldComponents/myCollectionComponent";
@@ -178,6 +179,10 @@ const router = createBrowserRouter(
               {/* Homepage */}
               <Route path="home" element={<DashboardWrapperPage />}>
                 <Route index element={<ExecutionHistoryPage />} />
+              </Route>
+              {/* Secrets Management */}
+              <Route path="secrets" element={<DashboardWrapperPage />}>
+                <Route index element={<SecretsPage />} />
               </Route>
               {/* Studio - Canvas editor for workflows */}
               <Route path="studio/:id/">

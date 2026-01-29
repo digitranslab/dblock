@@ -9,6 +9,7 @@ from kozmoai.api.v1.folders import router as folders_router
 from kozmoai.api.v1.login import router as login_router
 from kozmoai.api.v1.mcp import router as mcp_router
 from kozmoai.api.v1.monitor import router as monitor_router
+from kozmoai.api.v1.secrets import router as secrets_router
 from kozmoai.api.v1.starter_projects import router as starter_projects_router
 from kozmoai.api.v1.store import router as store_router
 from kozmoai.api.v1.users import router as users_router
@@ -27,6 +28,7 @@ __all__ = [
     "login_router",
     "mcp_router",
     "monitor_router",
+    "secrets_router",
     "starter_projects_router",
     "store_router",
     "users_router",

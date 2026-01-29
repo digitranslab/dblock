@@ -26,6 +26,7 @@ export default function LeftDockComponent({
   const isStudioActive = location.pathname.startsWith("/studio");
   const isCatalogActive = location.pathname.startsWith("/flow");
   const isHistoryActive = location.pathname === "/home" || location.pathname === "/";
+  const isSecretsActive = location.pathname.startsWith("/secrets");
   const isSettingsActive = location.pathname.startsWith("/settings");
 
   const appVersion = "1.0.0";
@@ -91,6 +92,24 @@ export default function LeftDockComponent({
             data-testid="dock-catalog-btn"
           >
             <ForwardedIconComponent name="LayoutGrid" className="h-5 w-5" />
+          </Button>
+        </ShadTooltip>
+
+        {/* Secrets Button */}
+        <ShadTooltip content="Secrets" side="right">
+          <Button
+            variant="ghost"
+            size="icon"
+            className={cn(
+              "h-10 w-10 rounded-lg",
+              isSecretsActive
+                ? "bg-accent text-accent-foreground"
+                : "text-muted-foreground hover:bg-accent hover:text-accent-foreground",
+            )}
+            onClick={() => navigate("/secrets")}
+            data-testid="dock-secrets-btn"
+          >
+            <ForwardedIconComponent name="Key" className="h-5 w-5" />
           </Button>
         </ShadTooltip>
       </div>

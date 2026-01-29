@@ -11,6 +11,7 @@ if TYPE_CHECKING:
     from kozmoai.services.database.models.flow import Flow
     from kozmoai.services.database.models.flow_run.model import FlowRun
     from kozmoai.services.database.models.folder import Folder
+    from kozmoai.services.database.models.secret import Secret
     from kozmoai.services.database.models.variable import Variable
 
 
@@ -39,6 +40,10 @@ class User(SQLModel, table=True):  # type: ignore[call-arg]
         sa_relationship_kwargs={"cascade": "delete"},
     )
     flow_runs: list["FlowRun"] = Relationship(
+        back_populates="user",
+        sa_relationship_kwargs={"cascade": "delete"},
+    )
+    secrets: list["Secret"] = Relationship(
         back_populates="user",
         sa_relationship_kwargs={"cascade": "delete"},
     )
