@@ -22,12 +22,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Memory-gWJrq{\u0153dataType\u0153:\u0153Memory\u0153,\u0153id\u0153:\u0153Memory-gWJrq\u0153,\u0153name\u0153:\u0153messages_text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-yhdMP{\u0153fieldName\u0153:\u0153memory\u0153,\u0153id\u0153:\u0153Prompt-yhdMP\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-Memory-gWJrq{œdataTypeœ: œMemoryœ, œidœ: œMemory-gWJrqœ, œnameœ: œmessages_textœ, œoutput_typesœ: [œMessageœ]}-Prompt-yhdMP{œfieldNameœ: œmemoryœ, œidœ: œPrompt-yhdMPœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "Memory-gWJrq",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153Memory\u0153, \u0153id\u0153: \u0153Memory-gWJrq\u0153, \u0153name\u0153: \u0153messages_text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œMemoryœ, œidœ: œMemory-gWJrqœ, œnameœ: œmessages_textœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Prompt-yhdMP",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153memory\u0153, \u0153id\u0153: \u0153Prompt-yhdMP\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œmemoryœ, œidœ: œPrompt-yhdMPœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -50,12 +50,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-PEO9d{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-PEO9d\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-63o3Q{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153OpenAIModel-63o3Q\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-ChatInput-PEO9d{œdataTypeœ: œChatInputœ, œidœ: œChatInput-PEO9dœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}-OpenAIModel-63o3Q{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-63o3Qœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "ChatInput-PEO9d",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-PEO9d\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-PEO9dœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
         "target": "OpenAIModel-63o3Q",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153OpenAIModel-63o3Q\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-63o3Qœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -78,12 +78,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-yhdMP{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-yhdMP\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-63o3Q{\u0153fieldName\u0153:\u0153system_message\u0153,\u0153id\u0153:\u0153OpenAIModel-63o3Q\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-Prompt-yhdMP{œdataTypeœ: œPromptœ, œidœ: œPrompt-yhdMPœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}-OpenAIModel-63o3Q{œfieldNameœ: œsystem_messageœ, œidœ: œOpenAIModel-63o3Qœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "Prompt-yhdMP",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-yhdMP\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-yhdMPœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
         "target": "OpenAIModel-63o3Q",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153system_message\u0153, \u0153id\u0153: \u0153OpenAIModel-63o3Q\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œsystem_messageœ, œidœ: œOpenAIModel-63o3Qœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -106,12 +106,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-OpenAIModel-63o3Q{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-63o3Q\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-BIXzI{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-BIXzI\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-OpenAIModel-63o3Q{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-63o3Qœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}-ChatOutput-BIXzI{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-BIXzIœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "OpenAIModel-63o3Q",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIModel\u0153, \u0153id\u0153: \u0153OpenAIModel-63o3Q\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-63o3Qœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
         "target": "ChatOutput-BIXzI",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-BIXzI\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-BIXzIœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       }
     ],
     "nodes": [
@@ -699,7 +699,7 @@
         "data": {
           "id": "note-jlIQj",
           "node": {
-            "description": "# Memory Chatbot\n\nA flexible chatbot implementation featuring advanced conversation memory capabilities. This serves as a foundational tool for building chat experiences with persistent context.\n\n## Core Components\n\n1. **Chat Input**\n   - Accepts user messages\n   - Configures conversation storage\n   - Tracks session identity\n\n2. **Chat Memory**\n   - Stores and retrieves up to 100 previous messages\n   - Maintains conversation context\n   - Tracks separate chat sessions\n   - Preserves sender information and message order\n\n3. **Prompt**\n   - Creates dynamic prompt templates\n   - Integrates memory into conversation flow\n\n4. **OpenAI**\n   - Processes user input with context\n   - Accesses conversation history\n   - Includes options for model configuration and API key setup\n\n5. **Chat Output**\n   - Displays formatted responses\n   - Maintains conversation flow\n   - Syncs with memory storage\n\n## Memory Features\n\n- Stores message history\n- Plans conversation trajectory\n- Differentiates between chat sessions\n- Preserves sender and message metadata\n\n## Quick Start\n\n1. **Initialize** with a clear session ID\n2. **Enter** message in Chat Input\n3. **AI Processes** with context from memory\n4. **Response** appears in Chat Output\n5. Context remains available for follow-ups\n\nThis robust system demonstrates thorough memory integration with minimal complexity. \ud83e\udde0\ud83d\udcac\n",
+            "description": "# Memory Chatbot\n\nA flexible chatbot implementation featuring advanced conversation memory capabilities. This serves as a foundational tool for building chat experiences with persistent context.\n\n## Core Components\n\n1. **Chat Input**\n   - Accepts user messages\n   - Configures conversation storage\n   - Tracks session identity\n\n2. **Chat Memory**\n   - Stores and retrieves up to 100 previous messages\n   - Maintains conversation context\n   - Tracks separate chat sessions\n   - Preserves sender information and message order\n\n3. **Prompt**\n   - Creates dynamic prompt templates\n   - Integrates memory into conversation flow\n\n4. **OpenAI**\n   - Processes user input with context\n   - Accesses conversation history\n   - Includes options for model configuration and API key setup\n\n5. **Chat Output**\n   - Displays formatted responses\n   - Maintains conversation flow\n   - Syncs with memory storage\n\n## Memory Features\n\n- Stores message history\n- Plans conversation trajectory\n- Differentiates between chat sessions\n- Preserves sender and message metadata\n\n## Quick Start\n\n1. **Initialize** with a clear session ID\n2. **Enter** message in Chat Input\n3. **AI Processes** with context from memory\n4. **Response** appears in Chat Output\n5. Context remains available for follow-ups\n\nThis robust system demonstrates thorough memory integration with minimal complexity. 🧠💬\n",
             "display_name": "",
             "documentation": "",
             "template": {}
@@ -1358,13 +1358,17 @@
                 "info": "",
                 "name": "model_name",
                 "options": [
-                  "gpt-4o-mini",
+                  "gpt-4.1",
+                  "gpt-4.1-mini",
+                  "gpt-4.1-nano",
+                  "o3",
+                  "o3-mini",
+                  "o4-mini",
                   "gpt-4o",
+                  "gpt-4o-mini",
                   "gpt-4-turbo",
-                  "gpt-4-turbo-preview",
                   "gpt-4",
-                  "gpt-3.5-turbo",
-                  "gpt-3.5-turbo-0125"
+                  "gpt-3.5-turbo"
                 ],
                 "options_metadata": [],
                 "placeholder": "",

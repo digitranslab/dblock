@@ -198,6 +198,33 @@ all = [
     "ctransformers>=0.2"
 ]
 
+# Data integration dependencies (Mage AI adapters)
+data-integration = [
+    "psycopg2-binary>=2.9.0,<3.0.0",
+    "pymysql>=1.1.0,<2.0.0",
+    "sqlalchemy>=2.0.0,<3.0.0",
+]
+
+# BigQuery support (separate due to size)
+bigquery = [
+    "google-cloud-bigquery>=3.0.0,<4.0.0",
+    "google-cloud-bigquery-storage>=2.0.0,<3.0.0",
+]
+
+# Snowflake support
+snowflake = [
+    "snowflake-connector-python>=3.0.0,<4.0.0",
+]
+
+# All data integrations
+all-integrations = [
+    "psycopg2-binary>=2.9.0,<3.0.0",
+    "pymysql>=1.1.0,<2.0.0",
+    "sqlalchemy>=2.0.0,<3.0.0",
+    "google-cloud-bigquery>=3.0.0,<4.0.0",
+    "snowflake-connector-python>=3.0.0,<4.0.0",
+]
+
 # Development dependencies
 dev = [
     "types-redis>=4.6.0.5",

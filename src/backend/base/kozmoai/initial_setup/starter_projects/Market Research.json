@@ -22,12 +22,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-StructuredOutputComponent-y5YEE{\u0153dataType\u0153:\u0153StructuredOutputComponent\u0153,\u0153id\u0153:\u0153StructuredOutputComponent-y5YEE\u0153,\u0153name\u0153:\u0153structured_output\u0153,\u0153output_types\u0153:[\u0153Data\u0153]}-ParseData-8KK2E{\u0153fieldName\u0153:\u0153data\u0153,\u0153id\u0153:\u0153ParseData-8KK2E\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153],\u0153type\u0153:\u0153other\u0153}",
+        "id": "reactflow__edge-StructuredOutputComponent-y5YEE{œdataTypeœ: œStructuredOutputComponentœ, œidœ: œStructuredOutputComponent-y5YEEœ, œnameœ: œstructured_outputœ, œoutput_typesœ: [œDataœ]}-ParseData-8KK2E{œfieldNameœ: œdataœ, œidœ: œParseData-8KK2Eœ, œinputTypesœ: [œDataœ], œtypeœ: œotherœ}",
         "selected": false,
         "source": "StructuredOutputComponent-y5YEE",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153StructuredOutputComponent\u0153, \u0153id\u0153: \u0153StructuredOutputComponent-y5YEE\u0153, \u0153name\u0153: \u0153structured_output\u0153, \u0153output_types\u0153: [\u0153Data\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œStructuredOutputComponentœ, œidœ: œStructuredOutputComponent-y5YEEœ, œnameœ: œstructured_outputœ, œoutput_typesœ: [œDataœ]}",
         "target": "ParseData-8KK2E",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153data\u0153, \u0153id\u0153: \u0153ParseData-8KK2E\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153], \u0153type\u0153: \u0153other\u0153}"
+        "targetHandle": "{œfieldNameœ: œdataœ, œidœ: œParseData-8KK2Eœ, œinputTypesœ: [œDataœ], œtypeœ: œotherœ}"
       },
       {
         "animated": false,
@@ -51,12 +51,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ParseData-8KK2E{\u0153dataType\u0153:\u0153ParseData\u0153,\u0153id\u0153:\u0153ParseData-8KK2E\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-gEsYh{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-gEsYh\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-ParseData-8KK2E{œdataTypeœ: œParseDataœ, œidœ: œParseData-8KK2Eœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}-ChatOutput-gEsYh{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-gEsYhœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "ParseData-8KK2E",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153ParseData\u0153, \u0153id\u0153: \u0153ParseData-8KK2E\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œParseDataœ, œidœ: œParseData-8KK2Eœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
         "target": "ChatOutput-gEsYh",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-gEsYh\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-gEsYhœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -80,12 +80,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-vuvZ4{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-vuvZ4\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Agent-lyqby{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153Agent-lyqby\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-ChatInput-vuvZ4{œdataTypeœ: œChatInputœ, œidœ: œChatInput-vuvZ4œ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}-Agent-lyqby{œfieldNameœ: œinput_valueœ, œidœ: œAgent-lyqbyœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "ChatInput-vuvZ4",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-vuvZ4\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-vuvZ4œ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Agent-lyqby",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153Agent-lyqby\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAgent-lyqbyœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -108,12 +108,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Agent-lyqby{\u0153dataType\u0153:\u0153Agent\u0153,\u0153id\u0153:\u0153Agent-lyqby\u0153,\u0153name\u0153:\u0153response\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-StructuredOutputComponent-y5YEE{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153StructuredOutputComponent-y5YEE\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-Agent-lyqby{œdataTypeœ: œAgentœ, œidœ: œAgent-lyqbyœ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}-StructuredOutputComponent-y5YEE{œfieldNameœ: œinput_valueœ, œidœ: œStructuredOutputComponent-y5YEEœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "Agent-lyqby",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153Agent\u0153, \u0153id\u0153: \u0153Agent-lyqby\u0153, \u0153name\u0153: \u0153response\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œAgentœ, œidœ: œAgent-lyqbyœ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}",
         "target": "StructuredOutputComponent-y5YEE",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153StructuredOutputComponent-y5YEE\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œStructuredOutputComponent-y5YEEœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -136,11 +136,11 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-TavilySearchComponent-Gv4zn{\u0153dataType\u0153:\u0153TavilySearchComponent\u0153,\u0153id\u0153:\u0153TavilySearchComponent-Gv4zn\u0153,\u0153name\u0153:\u0153component_as_tool\u0153,\u0153output_types\u0153:[\u0153Tool\u0153]}-Agent-lyqby{\u0153fieldName\u0153:\u0153tools\u0153,\u0153id\u0153:\u0153Agent-lyqby\u0153,\u0153inputTypes\u0153:[\u0153Tool\u0153],\u0153type\u0153:\u0153other\u0153}",
+        "id": "reactflow__edge-TavilySearchComponent-Gv4zn{œdataTypeœ: œTavilySearchComponentœ, œidœ: œTavilySearchComponent-Gv4znœ, œnameœ: œcomponent_as_toolœ, œoutput_typesœ: [œToolœ]}-Agent-lyqby{œfieldNameœ: œtoolsœ, œidœ: œAgent-lyqbyœ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}",
         "source": "TavilySearchComponent-Gv4zn",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153TavilySearchComponent\u0153, \u0153id\u0153: \u0153TavilySearchComponent-Gv4zn\u0153, \u0153name\u0153: \u0153component_as_tool\u0153, \u0153output_types\u0153: [\u0153Tool\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œTavilySearchComponentœ, œidœ: œTavilySearchComponent-Gv4znœ, œnameœ: œcomponent_as_toolœ, œoutput_typesœ: [œToolœ]}",
         "target": "Agent-lyqby",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153tools\u0153, \u0153id\u0153: \u0153Agent-lyqby\u0153, \u0153inputTypes\u0153: [\u0153Tool\u0153], \u0153type\u0153: \u0153other\u0153}"
+        "targetHandle": "{œfieldNameœ: œtoolsœ, œidœ: œAgent-lyqbyœ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}"
       },
       {
         "data": {
@@ -161,11 +161,11 @@
             "type": "other"
           }
         },
-        "id": "xy-edge__OpenAIModel-Yo7s2{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-Yo7s2\u0153,\u0153name\u0153:\u0153model_output\u0153,\u0153output_types\u0153:[\u0153LanguageModel\u0153]}-StructuredOutputComponent-y5YEE{\u0153fieldName\u0153:\u0153llm\u0153,\u0153id\u0153:\u0153StructuredOutputComponent-y5YEE\u0153,\u0153inputTypes\u0153:[\u0153LanguageModel\u0153],\u0153type\u0153:\u0153other\u0153}",
+        "id": "reactflow__edge-OpenAIModel-Yo7s2{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-Yo7s2œ, œnameœ: œmodel_outputœ, œoutput_typesœ: [œLanguageModelœ]}-StructuredOutputComponent-y5YEE{œfieldNameœ: œllmœ, œidœ: œStructuredOutputComponent-y5YEEœ, œinputTypesœ: [œLanguageModelœ], œtypeœ: œotherœ}",
         "source": "OpenAIModel-Yo7s2",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIModel\u0153, \u0153id\u0153: \u0153OpenAIModel-Yo7s2\u0153, \u0153name\u0153: \u0153model_output\u0153, \u0153output_types\u0153: [\u0153LanguageModel\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-Yo7s2œ, œnameœ: œmodel_outputœ, œoutput_typesœ: [œLanguageModelœ]}",
         "target": "StructuredOutputComponent-y5YEE",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153llm\u0153, \u0153id\u0153: \u0153StructuredOutputComponent-y5YEE\u0153, \u0153inputTypes\u0153: [\u0153LanguageModel\u0153], \u0153type\u0153: \u0153other\u0153}"
+        "targetHandle": "{œfieldNameœ: œllmœ, œidœ: œStructuredOutputComponent-y5YEEœ, œinputTypesœ: [œLanguageModelœ], œtypeœ: œotherœ}"
       }
     ],
     "nodes": [
@@ -805,7 +805,7 @@
         "data": {
           "id": "note-IftyY",
           "node": {
-            "description": "# Market Research\nThis flow helps you gather comprehensive information about companies for sales and business intelligence purposes.\n\n## Instructions\n\n1. Enter Company Name\n   - In the Chat Input node, type the name of the company you want to research\n   - Example inputs: \"Salesforce.com\", \"Shopify\", \"Zoom Video Communications\"\n\n2. Initiate Research\n   - The Agent will use the Tavily AI Search tool to gather information\n   - It will focus on key areas like pricing, features, and market positioning\n\n3. Review Structured Output\n   - The flow will generate a structured JSON output with standardized fields\n   - This includes domain, LinkedIn URL, pricing details, and key features\n\n4. Examine Formatted Results\n   - The Parse Data component will convert the JSON into a readable format\n   - You'll see a comprehensive company profile with organized sections\n\n5. Analyze and Use Data\n   - Use the generated information for sales prospecting, competitive analysis, or market research\n   - The structured format allows for easy comparison between different companies\n\nRemember: Always verify critical information from official sources before making business decisions! \ud83d\udd0d\ud83d\udcbc",
+            "description": "# Market Research\nThis flow helps you gather comprehensive information about companies for sales and business intelligence purposes.\n\n## Instructions\n\n1. Enter Company Name\n   - In the Chat Input node, type the name of the company you want to research\n   - Example inputs: \"Salesforce.com\", \"Shopify\", \"Zoom Video Communications\"\n\n2. Initiate Research\n   - The Agent will use the Tavily AI Search tool to gather information\n   - It will focus on key areas like pricing, features, and market positioning\n\n3. Review Structured Output\n   - The flow will generate a structured JSON output with standardized fields\n   - This includes domain, LinkedIn URL, pricing details, and key features\n\n4. Examine Formatted Results\n   - The Parse Data component will convert the JSON into a readable format\n   - You'll see a comprehensive company profile with organized sections\n\n5. Analyze and Use Data\n   - Use the generated information for sales prospecting, competitive analysis, or market research\n   - The structured format allows for easy comparison between different companies\n\nRemember: Always verify critical information from official sources before making business decisions! 🔍💼",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -1584,13 +1584,17 @@
                 "info": "To see the model names, first choose a provider. Then, enter your API key and click the refresh button next to the model name.",
                 "name": "model_name",
                 "options": [
-                  "gpt-4o-mini",
+                  "gpt-4.1",
+                  "gpt-4.1-mini",
+                  "gpt-4.1-nano",
+                  "o3",
+                  "o3-mini",
+                  "o4-mini",
                   "gpt-4o",
+                  "gpt-4o-mini",
                   "gpt-4-turbo",
-                  "gpt-4-turbo-preview",
                   "gpt-4",
-                  "gpt-3.5-turbo",
-                  "gpt-3.5-turbo-0125"
+                  "gpt-3.5-turbo"
                 ],
                 "placeholder": "",
                 "required": false,
@@ -1876,7 +1880,7 @@
         "data": {
           "id": "note-Z3HC2",
           "node": {
-            "description": "# \ud83d\udd11 Tavily AI Search Needs API Key\n\nYou can get 1000 searches/month free [here](https://tavily.com/) ",
+            "description": "# 🔑 Tavily AI Search Needs API Key\n\nYou can get 1000 searches/month free [here](https://tavily.com/) ",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -2433,13 +2437,17 @@
                 "info": "",
                 "name": "model_name",
                 "options": [
-                  "gpt-4o-mini",
+                  "gpt-4.1",
+                  "gpt-4.1-mini",
+                  "gpt-4.1-nano",
+                  "o3",
+                  "o3-mini",
+                  "o4-mini",
                   "gpt-4o",
+                  "gpt-4o-mini",
                   "gpt-4-turbo",
-                  "gpt-4-turbo-preview",
                   "gpt-4",
-                  "gpt-3.5-turbo",
-                  "gpt-3.5-turbo-0125"
+                  "gpt-3.5-turbo"
                 ],
                 "options_metadata": [],
                 "placeholder": "",

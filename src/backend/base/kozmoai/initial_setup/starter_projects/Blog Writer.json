@@ -23,11 +23,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ParseData-4Sckw{\u0153dataType\u0153:\u0153ParseData\u0153,\u0153id\u0153:\u0153ParseData-4Sckw\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-65R68{\u0153fieldName\u0153:\u0153references\u0153,\u0153id\u0153:\u0153Prompt-65R68\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-ParseData-4Sckw{œdataTypeœ: œParseDataœ, œidœ: œParseData-4Sckwœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}-Prompt-65R68{œfieldNameœ: œreferencesœ, œidœ: œPrompt-65R68œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "source": "ParseData-4Sckw",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153ParseData\u0153, \u0153id\u0153: \u0153ParseData-4Sckw\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œParseDataœ, œidœ: œParseData-4Sckwœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Prompt-65R68",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153references\u0153, \u0153id\u0153: \u0153Prompt-65R68\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œreferencesœ, œidœ: œPrompt-65R68œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -51,11 +51,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-TextInput-t88FI{\u0153dataType\u0153:\u0153TextInput\u0153,\u0153id\u0153:\u0153TextInput-t88FI\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-65R68{\u0153fieldName\u0153:\u0153instructions\u0153,\u0153id\u0153:\u0153Prompt-65R68\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-TextInput-t88FI{œdataTypeœ: œTextInputœ, œidœ: œTextInput-t88FIœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}-Prompt-65R68{œfieldNameœ: œinstructionsœ, œidœ: œPrompt-65R68œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "source": "TextInput-t88FI",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153TextInput\u0153, \u0153id\u0153: \u0153TextInput-t88FI\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œTextInputœ, œidœ: œTextInput-t88FIœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Prompt-65R68",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153instructions\u0153, \u0153id\u0153: \u0153Prompt-65R68\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinstructionsœ, œidœ: œPrompt-65R68œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -78,11 +78,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-65R68{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-65R68\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-MyAsQ{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153OpenAIModel-MyAsQ\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-Prompt-65R68{œdataTypeœ: œPromptœ, œidœ: œPrompt-65R68œ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}-OpenAIModel-MyAsQ{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-MyAsQœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "source": "Prompt-65R68",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-65R68\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-65R68œ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
         "target": "OpenAIModel-MyAsQ",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153OpenAIModel-MyAsQ\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-MyAsQœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -105,11 +105,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-OpenAIModel-MyAsQ{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-MyAsQ\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-BE4YI{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-BE4YI\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-OpenAIModel-MyAsQ{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-MyAsQœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}-ChatOutput-BE4YI{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-BE4YIœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "source": "OpenAIModel-MyAsQ",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIModel\u0153, \u0153id\u0153: \u0153OpenAIModel-MyAsQ\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-MyAsQœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
         "target": "ChatOutput-BE4YI",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-BE4YI\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-BE4YIœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -131,11 +131,11 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-URL-EPEnt{\u0153dataType\u0153:\u0153URL\u0153,\u0153id\u0153:\u0153URL-EPEnt\u0153,\u0153name\u0153:\u0153data\u0153,\u0153output_types\u0153:[\u0153Data\u0153]}-ParseData-4Sckw{\u0153fieldName\u0153:\u0153data\u0153,\u0153id\u0153:\u0153ParseData-4Sckw\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153],\u0153type\u0153:\u0153other\u0153}",
+        "id": "reactflow__edge-URL-EPEnt{œdataTypeœ: œURLœ, œidœ: œURL-EPEntœ, œnameœ: œdataœ, œoutput_typesœ: [œDataœ]}-ParseData-4Sckw{œfieldNameœ: œdataœ, œidœ: œParseData-4Sckwœ, œinputTypesœ: [œDataœ], œtypeœ: œotherœ}",
         "source": "URL-EPEnt",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153URL\u0153, \u0153id\u0153: \u0153URL-EPEnt\u0153, \u0153name\u0153: \u0153data\u0153, \u0153output_types\u0153: [\u0153Data\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œURLœ, œidœ: œURL-EPEntœ, œnameœ: œdataœ, œoutput_typesœ: [œDataœ]}",
         "target": "ParseData-4Sckw",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153data\u0153, \u0153id\u0153: \u0153ParseData-4Sckw\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153], \u0153type\u0153: \u0153other\u0153}"
+        "targetHandle": "{œfieldNameœ: œdataœ, œidœ: œParseData-4Sckwœ, œinputTypesœ: [œDataœ], œtypeœ: œotherœ}"
       }
     ],
     "nodes": [
@@ -1125,13 +1125,17 @@
                 "info": "",
                 "name": "model_name",
                 "options": [
-                  "gpt-4o-mini",
+                  "gpt-4.1",
+                  "gpt-4.1-mini",
+                  "gpt-4.1-nano",
+                  "o3",
+                  "o3-mini",
+                  "o4-mini",
                   "gpt-4o",
+                  "gpt-4o-mini",
                   "gpt-4-turbo",
-                  "gpt-4-turbo-preview",
                   "gpt-4",
-                  "gpt-3.5-turbo",
-                  "gpt-3.5-turbo-0125"
+                  "gpt-3.5-turbo"
                 ],
                 "options_metadata": [],
                 "placeholder": "",

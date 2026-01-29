@@ -22,12 +22,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-a6SIY{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-a6SIY\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-brPVM{\u0153fieldName\u0153:\u0153system_message\u0153,\u0153id\u0153:\u0153OpenAIModel-brPVM\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-Prompt-a6SIY{œdataTypeœ: œPromptœ, œidœ: œPrompt-a6SIYœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}-OpenAIModel-brPVM{œfieldNameœ: œsystem_messageœ, œidœ: œOpenAIModel-brPVMœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "Prompt-a6SIY",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-a6SIY\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-a6SIYœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
         "target": "OpenAIModel-brPVM",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153system_message\u0153, \u0153id\u0153: \u0153OpenAIModel-brPVM\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œsystem_messageœ, œidœ: œOpenAIModel-brPVMœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -50,12 +50,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-jkCpO{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-jkCpO\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-brPVM{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153OpenAIModel-brPVM\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-Prompt-jkCpO{œdataTypeœ: œPromptœ, œidœ: œPrompt-jkCpOœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}-OpenAIModel-brPVM{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-brPVMœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "Prompt-jkCpO",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-jkCpO\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-jkCpOœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
         "target": "OpenAIModel-brPVM",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153OpenAIModel-brPVM\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-brPVMœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -78,12 +78,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-OpenAIModel-brPVM{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-brPVM\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-oE2ic{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-oE2ic\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-OpenAIModel-brPVM{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-brPVMœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}-ChatOutput-oE2ic{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-oE2icœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "OpenAIModel-brPVM",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIModel\u0153, \u0153id\u0153: \u0153OpenAIModel-brPVM\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-brPVMœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
         "target": "ChatOutput-oE2ic",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-oE2ic\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-oE2icœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       }
     ],
     "nodes": [
@@ -356,7 +356,7 @@
         "data": {
           "id": "note-nssRq",
           "node": {
-            "description": "# SEO Keyword Generator\nWelcome to the SEO Keywords Generator - an AI tool to create strategic keywords based on your product and audience profile!\n\n## Instructions\n\n1. **Fill Product Information**\n   - Enter your product name and description\n   - Keep it clear and specific\n   - Highlight unique features and benefits\n\n2. **Define Pain Points**\n   - List customer problems and challenges\n   - Be specific about what frustrations they face\n   - Include both practical and emotional pain points\n\n3. **Set Goals & Solutions**\n   - Specify customer objectives\n   - Detail how they currently solve problems\n   - Outline desired outcomes\n\n4. **Target Audience Details**\n   - Define demographics and characteristics\n   - Include expertise level\n   - Describe behavior patterns and preferences\n\n5. **Review Output**\n   - Examine generated keywords\n   - Check relevance and search intent\n   - Use insights for SEO strategy planning\n\nRemember: The more detailed your input, the more targeted and effective your keywords will be! \ud83c\udfaf\ud83d\udd0d\u2728",
+            "description": "# SEO Keyword Generator\nWelcome to the SEO Keywords Generator - an AI tool to create strategic keywords based on your product and audience profile!\n\n## Instructions\n\n1. **Fill Product Information**\n   - Enter your product name and description\n   - Keep it clear and specific\n   - Highlight unique features and benefits\n\n2. **Define Pain Points**\n   - List customer problems and challenges\n   - Be specific about what frustrations they face\n   - Include both practical and emotional pain points\n\n3. **Set Goals & Solutions**\n   - Specify customer objectives\n   - Detail how they currently solve problems\n   - Outline desired outcomes\n\n4. **Target Audience Details**\n   - Define demographics and characteristics\n   - Include expertise level\n   - Describe behavior patterns and preferences\n\n5. **Review Output**\n   - Examine generated keywords\n   - Check relevance and search intent\n   - Use insights for SEO strategy planning\n\nRemember: The more detailed your input, the more targeted and effective your keywords will be! 🎯🔍✨",
             "display_name": "",
             "documentation": "",
             "template": {}
@@ -458,7 +458,7 @@
                 "tool_mode": false,
                 "trace_as_input": true,
                 "type": "prompt",
-                "value": "You are a digital marketing strategist specialized in generating highly relevant, optimized keywords for a product\u2019s specific target audience. Your task is to create a list of keywords that are not only attractive and impactful but also resonate with the needs and desires of the customers, capturing the core motivations driving them to seek a solution.\n\nBelow are details about the product, including its target audience, the pain points faced by this audience, and the current solutions they consider or use. Use this information to generate precise keywords that connect directly with the unique value of the product and with the customers' goals. Consider factors like the customer\u2019s level of expertise and major market trends to create a powerful and well-grounded keyword list.\n\n### Product Information:\n- **Product:** \u2013 A brief description of the product, including what sets it apart in the market.\n- **Customer Pain Points:** \u2013 Specific pain points that the audience faces and that the product aims to address.\n- **Customer Goals:** \u2013 The primary goals and aspirations of the target audience that the product helps to achieve.\n- **Current Solutions Used:** \u2013 How the audience currently tries to address these pain points, including competitor solutions or alternatives.\n- **Specific Target Audience:** \u2013 A detailed description of the target audience, including demographics, interests, lifestyle, and behavioral profile.\n- **Customer Expertise Level:**\u2013 The level of familiarity or experience the audience has with similar or related solutions.\n\n### Guidelines for Keyword Generation:\n1. **Focus on Pain Points and Solutions**: Generate keywords that accurately reflect the customers\u2019 pain points, clearly conveying how the product offers an effective and unique solution.\n2. **Emphasize Goals and Benefits**: Highlight keywords aligned with customer goals, emphasizing the positive impact and achievable results of the product.\n3. **Consider Competition and Differentiators**: Think about existing solutions and how the product stands out. Create keywords that emphasize differentiators and help the product stand out in a competitive landscape.\n4. **Tailor to Target Audience**: Use terms and phrases that resonate directly with the target audience\u2019s profile, utilizing language and themes most appealing to this segment.\n5. **Customize to Expertise Level**: Adjust the complexity of the keywords according to the audience\u2019s experience level, ensuring they are appealing and accessible.\n6. **Incorporate Market Trends**: Where possible, include keywords that reflect the latest trends in the sector, increasing the content\u2019s relevance and timeliness.\n\n### Example Keyword Suggestions:\n- **For customer pain points:**  \u2013 Use keywords that reinforce customer pain points, making it clear how the product can be a solution.\n- **For goals and aspirations:**  \u2013 Keywords that symbolize the outcomes and goals desired by customers, such as \u2018stress relief,\u2019 \u2018productivity boost.\u2019\n- **For product differentiators:** \u2013 Keywords that contrast the product with current solutions, highlighting its unique advantages.\n\nFor each keyword generated, provide a brief explanation of how it connects with the product details and the target audience, ensuring the final list is powerful, strategic, and well-founded for maximum market impact."
+                "value": "You are a digital marketing strategist specialized in generating highly relevant, optimized keywords for a product’s specific target audience. Your task is to create a list of keywords that are not only attractive and impactful but also resonate with the needs and desires of the customers, capturing the core motivations driving them to seek a solution.\n\nBelow are details about the product, including its target audience, the pain points faced by this audience, and the current solutions they consider or use. Use this information to generate precise keywords that connect directly with the unique value of the product and with the customers' goals. Consider factors like the customer’s level of expertise and major market trends to create a powerful and well-grounded keyword list.\n\n### Product Information:\n- **Product:** – A brief description of the product, including what sets it apart in the market.\n- **Customer Pain Points:** – Specific pain points that the audience faces and that the product aims to address.\n- **Customer Goals:** – The primary goals and aspirations of the target audience that the product helps to achieve.\n- **Current Solutions Used:** – How the audience currently tries to address these pain points, including competitor solutions or alternatives.\n- **Specific Target Audience:** – A detailed description of the target audience, including demographics, interests, lifestyle, and behavioral profile.\n- **Customer Expertise Level:**– The level of familiarity or experience the audience has with similar or related solutions.\n\n### Guidelines for Keyword Generation:\n1. **Focus on Pain Points and Solutions**: Generate keywords that accurately reflect the customers’ pain points, clearly conveying how the product offers an effective and unique solution.\n2. **Emphasize Goals and Benefits**: Highlight keywords aligned with customer goals, emphasizing the positive impact and achievable results of the product.\n3. **Consider Competition and Differentiators**: Think about existing solutions and how the product stands out. Create keywords that emphasize differentiators and help the product stand out in a competitive landscape.\n4. **Tailor to Target Audience**: Use terms and phrases that resonate directly with the target audience’s profile, utilizing language and themes most appealing to this segment.\n5. **Customize to Expertise Level**: Adjust the complexity of the keywords according to the audience’s experience level, ensuring they are appealing and accessible.\n6. **Incorporate Market Trends**: Where possible, include keywords that reflect the latest trends in the sector, increasing the content’s relevance and timeliness.\n\n### Example Keyword Suggestions:\n- **For customer pain points:**  – Use keywords that reinforce customer pain points, making it clear how the product can be a solution.\n- **For goals and aspirations:**  – Keywords that symbolize the outcomes and goals desired by customers, such as ‘stress relief,’ ‘productivity boost.’\n- **For product differentiators:** – Keywords that contrast the product with current solutions, highlighting its unique advantages.\n\nFor each keyword generated, provide a brief explanation of how it connects with the product details and the target audience, ensuring the final list is powerful, strategic, and well-founded for maximum market impact."
               },
               "tool_placeholder": {
                 "_input_type": "MessageTextInput",
@@ -1024,13 +1024,17 @@
                 "info": "",
                 "name": "model_name",
                 "options": [
-                  "gpt-4o-mini",
+                  "gpt-4.1",
+                  "gpt-4.1-mini",
+                  "gpt-4.1-nano",
+                  "o3",
+                  "o3-mini",
+                  "o4-mini",
                   "gpt-4o",
+                  "gpt-4o-mini",
                   "gpt-4-turbo",
-                  "gpt-4-turbo-preview",
                   "gpt-4",
-                  "gpt-3.5-turbo",
-                  "gpt-3.5-turbo-0125"
+                  "gpt-3.5-turbo"
                 ],
                 "options_metadata": [],
                 "placeholder": "",

@@ -21,12 +21,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-File-GwJQZ{\u0153dataType\u0153:\u0153File\u0153,\u0153id\u0153:\u0153File-GwJQZ\u0153,\u0153name\u0153:\u0153data\u0153,\u0153output_types\u0153:[\u0153Data\u0153]}-ParseData-BbvKb{\u0153fieldName\u0153:\u0153data\u0153,\u0153id\u0153:\u0153ParseData-BbvKb\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153],\u0153type\u0153:\u0153other\u0153}",
+        "id": "reactflow__edge-File-GwJQZ{œdataTypeœ: œFileœ, œidœ: œFile-GwJQZœ, œnameœ: œdataœ, œoutput_typesœ: [œDataœ]}-ParseData-BbvKb{œfieldNameœ: œdataœ, œidœ: œParseData-BbvKbœ, œinputTypesœ: [œDataœ], œtypeœ: œotherœ}",
         "selected": false,
         "source": "File-GwJQZ",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153File\u0153, \u0153id\u0153: \u0153File-GwJQZ\u0153, \u0153name\u0153: \u0153data\u0153, \u0153output_types\u0153: [\u0153Data\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œFileœ, œidœ: œFile-GwJQZœ, œnameœ: œdataœ, œoutput_typesœ: [œDataœ]}",
         "target": "ParseData-BbvKb",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153data\u0153, \u0153id\u0153: \u0153ParseData-BbvKb\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153], \u0153type\u0153: \u0153other\u0153}"
+        "targetHandle": "{œfieldNameœ: œdataœ, œidœ: œParseData-BbvKbœ, œinputTypesœ: [œDataœ], œtypeœ: œotherœ}"
       },
       {
         "className": "",
@@ -49,12 +49,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ParseData-BbvKb{\u0153dataType\u0153:\u0153ParseData\u0153,\u0153id\u0153:\u0153ParseData-BbvKb\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-yvZHT{\u0153fieldName\u0153:\u0153Document\u0153,\u0153id\u0153:\u0153Prompt-yvZHT\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-ParseData-BbvKb{œdataTypeœ: œParseDataœ, œidœ: œParseData-BbvKbœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}-Prompt-yvZHT{œfieldNameœ: œDocumentœ, œidœ: œPrompt-yvZHTœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "ParseData-BbvKb",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153ParseData\u0153, \u0153id\u0153: \u0153ParseData-BbvKb\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œParseDataœ, œidœ: œParseData-BbvKbœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Prompt-yvZHT",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153Document\u0153, \u0153id\u0153: \u0153Prompt-yvZHT\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œDocumentœ, œidœ: œPrompt-yvZHTœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -77,12 +77,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-li477{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-li477\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-atkmo{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153OpenAIModel-atkmo\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-ChatInput-li477{œdataTypeœ: œChatInputœ, œidœ: œChatInput-li477œ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}-OpenAIModel-atkmo{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-atkmoœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "ChatInput-li477",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-li477\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-li477œ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
         "target": "OpenAIModel-atkmo",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153OpenAIModel-atkmo\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-atkmoœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -105,12 +105,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-yvZHT{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-yvZHT\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-atkmo{\u0153fieldName\u0153:\u0153system_message\u0153,\u0153id\u0153:\u0153OpenAIModel-atkmo\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-Prompt-yvZHT{œdataTypeœ: œPromptœ, œidœ: œPrompt-yvZHTœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}-OpenAIModel-atkmo{œfieldNameœ: œsystem_messageœ, œidœ: œOpenAIModel-atkmoœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "Prompt-yvZHT",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-yvZHT\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-yvZHTœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
         "target": "OpenAIModel-atkmo",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153system_message\u0153, \u0153id\u0153: \u0153OpenAIModel-atkmo\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œsystem_messageœ, œidœ: œOpenAIModel-atkmoœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -133,12 +133,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-OpenAIModel-atkmo{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-atkmo\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-8pgwS{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-8pgwS\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-OpenAIModel-atkmo{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-atkmoœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}-ChatOutput-8pgwS{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-8pgwSœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "OpenAIModel-atkmo",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIModel\u0153, \u0153id\u0153: \u0153OpenAIModel-atkmo\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-atkmoœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
         "target": "ChatOutput-8pgwS",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-8pgwS\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-8pgwSœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       }
     ],
     "nodes": [
@@ -1512,13 +1512,17 @@
                 "info": "",
                 "name": "model_name",
                 "options": [
-                  "gpt-4o-mini",
+                  "gpt-4.1",
+                  "gpt-4.1-mini",
+                  "gpt-4.1-nano",
+                  "o3",
+                  "o3-mini",
+                  "o4-mini",
                   "gpt-4o",
+                  "gpt-4o-mini",
                   "gpt-4-turbo",
-                  "gpt-4-turbo-preview",
                   "gpt-4",
-                  "gpt-3.5-turbo",
-                  "gpt-3.5-turbo-0125"
+                  "gpt-3.5-turbo"
                 ],
                 "options_metadata": [],
                 "placeholder": "",

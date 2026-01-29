@@ -23,11 +23,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-TextInput-Uonj7{\u0153dataType\u0153:\u0153TextInput\u0153,\u0153id\u0153:\u0153TextInput-Uonj7\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-DfQRZ{\u0153fieldName\u0153:\u0153guidelines\u0153,\u0153id\u0153:\u0153Prompt-DfQRZ\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-TextInput-Uonj7{œdataTypeœ: œTextInputœ, œidœ: œTextInput-Uonj7œ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}-Prompt-DfQRZ{œfieldNameœ: œguidelinesœ, œidœ: œPrompt-DfQRZœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "source": "TextInput-Uonj7",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153TextInput\u0153, \u0153id\u0153: \u0153TextInput-Uonj7\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œTextInputœ, œidœ: œTextInput-Uonj7œ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Prompt-DfQRZ",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153guidelines\u0153, \u0153id\u0153: \u0153Prompt-DfQRZ\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œguidelinesœ, œidœ: œPrompt-DfQRZœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -51,11 +51,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-ferrV{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-ferrV\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Agent-pNUOq{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153Agent-pNUOq\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-ChatInput-ferrV{œdataTypeœ: œChatInputœ, œidœ: œChatInput-ferrVœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}-Agent-pNUOq{œfieldNameœ: œinput_valueœ, œidœ: œAgent-pNUOqœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "source": "ChatInput-ferrV",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-ferrV\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-ferrVœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Agent-pNUOq",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153Agent-pNUOq\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œAgent-pNUOqœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -79,11 +79,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Agent-pNUOq{\u0153dataType\u0153:\u0153Agent\u0153,\u0153id\u0153:\u0153Agent-pNUOq\u0153,\u0153name\u0153:\u0153response\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-DfQRZ{\u0153fieldName\u0153:\u0153context\u0153,\u0153id\u0153:\u0153Prompt-DfQRZ\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-Agent-pNUOq{œdataTypeœ: œAgentœ, œidœ: œAgent-pNUOqœ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}-Prompt-DfQRZ{œfieldNameœ: œcontextœ, œidœ: œPrompt-DfQRZœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "source": "Agent-pNUOq",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153Agent\u0153, \u0153id\u0153: \u0153Agent-pNUOq\u0153, \u0153name\u0153: \u0153response\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œAgentœ, œidœ: œAgent-pNUOqœ, œnameœ: œresponseœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Prompt-DfQRZ",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153context\u0153, \u0153id\u0153: \u0153Prompt-DfQRZ\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œcontextœ, œidœ: œPrompt-DfQRZœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -107,11 +107,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-R9hC2{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-R9hC2\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-hU0Qy{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-hU0Qy\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-Prompt-R9hC2{œdataTypeœ: œPromptœ, œidœ: œPrompt-R9hC2œ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}-ChatOutput-hU0Qy{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-hU0Qyœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "source": "Prompt-R9hC2",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-R9hC2\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-R9hC2œ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
         "target": "ChatOutput-hU0Qy",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-hU0Qy\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-hU0Qyœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -133,11 +133,11 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-TavilySearchComponent-h8yAo{\u0153dataType\u0153:\u0153TavilySearchComponent\u0153,\u0153id\u0153:\u0153TavilySearchComponent-h8yAo\u0153,\u0153name\u0153:\u0153component_as_tool\u0153,\u0153output_types\u0153:[\u0153Tool\u0153]}-Agent-pNUOq{\u0153fieldName\u0153:\u0153tools\u0153,\u0153id\u0153:\u0153Agent-pNUOq\u0153,\u0153inputTypes\u0153:[\u0153Tool\u0153],\u0153type\u0153:\u0153other\u0153}",
+        "id": "reactflow__edge-TavilySearchComponent-h8yAo{œdataTypeœ: œTavilySearchComponentœ, œidœ: œTavilySearchComponent-h8yAoœ, œnameœ: œcomponent_as_toolœ, œoutput_typesœ: [œToolœ]}-Agent-pNUOq{œfieldNameœ: œtoolsœ, œidœ: œAgent-pNUOqœ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}",
         "source": "TavilySearchComponent-h8yAo",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153TavilySearchComponent\u0153, \u0153id\u0153: \u0153TavilySearchComponent-h8yAo\u0153, \u0153name\u0153: \u0153component_as_tool\u0153, \u0153output_types\u0153: [\u0153Tool\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œTavilySearchComponentœ, œidœ: œTavilySearchComponent-h8yAoœ, œnameœ: œcomponent_as_toolœ, œoutput_typesœ: [œToolœ]}",
         "target": "Agent-pNUOq",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153tools\u0153, \u0153id\u0153: \u0153Agent-pNUOq\u0153, \u0153inputTypes\u0153: [\u0153Tool\u0153], \u0153type\u0153: \u0153other\u0153}"
+        "targetHandle": "{œfieldNameœ: œtoolsœ, œidœ: œAgent-pNUOqœ, œinputTypesœ: [œToolœ], œtypeœ: œotherœ}"
       },
       {
         "className": "",
@@ -160,11 +160,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-DfQRZ{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-DfQRZ\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-N7jW7{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153OpenAIModel-N7jW7\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-Prompt-DfQRZ{œdataTypeœ: œPromptœ, œidœ: œPrompt-DfQRZœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}-OpenAIModel-N7jW7{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-N7jW7œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "source": "Prompt-DfQRZ",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-DfQRZ\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-DfQRZœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
         "target": "OpenAIModel-N7jW7",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153OpenAIModel-N7jW7\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-N7jW7œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -187,11 +187,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-OpenAIModel-N7jW7{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-N7jW7\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-OcCWU{\u0153fieldName\u0153:\u0153post\u0153,\u0153id\u0153:\u0153Prompt-OcCWU\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-OpenAIModel-N7jW7{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-N7jW7œ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}-Prompt-OcCWU{œfieldNameœ: œpostœ, œidœ: œPrompt-OcCWUœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "source": "OpenAIModel-N7jW7",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIModel\u0153, \u0153id\u0153: \u0153OpenAIModel-N7jW7\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-N7jW7œ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Prompt-OcCWU",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153post\u0153, \u0153id\u0153: \u0153Prompt-OcCWU\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œpostœ, œidœ: œPrompt-OcCWUœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -214,11 +214,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-OpenAIModel-N7jW7{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-N7jW7\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-R9hC2{\u0153fieldName\u0153:\u0153post\u0153,\u0153id\u0153:\u0153Prompt-R9hC2\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-OpenAIModel-N7jW7{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-N7jW7œ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}-Prompt-R9hC2{œfieldNameœ: œpostœ, œidœ: œPrompt-R9hC2œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "source": "OpenAIModel-N7jW7",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIModel\u0153, \u0153id\u0153: \u0153OpenAIModel-N7jW7\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-N7jW7œ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Prompt-R9hC2",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153post\u0153, \u0153id\u0153: \u0153Prompt-R9hC2\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œpostœ, œidœ: œPrompt-R9hC2œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -241,11 +241,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-OcCWU{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-OcCWU\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-DdNth{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153OpenAIModel-DdNth\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-Prompt-OcCWU{œdataTypeœ: œPromptœ, œidœ: œPrompt-OcCWUœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}-OpenAIModel-DdNth{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-DdNthœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "source": "Prompt-OcCWU",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-OcCWU\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-OcCWUœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
         "target": "OpenAIModel-DdNth",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153OpenAIModel-DdNth\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-DdNthœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -268,11 +268,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-OpenAIModel-DdNth{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-DdNth\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-R9hC2{\u0153fieldName\u0153:\u0153image_description\u0153,\u0153id\u0153:\u0153Prompt-R9hC2\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-OpenAIModel-DdNth{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-DdNthœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}-Prompt-R9hC2{œfieldNameœ: œimage_descriptionœ, œidœ: œPrompt-R9hC2œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "source": "OpenAIModel-DdNth",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIModel\u0153, \u0153id\u0153: \u0153OpenAIModel-DdNth\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-DdNthœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Prompt-R9hC2",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153image_description\u0153, \u0153id\u0153: \u0153Prompt-R9hC2\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œimage_descriptionœ, œidœ: œPrompt-R9hC2œ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       }
     ],
     "nodes": [
@@ -815,7 +815,7 @@
                 "trace_as_input": true,
                 "trace_as_metadata": true,
                 "type": "str",
-                "value": "Build a post for Instagram:\n\n1. **Opening Line**: Start with a powerful, intriguing question or statement to grab attention. Example: \"Ever wondered what it feels like to fly?\"\n\n2. **Main Content**: \n   - Briefly share a personal story or insight related to the opening line. Keep it engaging and relatable.\n   - Include valuable information or a lesson learned that your audience can benefit from.\n\n3. **Emojis**: Integrate emojis naturally within your text to emphasize key points and add a playful tone.\n\n4. **Call to Action (CTA)**: End with a clear CTA. Encourage your audience to share their thoughts, experiences, or to take a specific action. Example: \"Share your dream adventure in the comments! \ud83c\udf0d\u2708\ufe0f\"\n\n5. **Hashtags**: Conclude with a selection of relevant hashtags. Place them at the end of your post to maintain focus on your message."
+                "value": "Build a post for Instagram:\n\n1. **Opening Line**: Start with a powerful, intriguing question or statement to grab attention. Example: \"Ever wondered what it feels like to fly?\"\n\n2. **Main Content**: \n   - Briefly share a personal story or insight related to the opening line. Keep it engaging and relatable.\n   - Include valuable information or a lesson learned that your audience can benefit from.\n\n3. **Emojis**: Integrate emojis naturally within your text to emphasize key points and add a playful tone.\n\n4. **Call to Action (CTA)**: End with a clear CTA. Encourage your audience to share their thoughts, experiences, or to take a specific action. Example: \"Share your dream adventure in the comments! 🌍✈️\"\n\n5. **Hashtags**: Conclude with a selection of relevant hashtags. Place them at the end of your post to maintain focus on your message."
               }
             }
           },
@@ -1587,13 +1587,17 @@
                 "info": "To see the model names, first choose a provider. Then, enter your API key and click the refresh button next to the model name.",
                 "name": "model_name",
                 "options": [
-                  "gpt-4o-mini",
+                  "gpt-4.1",
+                  "gpt-4.1-mini",
+                  "gpt-4.1-nano",
+                  "o3",
+                  "o3-mini",
+                  "o4-mini",
                   "gpt-4o",
+                  "gpt-4o-mini",
                   "gpt-4-turbo",
-                  "gpt-4-turbo-preview",
                   "gpt-4",
-                  "gpt-3.5-turbo",
-                  "gpt-3.5-turbo-0125"
+                  "gpt-3.5-turbo"
                 ],
                 "placeholder": "",
                 "required": false,
@@ -2048,7 +2052,7 @@
         "data": {
           "id": "note-grPkG",
           "node": {
-            "description": "# Instagram Copywriter \n\nWelcome to the Instagram Copywriter! This flow helps you create compelling Instagram posts with AI-generated content and image prompts.\n\n## Instructions\n1. Enter Your Topic\n   - In the Chat Input, enter a brief description of the topic you want to post about.\n   - Example: \"Create a post about meditation and its benefits\"\n\n2. Review the Generated Content\n   - The flow will use AI to research your topic and generate a formatted Instagram post.\n   - The post will include an opening line, main content, emojis, a call-to-action, and hashtags.\n\n3. Check the Image Prompt\n   - The flow will also generate a detailed image prompt based on your post content.\n   - This prompt can be used with image generation tools to create a matching visual.\n\n4. Copy the Final Output\n   - The Chat Output will display the complete Instagram post text followed by the image generation prompt.\n   - Copy this output to use in your Instagram content creation process.\n\n5. Refine if Needed\n   - If you're not satisfied with the result, you can adjust the input or modify the OpenAI model settings for different outputs.\n\nRemember: Keep your initial topic input clear and concise for best results! \ud83c\udfa8\u2728",
+            "description": "# Instagram Copywriter \n\nWelcome to the Instagram Copywriter! This flow helps you create compelling Instagram posts with AI-generated content and image prompts.\n\n## Instructions\n1. Enter Your Topic\n   - In the Chat Input, enter a brief description of the topic you want to post about.\n   - Example: \"Create a post about meditation and its benefits\"\n\n2. Review the Generated Content\n   - The flow will use AI to research your topic and generate a formatted Instagram post.\n   - The post will include an opening line, main content, emojis, a call-to-action, and hashtags.\n\n3. Check the Image Prompt\n   - The flow will also generate a detailed image prompt based on your post content.\n   - This prompt can be used with image generation tools to create a matching visual.\n\n4. Copy the Final Output\n   - The Chat Output will display the complete Instagram post text followed by the image generation prompt.\n   - Copy this output to use in your Instagram content creation process.\n\n5. Refine if Needed\n   - If you're not satisfied with the result, you can adjust the input or modify the OpenAI model settings for different outputs.\n\nRemember: Keep your initial topic input clear and concise for best results! 🎨✨",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -2150,7 +2154,7 @@
         "data": {
           "id": "note-wUxWf",
           "node": {
-            "description": "# \ud83d\udd11 Tavily AI Search Needs API Key\n\nYou can get 1000 searches/month free [here](https://tavily.com/) ",
+            "description": "# 🔑 Tavily AI Search Needs API Key\n\nYou can get 1000 searches/month free [here](https://tavily.com/) ",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -2706,13 +2710,17 @@
                 "info": "",
                 "name": "model_name",
                 "options": [
-                  "gpt-4o-mini",
+                  "gpt-4.1",
+                  "gpt-4.1-mini",
+                  "gpt-4.1-nano",
+                  "o3",
+                  "o3-mini",
+                  "o4-mini",
                   "gpt-4o",
+                  "gpt-4o-mini",
                   "gpt-4-turbo",
-                  "gpt-4-turbo-preview",
                   "gpt-4",
-                  "gpt-3.5-turbo",
-                  "gpt-3.5-turbo-0125"
+                  "gpt-3.5-turbo"
                 ],
                 "options_metadata": [],
                 "placeholder": "",
@@ -3086,13 +3094,17 @@
                 "info": "",
                 "name": "model_name",
                 "options": [
-                  "gpt-4o-mini",
+                  "gpt-4.1",
+                  "gpt-4.1-mini",
+                  "gpt-4.1-nano",
+                  "o3",
+                  "o3-mini",
+                  "o4-mini",
                   "gpt-4o",
+                  "gpt-4o-mini",
                   "gpt-4-turbo",
-                  "gpt-4-turbo-preview",
                   "gpt-4",
-                  "gpt-3.5-turbo",
-                  "gpt-3.5-turbo-0125"
+                  "gpt-3.5-turbo"
                 ],
                 "options_metadata": [],
                 "placeholder": "",

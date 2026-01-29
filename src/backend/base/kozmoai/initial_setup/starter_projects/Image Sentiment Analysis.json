@@ -22,12 +22,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-StructuredOutputComponent-XYoUc{\u0153dataType\u0153:\u0153StructuredOutputComponent\u0153,\u0153id\u0153:\u0153StructuredOutputComponent-XYoUc\u0153,\u0153name\u0153:\u0153structured_output\u0153,\u0153output_types\u0153:[\u0153Data\u0153]}-ParseData-HzweJ{\u0153fieldName\u0153:\u0153data\u0153,\u0153id\u0153:\u0153ParseData-HzweJ\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153],\u0153type\u0153:\u0153other\u0153}",
+        "id": "reactflow__edge-StructuredOutputComponent-XYoUc{œdataTypeœ: œStructuredOutputComponentœ, œidœ: œStructuredOutputComponent-XYoUcœ, œnameœ: œstructured_outputœ, œoutput_typesœ: [œDataœ]}-ParseData-HzweJ{œfieldNameœ: œdataœ, œidœ: œParseData-HzweJœ, œinputTypesœ: [œDataœ], œtypeœ: œotherœ}",
         "selected": false,
         "source": "StructuredOutputComponent-XYoUc",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153StructuredOutputComponent\u0153, \u0153id\u0153: \u0153StructuredOutputComponent-XYoUc\u0153, \u0153name\u0153: \u0153structured_output\u0153, \u0153output_types\u0153: [\u0153Data\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œStructuredOutputComponentœ, œidœ: œStructuredOutputComponent-XYoUcœ, œnameœ: œstructured_outputœ, œoutput_typesœ: [œDataœ]}",
         "target": "ParseData-HzweJ",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153data\u0153, \u0153id\u0153: \u0153ParseData-HzweJ\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153], \u0153type\u0153: \u0153other\u0153}"
+        "targetHandle": "{œfieldNameœ: œdataœ, œidœ: œParseData-HzweJœ, œinputTypesœ: [œDataœ], œtypeœ: œotherœ}"
       },
       {
         "animated": false,
@@ -51,12 +51,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ParseData-HzweJ{\u0153dataType\u0153:\u0153ParseData\u0153,\u0153id\u0153:\u0153ParseData-HzweJ\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-xQxLm{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-xQxLm\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-ParseData-HzweJ{œdataTypeœ: œParseDataœ, œidœ: œParseData-HzweJœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}-ChatOutput-xQxLm{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-xQxLmœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "ParseData-HzweJ",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153ParseData\u0153, \u0153id\u0153: \u0153ParseData-HzweJ\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œParseDataœ, œidœ: œParseData-HzweJœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
         "target": "ChatOutput-xQxLm",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-xQxLm\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-xQxLmœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -79,12 +79,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-rAWlE{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-rAWlE\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-cqeNw{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153OpenAIModel-cqeNw\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-ChatInput-rAWlE{œdataTypeœ: œChatInputœ, œidœ: œChatInput-rAWlEœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}-OpenAIModel-cqeNw{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-cqeNwœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "ChatInput-rAWlE",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-rAWlE\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-rAWlEœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
         "target": "OpenAIModel-cqeNw",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153OpenAIModel-cqeNw\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-cqeNwœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -107,12 +107,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-AzK6t{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-AzK6t\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-cqeNw{\u0153fieldName\u0153:\u0153system_message\u0153,\u0153id\u0153:\u0153OpenAIModel-cqeNw\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-Prompt-AzK6t{œdataTypeœ: œPromptœ, œidœ: œPrompt-AzK6tœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}-OpenAIModel-cqeNw{œfieldNameœ: œsystem_messageœ, œidœ: œOpenAIModel-cqeNwœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "Prompt-AzK6t",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-AzK6t\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-AzK6tœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
         "target": "OpenAIModel-cqeNw",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153system_message\u0153, \u0153id\u0153: \u0153OpenAIModel-cqeNw\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œsystem_messageœ, œidœ: œOpenAIModel-cqeNwœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -134,12 +134,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-OpenAIModel-cqeNw{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-cqeNw\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-StructuredOutputComponent-XYoUc{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153StructuredOutputComponent-XYoUc\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-OpenAIModel-cqeNw{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-cqeNwœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}-StructuredOutputComponent-XYoUc{œfieldNameœ: œinput_valueœ, œidœ: œStructuredOutputComponent-XYoUcœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "OpenAIModel-cqeNw",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIModel\u0153, \u0153id\u0153: \u0153OpenAIModel-cqeNw\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-cqeNwœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
         "target": "StructuredOutputComponent-XYoUc",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153StructuredOutputComponent-XYoUc\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œStructuredOutputComponent-XYoUcœ, œinputTypesœ: [œMessageœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -161,12 +161,12 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-OpenAIModel-cqeNw{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-cqeNw\u0153,\u0153name\u0153:\u0153model_output\u0153,\u0153output_types\u0153:[\u0153LanguageModel\u0153]}-StructuredOutputComponent-XYoUc{\u0153fieldName\u0153:\u0153llm\u0153,\u0153id\u0153:\u0153StructuredOutputComponent-XYoUc\u0153,\u0153inputTypes\u0153:[\u0153LanguageModel\u0153],\u0153type\u0153:\u0153other\u0153}",
+        "id": "reactflow__edge-OpenAIModel-cqeNw{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-cqeNwœ, œnameœ: œmodel_outputœ, œoutput_typesœ: [œLanguageModelœ]}-StructuredOutputComponent-XYoUc{œfieldNameœ: œllmœ, œidœ: œStructuredOutputComponent-XYoUcœ, œinputTypesœ: [œLanguageModelœ], œtypeœ: œotherœ}",
         "selected": false,
         "source": "OpenAIModel-cqeNw",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIModel\u0153, \u0153id\u0153: \u0153OpenAIModel-cqeNw\u0153, \u0153name\u0153: \u0153model_output\u0153, \u0153output_types\u0153: [\u0153LanguageModel\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-cqeNwœ, œnameœ: œmodel_outputœ, œoutput_typesœ: [œLanguageModelœ]}",
         "target": "StructuredOutputComponent-XYoUc",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153llm\u0153, \u0153id\u0153: \u0153StructuredOutputComponent-XYoUc\u0153, \u0153inputTypes\u0153: [\u0153LanguageModel\u0153], \u0153type\u0153: \u0153other\u0153}"
+        "targetHandle": "{œfieldNameœ: œllmœ, œidœ: œStructuredOutputComponent-XYoUcœ, œinputTypesœ: [œLanguageModelœ], œtypeœ: œotherœ}"
       }
     ],
     "nodes": [
@@ -756,7 +756,7 @@
         "data": {
           "id": "note-K9w8w",
           "node": {
-            "description": "# Image Sentiment Analysis\nWelcome to the Image Sentiment Classifier - an AI tool for quick image sentiment analysis!\n\n## Instructions\n\n1. **Prepare Your Image**\n   - Image should be clear and visible\n\n2. **Upload Options**\n   - Open the Playground\n   - Click file attachment icon\n   - Or drag and drop into playground\n\n3. **Wait for Analysis**\n   - System will process the image\n   - Uses zero-shot learning\n   - Classification happens automatically\n\n4. **Review Results**\n   - Get classification: Positive/Negative/Neutral\n   - Review confidence level\n   - Check reasoning if provided\n\n5. **Expected Classifications**\n   - Positive: Happy scenes, smiles, celebrations\n   - Negative: Sad scenes, problems, conflicts\n   - Neutral: Objects, landscapes, neutral scenes\n\nRemember: The clearer the image, the more accurate the classification! \ud83d\udcf8\u2728",
+            "description": "# Image Sentiment Analysis\nWelcome to the Image Sentiment Classifier - an AI tool for quick image sentiment analysis!\n\n## Instructions\n\n1. **Prepare Your Image**\n   - Image should be clear and visible\n\n2. **Upload Options**\n   - Open the Playground\n   - Click file attachment icon\n   - Or drag and drop into playground\n\n3. **Wait for Analysis**\n   - System will process the image\n   - Uses zero-shot learning\n   - Classification happens automatically\n\n4. **Review Results**\n   - Get classification: Positive/Negative/Neutral\n   - Review confidence level\n   - Check reasoning if provided\n\n5. **Expected Classifications**\n   - Positive: Happy scenes, smiles, celebrations\n   - Negative: Sad scenes, problems, conflicts\n   - Neutral: Objects, landscapes, neutral scenes\n\nRemember: The clearer the image, the more accurate the classification! 📸✨",
             "display_name": "",
             "documentation": "",
             "template": {}
@@ -1497,13 +1497,17 @@
                 "info": "",
                 "name": "model_name",
                 "options": [
-                  "gpt-4o-mini",
+                  "gpt-4.1",
+                  "gpt-4.1-mini",
+                  "gpt-4.1-nano",
+                  "o3",
+                  "o3-mini",
+                  "o4-mini",
                   "gpt-4o",
+                  "gpt-4o-mini",
                   "gpt-4-turbo",
-                  "gpt-4-turbo-preview",
                   "gpt-4",
-                  "gpt-3.5-turbo",
-                  "gpt-3.5-turbo-0125"
+                  "gpt-3.5-turbo"
                 ],
                 "options_metadata": [],
                 "placeholder": "",

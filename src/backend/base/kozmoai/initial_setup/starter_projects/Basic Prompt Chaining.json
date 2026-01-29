@@ -22,12 +22,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-f1f2v{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-f1f2v\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-lL9HA{\u0153fieldName\u0153:\u0153system_message\u0153,\u0153id\u0153:\u0153OpenAIModel-lL9HA\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-Prompt-f1f2v{œdataTypeœ: œPromptœ, œidœ: œPrompt-f1f2vœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}-OpenAIModel-lL9HA{œfieldNameœ: œsystem_messageœ, œidœ: œOpenAIModel-lL9HAœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "Prompt-f1f2v",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-f1f2v\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-f1f2vœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
         "target": "OpenAIModel-lL9HA",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153system_message\u0153, \u0153id\u0153: \u0153OpenAIModel-lL9HA\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œsystem_messageœ, œidœ: œOpenAIModel-lL9HAœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -50,12 +50,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-GyBUF{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-GyBUF\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-lL9HA{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153OpenAIModel-lL9HA\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-ChatInput-GyBUF{œdataTypeœ: œChatInputœ, œidœ: œChatInput-GyBUFœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}-OpenAIModel-lL9HA{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-lL9HAœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "ChatInput-GyBUF",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-GyBUF\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-GyBUFœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
         "target": "OpenAIModel-lL9HA",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153OpenAIModel-lL9HA\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-lL9HAœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -78,12 +78,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-OpenAIModel-lL9HA{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-lL9HA\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-JieGw{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153OpenAIModel-JieGw\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-OpenAIModel-lL9HA{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-lL9HAœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}-OpenAIModel-JieGw{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-JieGwœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "OpenAIModel-lL9HA",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIModel\u0153, \u0153id\u0153: \u0153OpenAIModel-lL9HA\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-lL9HAœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
         "target": "OpenAIModel-JieGw",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153OpenAIModel-JieGw\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-JieGwœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -106,12 +106,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-4IOgm{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-4IOgm\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-JieGw{\u0153fieldName\u0153:\u0153system_message\u0153,\u0153id\u0153:\u0153OpenAIModel-JieGw\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-Prompt-4IOgm{œdataTypeœ: œPromptœ, œidœ: œPrompt-4IOgmœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}-OpenAIModel-JieGw{œfieldNameœ: œsystem_messageœ, œidœ: œOpenAIModel-JieGwœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "Prompt-4IOgm",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-4IOgm\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-4IOgmœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
         "target": "OpenAIModel-JieGw",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153system_message\u0153, \u0153id\u0153: \u0153OpenAIModel-JieGw\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œsystem_messageœ, œidœ: œOpenAIModel-JieGwœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -134,12 +134,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-OpenAIModel-JieGw{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-JieGw\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-dXMRv{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153OpenAIModel-dXMRv\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-OpenAIModel-JieGw{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-JieGwœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}-OpenAIModel-dXMRv{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-dXMRvœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "OpenAIModel-JieGw",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIModel\u0153, \u0153id\u0153: \u0153OpenAIModel-JieGw\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-JieGwœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
         "target": "OpenAIModel-dXMRv",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153OpenAIModel-dXMRv\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-dXMRvœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -162,12 +162,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-FRjO8{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-FRjO8\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-dXMRv{\u0153fieldName\u0153:\u0153system_message\u0153,\u0153id\u0153:\u0153OpenAIModel-dXMRv\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-Prompt-FRjO8{œdataTypeœ: œPromptœ, œidœ: œPrompt-FRjO8œ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}-OpenAIModel-dXMRv{œfieldNameœ: œsystem_messageœ, œidœ: œOpenAIModel-dXMRvœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "Prompt-FRjO8",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-FRjO8\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-FRjO8œ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
         "target": "OpenAIModel-dXMRv",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153system_message\u0153, \u0153id\u0153: \u0153OpenAIModel-dXMRv\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œsystem_messageœ, œidœ: œOpenAIModel-dXMRvœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -190,12 +190,12 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-OpenAIModel-dXMRv{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-dXMRv\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-KXQMh{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-KXQMh\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-OpenAIModel-dXMRv{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-dXMRvœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}-ChatOutput-KXQMh{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-KXQMhœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "selected": false,
         "source": "OpenAIModel-dXMRv",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIModel\u0153, \u0153id\u0153: \u0153OpenAIModel-dXMRv\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-dXMRvœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
         "target": "ChatOutput-KXQMh",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-KXQMh\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-KXQMhœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       }
     ],
     "nodes": [
@@ -1166,7 +1166,7 @@
         "data": {
           "id": "note-DqpAx",
           "node": {
-            "description": "### Prompt Chaining\n\nThis flow demonstrates fundamental prompt chaining principles:\n\n1. **Chain Structure**\n   \u2022 User input \u2192 First Prompt \u2192 LLM\n   \u2022 First output \u2192 Second Prompt \u2192 LLM\n   \u2022 Second output \u2192 Final Prompt \u2192 LLM\n   \u2022 Final output\n\n2. **Key Technique Elements**\n   \u2022 Each prompt is specifically designed to process previous output\n   \u2022 Output formatting ensures clean handoff between stages\n   \u2022 Context flows naturally through the chain\n   \u2022 Each LLM call builds upon previous results\n\n3. **Technical Implementation**\n   \u2022 Multiple prompt templates working in sequence\n   \u2022 Strategic input/output connections\n   \u2022 Consistent message handling between stages\n   \u2022 Progressive refinement through the chain\n\nThis pattern can be adapted for any use case by modifying the prompt templates while keeping the same chaining structure.",
+            "description": "### Prompt Chaining\n\nThis flow demonstrates fundamental prompt chaining principles:\n\n1. **Chain Structure**\n   • User input → First Prompt → LLM\n   • First output → Second Prompt → LLM\n   • Second output → Final Prompt → LLM\n   • Final output\n\n2. **Key Technique Elements**\n   • Each prompt is specifically designed to process previous output\n   • Output formatting ensures clean handoff between stages\n   • Context flows naturally through the chain\n   • Each LLM call builds upon previous results\n\n3. **Technical Implementation**\n   • Multiple prompt templates working in sequence\n   • Strategic input/output connections\n   • Consistent message handling between stages\n   • Progressive refinement through the chain\n\nThis pattern can be adapted for any use case by modifying the prompt templates while keeping the same chaining structure.",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -1412,13 +1412,17 @@
                 "info": "",
                 "name": "model_name",
                 "options": [
-                  "gpt-4o-mini",
+                  "gpt-4.1",
+                  "gpt-4.1-mini",
+                  "gpt-4.1-nano",
+                  "o3",
+                  "o3-mini",
+                  "o4-mini",
                   "gpt-4o",
+                  "gpt-4o-mini",
                   "gpt-4-turbo",
-                  "gpt-4-turbo-preview",
                   "gpt-4",
-                  "gpt-3.5-turbo",
-                  "gpt-3.5-turbo-0125"
+                  "gpt-3.5-turbo"
                 ],
                 "options_metadata": [],
                 "placeholder": "",
@@ -1792,13 +1796,17 @@
                 "info": "",
                 "name": "model_name",
                 "options": [
-                  "gpt-4o-mini",
+                  "gpt-4.1",
+                  "gpt-4.1-mini",
+                  "gpt-4.1-nano",
+                  "o3",
+                  "o3-mini",
+                  "o4-mini",
                   "gpt-4o",
+                  "gpt-4o-mini",
                   "gpt-4-turbo",
-                  "gpt-4-turbo-preview",
                   "gpt-4",
-                  "gpt-3.5-turbo",
-                  "gpt-3.5-turbo-0125"
+                  "gpt-3.5-turbo"
                 ],
                 "options_metadata": [],
                 "placeholder": "",
@@ -2172,13 +2180,17 @@
                 "info": "",
                 "name": "model_name",
                 "options": [
-                  "gpt-4o-mini",
+                  "gpt-4.1",
+                  "gpt-4.1-mini",
+                  "gpt-4.1-nano",
+                  "o3",
+                  "o3-mini",
+                  "o4-mini",
                   "gpt-4o",
+                  "gpt-4o-mini",
                   "gpt-4-turbo",
-                  "gpt-4-turbo-preview",
                   "gpt-4",
-                  "gpt-3.5-turbo",
-                  "gpt-3.5-turbo-0125"
+                  "gpt-3.5-turbo"
                 ],
                 "options_metadata": [],
                 "placeholder": "",

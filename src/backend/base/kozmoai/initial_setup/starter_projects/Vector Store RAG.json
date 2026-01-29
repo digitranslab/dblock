@@ -23,11 +23,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ParseData-9zsFp{\u0153dataType\u0153:\u0153ParseData\u0153,\u0153id\u0153:\u0153ParseData-9zsFp\u0153,\u0153name\u0153:\u0153text\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-mqa6n{\u0153fieldName\u0153:\u0153context\u0153,\u0153id\u0153:\u0153Prompt-mqa6n\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-ParseData-9zsFp{œdataTypeœ: œParseDataœ, œidœ: œParseData-9zsFpœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}-Prompt-mqa6n{œfieldNameœ: œcontextœ, œidœ: œPrompt-mqa6nœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "source": "ParseData-9zsFp",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153ParseData\u0153, \u0153id\u0153: \u0153ParseData-9zsFp\u0153, \u0153name\u0153: \u0153text\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œParseDataœ, œidœ: œParseData-9zsFpœ, œnameœ: œtextœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Prompt-mqa6n",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153context\u0153, \u0153id\u0153: \u0153Prompt-mqa6n\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œcontextœ, œidœ: œPrompt-mqa6nœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -51,11 +51,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-Jy5aI{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-Jy5aI\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-Prompt-mqa6n{\u0153fieldName\u0153:\u0153question\u0153,\u0153id\u0153:\u0153Prompt-mqa6n\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153,\u0153Text\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-ChatInput-Jy5aI{œdataTypeœ: œChatInputœ, œidœ: œChatInput-Jy5aIœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}-Prompt-mqa6n{œfieldNameœ: œquestionœ, œidœ: œPrompt-mqa6nœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "source": "ChatInput-Jy5aI",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-Jy5aI\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-Jy5aIœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
         "target": "Prompt-mqa6n",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153question\u0153, \u0153id\u0153: \u0153Prompt-mqa6n\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œquestionœ, œidœ: œPrompt-mqa6nœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "animated": false,
@@ -78,11 +78,11 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-File-i8StI{\u0153dataType\u0153:\u0153File\u0153,\u0153id\u0153:\u0153File-i8StI\u0153,\u0153name\u0153:\u0153data\u0153,\u0153output_types\u0153:[\u0153Data\u0153]}-SplitText-DakpR{\u0153fieldName\u0153:\u0153data_inputs\u0153,\u0153id\u0153:\u0153SplitText-DakpR\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153],\u0153type\u0153:\u0153other\u0153}",
+        "id": "reactflow__edge-File-i8StI{œdataTypeœ: œFileœ, œidœ: œFile-i8StIœ, œnameœ: œdataœ, œoutput_typesœ: [œDataœ]}-SplitText-DakpR{œfieldNameœ: œdata_inputsœ, œidœ: œSplitText-DakpRœ, œinputTypesœ: [œDataœ], œtypeœ: œotherœ}",
         "source": "File-i8StI",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153File\u0153, \u0153id\u0153: \u0153File-i8StI\u0153, \u0153name\u0153: \u0153data\u0153, \u0153output_types\u0153: [\u0153Data\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œFileœ, œidœ: œFile-i8StIœ, œnameœ: œdataœ, œoutput_typesœ: [œDataœ]}",
         "target": "SplitText-DakpR",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153data_inputs\u0153, \u0153id\u0153: \u0153SplitText-DakpR\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153], \u0153type\u0153: \u0153other\u0153}"
+        "targetHandle": "{œfieldNameœ: œdata_inputsœ, œidœ: œSplitText-DakpRœ, œinputTypesœ: [œDataœ], œtypeœ: œotherœ}"
       },
       {
         "className": "",
@@ -105,11 +105,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-Prompt-mqa6n{\u0153dataType\u0153:\u0153Prompt\u0153,\u0153id\u0153:\u0153Prompt-mqa6n\u0153,\u0153name\u0153:\u0153prompt\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-OpenAIModel-VVLPR{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153OpenAIModel-VVLPR\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-Prompt-mqa6n{œdataTypeœ: œPromptœ, œidœ: œPrompt-mqa6nœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}-OpenAIModel-VVLPR{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-VVLPRœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "source": "Prompt-mqa6n",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153Prompt\u0153, \u0153id\u0153: \u0153Prompt-mqa6n\u0153, \u0153name\u0153: \u0153prompt\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œPromptœ, œidœ: œPrompt-mqa6nœ, œnameœ: œpromptœ, œoutput_typesœ: [œMessageœ]}",
         "target": "OpenAIModel-VVLPR",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153OpenAIModel-VVLPR\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œOpenAIModel-VVLPRœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -132,11 +132,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-OpenAIModel-VVLPR{\u0153dataType\u0153:\u0153OpenAIModel\u0153,\u0153id\u0153:\u0153OpenAIModel-VVLPR\u0153,\u0153name\u0153:\u0153text_output\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-ChatOutput-EujCa{\u0153fieldName\u0153:\u0153input_value\u0153,\u0153id\u0153:\u0153ChatOutput-EujCa\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-OpenAIModel-VVLPR{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-VVLPRœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}-ChatOutput-EujCa{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-EujCaœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "source": "OpenAIModel-VVLPR",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIModel\u0153, \u0153id\u0153: \u0153OpenAIModel-VVLPR\u0153, \u0153name\u0153: \u0153text_output\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œOpenAIModelœ, œidœ: œOpenAIModel-VVLPRœ, œnameœ: œtext_outputœ, œoutput_typesœ: [œMessageœ]}",
         "target": "ChatOutput-EujCa",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153input_value\u0153, \u0153id\u0153: \u0153ChatOutput-EujCa\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œinput_valueœ, œidœ: œChatOutput-EujCaœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -158,11 +158,11 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-OpenAIEmbeddings-BF7iH{\u0153dataType\u0153:\u0153OpenAIEmbeddings\u0153,\u0153id\u0153:\u0153OpenAIEmbeddings-BF7iH\u0153,\u0153name\u0153:\u0153embeddings\u0153,\u0153output_types\u0153:[\u0153Embeddings\u0153]}-AstraDB-Qdaes{\u0153fieldName\u0153:\u0153embedding_model\u0153,\u0153id\u0153:\u0153AstraDB-Qdaes\u0153,\u0153inputTypes\u0153:[\u0153Embeddings\u0153],\u0153type\u0153:\u0153other\u0153}",
+        "id": "reactflow__edge-OpenAIEmbeddings-BF7iH{œdataTypeœ: œOpenAIEmbeddingsœ, œidœ: œOpenAIEmbeddings-BF7iHœ, œnameœ: œembeddingsœ, œoutput_typesœ: [œEmbeddingsœ]}-AstraDB-Qdaes{œfieldNameœ: œembedding_modelœ, œidœ: œAstraDB-Qdaesœ, œinputTypesœ: [œEmbeddingsœ], œtypeœ: œotherœ}",
         "source": "OpenAIEmbeddings-BF7iH",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIEmbeddings\u0153, \u0153id\u0153: \u0153OpenAIEmbeddings-BF7iH\u0153, \u0153name\u0153: \u0153embeddings\u0153, \u0153output_types\u0153: [\u0153Embeddings\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œOpenAIEmbeddingsœ, œidœ: œOpenAIEmbeddings-BF7iHœ, œnameœ: œembeddingsœ, œoutput_typesœ: [œEmbeddingsœ]}",
         "target": "AstraDB-Qdaes",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153embedding_model\u0153, \u0153id\u0153: \u0153AstraDB-Qdaes\u0153, \u0153inputTypes\u0153: [\u0153Embeddings\u0153], \u0153type\u0153: \u0153other\u0153}"
+        "targetHandle": "{œfieldNameœ: œembedding_modelœ, œidœ: œAstraDB-Qdaesœ, œinputTypesœ: [œEmbeddingsœ], œtypeœ: œotherœ}"
       },
       {
         "className": "",
@@ -185,11 +185,11 @@
             "type": "str"
           }
         },
-        "id": "reactflow__edge-ChatInput-Jy5aI{\u0153dataType\u0153:\u0153ChatInput\u0153,\u0153id\u0153:\u0153ChatInput-Jy5aI\u0153,\u0153name\u0153:\u0153message\u0153,\u0153output_types\u0153:[\u0153Message\u0153]}-AstraDB-Qdaes{\u0153fieldName\u0153:\u0153search_query\u0153,\u0153id\u0153:\u0153AstraDB-Qdaes\u0153,\u0153inputTypes\u0153:[\u0153Message\u0153],\u0153type\u0153:\u0153str\u0153}",
+        "id": "reactflow__edge-ChatInput-Jy5aI{œdataTypeœ: œChatInputœ, œidœ: œChatInput-Jy5aIœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}-AstraDB-Qdaes{œfieldNameœ: œsearch_queryœ, œidœ: œAstraDB-Qdaesœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}",
         "source": "ChatInput-Jy5aI",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153ChatInput\u0153, \u0153id\u0153: \u0153ChatInput-Jy5aI\u0153, \u0153name\u0153: \u0153message\u0153, \u0153output_types\u0153: [\u0153Message\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œChatInputœ, œidœ: œChatInput-Jy5aIœ, œnameœ: œmessageœ, œoutput_typesœ: [œMessageœ]}",
         "target": "AstraDB-Qdaes",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153search_query\u0153, \u0153id\u0153: \u0153AstraDB-Qdaes\u0153, \u0153inputTypes\u0153: [\u0153Message\u0153, \u0153Text\u0153], \u0153type\u0153: \u0153str\u0153}"
+        "targetHandle": "{œfieldNameœ: œsearch_queryœ, œidœ: œAstraDB-Qdaesœ, œinputTypesœ: [œMessageœ, œTextœ], œtypeœ: œstrœ}"
       },
       {
         "className": "",
@@ -211,11 +211,11 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-AstraDB-Qdaes{\u0153dataType\u0153:\u0153AstraDB\u0153,\u0153id\u0153:\u0153AstraDB-Qdaes\u0153,\u0153name\u0153:\u0153search_results\u0153,\u0153output_types\u0153:[\u0153Data\u0153]}-ParseData-9zsFp{\u0153fieldName\u0153:\u0153data\u0153,\u0153id\u0153:\u0153ParseData-9zsFp\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153],\u0153type\u0153:\u0153other\u0153}",
+        "id": "reactflow__edge-AstraDB-Qdaes{œdataTypeœ: œAstraDBœ, œidœ: œAstraDB-Qdaesœ, œnameœ: œsearch_resultsœ, œoutput_typesœ: [œDataœ]}-ParseData-9zsFp{œfieldNameœ: œdataœ, œidœ: œParseData-9zsFpœ, œinputTypesœ: [œDataœ], œtypeœ: œotherœ}",
         "source": "AstraDB-Qdaes",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153AstraDB\u0153, \u0153id\u0153: \u0153AstraDB-Qdaes\u0153, \u0153name\u0153: \u0153search_results\u0153, \u0153output_types\u0153: [\u0153Data\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œAstraDBœ, œidœ: œAstraDB-Qdaesœ, œnameœ: œsearch_resultsœ, œoutput_typesœ: [œDataœ]}",
         "target": "ParseData-9zsFp",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153data\u0153, \u0153id\u0153: \u0153ParseData-9zsFp\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153], \u0153type\u0153: \u0153other\u0153}"
+        "targetHandle": "{œfieldNameœ: œdataœ, œidœ: œParseData-9zsFpœ, œinputTypesœ: [œDataœ], œtypeœ: œotherœ}"
       },
       {
         "className": "",
@@ -237,11 +237,11 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-OpenAIEmbeddings-KNVHv{\u0153dataType\u0153:\u0153OpenAIEmbeddings\u0153,\u0153id\u0153:\u0153OpenAIEmbeddings-KNVHv\u0153,\u0153name\u0153:\u0153embeddings\u0153,\u0153output_types\u0153:[\u0153Embeddings\u0153]}-AstraDB-sPWXd{\u0153fieldName\u0153:\u0153embedding_model\u0153,\u0153id\u0153:\u0153AstraDB-sPWXd\u0153,\u0153inputTypes\u0153:[\u0153Embeddings\u0153],\u0153type\u0153:\u0153other\u0153}",
+        "id": "reactflow__edge-OpenAIEmbeddings-KNVHv{œdataTypeœ: œOpenAIEmbeddingsœ, œidœ: œOpenAIEmbeddings-KNVHvœ, œnameœ: œembeddingsœ, œoutput_typesœ: [œEmbeddingsœ]}-AstraDB-sPWXd{œfieldNameœ: œembedding_modelœ, œidœ: œAstraDB-sPWXdœ, œinputTypesœ: [œEmbeddingsœ], œtypeœ: œotherœ}",
         "source": "OpenAIEmbeddings-KNVHv",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153OpenAIEmbeddings\u0153, \u0153id\u0153: \u0153OpenAIEmbeddings-KNVHv\u0153, \u0153name\u0153: \u0153embeddings\u0153, \u0153output_types\u0153: [\u0153Embeddings\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œOpenAIEmbeddingsœ, œidœ: œOpenAIEmbeddings-KNVHvœ, œnameœ: œembeddingsœ, œoutput_typesœ: [œEmbeddingsœ]}",
         "target": "AstraDB-sPWXd",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153embedding_model\u0153, \u0153id\u0153: \u0153AstraDB-sPWXd\u0153, \u0153inputTypes\u0153: [\u0153Embeddings\u0153], \u0153type\u0153: \u0153other\u0153}"
+        "targetHandle": "{œfieldNameœ: œembedding_modelœ, œidœ: œAstraDB-sPWXdœ, œinputTypesœ: [œEmbeddingsœ], œtypeœ: œotherœ}"
       },
       {
         "className": "",
@@ -263,11 +263,11 @@
             "type": "other"
           }
         },
-        "id": "reactflow__edge-SplitText-DakpR{\u0153dataType\u0153:\u0153SplitText\u0153,\u0153id\u0153:\u0153SplitText-DakpR\u0153,\u0153name\u0153:\u0153chunks\u0153,\u0153output_types\u0153:[\u0153Data\u0153]}-AstraDB-sPWXd{\u0153fieldName\u0153:\u0153ingest_data\u0153,\u0153id\u0153:\u0153AstraDB-sPWXd\u0153,\u0153inputTypes\u0153:[\u0153Data\u0153],\u0153type\u0153:\u0153other\u0153}",
+        "id": "reactflow__edge-SplitText-DakpR{œdataTypeœ: œSplitTextœ, œidœ: œSplitText-DakpRœ, œnameœ: œchunksœ, œoutput_typesœ: [œDataœ]}-AstraDB-sPWXd{œfieldNameœ: œingest_dataœ, œidœ: œAstraDB-sPWXdœ, œinputTypesœ: [œDataœ], œtypeœ: œotherœ}",
         "source": "SplitText-DakpR",
-        "sourceHandle": "{\u0153dataType\u0153: \u0153SplitText\u0153, \u0153id\u0153: \u0153SplitText-DakpR\u0153, \u0153name\u0153: \u0153chunks\u0153, \u0153output_types\u0153: [\u0153Data\u0153]}",
+        "sourceHandle": "{œdataTypeœ: œSplitTextœ, œidœ: œSplitText-DakpRœ, œnameœ: œchunksœ, œoutput_typesœ: [œDataœ]}",
         "target": "AstraDB-sPWXd",
-        "targetHandle": "{\u0153fieldName\u0153: \u0153ingest_data\u0153, \u0153id\u0153: \u0153AstraDB-sPWXd\u0153, \u0153inputTypes\u0153: [\u0153Data\u0153], \u0153type\u0153: \u0153other\u0153}"
+        "targetHandle": "{œfieldNameœ: œingest_dataœ, œidœ: œAstraDB-sPWXdœ, œinputTypesœ: [œDataœ], œtypeœ: œotherœ}"
       }
     ],
     "nodes": [
@@ -1039,7 +1039,7 @@
         "data": {
           "id": "note-Z3QTX",
           "node": {
-            "description": "## \ud83d\udc15 2. Retriever Flow\n\nThis flow answers your questions with contextual data retrieved from your vector database.\n\nOpen the **Playground** and ask, \n\n```\nWhat is this document about?\n```\n",
+            "description": "## 🐕 2. Retriever Flow\n\nThis flow answers your questions with contextual data retrieved from your vector database.\n\nOpen the **Playground** and ask, \n\n```\nWhat is this document about?\n```\n",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -1068,7 +1068,7 @@
         "data": {
           "id": "note-o6eiV",
           "node": {
-            "description": "## \ud83d\udcd6 README\n\nLoad your data into a vector database with the \ud83d\udcda **Load Data** flow, and then use your data as chat context with the \ud83d\udc15 **Retriever** flow.\n\n**\ud83d\udea8 Add your OpenAI API key as a global variable to easily add it to all of the OpenAI components in this flow.** \n\n**Quick start**\n1. Run the \ud83d\udcda **Load Data** flow.\n2. Run the \ud83d\udc15 **Retriever** flow.\n\n**Next steps** \n\n- Experiment by changing the prompt and the loaded data to see how the bot's responses change. \n\nFor more info, see the [Kozmoai docs](https://docs.kozmoai.cloud/starter-projects-vector-store-rag).",
+            "description": "## 📖 README\n\nLoad your data into a vector database with the 📚 **Load Data** flow, and then use your data as chat context with the 🐕 **Retriever** flow.\n\n**🚨 Add your OpenAI API key as a global variable to easily add it to all of the OpenAI components in this flow.** \n\n**Quick start**\n1. Run the 📚 **Load Data** flow.\n2. Run the 🐕 **Retriever** flow.\n\n**Next steps** \n\n- Experiment by changing the prompt and the loaded data to see how the bot's responses change. \n\nFor more info, see the [Kozmoai docs](https://docs.kozmoai.cloud/starter-projects-vector-store-rag).",
             "display_name": "Read Me",
             "documentation": "",
             "template": {
@@ -1878,7 +1878,7 @@
         "data": {
           "id": "note-7sR5R",
           "node": {
-            "description": "## \ud83d\udcda 1. Load Data Flow\n\nRun this first! Load data from a local file and embed it into the vector database.\n\nSelect a Database and a Collection, or create new ones. \n\nClick \u25b6\ufe0f **Run component** on the **Astra DB** component to load your data.\n\n* If you're using OSS Kozmoai, add your Astra DB Application Token to the Astra DB component.\n\n#### Next steps:\n Experiment by changing the prompt and the contextual data to see how the retrieval flow's responses change.",
+            "description": "## 📚 1. Load Data Flow\n\nRun this first! Load data from a local file and embed it into the vector database.\n\nSelect a Database and a Collection, or create new ones. \n\nClick ▶️ **Run component** on the **Astra DB** component to load your data.\n\n* If you're using OSS Kozmoai, add your Astra DB Application Token to the Astra DB component.\n\n#### Next steps:\n Experiment by changing the prompt and the contextual data to see how the retrieval flow's responses change.",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -2643,7 +2643,7 @@
         "data": {
           "id": "note-LxvwE",
           "node": {
-            "description": "### \ud83d\udca1 Add your OpenAI API key here \ud83d\udc47",
+            "description": "### 💡 Add your OpenAI API key here 👇",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -2667,7 +2667,7 @@
         "data": {
           "id": "note-PkcXs",
           "node": {
-            "description": "### \ud83d\udca1 Add your OpenAI API key here \ud83d\udc47",
+            "description": "### 💡 Add your OpenAI API key here 👇",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -2691,7 +2691,7 @@
         "data": {
           "id": "note-vhWhj",
           "node": {
-            "description": "### \ud83d\udca1 Add your OpenAI API key here \ud83d\udc47",
+            "description": "### 💡 Add your OpenAI API key here 👇",
             "display_name": "",
             "documentation": "",
             "template": {
@@ -2932,13 +2932,17 @@
                 "info": "",
                 "name": "model_name",
                 "options": [
-                  "gpt-4o-mini",
+                  "gpt-4.1",
+                  "gpt-4.1-mini",
+                  "gpt-4.1-nano",
+                  "o3",
+                  "o3-mini",
+                  "o4-mini",
                   "gpt-4o",
+                  "gpt-4o-mini",
                   "gpt-4-turbo",
-                  "gpt-4-turbo-preview",
                   "gpt-4",
-                  "gpt-3.5-turbo",
-                  "gpt-3.5-turbo-0125"
+                  "gpt-3.5-turbo"
                 ],
                 "options_metadata": [],
                 "placeholder": "",
