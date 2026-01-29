@@ -17,6 +17,10 @@ services:
       - KOZMOAI_HOST=0.0.0.0
       - KOZMOAI_PORT=7860
       - KOZMOAI_AUTO_FIX_MIGRATION=true
+      - DO_NOT_TRACK=true
+      - KOZMOAI_AUTO_LOGIN=false
+      - KOZMOAI_SUPERUSER=admin
+      - KOZMOAI_SUPERUSER_PASSWORD=dblock2024
     user: "0:0"
     volumes:
       - dblock-data:/app/data
