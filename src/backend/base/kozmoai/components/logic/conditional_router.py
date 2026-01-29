@@ -66,8 +66,8 @@ class ConditionalRouterComponent(Component):
     ]
 
     outputs = [
-        Output(display_name="True", name="true_result", method="true_response"),
-        Output(display_name="False", name="false_result", method="false_response"),
+        Output(display_name="True", name="true_result", method="true_response", output_category="success"),
+        Output(display_name="False", name="false_result", method="false_response", output_category="else"),
     ]
 
     def _pre_run_setup(self):

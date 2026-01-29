@@ -5,15 +5,15 @@ from kozmoai.components.inputs import ChatInput
 from kozmoai.components.models import OpenAIModelComponent
 from kozmoai.components.outputs import ChatOutput
 from kozmoai.components.prompts import PromptComponent
-from kozmoai.components.tools import SearchAPIComponent, YfinanceToolComponent
+from kozmoai.components.tools import SearchComponent, YfinanceComponent
 from kozmoai.graph import Graph
 
 
 def complex_agent_graph():
     llm = OpenAIModelComponent(model_name="gpt-4o-mini")
     manager_llm = OpenAIModelComponent(model_name="gpt-4o")
-    search_api_tool = SearchAPIComponent()
-    yahoo_search_tool = YfinanceToolComponent()
+    search_api_tool = SearchComponent()
+    yahoo_search_tool = YfinanceComponent()
     dynamic_agent = CrewAIAgentComponent()
     chat_input = ChatInput()
     role_prompt = PromptComponent(_display_name="Role Prompt")

@@ -5,7 +5,7 @@ from uuid import uuid4
 import pytest
 from kozmoai.base.models.model_input_constants import MODEL_PROVIDERS_DICT
 from kozmoai.components.agents.agent import AgentComponent
-from kozmoai.components.tools.calculator import CalculatorToolComponent
+from kozmoai.components.tools.calculator_core import CalculatorComponent
 from kozmoai.custom import Component
 from kozmoai.utils.constants import MESSAGE_SENDER_AI, MESSAGE_SENDER_NAME_AI
 
@@ -99,7 +99,7 @@ class TestAgentComponent(ComponentTestBaseWithoutClient):
 @pytest.mark.api_key_required
 async def test_agent_component_with_calculator():
     # Mock inputs
-    tools = [CalculatorToolComponent().build_tool()]  # Use the Calculator component as a tool
+    calculator = CalculatorComponent()  # Use the Calculator component as a tool
     input_value = "What is 2 + 2?"
 
     api_key = os.environ["OPENAI_API_KEY"]
@@ -107,7 +107,7 @@ async def test_agent_component_with_calculator():
 
     # Initialize the AgentComponent with mocked inputs
     agent = AgentComponent(
-        tools=tools,
+        tools=[calculator],
         input_value=input_value,
         api_key=api_key,
         model_name="gpt-4o",

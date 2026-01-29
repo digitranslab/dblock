@@ -5,14 +5,14 @@ from kozmoai.components.inputs import ChatInput
 from kozmoai.components.models import OpenAIModelComponent
 from kozmoai.components.outputs import ChatOutput
 from kozmoai.components.prompts import PromptComponent
-from kozmoai.components.tools import SearchAPIComponent
+from kozmoai.components.tools import SearchComponent
 from kozmoai.graph import Graph
 
 
 def hierarchical_tasks_agent_graph():
     llm = OpenAIModelComponent(model_name="gpt-4o-mini")
     manager_llm = OpenAIModelComponent(model_name="gpt-4o")
-    search_api_tool = SearchAPIComponent()
+    search_api_tool = SearchComponent()
     researcher_agent = CrewAIAgentComponent()
     chat_input = ChatInput()
     researcher_agent.set(

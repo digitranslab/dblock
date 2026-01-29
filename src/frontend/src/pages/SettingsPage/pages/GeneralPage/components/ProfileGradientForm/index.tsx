@@ -1,5 +1,5 @@
 import * as Form from "@radix-ui/react-form";
-import GradientChooserComponent from "../../../../../../components/gradientChooserComponent";
+import GradientChooserComponent from "@/components/common/gradientChooserComponent";
 import { Button } from "../../../../../../components/ui/button";
 import {
   Card,

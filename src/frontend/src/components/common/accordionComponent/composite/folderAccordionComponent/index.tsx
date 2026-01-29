@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { AccordionComponentType } from "../../../../types/components";
-import IconComponent from "../../../common/genericIconComponent";
+import { AccordionComponentType } from "@/types/components";
+import IconComponent from "@/components/common/genericIconComponent";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../../../ui/custom-accordion";
+} from "@/components/ui/custom-accordion";
 
 export default function FolderAccordionComponent({
   trigger,

@@ -104,7 +104,15 @@ export function cleanEdges(nodes: AllNodeType[], edges: EdgeType[]) {
           id.proxy = targetNode.data.node!.template[field]?.proxy;
         }
       }
-      if (scapedJSONStringfy(id) !== targetHandle) {
+      
+      // For unified input handles, check if the target node ID matches
+      // and if the field exists in the template (even if the exact handle ID differs)
+      const isValidUnifiedInput = 
+        targetHandleObject.id === targetNode.data.id &&
+        field &&
+        targetNode.data.node!.template[field] !== undefined;
+      
+      if (scapedJSONStringfy(id) !== targetHandle && !isValidUnifiedInput) {
         newEdges = newEdges.filter((e) => e.id !== edge.id);
       }
     }
@@ -112,6 +120,9 @@ export function cleanEdges(nodes: AllNodeType[], edges: EdgeType[]) {
       const parsedSourceHandle = scapeJSONParse(sourceHandle);
       const name = parsedSourceHandle.name;
       if (sourceNode.type == "genericNode") {
+        // Check for dynamic Success/Else outputs first
+        const isDynamicOutput = name === "success_output" || name === "else_output";
+        
         const output = sourceNode.data.node!.outputs?.find(
           (output) => output.name === name,
         );
@@ -128,8 +139,23 @@ export function cleanEdges(nodes: AllNodeType[], edges: EdgeType[]) {
           if (scapedJSONStringfy(id) !== sourceHandle) {
             newEdges = newEdges.filter((e) => e.id !== edge.id);
           }
+        } else if (isDynamicOutput) {
+          // For dynamic Success/Else outputs, validate using the parsed handle data
+          // These outputs are generated dynamically and not stored in node.outputs
+          // Only validate that the node ID and dataType match - output_types may vary
+          const isValidDynamicOutput = 
+            parsedSourceHandle.id === sourceNode.data.id &&
+            parsedSourceHandle.dataType === sourceNode.data.type;
+          if (!isValidDynamicOutput) {
+            newEdges = newEdges.filter((e) => e.id !== edge.id);
+          }
         } else {
-          newEdges = newEdges.filter((e) => e.id !== edge.id);
+          // For other outputs not in node.outputs, check if the source node ID matches
+          // This handles legacy edges and edges created before the Success/Else system
+          const isValidLegacyOutput = parsedSourceHandle.id === sourceNode.data.id;
+          if (!isValidLegacyOutput) {
+            newEdges = newEdges.filter((e) => e.id !== edge.id);
+          }
         }
       }
     }
@@ -175,11 +201,17 @@ export function detectBrokenEdgesEdges(nodes: AllNodeType[], edges: Edge[]) {
     const output = sourceNode.data.node!.outputs?.find(
       (output) => output.name === name,
     );
+    
+    // Handle dynamic Success/Else outputs
+    let outputDisplayName = output?.display_name;
+    if (!outputDisplayName && (name === "success_output" || name === "else_output")) {
+      outputDisplayName = name === "success_output" ? "Success" : "Else";
+    }
 
     return {
       source: {
         nodeDisplayName: sourceNode.data.node!.display_name,
-        outputDisplayName: output?.display_name,
+        outputDisplayName: outputDisplayName,
       },
       target: {
         displayName: targetNode.data.node!.display_name,
@@ -250,7 +282,15 @@ export function detectBrokenEdgesEdges(nodes: AllNodeType[], edges: Edge[]) {
           id.proxy = targetNode.data.node!.template[field]?.proxy;
         }
       }
-      if (scapedJSONStringfy(id) !== targetHandle) {
+      
+      // For unified input handles, check if the target node ID matches
+      // and if the field exists in the template (even if the exact handle ID differs)
+      const isValidUnifiedInput = 
+        targetHandleObject.id === targetNode.data.id &&
+        field &&
+        targetNode.data.node!.template[field] !== undefined;
+      
+      if (scapedJSONStringfy(id) !== targetHandle && !isValidUnifiedInput) {
         newEdges = newEdges.filter((e) => e.id !== edge.id);
         BrokenEdges.push(generateAlertObject(sourceNode, targetNode, edge));
       }
@@ -277,8 +317,27 @@ export function detectBrokenEdgesEdges(nodes: AllNodeType[], edges: Edge[]) {
             BrokenEdges.push(generateAlertObject(sourceNode, targetNode, edge));
           }
         } else {
-          newEdges = newEdges.filter((e) => e.id !== edge.id);
-          BrokenEdges.push(generateAlertObject(sourceNode, targetNode, edge));
+          // Check for dynamic Success/Else outputs
+          const isDynamicOutput = name === "success_output" || name === "else_output";
+          if (isDynamicOutput) {
+            // For dynamic Success/Else outputs, validate using the parsed handle data
+            // Only validate that the node ID and dataType match - output_types may vary
+            const isValidDynamicOutput = 
+              parsedSourceHandle.id === sourceNode.data.id &&
+              parsedSourceHandle.dataType === sourceNode.data.type;
+            if (!isValidDynamicOutput) {
+              newEdges = newEdges.filter((e) => e.id !== edge.id);
+              BrokenEdges.push(generateAlertObject(sourceNode, targetNode, edge));
+            }
+          } else {
+            // For other outputs not in node.outputs, check if the source node ID matches
+            // This handles legacy edges and edges created before the Success/Else system
+            const isValidLegacyOutput = parsedSourceHandle.id === sourceNode.data.id;
+            if (!isValidLegacyOutput) {
+              newEdges = newEdges.filter((e) => e.id !== edge.id);
+              BrokenEdges.push(generateAlertObject(sourceNode, targetNode, edge));
+            }
+          }
         }
       }
     }
@@ -295,6 +354,54 @@ export function unselectAllNodesEdges(nodes: Node[], edges: Edge[]) {
   });
 }
 
+// Type compatibility map: defines which types can be implicitly converted to other types
+// Key = source type, Value = array of compatible target types
+const TYPE_COMPATIBILITY_MAP: Record<string, string[]> = {
+  // Message can be converted to string-like types
+  "Message": ["str", "Text", "string", "Message", "Data"],
+  // Text is compatible with string types
+  "Text": ["str", "string", "Text", "Message"],
+  // Data can be converted to various types
+  "Data": ["str", "Text", "string", "Data", "Message", "dict"],
+  // String types are interchangeable
+  "str": ["str", "string", "Text"],
+  "string": ["str", "string", "Text"],
+  // Embeddings type compatibility
+  "Embeddings": ["Embeddings"],
+  // LanguageModel compatibility
+  "LanguageModel": ["LanguageModel"],
+  // Retriever compatibility
+  "Retriever": ["Retriever"],
+  // Document compatibility
+  "Document": ["Document", "Data"],
+  // BaseMemory compatibility
+  "BaseMemory": ["BaseMemory"],
+  // Tool compatibility
+  "Tool": ["Tool"],
+  // Agent compatibility
+  "Agent": ["Agent"],
+  // Chain compatibility
+  "Chain": ["Chain"],
+  // VectorStore compatibility
+  "VectorStore": ["VectorStore"],
+};
+
+// Check if sourceType is compatible with targetType
+function isTypeCompatible(sourceType: string, targetType: string): boolean {
+  // Exact match
+  if (sourceType === targetType) return true;
+  
+  // Check compatibility map
+  const compatibleTypes = TYPE_COMPATIBILITY_MAP[sourceType];
+  if (compatibleTypes && compatibleTypes.includes(targetType)) return true;
+  
+  // Reverse check - if target accepts source type
+  const reverseCompatible = TYPE_COMPATIBILITY_MAP[targetType];
+  if (reverseCompatible && reverseCompatible.includes(sourceType)) return true;
+  
+  return false;
+}
+
 export function isValidConnection(
   { source, target, sourceHandle, targetHandle }: Connection,
   nodes: AllNodeType[],
@@ -305,23 +412,29 @@ export function isValidConnection(
   }
   const targetHandleObject: targetHandleType = scapeJSONParse(targetHandle!);
   const sourceHandleObject: sourceHandleType = scapeJSONParse(sourceHandle!);
-  if (
+  
+  // Check type compatibility using the compatibility map
+  const hasCompatibleType = 
+    // Check if any target input type is compatible with source dataType
     targetHandleObject.inputTypes?.some(
-      (n) => n === sourceHandleObject.dataType,
+      (n) => isTypeCompatible(sourceHandleObject.dataType, n),
     ) ||
+    // Check output_types compatibility
     (targetHandleObject.output_types &&
       (targetHandleObject.output_types?.some(
-        (n) => n === sourceHandleObject.dataType,
+        (n) => isTypeCompatible(sourceHandleObject.dataType, n),
       ) ||
         sourceHandleObject.output_types.some((t) =>
-          targetHandleObject.output_types?.some((n) => n === t),
+          targetHandleObject.output_types?.some((n) => isTypeCompatible(t, n)),
         ))) ||
+    // Check if any source output type is compatible with target input types or type
     sourceHandleObject.output_types.some(
       (t) =>
-        targetHandleObject.inputTypes?.some((n) => n === t) ||
-        t === targetHandleObject.type,
-    )
-  ) {
+        targetHandleObject.inputTypes?.some((n) => isTypeCompatible(t, n)) ||
+        isTypeCompatible(t, targetHandleObject.type),
+    );
+  
+  if (hasCompatibleType) {
     let targetNode = nodes.find((node) => node.id === target!)?.data?.node;
     if (!targetNode) {
       if (!edges.find((e) => e.targetHandle === targetHandle)) {
@@ -333,12 +446,55 @@ export function isValidConnection(
     ) {
       return true;
     } else if (
-      !targetHandleObject.output_types &&
-      ((!targetNode.template[targetHandleObject.fieldName].list &&
-        !edges.find((e) => e.targetHandle === targetHandle)) ||
-        targetNode.template[targetHandleObject.fieldName].list)
+      !targetHandleObject.output_types
     ) {
-      return true;
+      // For unified input handles, check if there's an available field to route to
+      const sourceOutputTypes = sourceHandleObject.output_types || [];
+      const template = targetNode.template || {};
+      
+      // Find any compatible field that doesn't have a connection yet (or accepts list)
+      for (const [fieldName, fieldData] of Object.entries(template)) {
+        if (fieldName.startsWith("_")) continue;
+        const field = fieldData as any;
+        if (!field.show || field.advanced) continue;
+        
+        const fieldInputTypes = field.input_types || [];
+        // Use type compatibility check instead of exact match
+        const isCompatible = sourceOutputTypes.some(
+          (outputType: string) => 
+            fieldInputTypes.some((inputType: string) => isTypeCompatible(outputType, inputType)) || 
+            isTypeCompatible(outputType, field.type)
+        );
+        
+        if (isCompatible) {
+          // Check if this field already has a connection
+          const existingConnection = edges.find(
+            (edge) => {
+              const edgeTargetHandle = scapeJSONParse(edge.targetHandle!);
+              return edge.target === target && edgeTargetHandle.fieldName === fieldName;
+            }
+          );
+          if (!existingConnection || field.list) {
+            return true;
+          }
+        }
+      }
+      
+      // Fallback: check the specific field in the handle
+      const fieldTemplate = targetNode.template[targetHandleObject.fieldName];
+      if (!fieldTemplate) {
+        // Field doesn't exist - this might be a unified handle
+        // Allow connection if no other edge is connected to this handle
+        if (!edges.find((e) => e.targetHandle === targetHandle)) {
+          return true;
+        }
+      } else if (
+        (!fieldTemplate.list &&
+          !edges.find((e) => e.targetHandle === targetHandle)) ||
+        fieldTemplate.list
+      ) {
+        return true;
+      }
     }
   }
   return false;

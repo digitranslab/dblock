@@ -1,6 +1,14 @@
 import { cn } from "@/utils/utils";
-import { motion, SpringOptions, useSpring, useTransform } from "framer-motion";
+import { motion, useSpring, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
+
+type SpringOptions = {
+  bounce?: number;
+  duration?: number;
+  stiffness?: number;
+  damping?: number;
+  mass?: number;
+};
 
 type AnimatedNumberProps = {
   value: number;

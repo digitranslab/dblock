@@ -1,9 +1,9 @@
 import React, { forwardRef } from "react";
-import PerplexitySVG from "./perplexity";
+import PerplexitySVG from "./Perplexity";
 
 export const PerplexityIcon = forwardRef<
   SVGSVGElement,
-  React.PropsWithChildren<{}>
+  React.PropsWithChildren<{ className?: string }>
 >((props, ref) => {
   return <PerplexitySVG ref={ref} {...props} />;
 });

@@ -4,13 +4,13 @@ from kozmoai.components.inputs import TextInputComponent
 from kozmoai.components.models import OpenAIModelComponent
 from kozmoai.components.outputs import ChatOutput
 from kozmoai.components.prompts import PromptComponent
-from kozmoai.components.tools import SearchAPIComponent
+from kozmoai.components.tools import SearchComponent
 from kozmoai.graph import Graph
 
 
 def sequential_tasks_agent_graph():
     llm = OpenAIModelComponent()
-    search_api_tool = SearchAPIComponent()
+    search_api_tool = SearchComponent()
 
     text_input = TextInputComponent(_display_name="Topic")
     text_input.set(input_value="Agile")

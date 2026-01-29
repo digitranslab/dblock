@@ -51,6 +51,7 @@ export const OutputParameter = ({
       outputName={output.name}
       colorName={colorNames}
       isToolMode={isToolMode}
+      outputCategory={output.output_category}
     />
   );
 };

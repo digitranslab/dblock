@@ -157,6 +157,7 @@ function NodeOutputField({
   lastOutput,
   colorName,
   isToolMode = false,
+  outputCategory,
 }: NodeOutputFieldComponentType): JSX.Element {
   const ref = useRef<HTMLDivElement>(null);
   const updateNodeInternals = useUpdateNodeInternals();
@@ -285,43 +286,11 @@ function NodeOutputField({
     colorName,
   ]);
 
-  const Handle = useMemo(
-    () => (
-      <HandleRenderComponent
-        left={false}
-        nodes={nodes}
-        tooltipTitle={tooltipTitle}
-        id={id}
-        title={title}
-        edges={edges}
-        nodeId={data.id}
-        myData={myData}
-        colors={colors}
-        setFilterEdge={setFilterEdge}
-        showNode={showNode}
-        testIdComplement={`${data?.type?.toLowerCase()}-${showNode ? "shownode" : "noshownode"}`}
-        colorName={colorName}
-      />
-    ),
-    [
-      nodes,
-      tooltipTitle,
-      id,
-      title,
-      edges,
-      data.id,
-      myData,
-      colors,
-      setFilterEdge,
-      showNode,
-      data?.type,
-      colorName,
-    ],
-  );
-
   // For vertical layout: handles are rendered at node level via NodeOutputHandles
-  // Only render handles here when showNode is false (collapsed state)
-  if (!showNode) return <>{Handle}</>;
+  // Don't render handles here - they're handled by NodeOutputHandles component
+  if (!showNode) {
+    return <></>;
+  }
 
   return (
     <div
@@ -357,6 +326,30 @@ function NodeOutputField({
         )}
 
         <div className="flex items-center gap-2">
+          {/* Output category badge */}
+          {outputCategory === "success" && (
+            <Badge
+              variant="outline"
+              size="xq"
+              className="border-emerald-500 bg-emerald-500/10 px-1.5 text-emerald-600"
+            >
+              <ForwardedIconComponent name="Check" className="mr-0.5 h-3 w-3" />
+              Success
+            </Badge>
+          )}
+          {outputCategory === "else" && (
+            <Badge
+              variant="outline"
+              size="xq"
+              className="border-orange-500 bg-orange-500/10 px-1.5 text-orange-600"
+            >
+              <ForwardedIconComponent
+                name="AlertCircle"
+                className="mr-0.5 h-3 w-3"
+              />
+              Else
+            </Badge>
+          )}
           <span className={data.node?.frozen ? "text-ice" : ""}>
             <MemoizedOutputComponent
               proxy={outputProxy}

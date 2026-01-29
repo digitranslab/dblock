@@ -389,13 +389,9 @@ def print_banner(host: str, port: int) -> None:
         "Collaborate, and contribute at our "
         "[bold][link=https://github.com/digitranslab/kozmoai]GitHub Repo[/link][/bold] :star2:"
     )
-    telemetry_text = (
-        "We collect anonymous usage data to improve Kozmoai.\n"
-        "You can opt-out by setting [bold]DO_NOT_TRACK=true[/bold] in your environment."
-    )
     access_link = f"Access [link=http://{host}:{port}]http://{host}:{port}[/link]"
 
-    panel_content = "\n\n".join([title, *styled_notices, info_text, telemetry_text, access_link])
+    panel_content = "\n\n".join([title, *styled_notices, info_text, access_link])
     panel = Panel(panel_content, box=box.ROUNDED, border_style="blue", expand=False)
     rprint(panel)
 

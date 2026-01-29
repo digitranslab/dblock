@@ -203,6 +203,10 @@ class Output(BaseModel):
     tool_mode: bool = Field(default=True)
     """Specifies if the output should be used as a tool"""
 
+    output_category: str | None = Field(default=None)
+    """Category of the output: 'success', 'else', or None for default behavior.
+    Used for visual styling and execution flow routing."""
+
     def to_dict(self):
         return self.model_dump(by_alias=True, exclude_none=True)
 

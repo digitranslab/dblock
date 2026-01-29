@@ -103,6 +103,7 @@ export type OutputFieldType = {
   hidden?: boolean;
   proxy?: OutputFieldProxyType;
   allows_loop?: boolean;
+  output_category?: "success" | "else" | null;
 };
 export type errorsTypeAPI = {
   function: { errors: Array<string> };

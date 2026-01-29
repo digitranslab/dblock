@@ -1,6 +1,6 @@
 from kozmoai.custom import Component
 from kozmoai.io import DropdownInput, MessageTextInput, Output
-from kozmoai.schema import Trigger
+from kozmoai.schema.message import Message
 
 
 class CronTriggerComponent(Component):
@@ -8,7 +8,7 @@ class CronTriggerComponent(Component):
     
     This component acts as a trigger input for workflows, similar to Chat Input,
     but designed for scheduled/cron-based executions. It has no upstream connections
-    and only provides downstream output via a Trigger signal.
+    and only provides downstream output via a Message signal.
     """
     
     display_name = "Cron Trigger"
@@ -43,14 +43,14 @@ class CronTriggerComponent(Component):
         MessageTextInput(
             name="trigger_payload",
             display_name="Trigger Payload",
-            info="Optional JSON payload to pass when the trigger fires.",
-            value="{}",
+            info="Optional message text to pass when the trigger fires.",
+            value="",
             advanced=True,
         ),
     ]
     
     outputs = [
-        Output(display_name="Trigger", name="trigger", method="fire_trigger"),
+        Output(display_name="Message", name="message", method="fire_trigger"),
     ]
 
     def get_cron_expression(self) -> str | None:
@@ -67,30 +67,27 @@ class CronTriggerComponent(Component):
             return self.custom_cron or "* * * * *"
         return schedule_map.get(self.schedule_type)
 
-    def fire_trigger(self) -> Trigger:
+    def fire_trigger(self) -> Message:
         """Fire the trigger signal to start downstream component execution."""
-        import json
+        from datetime import datetime, timezone
         
         cron_expression = self.get_cron_expression()
+        timestamp = datetime.now(timezone.utc).isoformat()
         
-        # Parse the trigger payload
-        try:
-            payload = json.loads(self.trigger_payload or "{}")
-        except json.JSONDecodeError:
-            payload = {"raw": self.trigger_payload}
-        
-        # Create the trigger using the factory method
-        trigger = Trigger.from_cron(
-            schedule_type=self.schedule_type,
-            cron_expression=cron_expression,
-            timezone_str=self.timezone,
-            payload=payload,
-        )
+        # Build the message text
+        if self.trigger_payload:
+            text = self.trigger_payload
+        elif self.schedule_type == "@once":
+            text = f"Manual trigger fired at {timestamp}"
+        else:
+            text = f"Cron trigger ({self.schedule_type}): {cron_expression} at {timestamp}"
         
         # Set status message
-        if self.schedule_type == "@once":
-            self.status = f"Manual trigger fired at {trigger.timestamp}"
-        else:
-            self.status = f"Cron trigger ({self.schedule_type}): {cron_expression}"
+        self.status = text
         
-        return trigger
+        # Return a Message that can be consumed by downstream components
+        return Message(
+            text=text,
+            sender="CronTrigger",
+            sender_name="Cron Trigger",
+        )

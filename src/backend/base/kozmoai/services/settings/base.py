@@ -154,9 +154,9 @@ class Settings(BaseSettings):
     """If set to True, Kozmoai will not serve the frontend."""
 
     # Telemetry
-    do_not_track: bool = False
-    """If set to True, Kozmoai will not track telemetry."""
-    telemetry_base_url: str = "https://kozmoai.gateway.scarf.sh"
+    do_not_track: bool = True
+    """If set to True, Kozmoai will not track telemetry. Disabled by default for DBlock."""
+    telemetry_base_url: str = ""
     transactions_storage_enabled: bool = True
     """If set to True, Kozmoai will track transactions between flows."""
     vertex_builds_storage_enabled: bool = True

@@ -280,4 +280,6 @@ src/frontend/temp
 *.db
 
 
+archive/*
+
 ledger-key-pair.pem

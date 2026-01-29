@@ -2,11 +2,23 @@ import { OutputFieldType } from "../../types/api";
 import { NodeDataType } from "../../types/flow";
 import { nodeColorsName } from "../../utils/styleUtils";
 
+// Color names for success/else output categories
+const SUCCESS_COLOR_NAME = "emerald";
+const ELSE_COLOR_NAME = "orange";
+
 export function getNodeOutputColorsName(
   output: OutputFieldType,
   data: NodeDataType,
   types: { [char: string]: string },
 ): string[] {
+  // Check for output_category first - this takes precedence
+  if (output.output_category === "success") {
+    return [SUCCESS_COLOR_NAME];
+  }
+  if (output.output_category === "else") {
+    return [ELSE_COLOR_NAME];
+  }
+
   // Helper function to get the color based on type
   const getColorByType = (type) =>
     nodeColorsName[type] ?? nodeColorsName.unknown;

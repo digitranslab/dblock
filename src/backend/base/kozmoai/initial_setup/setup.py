@@ -329,18 +329,63 @@ def update_edges_with_latest_component_versions(project_data):
                 )
                 source_handle["output_types"] = new_output_types
 
+            # Handle target field routing for unified input handles
+            # The unified input handle approach shows a single input handle, but edges still
+            # need to route to specific fields. We keep the original fieldName if it's valid,
+            # or find a compatible field if the original doesn't exist.
             field_name = target_handle.get("fieldName")
-            if field_name in target_node_data.get("template") and target_handle["inputTypes"] != target_node_data.get(
-                "template"
-            ).get(field_name).get("input_types"):
-                edge_changes_log[target_node_data["display_name"]].append(
-                    {
-                        "attr": "inputTypes",
-                        "old_value": target_handle["inputTypes"],
-                        "new_value": target_node_data.get("template").get(field_name).get("input_types"),
-                    }
-                )
-                target_handle["inputTypes"] = target_node_data.get("template").get(field_name).get("input_types")
+            template = target_node_data.get("template", {})
+            
+            # Check if the current field exists and is valid
+            current_field_valid = (
+                field_name in template 
+                and isinstance(template.get(field_name), dict)
+                and template[field_name].get("show")
+                and not template[field_name].get("advanced")
+            )
+            
+            # If current field is not valid, find the first compatible field
+            if not current_field_valid:
+                # Get the source output types to find a compatible field
+                source_output_types = source_handle.get("output_types", [])
+                
+                for key, value in template.items():
+                    if key.startswith("_"):
+                        continue
+                    if isinstance(value, dict) and value.get("show") and not value.get("advanced"):
+                        field_input_types = value.get("input_types", [])
+                        field_type = value.get("type")
+                        # Check if this field is compatible with the source output
+                        is_compatible = any(
+                            out_type in field_input_types or out_type == field_type
+                            for out_type in source_output_types
+                        )
+                        if is_compatible or not source_output_types:
+                            # Found a compatible field, update the target handle
+                            if field_name != key:
+                                edge_changes_log[target_node_data["display_name"]].append(
+                                    {
+                                        "attr": "fieldName",
+                                        "old_value": field_name,
+                                        "new_value": key,
+                                    }
+                                )
+                                target_handle["fieldName"] = key
+                                field_name = key
+                            break
+            
+            # Update inputTypes to match the actual field's input_types
+            if field_name in template:
+                new_input_types = template.get(field_name, {}).get("input_types", [])
+                if new_input_types and target_handle.get("inputTypes") != new_input_types:
+                    edge_changes_log[target_node_data["display_name"]].append(
+                        {
+                            "attr": "inputTypes",
+                            "old_value": target_handle.get("inputTypes"),
+                            "new_value": new_input_types,
+                        }
+                    )
+                    target_handle["inputTypes"] = new_input_types
             escaped_source_handle = escape_json_dump(source_handle)
             escaped_target_handle = escape_json_dump(target_handle)
             try:
