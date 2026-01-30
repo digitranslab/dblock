@@ -20,6 +20,9 @@ ENV UV_COMPILE_BYTECODE=1
 # Copy from the cache instead of linking since it's a mounted volume
 ENV UV_LINK_MODE=copy
 
+# Increase HTTP timeout for slow package downloads (especially on ARM64 emulation)
+ENV UV_HTTP_TIMEOUT=120
+
 RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install --no-install-recommends -y \
@@ -30,7 +33,6 @@ RUN apt-get update \
     npm \
     # gcc
     gcc \
-
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
